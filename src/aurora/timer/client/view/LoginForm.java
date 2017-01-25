@@ -49,8 +49,8 @@ public class LoginForm {
         loginButton.addMouseListener(new MouseAdapter() {
             /**
              * {@inheritDoc}
-             *
              * @param e
+             *
              */
             @Override
             public void mouseClicked(MouseEvent e) {

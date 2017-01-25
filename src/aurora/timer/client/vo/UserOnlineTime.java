@@ -13,7 +13,6 @@ public class UserOnlineTime {
     private Long todayOnlineTime; //今天在线总毫秒数
 
     public UserOnlineTime() {
-        this("null", new Date(0), new Time(0), Long.decode("0"));
     }
 
     public UserOnlineTime(String ID, Date todayDate, Time lastOnlineTime, Long todayOnlineTime) {

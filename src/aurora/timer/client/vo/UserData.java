@@ -17,14 +17,8 @@ public class UserData implements Serializable {
     private Boolean isLeave; //是不是已经离开不再纳入统计
 
     public UserData() {
-        this("null", "0", "0", "0", "0",
-                "0", Boolean.FALSE, Boolean.FALSE);
     }
 
-    public UserData(String nickName, String ID, String passWord) {
-        this(nickName, ID, passWord, "0", "0",
-                "0", Boolean.FALSE, Boolean.FALSE);
-    }
 
     public UserData(String nickName, String ID, String passWord, String telNumber, String shortTelNumber,
                     String displayURL, Boolean loginStatus, Boolean isLeave) {
