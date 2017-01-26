@@ -1,6 +1,8 @@
 package aurora.timer.client.view;
 
 import aurora.timer.client.ServerURL;
+import aurora.timer.client.service.UserDataService;
+import aurora.timer.client.vo.UserData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,11 +51,15 @@ public class LoginForm {
         loginButton.addMouseListener(new MouseAdapter() {
             /**
              * {@inheritDoc}
-             * @param e
-             *
+             * @param e 鼠标单击事件
+             * 登陆登陆登陆
              */
             @Override
             public void mouseClicked(MouseEvent e) {
+                UserDataService service = new UserDataService();
+                UserData vo = new UserData();
+
+
 
             }
         });
