@@ -27,7 +27,7 @@ public class UserDataService {
             connection.setRequestMethod("POST");
             connection.setUseCaches(false);
             connection.setInstanceFollowRedirects(true);
-            connection.setRequestProperty("Content-Type","application/json");
+            connection.setRequestProperty("Content-Type","application/json"); //向服务器表示我传的是json
             connection.connect();
 
             JSONObject object = new JSONObject();
@@ -39,6 +39,7 @@ public class UserDataService {
             out.flush();
             out.close();
 
+            //这里只会返回一行字符串"true"或者"false"
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String s = reader.readLine();
             reader.close();
@@ -51,6 +52,7 @@ public class UserDataService {
         return flag;
     }
 
+    //测试
     public static void main (String args[]) {
         UserDataService service = new UserDataService();
         UserData vo = new UserData();
