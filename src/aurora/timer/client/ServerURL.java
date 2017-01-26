@@ -8,4 +8,6 @@ public class ServerURL {
     public static final String REGISTERURL = "http://127.0.0.1:8080/timer/pages/register.html";
     //登陆验证的url
     public static final String LOGINURL = "http://127.0.0.1:8080/timer/login";
+    //注册表地址
+    public static final String PREPATH = "com.aurora.timer";
 }
