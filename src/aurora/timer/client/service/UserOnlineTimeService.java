@@ -2,9 +2,16 @@ package aurora.timer.client.service;
 
 import aurora.timer.client.ServerURL;
 import aurora.timer.client.vo.UserOnlineTime;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Time;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 
 /**
@@ -18,22 +25,47 @@ public class UserOnlineTimeService {
     }
 
     public Vector<UserOnlineTime> getThisWeekTime() {
+        Vector<UserOnlineTime> voVector = new Vector<>();
         HttpURLConnection connection = null;
         try {
             URL url = new URL(ServerURL.THISWEEKTIME);
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
             connection.setUseCaches(false);
             connection.setInstanceFollowRedirects(true);
-            connection.setRequestProperty("Content-Type","application/json"); //向服务器表示我传的是json
+            connection.setRequestProperty("accept","application/json"); //向服务器表示我要的是json
             connection.connect();
 
-
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuffer buffer = new StringBuffer("");
+            String temp;
+            while ((temp = reader.readLine()) != null) {
+                buffer.append(temp);
+            }
+            reader.close();
+            connection.disconnect();
+            System.out.println(buffer);
+            JSONObject object = (JSONObject) JSONValue.parse(buffer.toString());
+            Set<String> keys = object.keySet(); //获取键集合
+            Iterator<String> keyIt = keys.iterator();
+            UserOnlineTime vo;
+            JSONObject oTemp;
+            while (keyIt.hasNext()) {
+                vo = new UserOnlineTime();
+                oTemp = (JSONObject) object.get(keyIt.next());
+                vo.setID( (String) oTemp.get("id"));
+                vo.setLastOnlineTime( Time.valueOf((String)oTemp.get("lastOn")));
+                vo.setTodayOnlineTime( Long.decode((String)oTemp.get("todayOn")));
+//                System.out.println(vo.getID() +"  "+vo.getLastOnlineTime()+"  "+vo.getTodayOnlineTime());
+                voVector.add(vo);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return voVector;
+    }
+
+    public static void main(String args[]){
+        new UserOnlineTimeService().getThisWeekTime();
     }
 }
