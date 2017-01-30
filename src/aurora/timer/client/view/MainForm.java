@@ -2,13 +2,19 @@ package aurora.timer.client.view;
 
 import aurora.timer.client.ServerURL;
 import aurora.timer.client.service.UserOnlineTimeService;
+import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
 import sun.applet.Main;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.prefs.Preferences;
 
 /**
@@ -25,11 +31,14 @@ public class MainForm {
     private JPanel me;
     private JPanel week;
     private JPanel welcome;
+    private JList thisWeekList;
     private JMenuBar jMenuBar;
     private JMenu countMenu;
     private JMenuItem logoutItem;
     private JMenu aboutMenu;
     private JMenuItem aboutItem;
+    private UserData data;
+    private UserOnlineTime onlineTime;
 
     public MainForm() {
         init();
@@ -37,6 +46,7 @@ public class MainForm {
 
     public void init() {
         addBar();
+        refreshThisWeekList();
     }
 
     public void addBar() {
@@ -46,7 +56,7 @@ public class MainForm {
         aboutItem = new JMenuItem("说明");
         logoutItem = new JMenuItem("注销");
 
-        zuce();
+        zhuce();
 
         countMenu.add(logoutItem);
         aboutMenu.add(aboutItem);
@@ -55,7 +65,7 @@ public class MainForm {
         FRAME.setJMenuBar(jMenuBar);
     }
 
-    public void zuce(){
+    public void zhuce(){
         logoutItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,9 +80,13 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, ServerURL.ABOUT, "关于",
-                        JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/geass.png"));
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res" + File.separator + "geass.png"));
             }
         });
+    }
+
+    public void refreshThisWeekList() {
+
     }
 
     public static void main(String[] args) {

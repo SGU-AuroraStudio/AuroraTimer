@@ -100,7 +100,6 @@ public class LoginForm {
         if (autoLoginCheckBox.isSelected()) {
             remPasswordCheckBox.setEnabled(false);
         }
-//        loginButton.setIcon(new ImageIcon(this.getClass().getResource("/")+"res/but.png")); //替换图标的美好愿望QAQ
     }
 
     public void loginLogic(){

@@ -14,4 +14,6 @@ public class ServerURL {
     public static final String TIMER = "http://127.0.0.1:8080/timer/timer";
     //别问我为什么在这里放字，任性！～
     public static final String ABOUT = "———— All Hai Lelouch! ————";
+    //获取本周时间的地址
+    public static final String THISWEEKTIME = "http://127.0.0.1:8080/timer/thisWeek";
 }

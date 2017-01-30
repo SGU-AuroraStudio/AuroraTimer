@@ -29,15 +29,17 @@ public class TimerYeah implements Runnable {
      */
     @Override
     public void run() {
-        addTime(this.id);
-        long sleepTime = 5*60*1000;
-        try {
-            Thread.sleep(sleepTime);
-            logger.fine("是的，我正在计时");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "夭寿了，后台计时居然崩了！快叫周浩过来找bug！\n" +
-                    ServerURL.REGISTERURL, "提示", JOptionPane.ERROR_MESSAGE);
+        while (true) {
+            addTime(this.id);
+            long sleepTime = 5 * 60 * 1000;
+            try {
+                Thread.sleep(sleepTime);
+                logger.fine("是的，我正在计时");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "夭寿了，后台计时居然崩了！快叫周浩过来找bug！\n" +
+                        ServerURL.REGISTERURL, "提示", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
@@ -65,6 +67,9 @@ public class TimerYeah implements Runnable {
                 JOptionPane.showMessageDialog(null, "上传时间失败，找人吧。。\n" +
                         ServerURL.REGISTERURL, "提示", JOptionPane.ERROR_MESSAGE);
             }
+
+            reader.close();
+            connection.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
         }
