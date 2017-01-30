@@ -10,4 +10,8 @@ public class ServerURL {
     public static final String LOGINURL = "http://127.0.0.1:8080/timer/login";
     //注册表地址
     public static final String PREPATH = "com.aurora.timer";
+    //计时地址
+    public static final String TIMER = "http://127.0.0.1:8080/timer/timer";
+    //别问我为什么在这里放字，任性！～
+    public static final String ABOUT = "———— All Hai Lelouch! ————";
 }
