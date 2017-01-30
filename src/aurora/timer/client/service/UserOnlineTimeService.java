@@ -44,7 +44,6 @@ public class UserOnlineTimeService {
             }
             reader.close();
             connection.disconnect();
-            System.out.println(buffer);
             JSONObject object = (JSONObject) JSONValue.parse(buffer.toString());
             Set<String> keys = object.keySet(); //获取键集合
             Iterator<String> keyIt = keys.iterator();
@@ -54,9 +53,7 @@ public class UserOnlineTimeService {
                 vo = new UserOnlineTime();
                 oTemp = (JSONObject) object.get(keyIt.next());
                 vo.setID( (String) oTemp.get("id"));
-                vo.setLastOnlineTime( Time.valueOf((String)oTemp.get("lastOn")));
-                vo.setTodayOnlineTime( Long.decode((String)oTemp.get("todayOn")));
-//                System.out.println(vo.getID() +"  "+vo.getLastOnlineTime()+"  "+vo.getTodayOnlineTime());
+                vo.setTodayOnlineTime( Long.decode((String)oTemp.get("time")));
                 voVector.add(vo);
             }
         } catch (Exception e) {
@@ -65,7 +62,4 @@ public class UserOnlineTimeService {
         return voVector;
     }
 
-    public static void main(String args[]){
-        new UserOnlineTimeService().getThisWeekTime();
-    }
 }

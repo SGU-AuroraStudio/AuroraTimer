@@ -15,6 +15,10 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Iterator;
+import java.util.Vector;
 import java.util.prefs.Preferences;
 
 /**
@@ -86,7 +90,17 @@ public class MainForm {
     }
 
     public void refreshThisWeekList() {
-
+        UserOnlineTimeService service = new UserOnlineTimeService();
+        Vector<UserOnlineTime> userOnlineTimes = service.getThisWeekTime();
+        Vector<String> vector = new Vector<>();
+        Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
+        while (uiIt.hasNext()) {
+            UserOnlineTime t = uiIt.next();
+            //这里要减去格林威治时间和本地相差的8小时。。当然，如果国际化的话就不是这么写的了。。
+            String s = t.getID() + " : " + new Time(t.getTodayOnlineTime()).toLocalTime().minusHours(Long.decode("8"));
+            vector.add(s);
+        }
+        thisWeekList.setListData(vector);
     }
 
     public static void main(String[] args) {

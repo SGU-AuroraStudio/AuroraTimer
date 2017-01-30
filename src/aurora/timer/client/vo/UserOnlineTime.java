@@ -86,4 +86,5 @@ public class UserOnlineTime {
     public Long getTodayOnlineTime() {
         return todayOnlineTime;
     }
+
 }
