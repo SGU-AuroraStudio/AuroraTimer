@@ -16,4 +16,6 @@ public class ServerURL {
     public static final String ABOUT = "———— All Hai Lelouch! ————";
     //获取本周时间的地址
     public static final String THISWEEKTIME = "http://127.0.0.1:8080/timer/thisWeek";
+    //获取UserDataById
+    public static final String FINDBYID = "http://127.0.0.1:8080/timer/findById";
 }

@@ -4,6 +4,7 @@ import aurora.timer.client.ServerURL;
 import aurora.timer.client.vo.UserData;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -52,14 +53,32 @@ public class UserDataService {
         return flag;
     }
 
-    //测试
-    public static void main (String args[]) {
-        UserDataService service = new UserDataService();
-        UserData vo = new UserData();
-        vo.setID("15115072044");
-        String pwd = DigestUtils.md5Hex("123456").toString();
-        System.out.println(pwd);
-        vo.setPassWord(pwd);
-        service.LoginService(vo);
+    public JSONObject findById(String id) {
+        HttpURLConnection connection = null;
+        JSONObject object = null;
+        UserData data = new UserData();
+        try {
+            URL url = new URL(ServerURL.FINDBYID + "?id=" + id);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setDoInput(true);
+            connection.setUseCaches(false);
+            connection.connect();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
+            StringBuffer sb = new StringBuffer("");
+            String temp;
+            while ((temp=reader.readLine()) != null) {
+                sb.append(temp);
+            }
+            reader.close();
+
+            object = (JSONObject) JSONValue.parse(sb.toString());
+
+            connection.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return object;
     }
+
 }

@@ -1,24 +1,26 @@
 package aurora.timer.client.view;
 
 import aurora.timer.client.ServerURL;
+import aurora.timer.client.service.TimerYeah;
+import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
-import sun.applet.Main;
+import org.json.simple.JSONObject;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
+import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.Vector;
+import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
 /**
@@ -33,9 +35,9 @@ public class MainForm {
     private JPanel leftPanel;
     private JPanel todayTimePanel;
     private JPanel me;
-    private JPanel week;
     private JPanel welcome;
-    private JList thisWeekList;
+    private JTable thisWeekList;
+    private JPanel thisWeekPanel;
     private JMenuBar jMenuBar;
     private JMenu countMenu;
     private JMenuItem logoutItem;
@@ -43,14 +45,91 @@ public class MainForm {
     private JMenuItem aboutItem;
     private UserData data;
     private UserOnlineTime onlineTime;
+    private TimerYeah addTimeThread;
+    private TrayIcon trayIcon;
+    private SystemTray systemTray;
+    private Logger logger = Logger.getLogger("Main");
 
     public MainForm() {
         init();
     }
 
+    public void setAddTimeThread(TimerYeah addTimeThread) {
+        this.addTimeThread = addTimeThread;
+    }
+
+    public void setData(JSONObject object) {
+        //获取
+        data = new UserData();
+        onlineTime = new UserOnlineTime();
+        data.setID((String)object.get("id"));
+        data.setNickName((String)object.get("name"));
+        data.setDisplayURL((String)object.get("disp"));
+        data.setTelNumber((String)object.get("tel"));
+        data.setShortTelNumber((String)object.get("stel"));
+        onlineTime.setID((String)object.get("id"));
+        onlineTime.setTodayOnlineTime(Long.decode((String)object.getOrDefault("totime","0")));
+        onlineTime.setLastOnlineTime(new Time((Long)object.getOrDefault("laslog",Long.decode("0"))));
+    }
+
     public void init() {
+        loadTable();
         addBar();
         refreshThisWeekList();
+        loadSystemTray();
+    }
+
+    public void loadTable() {
+        System.out.println(thisWeekList.getColumnCount());
+    }
+
+    public void loadSystemTray() {
+        if (!SystemTray.isSupported()) {
+            return;
+        }
+        systemTray = SystemTray.getSystemTray();
+        PopupMenu popupMenu = new PopupMenu();
+        MenuItem restoreItem = new MenuItem("还原");
+        MenuItem exitItem  = new MenuItem("退出");
+
+        restoreItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!FRAME.isVisible()) {
+                    FRAME.setVisible(true);
+                }
+            }
+        });
+        exitItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        popupMenu.add(restoreItem);
+        popupMenu.addSeparator();
+        popupMenu.add(exitItem);
+
+        try {
+            trayIcon = new TrayIcon(ImageIO.read(new File("res" +
+                    File.separator + "trayIcon.png")),"哦哈哟～",popupMenu);
+            trayIcon.addMouseListener(new MouseAdapter() {
+                /**
+                 * {@inheritDoc}
+                 * @param e
+                 */
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    if (e.getButton()==MouseEvent.BUTTON1 && !FRAME.isVisible()) {
+                        FRAME.setVisible(true);
+                    }
+                }
+            });
+            systemTray.add(trayIcon);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void addBar() {
@@ -75,8 +154,11 @@ public class MainForm {
             public void actionPerformed(ActionEvent e) {
                 Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
                 preferences.putBoolean("auto", false);
+                TimerYeah.addTime(data.getID());
+                addTimeThread.isStop = false;
                 LoginForm.main(new String[1]);
                 FRAME.dispose();
+                logger.info("已退出帐号");
             }
         });
 
@@ -100,7 +182,6 @@ public class MainForm {
             String s = t.getID() + " : " + new Time(t.getTodayOnlineTime()).toLocalTime().minusHours(Long.decode("8"));
             vector.add(s);
         }
-        thisWeekList.setListData(vector);
     }
 
     public static void main(String[] args) {
@@ -110,9 +191,11 @@ public class MainForm {
         mainForm.addBar();
 
         UserOnlineTimeService uots = new UserOnlineTimeService();
-        uots.startTimer(args[0]);
+        UserDataService uds = new UserDataService();
+        mainForm.setAddTimeThread(uots.startTimer(args[0])); //将后台发送计时请求的加载
+        mainForm.setData(uds.findById(args[0])); //将用户信息加载
         FRAME.setContentPane(mainForm.parent);
-        FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         int height = 518;
         int width = 700;
         FRAME.setBounds((d.width-width)/2, (d.height-height)/2, width, height);

@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  */
 public class TimerYeah implements Runnable {
     private String id;
+    public boolean isStop;
     private static Logger logger = Logger.getLogger("timer");
 
     /**
@@ -29,7 +30,9 @@ public class TimerYeah implements Runnable {
      */
     @Override
     public void run() {
-        while (true) {
+        this.isStop = true;
+        logger.info("开始计时");
+        while (isStop) {
             addTime(this.id);
             long sleepTime = 5 * 60 * 1000;
             try {
@@ -41,6 +44,7 @@ public class TimerYeah implements Runnable {
                         ServerURL.REGISTERURL, "提示", JOptionPane.ERROR_MESSAGE);
             }
         }
+        logger.info("后台计时结束");
     }
 
     public TimerYeah() {
