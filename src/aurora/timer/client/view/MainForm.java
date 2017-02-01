@@ -10,12 +10,12 @@ import org.json.simple.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.File;
 import java.sql.Time;
 import java.util.Iterator;
@@ -37,7 +37,10 @@ public class MainForm {
     private JPanel me;
     private JPanel welcome;
     private JTable thisWeekList;
-    private JPanel thisWeekPanel;
+    private JScrollPane thisWeekPanel;
+    private JLabel todayTime;
+    private JPanel pluginPanel;
+    private JLabel refreshLabel;
     private JMenuBar jMenuBar;
     private JMenu countMenu;
     private JMenuItem logoutItem;
@@ -52,6 +55,16 @@ public class MainForm {
 
     public MainForm() {
         init();
+        refreshLabel.addMouseListener(new MouseAdapter() {
+            /**
+             * {@inheritDoc}
+             * @param e 刷新啊。
+             */
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                refreshAll();
+            }
+        });
     }
 
     public void setAddTimeThread(TimerYeah addTimeThread) {
@@ -75,14 +88,36 @@ public class MainForm {
     public void init() {
         loadTable();
         addBar();
-        refreshThisWeekList();
         loadSystemTray();
     }
 
-    public void loadTable() {
-        System.out.println(thisWeekList.getColumnCount());
+    public void refreshAll() {
+        refreshThisWeekList();
+        UserDataService uds = new UserDataService();
+        TimerYeah.addTime(data.getID());
+        this.setData(uds.findById(data.getID()));
+        //这里要减去格林威治时间和本地相差的8小时。。当然，如果国际化的话就不是这么写的了。。
+        todayTime.setText(new Time(onlineTime.getTodayOnlineTime()).toLocalTime().minusHours(Long.decode("8")).toString());
+//        todayTime.setText(onlineTime.getTodayOnlineTime()/3600000+":"+(onlineTime.getTodayOnlineTime()%3600000)/60000);
     }
 
+    public void loadTable() {
+//        TableColumn columnId = new TableColumn();
+//        TableColumn columnTime = new TableColumn();
+//        columnId.setHeaderValue("ID");
+//        columnId.setMaxWidth(120);
+//        columnTime.setHeaderValue("本周在线总时间");
+//
+//        thisWeekList.addColumn(columnId);
+//        thisWeekList.addColumn(columnTime);
+        DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
+        model.addColumn("ID");
+        model.addColumn("本周在线总时间");
+        thisWeekList.setEnabled(false);
+        thisWeekList.setVisible(true);
+    }
+
+    //初始化托盘
     public void loadSystemTray() {
         if (!SystemTray.isSupported()) {
             return;
@@ -158,6 +193,7 @@ public class MainForm {
                 addTimeThread.isStop = false;
                 LoginForm.main(new String[1]);
                 FRAME.dispose();
+                systemTray.remove(trayIcon);
                 logger.info("已退出帐号");
             }
         });
@@ -171,16 +207,32 @@ public class MainForm {
         });
     }
 
+    //刷新本周计时统计那个表
     public void refreshThisWeekList() {
         UserOnlineTimeService service = new UserOnlineTimeService();
         Vector<UserOnlineTime> userOnlineTimes = service.getThisWeekTime();
-        Vector<String> vector = new Vector<>();
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
+        DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
+        int index;
+        for (index = model.getRowCount() - 1; index >= 0; index --) {
+            model.removeRow(index);
+        }
         while (uiIt.hasNext()) {
             UserOnlineTime t = uiIt.next();
-            //这里要减去格林威治时间和本地相差的8小时。。当然，如果国际化的话就不是这么写的了。。
-            String s = t.getID() + " : " + new Time(t.getTodayOnlineTime()).toLocalTime().minusHours(Long.decode("8"));
-            vector.add(s);
+//            System.out.println(t.getID()+":"+t.getTodayOnlineTime());
+            //这里的todayOnlineTime是本周的时间，我也不造本周应该放哪,只好
+
+//            String s = t.getID() + " : " + new Time(t.getTodayOnlineTime()).toLocalTime().minusHours(Long.decode("8"));
+            StringBuffer sb = new StringBuffer("");
+            if (t.getTodayOnlineTime()/3600000<10) {
+                sb.append("0");
+            }
+            sb.append((t.getTodayOnlineTime()/3600000)+":");
+            if (t.getTodayOnlineTime()%3600000/60000<10){
+                sb.append("0");
+            }
+            sb.append(t.getTodayOnlineTime()%3600000/60000);
+            model.addRow(new Object[]{t.getID(),sb});
         }
     }
 
@@ -194,6 +246,7 @@ public class MainForm {
         UserDataService uds = new UserDataService();
         mainForm.setAddTimeThread(uots.startTimer(args[0])); //将后台发送计时请求的加载
         mainForm.setData(uds.findById(args[0])); //将用户信息加载
+        mainForm.refreshAll();
         FRAME.setContentPane(mainForm.parent);
         FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         int height = 518;

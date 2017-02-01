@@ -68,7 +68,7 @@ public class TimerYeah implements Runnable {
             if (req.equals("true")) {
                 flag = true;
             } else {
-                JOptionPane.showMessageDialog(null, "上传时间失败，找人吧。。\n" +
+                JOptionPane.showMessageDialog(null, "上传时间失败。。。\n" +
                         ServerURL.REGISTERURL, "提示", JOptionPane.ERROR_MESSAGE);
             }
 
