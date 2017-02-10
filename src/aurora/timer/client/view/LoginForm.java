@@ -135,7 +135,7 @@ public class LoginForm {
         int width = 300;
         int height = 190;
         FRAME.setBounds((d.width-width)/2, (d.height-height)/2, width, height);
-        FRAME.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FRAME.pack();
         FRAME.setVisible(true);
         FRAME.setResizable(false);

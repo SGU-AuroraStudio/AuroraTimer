@@ -144,8 +144,7 @@ public class MainForm {
         popupMenu.add(exitItem);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(new File(System.getProperty("user.dir")+File.separator+"src"
-                    +File.separator+"res" + File.separator + "trayIcon.png")),"哦哈哟～",popupMenu);
+            trayIcon = new TrayIcon(ImageIO.read(new File("src"+File.separator+"res" + File.separator + "trayIcon.png")),"哦哈哟～",popupMenu);
             trayIcon.addMouseListener(new MouseAdapter() {
                 /**
                  * {@inheritDoc}
@@ -199,8 +198,7 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, ServerURL.ABOUT, "关于",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon(System.getProperty("user.dir")+File.separator
-                                +"src"+File.separator+"res" + File.separator + "geass.png"));
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src"+File.separator+"res" + File.separator + "geass.png"));
             }
         });
     }
