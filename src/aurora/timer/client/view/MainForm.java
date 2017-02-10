@@ -10,10 +10,7 @@ import org.json.simple.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
@@ -92,12 +89,12 @@ public class MainForm {
     }
 
     public void refreshAll() {
-        refreshThisWeekList();
         UserDataService uds = new UserDataService();
         TimerYeah.addTime(data.getID());
         this.setData(uds.findById(data.getID()));
         //这里要减去格林威治时间和本地相差的8小时。。当然，如果国际化的话就不是这么写的了。。
         todayTime.setText(new Time(onlineTime.getTodayOnlineTime()).toLocalTime().minusHours(Long.decode("8")).toString());
+        refreshThisWeekList();
 //        todayTime.setText(onlineTime.getTodayOnlineTime()/3600000+":"+(onlineTime.getTodayOnlineTime()%3600000)/60000);
     }
 
@@ -147,8 +144,8 @@ public class MainForm {
         popupMenu.add(exitItem);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(new File("res" +
-                    File.separator + "trayIcon.png")),"哦哈哟～",popupMenu);
+            trayIcon = new TrayIcon(ImageIO.read(new File(System.getProperty("user.dir")+File.separator+"src"
+                    +File.separator+"res" + File.separator + "trayIcon.png")),"哦哈哟～",popupMenu);
             trayIcon.addMouseListener(new MouseAdapter() {
                 /**
                  * {@inheritDoc}
@@ -202,7 +199,8 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, ServerURL.ABOUT, "关于",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res" + File.separator + "geass.png"));
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon(System.getProperty("user.dir")+File.separator
+                                +"src"+File.separator+"res" + File.separator + "geass.png"));
             }
         });
     }
