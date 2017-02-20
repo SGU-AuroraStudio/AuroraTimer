@@ -3,19 +3,22 @@
   <grid id="27dc6" binding="parent" layout-manager="GridLayoutManager" row-count="6" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="20" left="15" bottom="8" right="15"/>
     <constraints>
-      <xy x="20" y="20" width="305" height="234"/>
+      <xy x="20" y="20" width="306" height="236"/>
     </constraints>
     <properties>
       <background color="-1118482"/>
+      <doubleBuffered value="true"/>
       <enabled value="true"/>
+      <focusable value="true"/>
       <font name="YaHei Consolas Hybrid" size="12" style="0"/>
       <foreground color="-16777216"/>
+      <opaque value="false"/>
       <toolTipText value=""/>
     </properties>
     <clientProperties>
       <html.disable class="java.lang.Boolean" value="false"/>
     </clientProperties>
-    <border type="line" title="登陆计时器" title-justification="2" title-position="3">
+    <border type="empty" title="登陆计时器" title-justification="2" title-position="3">
       <font/>
       <title-color color="-14869219"/>
       <color color="-10040065"/>
@@ -26,7 +29,9 @@
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <opaque value="false"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="705c4" class="javax.swing.JButton" binding="registerButton">
@@ -35,6 +40,7 @@
             </constraints>
             <properties>
               <font name="YaHei Consolas Hybrid" size="18" style="1"/>
+              <opaque value="false"/>
               <text value="注册"/>
             </properties>
           </component>
@@ -44,6 +50,7 @@
             </constraints>
             <properties>
               <font name="YaHei Consolas Hybrid" size="18" style="1"/>
+              <opaque value="false"/>
               <text value="登陆"/>
             </properties>
           </component>
@@ -61,6 +68,8 @@
           </grid>
         </constraints>
         <properties>
+          <columns value="1"/>
+          <editable value="true"/>
           <horizontalAlignment value="10"/>
           <text value=""/>
         </properties>
@@ -71,7 +80,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <opaque value="true"/>
+        </properties>
       </component>
       <component id="c242d" class="javax.swing.JLabel" binding="count">
         <constraints>
@@ -97,6 +108,7 @@
         </constraints>
         <properties>
           <font name="YaHei Consolas Hybrid" size="14" style="0"/>
+          <opaque value="false"/>
           <text value="自动登陆"/>
         </properties>
       </component>
@@ -106,6 +118,7 @@
         </constraints>
         <properties>
           <font name="YaHei Consolas Hybrid" size="14" style="0"/>
+          <opaque value="false"/>
           <text value="记住密码"/>
         </properties>
       </component>

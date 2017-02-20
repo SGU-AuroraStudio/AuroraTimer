@@ -99,14 +99,6 @@ public class MainForm {
     }
 
     public void loadTable() {
-//        TableColumn columnId = new TableColumn();
-//        TableColumn columnTime = new TableColumn();
-//        columnId.setHeaderValue("ID");
-//        columnId.setMaxWidth(120);
-//        columnTime.setHeaderValue("本周在线总时间");
-//
-//        thisWeekList.addColumn(columnId);
-//        thisWeekList.addColumn(columnTime);
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
         model.addColumn("ID");
         model.addColumn("本周在线总时间");
@@ -144,7 +136,8 @@ public class MainForm {
         popupMenu.add(exitItem);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(new File("src"+File.separator+"res" + File.separator + "trayIcon.png")),"哦哈哟～",popupMenu);
+            trayIcon = new TrayIcon(ImageIO.read(getClass().getResource("trayIcon.png")));
+            trayIcon.setPopupMenu(popupMenu);
             trayIcon.addMouseListener(new MouseAdapter() {
                 /**
                  * {@inheritDoc}
@@ -198,7 +191,7 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, ServerURL.ABOUT, "关于",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src"+File.separator+"res" + File.separator + "geass.png"));
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("geass.png"), "geass"));
             }
         });
     }

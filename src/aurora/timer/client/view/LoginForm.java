@@ -7,10 +7,8 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.util.prefs.Preferences;
 
@@ -18,7 +16,7 @@ import java.util.prefs.Preferences;
  * Created by hao on 17-1-25.
  */
 public class LoginForm {
-    private static JFrame FRAME = null;
+    private static LoginFrame FRAME = null;
     private JButton registerButton;
     private JButton loginButton;
     private JPanel parent;
@@ -29,6 +27,7 @@ public class LoginForm {
     private JTextField idText;
     private JLabel count;
     private JLabel password;
+    int mx, my, jfx, jfy;
 
     public LoginForm() {
         this.init();
@@ -86,10 +85,34 @@ public class LoginForm {
                 }
             }
         });
+        parent.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                if (my < 20) {
+                    FRAME.setLocation(jfx + (e.getXOnScreen() - mx), jfy + (e.getYOnScreen() - my));
+                }
+            }
+        });
+        parent.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                mx = e.getX();
+                my = e.getY();
+                jfx = parent.getX();
+                jfy = parent.getY();
+                if (mx > 244 && mx < 261 && my < 20) {
+                    System.exit(0);
+                }
+            }
+        });
     }
 
     //初始化
     public void init() {
+        parent.setUI(new LoginPanelUI());
+        loginButton.setUI(new LoginButtonUI());
+        registerButton.setUI(new LoginButtonUI());
+
         Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
         remPasswordCheckBox.setSelected(preferences.getBoolean("rem", false));
         autoLoginCheckBox.setSelected(preferences.getBoolean("auto", false));
@@ -129,19 +152,28 @@ public class LoginForm {
 
     public static void main(String args[]) {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        FRAME = new JFrame("极光");
-        LoginForm form = new LoginForm();
-        FRAME.setContentPane(form.parent);
-        int width = 300;
-        int height = 190;
-        FRAME.setBounds((d.width-width)/2, (d.height-height)/2, width, height);
-        FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        FRAME.pack();
-        FRAME.setVisible(true);
-        FRAME.setResizable(false);
-        Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
-        if (preferences.getBoolean("auto", false)) {
-            form.loginLogic();
+        try {
+            EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    FRAME = new LoginFrame("极光");
+                    LoginForm form = new LoginForm();
+                    FRAME.setContentPane(form.parent);
+                    int width = 270;
+                    int height = 190;
+                    FRAME.setBounds((d.width-width)/2, (d.height-height)/2, width, height);
+                    FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                    FRAME.pack();
+                    FRAME.setResizable(false);
+                    FRAME.setVisible(true);
+                    Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
+                    if (preferences.getBoolean("auto", false)) {
+                        form.loginLogic();
+                    }
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
