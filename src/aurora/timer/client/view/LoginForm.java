@@ -6,6 +6,7 @@ import aurora.timer.client.vo.UserData;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.lang.reflect.InvocationTargetException;
@@ -112,6 +113,8 @@ public class LoginForm {
         parent.setUI(new LoginPanelUI());
         loginButton.setUI(new LoginButtonUI());
         registerButton.setUI(new LoginButtonUI());
+        idText.setBorder(new EmptyBorder(0,0,0,0));
+        pwdText.setBorder(new EmptyBorder(0,0,0,0));
 
         Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
         remPasswordCheckBox.setSelected(preferences.getBoolean("rem", false));

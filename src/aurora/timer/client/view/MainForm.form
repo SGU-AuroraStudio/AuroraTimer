@@ -35,7 +35,7 @@
                 </constraints>
                 <properties>
                   <font name="YaHei Consolas Hybrid" size="18" style="1"/>
-                  <text value="今日在线："/>
+                  <text value="今日在线"/>
                 </properties>
               </component>
               <hspacer id="a8c7d">
