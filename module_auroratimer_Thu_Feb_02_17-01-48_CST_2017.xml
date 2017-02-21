@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_auroratimer" default="compile.module.auroratimer">
+  <dirname property="module.auroratimer.basedir" file="${ant.file.module_auroratimer}"/>
+  
+  <property name="module.jdk.home.auroratimer" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.auroratimer" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.auroratimer" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.auroratimer" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="auroratimer.output.dir" value="${module.auroratimer.basedir}/out/production/AuroraTimer"/>
+  <property name="auroratimer.testoutput.dir" value="${module.auroratimer.basedir}/out/test/AuroraTimer"/>
+  
+  <path id="auroratimer.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="auroratimer.module.production.classpath">
+    <path refid="${module.jdk.classpath.auroratimer}"/>
+    <path refid="library.kotlinjavaruntime_(5).classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <path id="auroratimer.runtime.production.module.classpath">
+    <pathelement location="${auroratimer.output.dir}"/>
+    <path refid="library.kotlinjavaruntime_(5).classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <path id="auroratimer.module.classpath">
+    <path refid="${module.jdk.classpath.auroratimer}"/>
+    <pathelement location="${auroratimer.output.dir}"/>
+    <path refid="library.kotlinjavaruntime_(5).classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <path id="auroratimer.runtime.module.classpath">
+    <pathelement location="${auroratimer.testoutput.dir}"/>
+    <pathelement location="${auroratimer.output.dir}"/>
+    <path refid="library.kotlinjavaruntime_(5).classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.auroratimer">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.auroratimer">
+    <patternset refid="excluded.from.module.auroratimer"/>
+  </patternset>
+  
+  <path id="auroratimer.module.sourcepath">
+    <dirset dir="${module.auroratimer.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.auroratimer" depends="compile.module.auroratimer.production,compile.module.auroratimer.tests" description="Compile module AuroraTimer"/>
+  
+  <target name="compile.module.auroratimer.production" depends="register.custom.compilers" description="Compile module AuroraTimer; production classes">
+    <mkdir dir="${auroratimer.output.dir}"/>
+    <javac2 destdir="${auroratimer.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.auroratimer}/javac">
+      <compilerarg line="${compiler.args.auroratimer}"/>
+      <bootclasspath refid="auroratimer.module.bootclasspath"/>
+      <classpath refid="auroratimer.module.production.classpath"/>
+      <src refid="auroratimer.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.auroratimer"/>
+    </javac2>
+    
+    <copy todir="${auroratimer.output.dir}">
+      <fileset dir="${module.auroratimer.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.auroratimer.tests" depends="register.custom.compilers,compile.module.auroratimer.production" description="compile module AuroraTimer; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.auroratimer" description="cleanup module">
+    <delete dir="${auroratimer.output.dir}"/>
+    <delete dir="${auroratimer.testoutput.dir}"/>
+  </target>
+</project>

@@ -6,20 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/AuroraTimerT_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/AuroraTimer_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/AuroraTimer_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="gui">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="GROUP_SCHEMA" value="true" />
@@ -64,8 +53,8 @@
       <file leaf-file-name="LoginForm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="299">
+              <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -145,7 +134,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="gui" />
       </map>
     </option>
   </component>
@@ -346,7 +335,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -884,7 +873,7 @@
       <workItem from="1487591952412" duration="1081000" />
       <workItem from="1487593706226" duration="743000" />
       <workItem from="1487595036142" duration="243000" />
-      <workItem from="1487596465866" duration="31000" />
+      <workItem from="1487596465866" duration="656000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -984,11 +973,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486725887585</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="gui">
+      <created>1487596564017</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1487596564018</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16266000" />
+    <option name="totallyTimeSpent" value="16891000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1001,7 +997,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1122" y="63" width="159" height="716" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.4969651" order="6" side_tool="false" content_ui="tabs" />
@@ -1011,7 +1007,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22170542" sideWeight="0.5121396" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.4969651" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32778355" sideWeight="0.4969651" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19749217" sideWeight="0.48786038" order="2" side_tool="false" content_ui="tabs" x="274" y="322" width="661" height="173" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.4969651" order="9" side_tool="false" content_ui="tabs" />
@@ -1055,7 +1051,8 @@
     <MESSAGE value="改版本周表等几处。" />
     <MESSAGE value="图片相对路径改为绝对路径，更改刷新顺序" />
     <MESSAGE value="额。和路径无关" />
-    <option name="LAST_COMMIT_MESSAGE" value="额。和路径无关" />
+    <MESSAGE value="gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="gui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1285,8 +1282,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+        <state relative-caret-position="299">
+          <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
