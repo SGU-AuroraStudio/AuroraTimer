@@ -86,6 +86,14 @@ public class MainForm {
         loadTable();
         addBar();
         loadSystemTray();
+
+        Timer timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        timer.setRepeats(true);
+        timer.start();
     }
 
     public void refreshAll() {
@@ -227,22 +235,32 @@ public class MainForm {
 
     public static void main(String[] args) {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        FRAME = new JFrame("Hello, " + args[0]);
-        MainForm mainForm = new MainForm();
-        mainForm.addBar();
+        try {
+            EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    FRAME = new JFrame("Hello, " + args[0]);
+                    MainForm mainForm = new MainForm();
+                    mainForm.addBar();
 
-        UserOnlineTimeService uots = new UserOnlineTimeService();
-        UserDataService uds = new UserDataService();
-        mainForm.setAddTimeThread(uots.startTimer(args[0])); //将后台发送计时请求的加载
-        mainForm.setData(uds.findById(args[0])); //将用户信息加载
-        mainForm.refreshAll();
-        FRAME.setContentPane(mainForm.parent);
-        FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        int height = 518;
-        int width = 700;
-        FRAME.setBounds((d.width-width)/2, (d.height-height)/2, width, height);
-        FRAME.setResizable(false);
+                    UserOnlineTimeService uots = new UserOnlineTimeService();
+                    UserDataService uds = new UserDataService();
+                    mainForm.setAddTimeThread(uots.startTimer(args[0])); //将后台发送计时请求的加载
+                    mainForm.setData(uds.findById(args[0])); //将用户信息加载
+                    mainForm.refreshAll();
+                    FRAME.setContentPane(mainForm.parent);
+                    FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                    int height = 520;
+                    int width = 700;
+                    FRAME.setBounds((d.width - width) / 2, (d.height - height) / 2, width, height);
+                    FRAME.setResizable(false);
 //        FRAME.pack();
-        FRAME.setVisible(true);
+                    FRAME.setVisible(true);
+                }
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
