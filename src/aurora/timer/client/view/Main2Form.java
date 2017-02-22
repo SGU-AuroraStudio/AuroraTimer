@@ -19,13 +19,17 @@ public class Main2Form {
     private JPanel parent;
     private JButton minButton;
     private JButton outButton;
+    private JPanel timePanel;
+    private JPanel headPanel;
     private TrayIcon trayIcon;
     private SystemTray systemTray;
+    int mx, my, jfx, jfy;
 
     public void init() {
         parent.setUI(new MainParentPanelUI());
         minButton.setUI(new LoginButtonUI());
         outButton.setUI(new LoginButtonUI());
+        timePanel.setUI(new MainTimePanelUI());
     }
 
     public Main2Form() {
@@ -41,6 +45,21 @@ public class Main2Form {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.exit(1);
+            }
+        });
+        timePanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                mx = e.getX();
+                my = e.getY();
+                jfx = parent.getX();
+                jfy = parent.getY();
+                System.out.println("22");
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                //TODO:This is a question
             }
         });
     }
@@ -78,10 +97,6 @@ public class Main2Form {
             trayIcon = new TrayIcon(ImageIO.read(getClass().getResource("trayIcon.png")));
             trayIcon.setPopupMenu(popupMenu);
             trayIcon.addMouseListener(new MouseAdapter() {
-                /**
-                 * {@inheritDoc}
-                 * @param e
-                 */
                 @Override
                 public void mousePressed(MouseEvent e) {
                     if (e.getButton()==MouseEvent.BUTTON1 && !FRAME.isVisible()) {
@@ -104,10 +119,10 @@ public class Main2Form {
                 public void run() {
                     FRAME = new MainFrame("Hello, ");
                     Main2Form main2Form = new Main2Form();
-
                     FRAME.setContentPane(main2Form.parent);
                     FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                    FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
+                    FRAME.setLocation((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2);
+//                    FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
                     FRAME.setResizable(false);
                     FRAME.setVisible(true);
                 }
