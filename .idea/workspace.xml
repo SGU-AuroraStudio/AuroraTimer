@@ -6,19 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="gui">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/button.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/button.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/login.psd" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$2.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$3.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$4.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$5.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$7.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$7.class" />
+    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/hh/233.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginPanelUI.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginPanelUI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/login.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/login.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/trayIcon.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/trayIcon.png" />
@@ -26,8 +16,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/trayIcon.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/trayIcon.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -60,55 +48,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginButtonUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginForm.form" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginPanelUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MainForm.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form">
           <provider selected="true" editor-type-id="ui-designer">
@@ -116,20 +55,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4002">
-              <caret line="198" column="17" lean-forward="false" selection-start-line="198" selection-start-column="17" selection-end-line="198" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1809#1810#0" expanded="false" />
-                <element signature="e#1853#1854#0" expanded="false" />
-                <element signature="e#1932#1933#0" expanded="false" />
-                <element signature="e#1982#1983#0" expanded="false" />
-                <element signature="e#4234#4235#0" expanded="false" />
-                <element signature="e#4280#4281#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="190" column="21" lean-forward="true" selection-start-line="190" selection-start-column="21" selection-end-line="190" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -187,10 +118,10 @@
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanel.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" />
       </list>
     </option>
   </component>
@@ -347,8 +278,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -371,14 +302,15 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/aurora/timer/client/view" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/lib" />
       <recent name="$PROJECT_DIR$/src/aurora/timer/client/vo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/aurora/timer/client/view" />
+      <recent name="$PROJECT_DIR$/src/aurora/timer/client/view/res" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="Application.LoginForm">
@@ -894,7 +826,9 @@
       <workItem from="1487596465866" duration="656000" />
       <workItem from="1487650015311" duration="2927000" />
       <workItem from="1487653820585" duration="2859000" />
-      <workItem from="1487676795415" duration="8582000" />
+      <workItem from="1487676795415" duration="8645000" />
+      <workItem from="1487737636040" duration="3955000" />
+      <workItem from="1487742695123" duration="139000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -1001,11 +935,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487596564018</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="画完了登录框。">
+      <created>1487685618904</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1487685618904</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31259000" />
+    <option name="totallyTimeSpent" value="35416000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1021,21 +962,21 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1122" y="63" width="159" height="716" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.4969651" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.4946695" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32778355" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22170542" sideWeight="0.5121396" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19624217" sideWeight="0.51865673" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32778355" sideWeight="0.4969651" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19624217" sideWeight="0.48786038" order="2" side_tool="false" content_ui="tabs" x="274" y="322" width="661" height="173" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.49253732" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19624217" sideWeight="0.48134327" order="2" side_tool="false" content_ui="tabs" x="274" y="322" width="661" height="173" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.4969651" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.104477614" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10660981" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1073,7 +1014,8 @@
     <MESSAGE value="图片相对路径改为绝对路径，更改刷新顺序" />
     <MESSAGE value="额。和路径无关" />
     <MESSAGE value="gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="gui" />
+    <MESSAGE value="画完了登录框。" />
+    <option name="LAST_COMMIT_MESSAGE" value="画完了登录框。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1084,22 +1026,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1809#1810#0" expanded="false" />
-            <element signature="e#1853#1854#0" expanded="false" />
-            <element signature="e#1932#1933#0" expanded="false" />
-            <element signature="e#1982#1983#0" expanded="false" />
-            <element signature="e#4234#4235#0" expanded="false" />
-            <element signature="e#4280#4281#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/service/UserOnlineTimeService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
@@ -1141,15 +1067,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1809#1810#0" expanded="false" />
-            <element signature="e#1853#1854#0" expanded="false" />
-            <element signature="e#1932#1933#0" expanded="false" />
-            <element signature="e#1982#1983#0" expanded="false" />
-            <element signature="e#4234#4235#0" expanded="false" />
-            <element signature="e#4280#4281#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,27 +1185,6 @@
     <entry file="jar:///usr/java/jdk1.8/src.zip!/javax/swing/plaf/basic/BasicPanelUI.java" />
     <entry file="jar:///usr/java/jdk1.8/src.zip!/javax/swing/AbstractButton.java" />
     <entry file="jar:///usr/java/jdk1.8/src.zip!/javax/swing/plaf/basic/BasicButtonUI.java" />
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4002">
-          <caret line="198" column="17" lean-forward="false" selection-start-line="198" selection-start-column="17" selection-end-line="198" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1809#1810#0" expanded="false" />
-            <element signature="e#1853#1854#0" expanded="false" />
-            <element signature="e#1932#1933#0" expanded="false" />
-            <element signature="e#1982#1983#0" expanded="false" />
-            <element signature="e#4234#4235#0" expanded="false" />
-            <element signature="e#4280#4281#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -1296,10 +1193,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/lib/jdk1.8/src.zip!/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="216" column="0" lean-forward="false" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+          <folding>
+            <element signature="e#6758#6759#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        <state relative-caret-position="368">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1314,25 +1234,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state relative-caret-position="23">
+          <caret line="112" column="33" lean-forward="false" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form">
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="190" column="21" lean-forward="true" selection-start-line="190" selection-start-column="21" selection-end-line="190" selection-end-column="21" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
