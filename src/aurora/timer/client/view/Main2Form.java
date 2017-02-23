@@ -1,7 +1,10 @@
 package aurora.timer.client.view;
 
+import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
+import aurora.timer.client.vo.UserData;
+import aurora.timer.client.vo.UserOnlineTime;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -21,8 +24,11 @@ public class Main2Form {
     private JButton outButton;
     private JPanel timePanel;
     private JPanel headPanel;
+    private JLabel timeLabel;
     private TrayIcon trayIcon;
     private SystemTray systemTray;
+    private UserOnlineTime onlineTime;
+    private UserData userData;
     int mx, my, jfx, jfy;
 
     public void init() {
@@ -33,7 +39,10 @@ public class Main2Form {
     }
 
     public Main2Form() {
+        //初始化
         init();
+
+        //缩小到托盘按钮
         minButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -41,29 +50,34 @@ public class Main2Form {
                 FRAME.setVisible(false);
             }
         });
+
+        //关闭按钮
         outButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.exit(1);
             }
         });
-        timePanel.addMouseListener(new MouseAdapter() {
+
+        //设置拖动
+        headPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 mx = e.getX();
                 my = e.getY();
-                jfx = parent.getX();
-                jfy = parent.getY();
-                System.out.println("22");
+                jfx = headPanel.getX();
+                jfy = headPanel.getY();
             }
 
             @Override
             public void mouseDragged(MouseEvent e) {
-                //TODO:This is a question
+                FRAME.setLocation(jfx + (e.getXOnScreen() - mx), jfy + (e.getYOnScreen() - my));
+                System.out.println("h");
             }
         });
     }
 
+    //加载托盘图标
     public void loadSystemTray() {
         if (!SystemTray.isSupported()) {
             return;
@@ -117,7 +131,7 @@ public class Main2Form {
             EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-                    FRAME = new MainFrame("Hello, ");
+                    FRAME = new MainFrame();
                     Main2Form main2Form = new Main2Form();
                     FRAME.setContentPane(main2Form.parent);
                     FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

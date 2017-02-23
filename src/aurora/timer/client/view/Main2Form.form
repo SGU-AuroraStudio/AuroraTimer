@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="aurora.timer.client.view.Main2Form">
-  <grid id="27dc6" binding="parent" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="0" left="0" bottom="0" right="0"/>
+  <grid id="27dc6" binding="parent" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
@@ -10,64 +9,69 @@
     </properties>
     <border type="none"/>
     <children>
-      <grid id="6bc24" binding="timePanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="7ca60" binding="headPanel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
+        <constraints border-constraint="North"/>
         <properties>
+          <autoscrolls value="false"/>
+          <enabled value="true"/>
+          <focusCycleRoot value="false"/>
           <opaque value="false"/>
+          <visible value="true"/>
         </properties>
         <border type="none"/>
         <children>
-          <grid id="7ca60" binding="headPanel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <component id="c2764" class="javax.swing.JButton" binding="minButton">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <autoscrolls value="false"/>
-              <enabled value="true"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <defaultCapable value="true"/>
+              <icon value="aurora/timer/client/view/res/min.png"/>
+              <margin top="10" left="10" bottom="0" right="0"/>
               <opaque value="false"/>
+              <text value=""/>
             </properties>
-            <border type="none"/>
-            <children>
-              <component id="c2764" class="javax.swing.JButton" binding="minButton">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <borderPainted value="false"/>
-                  <contentAreaFilled value="false"/>
-                  <defaultCapable value="true"/>
-                  <icon value="aurora/timer/client/view/res/min.png"/>
-                  <margin top="10" left="10" bottom="0" right="0"/>
-                  <opaque value="false"/>
-                  <text value=""/>
-                </properties>
-              </component>
-              <component id="f44d0" class="javax.swing.JButton" binding="outButton">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <borderPainted value="false"/>
-                  <contentAreaFilled value="false"/>
-                  <icon value="aurora/timer/client/view/res/out.png"/>
-                  <inheritsPopupMenu value="false"/>
-                  <label value=""/>
-                  <margin top="10" left="0" bottom="0" right="10"/>
-                  <opaque value="false"/>
-                  <text value=""/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <vspacer id="364ca">
+          </component>
+          <component id="f44d0" class="javax.swing.JButton" binding="outButton">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
-          </vspacer>
+            <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <icon value="aurora/timer/client/view/res/out.png"/>
+              <inheritsPopupMenu value="false"/>
+              <label value=""/>
+              <margin top="10" left="0" bottom="0" right="10"/>
+              <opaque value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="6bc24" binding="timePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints border-constraint="Center"/>
+        <properties>
+          <opaque value="false"/>
+          <visible value="true"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="5decd" class="javax.swing.JLabel" binding="timeLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Arial" size="72" style="0"/>
+              <foreground color="-10952982"/>
+              <opaque value="false"/>
+              <text value="11:00"/>
+            </properties>
+          </component>
         </children>
       </grid>
     </children>
