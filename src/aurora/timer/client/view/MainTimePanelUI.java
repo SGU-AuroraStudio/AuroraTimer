@@ -25,7 +25,7 @@ public class MainTimePanelUI extends BasicPanelUI {
         g2.fillOval(c.getWidth()/2 - 59, 577, 112,112);
 
 //        g2.drawImage()
-        g2.setColor(new Color(88, 222, 234, 200));
-        g2.drawArc(95, 86, 375, 375, 90, -60);
+//        g2.setColor(new Color(88, 222, 234, 200));
+//        g2.drawArc(95, 86, 375, 375, 90, -60);
     }
 }

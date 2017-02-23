@@ -55,7 +55,6 @@ public class UserDataService {
     public JSONObject findById(String id) {
         HttpURLConnection connection = null;
         JSONObject object = null;
-        UserData data = new UserData();
         try {
             URL url = new URL(ServerURL.FINDBYID + "?id=" + id);
             connection = (HttpURLConnection) url.openConnection();
