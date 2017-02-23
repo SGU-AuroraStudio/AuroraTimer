@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="aurora.timer.client.view.Main2Form">
   <grid id="27dc6" binding="parent" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="500" height="425"/>
     </constraints>
     <properties>
       <opaque value="false"/>
@@ -61,17 +61,42 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="5decd" class="javax.swing.JLabel" binding="timeLabel">
+          <grid id="9cbb7" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Arial" size="72" style="0"/>
-              <foreground color="-10952982"/>
               <opaque value="false"/>
-              <text value="11:00"/>
             </properties>
-          </component>
+            <border type="none"/>
+            <children>
+              <component id="5decd" class="javax.swing.JLabel" binding="timeLabel">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <doubleBuffered value="false"/>
+                  <font name="Arial" size="72" style="0"/>
+                  <foreground color="-10952982"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <inheritsPopupMenu value="false"/>
+                  <opaque value="false"/>
+                  <text value="00:00"/>
+                </properties>
+              </component>
+              <component id="80a51" class="javax.swing.JCheckBox" binding="changeBox">
+                <constraints border-constraint="South"/>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <icon value="aurora/timer/client/view/res/changeIcon.png"/>
+                  <label value=""/>
+                  <margin top="20" left="2" bottom="50" right="2"/>
+                  <opaque value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
         </children>
       </grid>
     </children>

@@ -147,7 +147,8 @@ public class LoginForm {
                 preferences.put("pwd", String.valueOf(pwdText.getPassword()));
             }
             //跳个转
-            MainForm.main(inf);
+//            MainForm.main(inf);
+            Main2Form.main(inf);
             FRAME.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "登陆失败", "提示", JOptionPane.ERROR_MESSAGE);

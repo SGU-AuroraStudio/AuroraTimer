@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.plaf.basic.BasicPanelUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.sql.Time;
 import java.util.Iterator;
 import java.util.Vector;
+import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
 /**
@@ -32,28 +33,53 @@ public class Main2Form {
     private JPanel timePanel;
     private JPanel headPanel;
     private JLabel timeLabel;
+    private JCheckBox changeBox;
     private TrayIcon trayIcon;
     private SystemTray systemTray;
-    private Long thisWeekTime;
+    private Long thisWeekTime = 0L;
     private UserOnlineTime onlineTime;
     private UserData userData;
     private Timer freshAddTimer;
     private Timer paintTimer;
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
     int mx, my, jfx, jfy;
+    Logger logger = Logger.getLogger("MAIN");
 
     // 初始化
     public void init() {
         parent.setUI(new MainParentPanelUI());
         minButton.setUI(new LoginButtonUI());
         outButton.setUI(new LoginButtonUI());
-        timePanel.setUI(new MainTimePanelUI());
+        timePanel.setUI(new BasicPanelUI() {
+            @Override
+            public void paint(Graphics g, JComponent c) {
+                super.paint(g, c);
+                c.setSize(565, 780);
+                Graphics2D g2 = (Graphics2D) g;
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(new Color(30, 40, 50, 140));
+                g2.fillOval(c.getWidth()/2 - 242, 38, 484, 484);
+
+                g2.setColor(new Color(12, 96, 108, 140));
+                g2.setStroke(new BasicStroke(26));
+                g2.drawArc(c.getWidth()/2 - 187, 86, 375, 375, 0, 360);
+
+                g2.setColor(new Color(88, 222, 234, 200));
+                int angel = (int) (thisWeekTime / (60 * 1000 * 4)); //转成分，每分钟0.25度
+                angel = - angel; //这是drawArc的原因
+                g2.drawArc(timePanel.getWidth()/2 - 187, 86, 375, 375, 90, angel);
+                g2.setColor(Color.white);
+                g2.drawArc(timePanel.getWidth()/2 - 187, 86, 375, 375, angel + 89, 1);
+            }
+        });
+        timeLabel.setFont(new Font("Arial", Font.PLAIN, 120));
+//        timeLabel.setLocation(timePanel.getWidth()/2 - 126, 234);
     }
 
     // 这里因为我懒，所以一次获取了两个表的信息
-    public void loadUserData() {
+    public void loadUserData(String id) {
         UserDataService uds = new UserDataService();
-        JSONObject object = uds.findById(userData.getID());
+        JSONObject object = uds.findById(id);
         userData = new UserData();
         onlineTime = new UserOnlineTime();
         userData.setID((String)object.get("id"));
@@ -73,7 +99,7 @@ public class Main2Form {
         UserOnlineTime uot;
         while (uiIt.hasNext()) {
              uot = uiIt.next();
-             if (uot.getID() == userData.getID()) {
+             if (uot.getID().equals(userData.getID())) {
                  thisWeekTime = uot.getTodayOnlineTime();
                  break;
              }
@@ -81,11 +107,12 @@ public class Main2Form {
     }
 
     public void backAddTime() {
+
         freshAddTimer = new Timer(5 * 60 * 1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 TimerYeah.addTime(userData.getID());
-                loadUserData();
+                loadUserData(userData.getID());
                 loadWeekTime();
             }
         });
@@ -97,30 +124,32 @@ public class Main2Form {
         paintTimer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                thisWeekTime += 1000;
-                paintTime();
+                thisWeekTime += 100000;
+                timePanel.repaint();
+                timeLabel.setText(parseTime(thisWeekTime));
             }
         });
+        paintTimer.setRepeats(true);
+        paintTimer.start();
     }
 
-    public void paintTime() {
-        Graphics2D g2 = (Graphics2D) timePanel.getGraphics();
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.setStroke(new BasicStroke(26));
-        g2.setColor(new Color(88, 222, 234, 200));
-
-
+    public String parseTime(Long time) {
+        StringBuffer sb = new StringBuffer("");
+        if (time/3600000<10) {
+            sb.append("0");
+        }
+        sb.append((time/3600000)+":");
+        if (time%3600000/60000<10){
+            sb.append("0");
+        }
+        sb.append(time%3600000/60000);
+        return sb.toString();
     }
-
-//    public String[] changeTime(Long longTime) {
-//        String[] times = new String[2];
-//        times[0] = String.valueOf(longTime/3600000); //时
-//        times[1] = String.valueOf(longTime%3600000/60000); //分
-//        return times;
-//    }
 
     public Main2Form() {
         init();
+        backAddTime();
+        backPaintTime();
 
         //缩小到托盘按钮
         minButton.addMouseListener(new MouseAdapter() {
@@ -192,6 +221,9 @@ public class Main2Form {
                 if (freshAddTimer.isRunning()) {
                     freshAddTimer.stop();
                 }
+                if (paintTimer.isRunning()) {
+                    paintTimer.stop();
+                }
                 FRAME.dispose();
                 systemTray.remove(trayIcon);
                 LoginForm.main(new String[1]);
@@ -231,6 +263,9 @@ public class Main2Form {
                 public void run() {
                     FRAME = new MainFrame();
                     Main2Form main2Form = new Main2Form();
+                    main2Form.loadUserData(args[0]);
+                    main2Form.loadWeekTime();
+
                     FRAME.setContentPane(main2Form.parent);
                     FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                     FRAME.setLocation((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2);
@@ -244,4 +279,5 @@ public class Main2Form {
             e.printStackTrace();
         }
     }
+
 }

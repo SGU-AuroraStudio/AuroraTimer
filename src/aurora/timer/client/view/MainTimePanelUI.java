@@ -5,6 +5,7 @@ import javax.swing.plaf.basic.BasicPanelUI;
 import java.awt.*;
 
 /**
+ * 这个类本来是做UI的，但是画时间的时候要用到那边的信息，所以不知道该怎么搞，就把它作为匿名内部类去了
  * Created by hao on 17-2-22.
  */
 public class MainTimePanelUI extends BasicPanelUI {
