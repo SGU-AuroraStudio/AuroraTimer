@@ -11,11 +11,9 @@ import org.json.simple.JSONObject;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicPanelUI;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.sql.Time;
 import java.util.Iterator;
 import java.util.Vector;
@@ -33,7 +31,7 @@ public class Main2Form {
     private JPanel timePanel;
     private JPanel headPanel;
     private JLabel timeLabel;
-    private JCheckBox changeBox;
+    private JButton changeButton;
     private TrayIcon trayIcon;
     private SystemTray systemTray;
     private Long thisWeekTime = 0L;
@@ -41,15 +39,35 @@ public class Main2Form {
     private UserData userData;
     private Timer freshAddTimer;
     private Timer paintTimer;
+    private JPanel weekAllPane;
+    private JTable thisWeekList;
+    WeekInfoForm weekInfoForm;
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
     int mx, my, jfx, jfy;
     Logger logger = Logger.getLogger("MAIN");
 
     // 初始化
     public void init() {
+        weekInfoForm = new WeekInfoForm();
+        weekInfoForm.changeButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int x = e.getX() - 227;
+                int y = e.getY() - 25;
+                if (!(x+y < 55 || x+y > 165 || x-y > 55 || x-y < -55)) {
+                    parent.remove(weekAllPane);
+                    timePanel.setVisible(true);
+                }
+            }
+        });
+        thisWeekList = weekInfoForm.weekList;
+        weekAllPane = weekInfoForm.parent;
+
         parent.setUI(new MainParentPanelUI());
         minButton.setUI(new LoginButtonUI());
         outButton.setUI(new LoginButtonUI());
+        changeButton.setUI(new LoginButtonUI());
+        changeButton.setContentAreaFilled(false);
         timePanel.setUI(new BasicPanelUI() {
             @Override
             public void paint(Graphics g, JComponent c) {
@@ -60,20 +78,39 @@ public class Main2Form {
                 g2.setColor(new Color(30, 40, 50, 140));
                 g2.fillOval(c.getWidth()/2 - 242, 38, 484, 484);
 
-                g2.setColor(new Color(12, 96, 108, 140));
                 g2.setStroke(new BasicStroke(26));
-                g2.drawArc(c.getWidth()/2 - 187, 86, 375, 375, 0, 360);
+                if (Integer.parseInt(parseTime(thisWeekTime).split(":")[0]) > 24) {
+                    g2.setColor(new Color(88, 222, 234, 200));
+                    g2.drawArc(c.getWidth()/2 - 187, 86, 375, 375, 0, 360);
 
-                g2.setColor(new Color(88, 222, 234, 200));
+                    g2.setColor(new Color(251, 216, 96, 255));
+                } else {
+                    g2.setColor(new Color(12, 96, 108, 140));
+                    g2.drawArc(c.getWidth() / 2 - 187, 86, 375, 375, 0, 360);
+
+                    g2.setColor(new Color(88, 222, 234, 200));
+                }
                 int angel = (int) (thisWeekTime / (60 * 1000 * 4)); //转成分，每分钟0.25度
-                angel = - angel; //这是drawArc的原因
+                angel = - angel; //这是drawArc的角度
                 g2.drawArc(timePanel.getWidth()/2 - 187, 86, 375, 375, 90, angel);
                 g2.setColor(Color.white);
                 g2.drawArc(timePanel.getWidth()/2 - 187, 86, 375, 375, angel + 89, 1);
             }
         });
         timeLabel.setFont(new Font("Arial", Font.PLAIN, 120));
-//        timeLabel.setLocation(timePanel.getWidth()/2 - 126, 234);
+    }
+
+    public void setAllTime() {
+        Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
+        DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
+        int index;
+        for (index = model.getRowCount() - 1; index >= 0; index --) {
+            model.removeRow(index);
+        }
+        while (uiIt.hasNext()) {
+            UserOnlineTime t = uiIt.next();
+            model.addRow(new Object[]{t.getID(),parseTime(t.getTodayOnlineTime())});
+        }
     }
 
     // 这里因为我懒，所以一次获取了两个表的信息
@@ -124,7 +161,7 @@ public class Main2Form {
         paintTimer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                thisWeekTime += 100000;
+                thisWeekTime += 1000;
                 timePanel.repaint();
                 timeLabel.setText(parseTime(thisWeekTime));
             }
@@ -177,11 +214,25 @@ public class Main2Form {
                 jfx = headPanel.getX();
                 jfy = headPanel.getY();
             }
-
+        });
+        headPanel.addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 FRAME.setLocation(jfx + (e.getXOnScreen() - mx), jfy + (e.getYOnScreen() - my));
-                System.out.println("h");
+            }
+        });
+        changeButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int x = e.getX() - 227;
+                int y = e.getY() - 25;
+                if (!(x+y < 55 || x+y > 165 || x-y > 55 || x-y < -55)) {
+                    timePanel.setVisible(false);
+                    TimerYeah.addTime(userData.getID());
+                    loadWeekTime();
+                    setAllTime();
+                    parent.add(weekAllPane);
+                }
             }
         });
     }
