@@ -1,6 +1,7 @@
 package aurora.timer.client.view;
 
 import aurora.timer.client.ServerURL;
+import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.vo.UserData;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -148,6 +149,7 @@ public class LoginForm {
             }
             //跳个转
 //            MainForm.main(inf);
+            TimerYeah.addTime(vo.getID());
             Main2Form.main(inf);
             FRAME.dispose();
         } else {

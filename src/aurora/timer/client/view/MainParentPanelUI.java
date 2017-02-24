@@ -13,7 +13,7 @@ public class MainParentPanelUI extends BasicPanelUI {
         super.paint(g, c);
         g.drawImage(new ImageIcon(getClass().getResource("bg.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(new Color(255, 255, 255, 128));
+        g2.setColor(new Color(255, 255, 255, 200));
         g2.fillRect(0, 0, c.getWidth(), 37);
         g2.setColor(new Color(50, 50, 50, 200));
         g2.drawRect(0, 0, c.getWidth()-1, c.getHeight()-1);

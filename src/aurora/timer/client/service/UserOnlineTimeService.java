@@ -54,6 +54,7 @@ public class UserOnlineTimeService {
                 oTemp = (JSONObject) object.get(keyIt.next());
                 vo.setID( (String) oTemp.get("id"));
                 vo.setTodayOnlineTime( Long.decode((String)oTemp.get("time")));
+                vo.setName((String) oTemp.get("name"));
                 voVector.add(vo);
             }
         } catch (Exception e) {

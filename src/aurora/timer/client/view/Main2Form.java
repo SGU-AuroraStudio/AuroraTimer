@@ -16,6 +16,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.Time;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Vector;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
@@ -41,6 +42,7 @@ public class Main2Form {
     private Timer paintTimer;
     private JPanel weekAllPane;
     private JTable thisWeekList;
+    Point mousePoint;
     WeekInfoForm weekInfoForm;
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
     int mx, my, jfx, jfy;
@@ -48,6 +50,7 @@ public class Main2Form {
 
     // 初始化
     public void init() {
+        mousePoint = MouseInfo.getPointerInfo().getLocation();
         weekInfoForm = new WeekInfoForm();
         weekInfoForm.changeButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -109,7 +112,7 @@ public class Main2Form {
         }
         while (uiIt.hasNext()) {
             UserOnlineTime t = uiIt.next();
-            model.addRow(new Object[]{t.getID(),parseTime(t.getTodayOnlineTime())});
+            model.addRow(new Object[]{"   " + t.getName(), "   " + parseTime(t.getTodayOnlineTime())});
         }
     }
 
@@ -148,6 +151,13 @@ public class Main2Form {
         freshAddTimer = new Timer(5 * 60 * 1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //挂机检测，就是鼠标五分钟前后在相同位置则暂停加时，在对话框被取消后继续加时
+                if (MouseInfo.getPointerInfo().getLocation().equals(mousePoint)) {
+                    createDialog();
+                    if (freshAddTimer.isRunning()) {
+                        freshAddTimer.stop();
+                    }
+                }
                 TimerYeah.addTime(userData.getID());
                 loadUserData(userData.getID());
                 loadWeekTime();
@@ -155,6 +165,16 @@ public class Main2Form {
         });
         freshAddTimer.setRepeats(true);
         freshAddTimer.start();
+    }
+
+    public void createDialog() {
+        String[] option = {"并没有", "是的"};
+        int o = JOptionPane.showOptionDialog(null, "你在挂机？", "提示", JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+        if ((o == 1 || o == 0) && !freshAddTimer.isRunning()) {
+            TimerYeah.addTime(userData.getID());
+            freshAddTimer.start();
+        }
     }
 
     public void backPaintTime() {
