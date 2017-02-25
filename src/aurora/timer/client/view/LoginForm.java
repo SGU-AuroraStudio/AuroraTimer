@@ -10,7 +10,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.util.prefs.Preferences;
 
@@ -46,13 +45,13 @@ public class LoginForm {
                 if (Desktop.isDesktopSupported()) {
                     desktop = Desktop.getDesktop();
                     try {
-                        desktop.browse(new URI(ServerURL.REGISTERURL));
+                        desktop.browse(new URI(ServerURL.REGISTE_RURL));
                     } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "您的系统不支持跳转，请手动打开\n" +
-                            ServerURL.REGISTERURL, "提示", JOptionPane.ERROR_MESSAGE);
+                            ServerURL.REGISTE_RURL, "提示", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -118,7 +117,7 @@ public class LoginForm {
         idText.setBorder(new EmptyBorder(0,0,0,0));
         pwdText.setBorder(new EmptyBorder(0,0,0,0));
 
-        Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
+        Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         remPasswordCheckBox.setSelected(preferences.getBoolean("rem", false));
         autoLoginCheckBox.setSelected(preferences.getBoolean("auto", false));
         idText.setText(preferences.get("id", ""));
@@ -140,7 +139,7 @@ public class LoginForm {
             //传值给主界面
             inf[0] = vo.getID();
             //存个档
-            Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
+            Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
             preferences.putBoolean("rem", remPasswordCheckBox.isSelected());
             preferences.putBoolean("auto", autoLoginCheckBox.isSelected());
             preferences.put("id", vo.getID());
@@ -173,7 +172,7 @@ public class LoginForm {
 //                    FRAME.pack();
                     FRAME.setResizable(false);
                     FRAME.setVisible(true);
-                    Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
+                    Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
                     if (preferences.getBoolean("auto", false)) {
                         form.loginLogic();
                     }

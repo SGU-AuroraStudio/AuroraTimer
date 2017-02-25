@@ -75,7 +75,7 @@
       <include name="jre/lib/jfxswt.jar"/>
       <include name="jre/lib/jsse.jar"/>
       <include name="jre/lib/management-agent.jar"/>
-      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/plugins.jar"/>
       <include name="jre/lib/resources.jar"/>
       <include name="jre/lib/rt.jar"/>
     </fileset>

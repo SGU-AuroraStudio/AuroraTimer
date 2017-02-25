@@ -14,6 +14,11 @@ import javax.swing.plaf.basic.BasicPanelUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileFilter;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.sql.Time;
 import java.util.Iterator;
 import java.util.Vector;
@@ -37,18 +42,20 @@ public class Main2Form {
     private Long thisWeekTime = 0L;
     private UserOnlineTime onlineTime;
     private UserData userData;
-    private Timer freshAddTimer;
-    private Timer paintTimer;
-    private JPanel weekAllPane;
-    private JTable thisWeekList;
-    Point mousePoint;
-    WeekInfoForm weekInfoForm;
+    private Timer freshAddTimer; // 用来加时的计时器
+    private Timer paintTimer; // 用来不停的画的计时器
+    private JPanel weekAllPane; // 指向周计时的panel
+    private JTable thisWeekList; // 指向本周计时的表
+    Point mousePoint; //鼠标位置，判断挂机用
+    WeekInfoForm weekInfoForm; //用来查看周计时的panel
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
-    int page;
-    int mx, my, jfx, jfy;
+    int page; //查看周计时的页面
+    int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
     Logger logger = Logger.getLogger("MAIN");
 
-    // 初始化
+    /**
+     * 初始化函数
+     */
     public void init() {
         page = 0;
         loadSystemTray();
@@ -105,6 +112,7 @@ public class Main2Form {
                 g2.fillOval(c.getWidth()/2 - 242, 38, 484, 484);
 
                 g2.setStroke(new BasicStroke(26));
+                //如果时间大于24小时，那么进度条就要画金黄色
                 if (Integer.parseInt(parseTime(thisWeekTime).split(":")[0]) > 24) {
                     g2.setColor(new Color(88, 222, 234, 200));
                     g2.drawArc(c.getWidth()/2 - 187, 86, 375, 375, 0, 360);
@@ -126,6 +134,9 @@ public class Main2Form {
         timeLabel.setFont(new Font("Arial", Font.PLAIN, 120));
     }
 
+    /**
+     * 将userOnlineTimes中的数据画到表上
+     */
     public void setAllTime() {
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
@@ -139,7 +150,11 @@ public class Main2Form {
         }
     }
 
-    // 这里因为我懒，所以一次获取了两个表的信息
+    /**
+     * 获取用户信息
+     * 这里之前写的时候就把servlet中一次返回了userData和userOnlineTime
+     * @param id 用户ID
+     */
     public void loadUserData(String id) {
         UserDataService uds = new UserDataService();
         JSONObject object = uds.findById(id);
@@ -155,13 +170,17 @@ public class Main2Form {
         onlineTime.setLastOnlineTime(new Time((Long)object.getOrDefault("laslog",Long.decode("0"))));
     }
 
-    //一次性加载前lastX周所有人的计时，如果为0表示本周
+    /**
+     * 一次性加载前lastX周所有人的计时
+     * @param lastX 表示前第多少周，0表示本周
+     */
     public void loadWeekTime(int lastX) {
         UserOnlineTimeService service = new UserOnlineTimeService();
         userOnlineTimes = service.getLastXWeekTime(lastX);
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         UserOnlineTime uot;
         //当加载的周计时为0的时候刷新本地的周计时
+        logger.info("加载第" + lastX + "周计时数据");
         while (uiIt.hasNext() && lastX == 0) {
              uot = uiIt.next();
              if (uot.getID().equals(userData.getID())) {
@@ -171,6 +190,9 @@ public class Main2Form {
         }
     }
 
+    /**
+     * 后台计时，每隔五分钟提交一次
+     */
     public void backAddTime() {
 
         freshAddTimer = new Timer(5 * 60 * 1000, new ActionListener() {
@@ -192,6 +214,9 @@ public class Main2Form {
         freshAddTimer.start();
     }
 
+    /**
+     * 创建检测到挂机时候的dialog
+     */
     public void createDialog() {
         String[] option = {"并没有", "是的"};
         int o = JOptionPane.showOptionDialog(null, "你在挂机？", "提示", JOptionPane.OK_CANCEL_OPTION,
@@ -202,6 +227,9 @@ public class Main2Form {
         }
     }
 
+    /**
+     * 画界面的Timer
+     */
     public void backPaintTime() {
         paintTimer = new Timer(1000, new ActionListener() {
             @Override
@@ -215,6 +243,11 @@ public class Main2Form {
         paintTimer.start();
     }
 
+    /**
+     * 将Long转换成 时:分 的字符串
+     * @param time Long型的时间
+     * @return 转换后的字符串
+     */
     public String parseTime(Long time) {
         StringBuffer sb = new StringBuffer("");
         if (time/3600000<10) {
@@ -228,6 +261,9 @@ public class Main2Form {
         return sb.toString();
     }
 
+    /**
+     * 构造函数，进行初始化和开启Timer
+     */
     public Main2Form() {
         init();
         backAddTime();
@@ -240,7 +276,6 @@ public class Main2Form {
                 FRAME.setVisible(false);
             }
         });
-
         //关闭按钮
         outButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -248,7 +283,6 @@ public class Main2Form {
                 System.exit(1);
             }
         });
-
         //设置拖动
         headPanel.addMouseListener(new MouseAdapter() {
             @Override
@@ -281,16 +315,52 @@ public class Main2Form {
         });
     }
 
-    //加载托盘图标
+    /**
+     * 加载托盘图标
+     */
     public void loadSystemTray() {
         if (!SystemTray.isSupported()) {
             return;
         }
         systemTray = SystemTray.getSystemTray();
         PopupMenu popupMenu = new PopupMenu();
+        popupMenu.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 10));
+        Menu pluginMenu = new Menu("插件");
         MenuItem restoreItem = new MenuItem("还原");
         MenuItem logoutItem = new MenuItem("注销");
         MenuItem exitItem  = new MenuItem("退出");
+
+        // 通过反射加载插件
+         try {
+             File pluginFile = new File("src/plugins");
+             if (pluginFile.isDirectory() && pluginFile.exists()) {
+                 File[] files = pluginFile.listFiles(new FileFilter() {
+                     @Override
+                     public boolean accept(File pathname) {
+                         String name = pathname.getName();
+                         if (name.contains(".class")) {
+                             return true;
+                         }
+                         return false;
+                     }
+                 });
+                 URL[] urls;
+                 if (files.length != 0 && files != null) {
+                     System.out.println("存在url");
+                     urls = new URL[files.length];
+                     for (int i = 0; i < files.length; i++) {
+                         urls[i] = files[i].toURI().toURL();
+                     }
+                     URLClassLoader classLoader = new URLClassLoader(urls);
+                     Class<?> plugin = classLoader.loadClass("aurora.timer.client.plugin.TimerPlugin");
+                     Method startMethod = plugin.getMethod("getName");
+                     String he = (String) startMethod.invoke(plugin.newInstance());
+                     //TODO:= =。。。。
+                 }
+             }
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
 
         restoreItem.addActionListener(new ActionListener() {
             @Override
@@ -309,7 +379,7 @@ public class Main2Form {
         logoutItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
+                Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
                 preferences.putBoolean("auto", false);
                 TimerYeah.addTime(userData.getID());
                 if (freshAddTimer.isRunning()) {
@@ -328,8 +398,9 @@ public class Main2Form {
         popupMenu.addSeparator();
         popupMenu.add(logoutItem);
         popupMenu.addSeparator();
+        popupMenu.add(pluginMenu);
+        popupMenu.addSeparator();
         popupMenu.add(exitItem);
-
 
         try {
             trayIcon = new TrayIcon(ImageIO.read(getClass().getResource("trayIcon.png")));
@@ -345,7 +416,7 @@ public class Main2Form {
             });
             systemTray.add(trayIcon);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.warning("托盘初始化失败");
         }
     }
 

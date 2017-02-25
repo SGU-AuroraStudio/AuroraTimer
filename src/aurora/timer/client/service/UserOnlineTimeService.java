@@ -28,7 +28,7 @@ public class UserOnlineTimeService {
         Vector<UserOnlineTime> voVector = new Vector<>();
         HttpURLConnection connection = null;
         try {
-            URL url = new URL(ServerURL.THISWEEKTIME + "?x=" + lastXWeek);
+            URL url = new URL(ServerURL.THIS_WEEK_TIME + "?x=" + lastXWeek);
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.setUseCaches(false);

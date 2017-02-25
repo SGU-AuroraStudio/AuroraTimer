@@ -1,5 +1,7 @@
 package aurora.timer.client;
 
+import java.io.File;
+
 /**
  * Created by hao on 17-1-25.
  */
@@ -9,17 +11,19 @@ public class ServerURL {
 //    public static final String HOST = "210.38.206.110:8090";
     public static final String HOST = "127.0.0.1:8080";
     //跳转的登陆页面，在页面完成注册
-    public static final String REGISTERURL = "http://" + HOST + "/timer/pages/register.html";
+    public static final String REGISTE_RURL = "http://" + HOST + "/timer/pages/register.html";
     //登陆验证的url
-    public static final String LOGINURL = "http://" + HOST + "/timer/login";
+    public static final String LOGIN_URL = "http://" + HOST + "/timer/login";
     //注册表地址
-    public static final String PREPATH = "com.aurora.timer";
+    public static final String PRE_PATH = "com.aurora.timer";
     //计时地址
     public static final String TIMER = "http://" + HOST + "/timer/timer";
 
     public static final String ABOUT = "———— All Hai Lelouch! ————";
     //获取本周时间的地址
-    public static final String THISWEEKTIME = "http://" + HOST + "/timer/lastXWeek";
+    public static final String THIS_WEEK_TIME = "http://" + HOST + "/timer/lastXWeek";
     //获取UserDataById
-    public static final String FINDBYID = "http://" + HOST + "/timer/findById";
+    public static final String FIND_BY_ID = "http://" + HOST + "/timer/findById";
+    //获取插件的文件夹
+    public static final String PLUGIN_HOME = "src" + File.pathSeparator + "aurora/timer/client/plugin";
 }

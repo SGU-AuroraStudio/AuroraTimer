@@ -183,7 +183,7 @@ public class MainForm {
         logoutItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
+                Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
                 preferences.putBoolean("auto", false);
                 TimerYeah.addTime(data.getID());
                 addTimeThread.isStop = false;
