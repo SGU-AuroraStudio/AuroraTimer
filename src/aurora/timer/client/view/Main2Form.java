@@ -16,7 +16,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.Time;
 import java.util.Iterator;
-import java.util.Objects;
 import java.util.Vector;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
@@ -45,21 +44,45 @@ public class Main2Form {
     Point mousePoint;
     WeekInfoForm weekInfoForm;
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
+    int page;
     int mx, my, jfx, jfy;
     Logger logger = Logger.getLogger("MAIN");
 
     // 初始化
     public void init() {
+        page = 0;
+        loadSystemTray();
         mousePoint = MouseInfo.getPointerInfo().getLocation();
         weekInfoForm = new WeekInfoForm();
         weekInfoForm.changeButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int x = e.getX() - 227;
+                int x = e.getX() - 24;
                 int y = e.getY() - 25;
-                if (!(x+y < 55 || x+y > 165 || x-y > 55 || x-y < -55)) {
+//                System.out.print(x + " " + y);
+                if (!(x+y <= 55 || x+y >= 165 || x-y >= 55 || x-y <= -55)) {
                     parent.remove(weekAllPane);
                     timePanel.setVisible(true);
+                }
+            }
+        });
+        weekInfoForm.leftButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (page <= 5) {
+                    page ++;
+                    loadWeekTime(page);
+                    setAllTime();
+                }
+            }
+        });
+        weekInfoForm.rightButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (page > 0) {
+                    page --;
+                    loadWeekTime(page);
+                    setAllTime();
                 }
             }
         });
@@ -132,12 +155,14 @@ public class Main2Form {
         onlineTime.setLastOnlineTime(new Time((Long)object.getOrDefault("laslog",Long.decode("0"))));
     }
 
-    public void loadWeekTime() {
+    //一次性加载前lastX周所有人的计时，如果为0表示本周
+    public void loadWeekTime(int lastX) {
         UserOnlineTimeService service = new UserOnlineTimeService();
-        userOnlineTimes = service.getThisWeekTime();
+        userOnlineTimes = service.getLastXWeekTime(lastX);
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         UserOnlineTime uot;
-        while (uiIt.hasNext()) {
+        //当加载的周计时为0的时候刷新本地的周计时
+        while (uiIt.hasNext() && lastX == 0) {
              uot = uiIt.next();
              if (uot.getID().equals(userData.getID())) {
                  thisWeekTime = uot.getTodayOnlineTime();
@@ -160,7 +185,7 @@ public class Main2Form {
                 }
                 TimerYeah.addTime(userData.getID());
                 loadUserData(userData.getID());
-                loadWeekTime();
+                loadWeekTime(0);
             }
         });
         freshAddTimer.setRepeats(true);
@@ -212,7 +237,6 @@ public class Main2Form {
         minButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                loadSystemTray();
                 FRAME.setVisible(false);
             }
         });
@@ -249,7 +273,7 @@ public class Main2Form {
                 if (!(x+y < 55 || x+y > 165 || x-y > 55 || x-y < -55)) {
                     timePanel.setVisible(false);
                     TimerYeah.addTime(userData.getID());
-                    loadWeekTime();
+                    loadWeekTime(0);
                     setAllTime();
                     parent.add(weekAllPane);
                 }
@@ -273,7 +297,6 @@ public class Main2Form {
             public void actionPerformed(ActionEvent e) {
                 if (!FRAME.isVisible()) {
                     FRAME.setVisible(true);
-                    systemTray.remove(trayIcon);
                 }
             }
         });
@@ -335,7 +358,7 @@ public class Main2Form {
                     FRAME = new MainFrame();
                     Main2Form main2Form = new Main2Form();
                     main2Form.loadUserData(args[0]);
-                    main2Form.loadWeekTime();
+                    main2Form.loadWeekTime(0);
 
                     FRAME.setContentPane(main2Form.parent);
                     FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

@@ -13,7 +13,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.sql.Time;
 import java.util.Iterator;
 import java.util.Vector;
@@ -207,7 +206,7 @@ public class MainForm {
     //刷新本周计时统计那个表
     public void refreshThisWeekList() {
         UserOnlineTimeService service = new UserOnlineTimeService();
-        Vector<UserOnlineTime> userOnlineTimes = service.getThisWeekTime();
+        Vector<UserOnlineTime> userOnlineTimes = service.getLastXWeekTime(0);
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
         int index;

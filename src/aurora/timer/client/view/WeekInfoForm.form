@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="aurora.timer.client.view.WeekInfoForm">
   <grid id="27dc6" binding="parent" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="566" height="400"/>
     </constraints>
     <properties>
       <opaque value="false"/>
@@ -39,17 +39,51 @@
           </component>
         </children>
       </scrollpane>
-      <component id="6f3bf" class="javax.swing.JButton" binding="changeButton">
+      <grid id="f2964" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="South"/>
         <properties>
-          <borderPainted value="false"/>
-          <icon value="aurora/timer/client/view/res/changeIcon2.png"/>
-          <margin top="20" left="2" bottom="50" right="2"/>
-          <opaque value="true"/>
-          <pressedIcon value="aurora/timer/client/view/res/changeIcon2P.png"/>
-          <text value=""/>
+          <opaque value="false"/>
         </properties>
-      </component>
+        <border type="none"/>
+        <children>
+          <component id="6f3bf" class="javax.swing.JButton" binding="changeButton">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <borderPainted value="false"/>
+              <icon value="aurora/timer/client/view/res/changeIcon2.png"/>
+              <margin top="20" left="2" bottom="50" right="2"/>
+              <opaque value="true"/>
+              <preferredSize width="110" height="110"/>
+              <pressedIcon value="aurora/timer/client/view/res/changeIcon2P.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="adfec" class="javax.swing.JButton" binding="leftButton">
+            <constraints border-constraint="West"/>
+            <properties>
+              <borderPainted value="false"/>
+              <icon value="aurora/timer/client/view/res/leftWeekButton.png"/>
+              <label value=""/>
+              <margin top="20" left="35" bottom="50" right="2"/>
+              <opaque value="false"/>
+              <pressedIcon value="aurora/timer/client/view/res/leftWeekButtonP.png"/>
+              <selected value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="3236a" class="javax.swing.JButton" binding="rightButton">
+            <constraints border-constraint="East"/>
+            <properties>
+              <borderPainted value="false"/>
+              <icon value="aurora/timer/client/view/res/rightWeekButton.png"/>
+              <margin top="20" left="2" bottom="50" right="35"/>
+              <opaque value="false"/>
+              <pressedIcon value="aurora/timer/client/view/res/rightWeekButtonP.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

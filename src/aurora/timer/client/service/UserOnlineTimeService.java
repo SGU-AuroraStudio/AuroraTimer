@@ -24,17 +24,18 @@ public class UserOnlineTimeService {
         return yeah;
     }
 
-    public Vector<UserOnlineTime> getThisWeekTime() {
+    public Vector<UserOnlineTime> getLastXWeekTime(int lastXWeek) {
         Vector<UserOnlineTime> voVector = new Vector<>();
         HttpURLConnection connection = null;
         try {
-            URL url = new URL(ServerURL.THISWEEKTIME);
+            URL url = new URL(ServerURL.THISWEEKTIME + "?x=" + lastXWeek);
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.setUseCaches(false);
             connection.setInstanceFollowRedirects(true);
             connection.setRequestProperty("accept","application/json"); //向服务器表示我要的是json
             connection.connect();
+
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer buffer = new StringBuffer("");
