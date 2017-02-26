@@ -331,36 +331,36 @@ public class Main2Form {
         MenuItem exitItem  = new MenuItem("退出");
 
         // 通过反射加载插件
-         try {
-             File pluginFile = new File("src/plugins");
-             if (pluginFile.isDirectory() && pluginFile.exists()) {
-                 File[] files = pluginFile.listFiles(new FileFilter() {
-                     @Override
-                     public boolean accept(File pathname) {
-                         String name = pathname.getName();
-                         if (name.contains(".class")) {
-                             return true;
-                         }
-                         return false;
-                     }
-                 });
-                 URL[] urls;
-                 if (files.length != 0 && files != null) {
-                     System.out.println("存在url");
-                     urls = new URL[files.length];
-                     for (int i = 0; i < files.length; i++) {
-                         urls[i] = files[i].toURI().toURL();
-                     }
-                     URLClassLoader classLoader = new URLClassLoader(urls);
-                     Class<?> plugin = classLoader.loadClass("aurora.timer.client.plugin.TimerPlugin");
-                     Method startMethod = plugin.getMethod("getName");
-                     String he = (String) startMethod.invoke(plugin.newInstance());
-                     //TODO:= =。。。。
-                 }
-             }
-         } catch (Exception e) {
-             e.printStackTrace();
-         }
+//         try {
+//             File pluginFile = new File("src/plugins");
+//             if (pluginFile.isDirectory() && pluginFile.exists()) {
+//                 File[] files = pluginFile.listFiles(new FileFilter() {
+//                     @Override
+//                     public boolean accept(File pathname) {
+//                         String name = pathname.getName();
+//                         if (name.contains(".class")) {
+//                             return true;
+//                         }
+//                         return false;
+//                     }
+//                 });
+//                 URL[] urls;
+//                 if (files.length != 0 && files != null) {
+//                     System.out.println("存在url");
+//                     urls = new URL[files.length];
+//                     for (int i = 0; i < files.length; i++) {
+//                         urls[i] = files[i].toURI().toURL();
+//                     }
+//                     URLClassLoader classLoader = new URLClassLoader(urls);
+//                     Class<?> plugin = classLoader.loadClass("aurora.timer.client.plugin.TimerPlugin");
+//                     Method startMethod = plugin.getMethod("getName");
+//                     String he = (String) startMethod.invoke(plugin.newInstance());
+//                     //TODO:The Plugin System
+//                 }
+//             }
+//         } catch (Exception e) {
+//             e.printStackTrace();
+//         }
 
         restoreItem.addActionListener(new ActionListener() {
             @Override
@@ -397,8 +397,8 @@ public class Main2Form {
         popupMenu.add(restoreItem);
         popupMenu.addSeparator();
         popupMenu.add(logoutItem);
-        popupMenu.addSeparator();
-        popupMenu.add(pluginMenu);
+//        popupMenu.addSeparator();
+//        popupMenu.add(pluginMenu);
         popupMenu.addSeparator();
         popupMenu.add(exitItem);
 

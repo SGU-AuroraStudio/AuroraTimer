@@ -45,13 +45,13 @@ public class LoginForm {
                 if (Desktop.isDesktopSupported()) {
                     desktop = Desktop.getDesktop();
                     try {
-                        desktop.browse(new URI(ServerURL.REGISTE_RURL));
+                        desktop.browse(new URI(ServerURL.REGISTER_URL));
                     } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "您的系统不支持跳转，请手动打开\n" +
-                            ServerURL.REGISTE_RURL, "提示", JOptionPane.ERROR_MESSAGE);
+                            ServerURL.REGISTER_URL, "提示", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

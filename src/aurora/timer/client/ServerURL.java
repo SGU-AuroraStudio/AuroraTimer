@@ -8,10 +8,11 @@ import java.io.File;
 public class ServerURL {
     //服务器的地址加端口
 //    public static final String HOST = "192.168.1.17:8090";
-//    public static final String HOST = "210.38.206.110:8090";
-    public static final String HOST = "127.0.0.1:8080";
+    //服务器外网地址
+    public static final String HOST = "210.38.206.110:8090";
+//    public static final String HOST = "127.0.0.1:8080";
     //跳转的登陆页面，在页面完成注册
-    public static final String REGISTE_RURL = "http://" + HOST + "/timer/pages/register.html";
+    public static final String REGISTER_URL = "http://" + HOST + "/timer/pages/register.html";
     //登陆验证的url
     public static final String LOGIN_URL = "http://" + HOST + "/timer/login";
     //注册表地址
@@ -25,5 +26,7 @@ public class ServerURL {
     //获取UserDataById
     public static final String FIND_BY_ID = "http://" + HOST + "/timer/findById";
     //获取插件的文件夹
-    public static final String PLUGIN_HOME = "src" + File.pathSeparator + "aurora/timer/client/plugin";
+    public static final String PLUGIN_HOME = "res" + File.pathSeparator + "plugins";
+    //背景图片的文件夹
+    public static final String BG_PATH = "res" + File.separator + "bg.png";
 }

@@ -41,7 +41,7 @@ public class TimerYeah implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null, "夭寿了，后台计时居然崩了！快叫周浩过来找bug！\n" +
-                        ServerURL.REGISTE_RURL, "提示", JOptionPane.ERROR_MESSAGE);
+                        ServerURL.REGISTER_URL, "提示", JOptionPane.ERROR_MESSAGE);
             }
         }
         logger.info("后台计时结束");
@@ -70,7 +70,7 @@ public class TimerYeah implements Runnable {
                 logger.info("上传时间");
             } else {
                 JOptionPane.showMessageDialog(null, "上传时间失败。。。\n" +
-                        ServerURL.REGISTE_RURL, "提示", JOptionPane.ERROR_MESSAGE);
+                        ServerURL.REGISTER_URL, "提示", JOptionPane.ERROR_MESSAGE);
             }
 
             reader.close();
