@@ -146,7 +146,13 @@ public class Main2Form {
         }
         while (uiIt.hasNext()) {
             UserOnlineTime t = uiIt.next();
-            model.addRow(new Object[]{"   " + t.getName(), "   " + parseTime(t.getTodayOnlineTime())});
+            try {
+                byte[] bytes = t.getName().getBytes();
+                String s =new String(bytes,"utf-8");
+                model.addRow(new Object[]{"   " + s.substring(0,s.length()-1), "   " + parseTime(t.getTodayOnlineTime())});
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -331,36 +337,36 @@ public class Main2Form {
         MenuItem exitItem  = new MenuItem("退出");
 
         // 通过反射加载插件
-         try {
-             File pluginFile = new File("src/plugins");
-             if (pluginFile.isDirectory() && pluginFile.exists()) {
-                 File[] files = pluginFile.listFiles(new FileFilter() {
-                     @Override
-                     public boolean accept(File pathname) {
-                         String name = pathname.getName();
-                         if (name.contains(".class")) {
-                             return true;
-                         }
-                         return false;
-                     }
-                 });
-                 URL[] urls;
-                 if (files.length != 0 && files != null) {
-                     System.out.println("存在url");
-                     urls = new URL[files.length];
-                     for (int i = 0; i < files.length; i++) {
-                         urls[i] = files[i].toURI().toURL();
-                     }
-                     URLClassLoader classLoader = new URLClassLoader(urls);
-                     Class<?> plugin = classLoader.loadClass("aurora.timer.client.plugin.TimerPlugin");
-                     Method startMethod = plugin.getMethod("getName");
-                     String he = (String) startMethod.invoke(plugin.newInstance());
-                     //TODO:The Plugin System
-                 }
-             }
-         } catch (Exception e) {
-             e.printStackTrace();
-         }
+//         try {
+//             File pluginFile = new File("src/plugins");
+//             if (pluginFile.isDirectory() && pluginFile.exists()) {
+//                 File[] files = pluginFile.listFiles(new FileFilter() {
+//                     @Override
+//                     public boolean accept(File pathname) {
+//                         String name = pathname.getName();
+//                         if (name.contains(".class")) {
+//                             return true;
+//                         }
+//                         return false;
+//                     }
+//                 });
+//                 URL[] urls;
+//                 if (files.length != 0 && files != null) {
+//                     System.out.println("存在url");
+//                     urls = new URL[files.length];
+//                     for (int i = 0; i < files.length; i++) {
+//                         urls[i] = files[i].toURI().toURL();
+//                     }
+//                     URLClassLoader classLoader = new URLClassLoader(urls);
+//                     Class<?> plugin = classLoader.loadClass("aurora.timer.client.plugin.TimerPlugin");
+//                     Method startMethod = plugin.getMethod("getName");
+//                     String he = (String) startMethod.invoke(plugin.newInstance());
+//                     //TODO:The Plugin System
+//                 }
+//             }
+//         } catch (Exception e) {
+//             e.printStackTrace();
+//         }
 
         restoreItem.addActionListener(new ActionListener() {
             @Override
@@ -397,8 +403,8 @@ public class Main2Form {
         popupMenu.add(restoreItem);
         popupMenu.addSeparator();
         popupMenu.add(logoutItem);
-        popupMenu.addSeparator();
-        popupMenu.add(pluginMenu);
+//        popupMenu.addSeparator();
+//        popupMenu.add(pluginMenu);
         popupMenu.addSeparator();
         popupMenu.add(exitItem);
 
@@ -410,7 +416,7 @@ public class Main2Form {
                 public void mousePressed(MouseEvent e) {
                     if (e.getButton()==MouseEvent.BUTTON1 && !FRAME.isVisible()) {
                         FRAME.setVisible(true);
-                        systemTray.remove(trayIcon);
+//                        systemTray.remove(trayIcon);
                     }
                 }
             });
