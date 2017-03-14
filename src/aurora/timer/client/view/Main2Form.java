@@ -125,7 +125,7 @@ public class Main2Form {
                     g2.setColor(new Color(88, 222, 234, 200));
                 }
                 int angel = (int) (thisWeekTime / (60 * 1000 * 4)); //转成分，每分钟0.25度
-                angel = - angel; //这是drawArc的角度
+                angel = - (angel%360); //这是drawArc的角度
                 g2.drawArc(timePanel.getWidth()/2 - 187, 86, 375, 375, 90, angel);
                 g2.setColor(Color.white);
                 g2.drawArc(timePanel.getWidth()/2 - 187, 86, 375, 375, angel + 89, 1);
@@ -207,10 +207,11 @@ public class Main2Form {
                 //挂机检测，就是鼠标五分钟前后在相同位置则暂停加时，在对话框被取消后继续加时
                 if (MouseInfo.getPointerInfo().getLocation().equals(mousePoint)) {
                     createDialog();
-                    if (freshAddTimer.isRunning()) {
-                        freshAddTimer.stop();
-                    }
+//                    if (freshAddTimer.isRunning()) {
+//                        freshAddTimer.stop();
+//                    }
                 }
+                mousePoint = MouseInfo.getPointerInfo().getLocation();
                 TimerYeah.addTime(userData.getID());
                 loadUserData(userData.getID());
                 loadWeekTime(0);
@@ -227,10 +228,13 @@ public class Main2Form {
         String[] option = {"并没有", "是的"};
         int o = JOptionPane.showOptionDialog(null, "你在挂机？", "提示", JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
-        if ((o == 1 || o == 0) && !freshAddTimer.isRunning()) {
-            TimerYeah.addTime(userData.getID());
-            freshAddTimer.start();
-        }
+//        System.out.println(freshAddTimer.isRunning());
+//        if ((o == 1 || o == 0) && !freshAddTimer.isRunning()) {
+////            TimerYeah.addTime(userData.getID());
+////            freshAddTimer.start();
+//            System.out.println("chong");
+//            backAddTime();
+//        }
     }
 
     /**
