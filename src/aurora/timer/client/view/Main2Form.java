@@ -113,7 +113,7 @@ public class Main2Form {
 
                 g2.setStroke(new BasicStroke(26));
                 //如果时间大于24小时，那么进度条就要画金黄色
-                if (Integer.parseInt(parseTime(thisWeekTime).split(":")[0]) > 24) {
+                if (Integer.parseInt(parseTime(thisWeekTime).split(":")[0]) >= 24) {
                     g2.setColor(new Color(88, 222, 234, 200));
                     g2.drawArc(c.getWidth()/2 - 187, 86, 375, 375, 0, 360);
 
@@ -140,6 +140,11 @@ public class Main2Form {
     public void setAllTime() {
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
+        if (page == 0) {
+            thisWeekList.getColumnModel().getColumn(1).setHeaderValue("本周在线总时间");
+        } else {
+            thisWeekList.getColumnModel().getColumn(1).setHeaderValue("前" + page + "周在线总时间");
+        }
         int index;
         for (index = model.getRowCount() - 1; index >= 0; index --) {
             model.removeRow(index);
@@ -197,21 +202,13 @@ public class Main2Form {
     }
 
     /**
-     * 后台计时，每隔五分钟提交一次
+     * 后台计时，每隔24分钟提交一次
      */
     public void backAddTime() {
 
         freshAddTimer = new Timer(5 * 60 * 1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //挂机检测，就是鼠标五分钟前后在相同位置则暂停加时，在对话框被取消后继续加时
-                if (MouseInfo.getPointerInfo().getLocation().equals(mousePoint)) {
-                    createDialog();
-//                    if (freshAddTimer.isRunning()) {
-//                        freshAddTimer.stop();
-//                    }
-                }
-                mousePoint = MouseInfo.getPointerInfo().getLocation();
                 TimerYeah.addTime(userData.getID());
                 loadUserData(userData.getID());
                 loadWeekTime(0);
@@ -219,6 +216,25 @@ public class Main2Form {
         });
         freshAddTimer.setRepeats(true);
         freshAddTimer.start();
+
+        Timer checkTimer = new Timer(24 * 60 * 1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //挂机检测，就是鼠标24分钟前后在相同位置则暂停加时，在对话框被取消后继续加时
+                if (MouseInfo.getPointerInfo().getLocation().equals(mousePoint)) {
+
+                    freshAddTimer.stop();
+                    createDialog();
+                    freshAddTimer.start();
+//                    if (freshAddTimer.isRunning()) {
+//                        freshAddTimer.stop();
+//                    }
+                }
+                mousePoint = MouseInfo.getPointerInfo().getLocation();
+            }
+        });
+        checkTimer.setRepeats(true);
+        checkTimer.start();
     }
 
     /**

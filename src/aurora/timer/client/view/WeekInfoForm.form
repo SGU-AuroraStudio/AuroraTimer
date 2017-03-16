@@ -21,7 +21,7 @@
             <constraints/>
             <properties>
               <autoCreateColumnsFromModel value="true"/>
-              <autoCreateRowSorter value="false"/>
+              <autoCreateRowSorter value="true"/>
               <autoResizeMode value="4"/>
               <cellSelectionEnabled value="false"/>
               <columnSelectionAllowed value="false"/>
