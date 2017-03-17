@@ -17,12 +17,12 @@ import java.util.Vector;
  * Created by hao on 17-1-25.
  */
 public class UserOnlineTimeService {
-    public TimerYeah startTimer(String id) {
-        TimerYeah yeah = new TimerYeah(id);
-        Thread thread = new Thread(yeah, "timer");
-        thread.start();
-        return yeah;
-    }
+//    public TimerYeah startTimer(String id) {
+//        TimerYeah yeah = new TimerYeah(id);
+//        Thread thread = new Thread(yeah, "timer");
+//        thread.start();
+//        return yeah;
+//    }
 
     public Vector<UserOnlineTime> getLastXWeekTime(int lastXWeek) {
         Vector<UserOnlineTime> voVector = new Vector<>();

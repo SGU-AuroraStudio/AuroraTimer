@@ -205,13 +205,16 @@ public class Main2Form {
      * 后台计时，每隔24分钟提交一次
      */
     public void backAddTime() {
-
         freshAddTimer = new Timer(5 * 60 * 1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TimerYeah.addTime(userData.getID());
-                loadUserData(userData.getID());
-                loadWeekTime(0);
+                try {
+                    TimerYeah.addTime(userData.getID());
+                    loadUserData(userData.getID());
+                    loadWeekTime(0);
+                } catch (Throwable throwable) {
+                    JOptionPane.showMessageDialog(null, "超紧急！！计时线程异常!!!!\n", "提示", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         freshAddTimer.setRepeats(true);
