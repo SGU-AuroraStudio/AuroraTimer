@@ -14,11 +14,6 @@ import javax.swing.plaf.basic.BasicPanelUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.io.FileFilter;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.sql.Time;
 import java.util.Iterator;
 import java.util.Vector;
@@ -103,8 +98,8 @@ public class Main2Form {
         changeButton.setContentAreaFilled(false);
         timePanel.setUI(new BasicPanelUI() {
             @Override
-            public void paint(Graphics g, JComponent c) {
-                super.paint(g, c);
+            public void update(Graphics g, JComponent c) {
+                super.update(g, c);
                 c.setSize(565, 780);
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

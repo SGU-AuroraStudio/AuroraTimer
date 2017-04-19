@@ -12,8 +12,8 @@ import java.io.File;
  */
 public class MainParentPanelUI extends BasicPanelUI {
     @Override
-    public void paint(Graphics g, JComponent c) {
-        super.paint(g, c);
+    public void update(Graphics g, JComponent c) {
+        super.update(g, c);
         File bg = new File(ServerURL.BG_PATH);
         if (bg.exists()) {
             g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
