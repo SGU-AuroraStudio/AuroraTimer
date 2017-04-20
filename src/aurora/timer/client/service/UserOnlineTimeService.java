@@ -36,7 +36,6 @@ public class UserOnlineTimeService {
             connection.setRequestProperty("accept","application/json"); //向服务器表示我要的是json
             connection.connect();
 
-
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer buffer = new StringBuffer("");
             String temp;

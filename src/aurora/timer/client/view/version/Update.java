@@ -35,7 +35,7 @@ public class Update {
             url = new URL(checkNewUrl);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
-            reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+            reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "gbk"));
             String temp;
             while ((temp=reader.readLine())!=null) {
                 stringBuffer.append(temp);
@@ -46,6 +46,7 @@ public class Update {
             locVersion.load(getClass().getResourceAsStream("version.properties"));
 
             textArea.append("当前版本为： " + locVersion.get("version") + "\n最新版本为： " + netVersion.get("version") + "\n");
+            textArea.append("新版本描述：" + netVersion.get("des") + "\n");
 
             if (netVersion.get("version").equals(locVersion.get("version"))) {
                 returnObject.put("status", "new");
@@ -56,8 +57,8 @@ public class Update {
                 returnObject.put("status", "old");
                 returnObject.put("version", netVersion.get("version"));
 
-//                textArea.append("新版本描述：" + netVersion.get("des"));
             }
+
         } catch (Exception exception) {
             exception.printStackTrace();
             returnObject.put("status", "err");

@@ -4,6 +4,7 @@ import aurora.timer.client.ServerURL;
 import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
+import aurora.timer.client.view.until.TableUntil;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
 import org.json.simple.JSONObject;
@@ -17,6 +18,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.Time;
 import java.util.*;
+import java.util.List;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
@@ -44,6 +46,7 @@ public class Main2Form {
     Point mousePoint; //鼠标位置，判断挂机用
     WeekInfoForm weekInfoForm; //用来查看周计时的panel
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
+    String[] theRedPerson;
     int page; //查看周计时的页面
     int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
     Logger logger = Logger.getLogger("MAIN");
@@ -163,9 +166,20 @@ public class Main2Form {
         });
         uiIt = list.iterator();
 
-
+        //显示出来
+        int redListFlag = 0;
+        int[] redList = new int[theRedPerson.length];
         while (uiIt.hasNext()) {
             UserOnlineTime t = uiIt.next();
+            for (int i = 0 ; i < theRedPerson.length; i ++) {
+                if (t.getID().equals(theRedPerson[i])) {
+                    redList[redListFlag] = model.getRowCount();
+                    redListFlag ++;
+                }
+            }
+            for (int i = 0; i < redList.length; i ++) {
+                System.out.println(redList[i]);
+            }
             try {
                 byte[] bytes = t.getName().getBytes();
                 String s =new String(bytes,"utf-8");
@@ -173,6 +187,8 @@ public class Main2Form {
             }catch (Exception e){
                 e.printStackTrace();
             }
+            //将红名的index集合传入变色
+            TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255,77,93,230));
         }
     }
 
@@ -228,7 +244,7 @@ public class Main2Form {
                     loadUserData(userData.getID());
                     loadWeekTime(0);
                 } catch (Throwable throwable) {
-                    JOptionPane.showMessageDialog(null, "超紧急！！计时线程异常!!!!\n", "提示", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "计时线程异常，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -242,11 +258,8 @@ public class Main2Form {
                 if (MouseInfo.getPointerInfo().getLocation().equals(mousePoint)) {
 
                     freshAddTimer.stop();
-                    createDialog();
+                    createDialog();//打开提示框，此时计时线程会停止
                     freshAddTimer.start();
-//                    if (freshAddTimer.isRunning()) {
-//                        freshAddTimer.stop();
-//                    }
                 }
                 mousePoint = MouseInfo.getPointerInfo().getLocation();
             }
@@ -259,16 +272,9 @@ public class Main2Form {
      * 创建检测到挂机时候的dialog
      */
     public void createDialog() {
-        String[] option = {"并没有", "是的"};
-        int o = JOptionPane.showOptionDialog(null, "你在挂机？", "提示", JOptionPane.OK_CANCEL_OPTION,
+        String[] option = {"不在", "不在"};
+        int o = JOptionPane.showOptionDialog(null, "在？", "提示", JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
-//        System.out.println(freshAddTimer.isRunning());
-//        if ((o == 1 || o == 0) && !freshAddTimer.isRunning()) {
-////            TimerYeah.addTime(userData.getID());
-////            freshAddTimer.start();
-//            System.out.println("chong");
-//            backAddTime();
-//        }
     }
 
     /**
@@ -464,6 +470,36 @@ public class Main2Form {
         }
     }
 
+    public void setLastWeekRedPerson(int x) {
+        loadWeekTime(1);
+        Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
+
+        //使用list存储并排序
+        java.util.List<UserOnlineTime> list = new LinkedList<>();
+        while (uiIt.hasNext()) {
+            UserOnlineTime t = uiIt.next();
+            list.add(t);
+        }
+        list.sort(new Comparator<UserOnlineTime>() {
+            @Override
+            public int compare(UserOnlineTime o1, UserOnlineTime o2) {
+                if (o1.getTodayOnlineTime() > o2.getTodayOnlineTime()) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
+        uiIt = list.iterator();
+        theRedPerson = new String[x];
+        for (int i = 0; i < x; i++) {
+            if (uiIt.hasNext()) {
+                theRedPerson[i] = uiIt.next().getID();
+//                System.out.println(theRedPerson[i]);
+            }
+        }
+    }
+
     public static void main(String args[]) {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         try {
@@ -473,6 +509,10 @@ public class Main2Form {
                     FRAME = new MainFrame();
                     Main2Form main2Form = new Main2Form();
                     main2Form.loadUserData(args[0]);
+
+                    //设置上周前N名至theRedPerson
+                    main2Form.setLastWeekRedPerson(3);
+
                     main2Form.loadWeekTime(0);
 
                     FRAME.setContentPane(main2Form.parent);
