@@ -46,7 +46,11 @@ public class Update {
             locVersion.load(getClass().getResourceAsStream("version.properties"));
 
             textArea.append("当前版本为： " + locVersion.get("version") + "\n最新版本为： " + netVersion.get("version") + "\n");
-            textArea.append("新版本描述：" + netVersion.get("des") + "\n");
+            String[] updateInfo = ((String) netVersion.get("des")).split(",");
+            textArea.append("新版本描述：\n");
+            for (int i = 0; i < updateInfo.length; i++) {
+                textArea.append("- " + updateInfo[i] + "\n");
+            }
 
             if (netVersion.get("version").equals(locVersion.get("version"))) {
                 returnObject.put("status", "new");

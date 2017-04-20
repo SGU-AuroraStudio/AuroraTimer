@@ -177,9 +177,6 @@ public class Main2Form {
                     redListFlag ++;
                 }
             }
-            for (int i = 0; i < redList.length; i ++) {
-                System.out.println(redList[i]);
-            }
             try {
                 byte[] bytes = t.getName().getBytes();
                 String s =new String(bytes,"utf-8");
@@ -188,7 +185,11 @@ public class Main2Form {
                 e.printStackTrace();
             }
             //将红名的index集合传入变色
-            TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255,77,93,230));
+        }
+        if (page==0) {
+            TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255, 77, 93, 150), page);
+        } else {
+            TableUntil.setOneRowBackgroundColor(thisWeekList, new int[0], Color.black, page);
         }
     }
 
@@ -362,6 +363,7 @@ public class Main2Form {
                     parent.add(weekAllPane);
                 }
             }
+
         });
     }
 
