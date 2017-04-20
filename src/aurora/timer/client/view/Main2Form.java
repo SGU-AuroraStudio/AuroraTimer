@@ -10,13 +10,13 @@ import org.json.simple.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.Timer;
 import javax.swing.plaf.basic.BasicPanelUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.Time;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.*;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
@@ -144,6 +144,26 @@ public class Main2Form {
         for (index = model.getRowCount() - 1; index >= 0; index --) {
             model.removeRow(index);
         }
+
+        //使用list存储并排序
+        java.util.List<UserOnlineTime> list = new LinkedList<>();
+        while (uiIt.hasNext()) {
+            UserOnlineTime t = uiIt.next();
+            list.add(t);
+        }
+        list.sort(new Comparator<UserOnlineTime>() {
+            @Override
+            public int compare(UserOnlineTime o1, UserOnlineTime o2) {
+                if (o1.getTodayOnlineTime() > o2.getTodayOnlineTime()) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
+        uiIt = list.iterator();
+
+
         while (uiIt.hasNext()) {
             UserOnlineTime t = uiIt.next();
             try {

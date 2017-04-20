@@ -55,6 +55,8 @@ public class Update {
             } else  {
                 returnObject.put("status", "old");
                 returnObject.put("version", netVersion.get("version"));
+
+//                textArea.append("新版本描述：" + netVersion.get("des"));
             }
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -80,6 +82,14 @@ public class Update {
         textArea.append("正在下载更新....\n");
 
         File newTimer = new File("Timer" + version + ".jar");
+        //更新删除本地文件
+        File localFile = new File("AuroraTimer.jar");
+        if (localFile.exists()) {
+            System.out.println("localExists");
+            localFile.delete();
+        } else {
+            System.out.println("NOT EXISTS");
+        }
 
         try {
             if (!newTimer.exists()) {
@@ -88,6 +98,7 @@ public class Update {
                 newTimer.delete();
                 newTimer.createNewFile();
             }
+            //下载更新
             url = new URL(updateUrl);
             bufferedInputStream = new BufferedInputStream(url.openStream());
             outputStream = new FileOutputStream(newTimer);
@@ -98,7 +109,8 @@ public class Update {
                 outputStream.flush();
             }
 
-            textArea.append("更新完毕，请手动删除旧版本。");
+            System.out.println("换名结果：" + newTimer.renameTo(new File("AuroraTimer.jar")));
+            textArea.append("更新完毕。");
 
         } catch (Exception e) {
             e.printStackTrace();

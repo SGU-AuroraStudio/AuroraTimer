@@ -30,13 +30,14 @@ public class OpenCheckForm {
                 FRAME.setResizable(false);
                 FRAME.setVisible(true);
 
+                //检查更新
                 Update update = new Update(form.InfoPane);
                 JSONObject checkObject = update.checkNew();
                 if (checkObject.get("status").equals("old")) {
                     String newVersion = (String) checkObject.get("version");
                     update.update(newVersion);
                     try {
-                        Runtime.getRuntime().exec("java -jar Timer" + newVersion + ".jar");
+                        Runtime.getRuntime().exec("java -jar AuroraTimer.jar");
                     } catch (IOException e) {
                         System.err.println("OPEN TIMER EXCEPTION");
                         e.printStackTrace();

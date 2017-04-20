@@ -9,8 +9,8 @@ public class ServerURL {
     //服务器的地址加端口
 //    public static final String HOST = "192.168.1.17:8090";
     //服务器外网地址
-//    public static final String HOST = "210.38.206.110:8090";
-    public static final String HOST = "127.0.0.1:8080";
+    public static final String HOST = "210.38.206.110:8090";
+//    public static final String HOST = "127.0.0.1:8080";
     //跳转的登陆页面，在页面完成注册
     public static final String REGISTER_URL = "http://" + HOST + "/timer/pages/register.html";
     //登陆验证的url
@@ -30,8 +30,8 @@ public class ServerURL {
     //背景图片的文件夹
     public static final String BG_PATH = "res" + File.separator + "bg.png";
     //检查新版本
-//    public static final String CHECK_VERSION_URL = "http://" + HOST + "/timer/soft/ver.json";
-    public static final String CHECK_VERSION_URL = "http://" + HOST + "/timer/version";
+    public static final String CHECK_VERSION_URL = "http://" + HOST + "/timer/soft/ver.json";
+//    public static final String CHECK_VERSION_URL = "http://" + HOST + "/timer/version";
     //获得软件本体的路径
     public static final String UPDATE_URL = "http://" + HOST + "/timer/soft"; // + TimerX.X.jar
 }
