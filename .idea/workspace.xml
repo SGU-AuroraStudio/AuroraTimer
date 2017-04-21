@@ -6,12 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="2.2版本，修复红名bug">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$6.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$7.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" />
+    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +44,8 @@
       <file leaf-file-name="Main2Form.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3933">
-              <caret line="191" column="91" lean-forward="false" selection-start-line="191" selection-start-column="91" selection-end-line="191" selection-end-column="91" />
+            <state relative-caret-position="368">
+              <caret line="206" column="57" lean-forward="true" selection-start-line="206" selection-start-column="57" selection-end-line="206" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,7 +56,7 @@
       <file leaf-file-name="TableUntil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
+            <state relative-caret-position="413">
               <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -70,19 +68,31 @@
       <file leaf-file-name="WeekInfoForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
+            <state relative-caret-position="298">
               <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainParentPanelUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainParentPanelUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="529">
-              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+              <caret line="28" column="1" lean-forward="false" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Update.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="120" column="37" lean-forward="false" selection-start-line="120" selection-start-column="37" selection-end-line="120" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,18 +100,8 @@
       <file leaf-file-name="ServerURL.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="version.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+            <state relative-caret-position="252">
+              <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -124,9 +124,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="552">
               <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -225,10 +223,10 @@
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/service/UserOnlineTimeService.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/until/setOneBackgroundColor.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" />
       </list>
     </option>
   </component>
@@ -1064,7 +1062,7 @@
       <workItem from="1492609076282" duration="2103000" />
       <workItem from="1492646968934" duration="13162000" />
       <workItem from="1492692382378" duration="721000" />
-      <workItem from="1492693132021" duration="386000" />
+      <workItem from="1492693132021" duration="1755000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -1304,7 +1302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492693511282</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="2.2版本，修复红名bug">
+      <created>1492693523535</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1492693523535</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1340,7 +1345,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192677000" />
+    <option name="totallyTimeSpent" value="194046000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1602,9 +1607,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
           <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1631,41 +1634,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java">
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1183">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3933">
-          <caret line="191" column="91" lean-forward="false" selection-start-line="191" selection-start-column="91" selection-end-line="191" selection-end-column="91" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+        <state relative-caret-position="529">
+          <caret line="28" column="1" lean-forward="false" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1679,17 +1652,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        <state relative-caret-position="252">
+          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java">
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="368">
+          <caret line="206" column="57" lean-forward="true" selection-start-line="206" selection-start-column="57" selection-end-line="206" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="120" column="37" lean-forward="false" selection-start-line="120" selection-start-column="37" selection-end-line="120" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

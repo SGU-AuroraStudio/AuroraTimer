@@ -6,6 +6,7 @@ import org.json.simple.JSONValue;
 
 import javax.swing.*;
 import java.io.*;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Properties;
@@ -63,9 +64,12 @@ public class Update {
 
             }
 
+        } catch(ConnectException exception) {
+            textArea.append("发送请求失败，请检查网络连接或者服务器运行情况\n");
         } catch (Exception exception) {
             exception.printStackTrace();
             returnObject.put("status", "err");
+            exception.printStackTrace();
         } finally {
             try {
                 reader.close();
@@ -114,10 +118,13 @@ public class Update {
                 outputStream.flush();
             }
 
-            System.out.println("换名结果：" + newTimer.renameTo(new File("AuroraTimer.jar")));
+            System.out.println("替换旧版本结果：" + newTimer.renameTo(new File("AuroraTimer.jar")));
             textArea.append("更新完毕。");
 
-        } catch (Exception e) {
+        } catch (ConnectException connectException) {
+            textArea.append("无法访问到新版本，请检查服务器上是否存在源文件\n");
+            connectException.printStackTrace();
+        }catch (Exception e) {
             e.printStackTrace();
             System.exit(200);
         } finally {
