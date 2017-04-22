@@ -6,10 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-    </list>
+    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,8 +52,8 @@
       <file leaf-file-name="TableUntil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="74" lean-forward="true" selection-start-line="7" selection-start-column="74" selection-end-line="7" selection-end-column="74" />
+            <state relative-caret-position="207">
+              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#403#1480#0" expanded="true" />
@@ -1039,7 +1036,7 @@
       <workItem from="1492692382378" duration="721000" />
       <workItem from="1492693132021" duration="2587000" />
       <workItem from="1492742318958" duration="2025000" />
-      <workItem from="1492821450527" duration="1801000" />
+      <workItem from="1492821450527" duration="2013000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -1343,7 +1340,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198704000" />
+    <option name="totallyTimeSpent" value="198916000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1683,8 +1680,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="74" lean-forward="true" selection-start-line="7" selection-start-column="74" selection-end-line="7" selection-end-column="74" />
+        <state relative-caret-position="207">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#403#1480#0" expanded="true" />
