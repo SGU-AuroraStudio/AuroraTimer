@@ -13,7 +13,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.sql.Time;
 import java.util.Iterator;
 import java.util.Vector;
@@ -86,6 +85,14 @@ public class MainForm {
         loadTable();
         addBar();
         loadSystemTray();
+
+        Timer timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        timer.setRepeats(true);
+        timer.start();
     }
 
     public void refreshAll() {
@@ -99,14 +106,6 @@ public class MainForm {
     }
 
     public void loadTable() {
-//        TableColumn columnId = new TableColumn();
-//        TableColumn columnTime = new TableColumn();
-//        columnId.setHeaderValue("ID");
-//        columnId.setMaxWidth(120);
-//        columnTime.setHeaderValue("本周在线总时间");
-//
-//        thisWeekList.addColumn(columnId);
-//        thisWeekList.addColumn(columnTime);
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
         model.addColumn("ID");
         model.addColumn("本周在线总时间");
@@ -144,7 +143,8 @@ public class MainForm {
         popupMenu.add(exitItem);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(new File("src"+File.separator+"res" + File.separator + "trayIcon.png")),"哦哈哟～",popupMenu);
+            trayIcon = new TrayIcon(ImageIO.read(getClass().getResource("trayIcon.png")));
+            trayIcon.setPopupMenu(popupMenu);
             trayIcon.addMouseListener(new MouseAdapter() {
                 /**
                  * {@inheritDoc}
@@ -183,7 +183,7 @@ public class MainForm {
         logoutItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Preferences preferences = Preferences.userRoot().node(ServerURL.PREPATH);
+                Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
                 preferences.putBoolean("auto", false);
                 TimerYeah.addTime(data.getID());
                 addTimeThread.isStop = false;
@@ -198,7 +198,7 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, ServerURL.ABOUT, "关于",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src"+File.separator+"res" + File.separator + "geass.png"));
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("geass.png"), "geass"));
             }
         });
     }
@@ -206,7 +206,7 @@ public class MainForm {
     //刷新本周计时统计那个表
     public void refreshThisWeekList() {
         UserOnlineTimeService service = new UserOnlineTimeService();
-        Vector<UserOnlineTime> userOnlineTimes = service.getThisWeekTime();
+        Vector<UserOnlineTime> userOnlineTimes = service.getLastXWeekTime(0);
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
         int index;
@@ -232,24 +232,34 @@ public class MainForm {
         }
     }
 
-    public static void main(String[] args) {
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        FRAME = new JFrame("Hello, " + args[0]);
-        MainForm mainForm = new MainForm();
-        mainForm.addBar();
-
-        UserOnlineTimeService uots = new UserOnlineTimeService();
-        UserDataService uds = new UserDataService();
-        mainForm.setAddTimeThread(uots.startTimer(args[0])); //将后台发送计时请求的加载
-        mainForm.setData(uds.findById(args[0])); //将用户信息加载
-        mainForm.refreshAll();
-        FRAME.setContentPane(mainForm.parent);
-        FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        int height = 518;
-        int width = 700;
-        FRAME.setBounds((d.width-width)/2, (d.height-height)/2, width, height);
-        FRAME.setResizable(false);
-//        FRAME.pack();
-        FRAME.setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+//        try {
+//            EventQueue.invokeLater(new Runnable() {
+//                @Override
+//                public void run() {
+//                    FRAME = new JFrame("Hello, " + args[0]);
+//                    MainForm mainForm = new MainForm();
+//                    mainForm.addBar();
+//
+//                    UserOnlineTimeService uots = new UserOnlineTimeService();
+//                    UserDataService uds = new UserDataService();
+//                    mainForm.setAddTimeThread(uots.startTimer(args[0])); //将后台发送计时请求的加载
+//                    mainForm.setData(uds.findById(args[0])); //将用户信息加载
+//                    mainForm.refreshAll();
+//                    FRAME.setContentPane(mainForm.parent);
+//                    FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+//                    int height = 520;
+//                    int width = 700;
+//                    FRAME.setBounds((d.width - width) / 2, (d.height - height) / 2, width, height);
+//                    FRAME.setResizable(false);
+////        FRAME.pack();
+//                    FRAME.setVisible(true);
+//                }
+//            });
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

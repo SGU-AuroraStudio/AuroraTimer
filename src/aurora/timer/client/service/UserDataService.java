@@ -19,7 +19,7 @@ public class UserDataService {
         HttpURLConnection connection = null;
         boolean flag = false;
         try {
-            URL url = new URL(ServerURL.LOGINURL);
+            URL url = new URL(ServerURL.LOGIN_URL);
             connection = (HttpURLConnection) url.openConnection();
 
             connection.setDoInput(true);
@@ -55,9 +55,8 @@ public class UserDataService {
     public JSONObject findById(String id) {
         HttpURLConnection connection = null;
         JSONObject object = null;
-        UserData data = new UserData();
         try {
-            URL url = new URL(ServerURL.FINDBYID + "?id=" + id);
+            URL url = new URL(ServerURL.FIND_BY_ID + "?id=" + id);
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.setUseCaches(false);

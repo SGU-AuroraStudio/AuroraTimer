@@ -12,15 +12,25 @@ public class UserOnlineTime {
     private Time lastOnlineTime; //今天最后在线时间
     private Long todayOnlineTime; //今天在线总毫秒数
 
+    private String name; //不加这个太麻烦了
+
     public UserOnlineTime() {
-        this("null", new Date(0), new Time(0), Long.decode("0"));
+        this("null", new Date(0), new Time(0), Long.decode("0"), "");
     }
 
-    public UserOnlineTime(String ID, Date todayDate, Time lastOnlineTime, Long todayOnlineTime) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public UserOnlineTime(String ID, Date todayDate, Time lastOnlineTime, Long todayOnlineTime, String name) {
         setID(ID);
         setTodayDate(todayDate);
         setLastOnlineTime(lastOnlineTime);
         setTodayOnlineTime(todayOnlineTime);
+        setName(name);
     }
 
     /**

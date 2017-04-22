@@ -17,18 +17,18 @@ import java.util.Vector;
  * Created by hao on 17-1-25.
  */
 public class UserOnlineTimeService {
-    public TimerYeah startTimer(String id) {
-        TimerYeah yeah = new TimerYeah(id);
-        Thread thread = new Thread(yeah, "timer");
-        thread.start();
-        return yeah;
-    }
+//    public TimerYeah startTimer(String id) {
+//        TimerYeah yeah = new TimerYeah(id);
+//        Thread thread = new Thread(yeah, "timer");
+//        thread.start();
+//        return yeah;
+//    }
 
-    public Vector<UserOnlineTime> getThisWeekTime() {
+    public Vector<UserOnlineTime> getLastXWeekTime(int lastXWeek) {
         Vector<UserOnlineTime> voVector = new Vector<>();
         HttpURLConnection connection = null;
         try {
-            URL url = new URL(ServerURL.THISWEEKTIME);
+            URL url = new URL(ServerURL.THIS_WEEK_TIME + "?x=" + lastXWeek);
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.setUseCaches(false);
@@ -54,6 +54,7 @@ public class UserOnlineTimeService {
                 oTemp = (JSONObject) object.get(keyIt.next());
                 vo.setID( (String) oTemp.get("id"));
                 vo.setTodayOnlineTime( Long.decode((String)oTemp.get("time")));
+                vo.setName((String) oTemp.get("name"));
                 voVector.add(vo);
             }
         } catch (Exception e) {
