@@ -13,6 +13,7 @@ import java.util.Properties;
 
 /**
  * Created by hao on 17-4-18.
+ * 自动更新装置
  */
 public class Update {
     private JTextArea textArea = null;

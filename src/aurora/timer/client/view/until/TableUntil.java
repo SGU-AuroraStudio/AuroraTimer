@@ -18,7 +18,8 @@ public class TableUntil {
 
                     boolean flag = false;
                     for (int i = 0; i < rowIndex.length; i ++) {
-                        if (row==rowIndex[i]) {
+                        //把名字和前n的渲染
+                        if (row==rowIndex[i] && column==0) {
                             flag = true;
                             setBackground(color);
                             setForeground(new Color(230,230,230,230));
