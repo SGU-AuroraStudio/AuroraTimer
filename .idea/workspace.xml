@@ -7,12 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer_jar/AuroraTimer.jar" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,8 +55,8 @@
       <file leaf-file-name="TableUntil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+            <state relative-caret-position="161">
+              <caret line="7" column="74" lean-forward="true" selection-start-line="7" selection-start-column="74" selection-end-line="7" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#403#1480#0" expanded="true" />
@@ -1043,7 +1039,7 @@
       <workItem from="1492692382378" duration="721000" />
       <workItem from="1492693132021" duration="2587000" />
       <workItem from="1492742318958" duration="2025000" />
-      <workItem from="1492821450527" duration="1601000" />
+      <workItem from="1492821450527" duration="1784000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -1297,7 +1293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492740155283</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="2.21版本的细微修改">
+      <created>1492827092125</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1492827092125</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1333,7 +1336,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198504000" />
+    <option name="totallyTimeSpent" value="198687000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1386,7 +1389,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完成关闭到托盘" />
     <MESSAGE value="改版本周表等几处。" />
     <MESSAGE value="图片相对路径改为绝对路径，更改刷新顺序" />
     <MESSAGE value="额。和路径无关" />
@@ -1411,7 +1413,8 @@
     <MESSAGE value="2.1版本，红名显示" />
     <MESSAGE value="2.2版本，修复红名bug" />
     <MESSAGE value="2.21版本，加了点异常判断" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.21版本，加了点异常判断" />
+    <MESSAGE value="2.21版本的细微修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.21版本的细微修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1673,8 +1676,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        <state relative-caret-position="161">
+          <caret line="7" column="74" lean-forward="true" selection-start-line="7" selection-start-column="74" selection-end-line="7" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#403#1480#0" expanded="true" />
