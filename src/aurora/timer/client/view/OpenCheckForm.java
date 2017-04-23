@@ -33,7 +33,13 @@ public class OpenCheckForm {
                 //检查更新
                 Update update = new Update(form.InfoPane);
                 JSONObject checkObject = update.checkNew();
+                int updateStatus = -1;
                 if (checkObject.get("status").equals("old")) {
+                    String[] option = {"更新", "不更"};
+                    updateStatus = JOptionPane.showOptionDialog(null, "已检测到新版本，是否更新？", "提示", JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+                }
+                if (updateStatus == 0) {
                     String newVersion = (String) checkObject.get("version");
                     update.update(newVersion);
                     try {
@@ -42,10 +48,8 @@ public class OpenCheckForm {
                         System.err.println("OPEN TIMER EXCEPTION");
                         e.printStackTrace();
                     }
-                } else if (checkObject.get("status").equals("new")) {
-                    LoginForm.main(new String[0]);
                 } else {
-                    System.err.println("CHECK VERSION EXCEPTION");
+                    LoginForm.main(new String[0]);
                 }
 
             }
