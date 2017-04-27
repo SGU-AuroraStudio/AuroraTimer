@@ -95,10 +95,10 @@ public class Update {
         //更新删除本地文件
         File localFile = new File("AuroraTimer.jar");
         if (localFile.exists()) {
-            System.out.println("localExists");
+//            System.out.println("localExists");
             localFile.delete();
         } else {
-            System.out.println("NOT EXISTS");
+//            System.out.println("NOT EXISTS");
         }
 
         try {

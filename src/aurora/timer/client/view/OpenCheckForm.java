@@ -36,7 +36,8 @@ public class OpenCheckForm {
                 int updateStatus = -1;
                 if (checkObject.get("status").equals("old")) {
                     String[] option = {"更新", "不更"};
-                    updateStatus = JOptionPane.showOptionDialog(null, "已检测到新版本，是否更新？", "提示", JOptionPane.OK_CANCEL_OPTION,
+                    updateStatus = JOptionPane.showOptionDialog(null, "已检测到新版本:" +
+                                    checkObject.get("version") + "，是否更新？", "提示", JOptionPane.OK_CANCEL_OPTION,
                             JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
                 }
                 if (updateStatus == 0) {

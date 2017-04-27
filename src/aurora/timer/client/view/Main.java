@@ -1,10 +1,5 @@
 package aurora.timer.client.view;
 
-import aurora.timer.client.view.version.Update;
-import org.json.simple.JSONObject;
-
-import java.io.IOException;
-
 /**
  * Created by hao on 17-4-18.
  */
