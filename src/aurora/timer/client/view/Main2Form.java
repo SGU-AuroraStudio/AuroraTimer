@@ -34,6 +34,7 @@ public class Main2Form {
     private JPanel headPanel;
     private JLabel timeLabel;
     private JButton changeButton;
+    private JButton settingButton;
     private TrayIcon trayIcon;
     private SystemTray systemTray;
     private Long thisWeekTime = 0L;
@@ -331,7 +332,7 @@ public class Main2Form {
         outButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.exit(1);
+                onExit();
             }
         });
         //设置拖动
@@ -364,6 +365,12 @@ public class Main2Form {
                 }
             }
 
+        });
+        settingButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //TODO:
+            }
         });
     }
 
@@ -425,7 +432,7 @@ public class Main2Form {
         exitItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                onExit();
             }
         });
         logoutItem.addActionListener(new ActionListener() {
@@ -469,6 +476,15 @@ public class Main2Form {
             systemTray.add(trayIcon);
         } catch (Exception e) {
             logger.warning("托盘初始化失败");
+        }
+    }
+
+    public void onExit() {
+        String[] option = {"退出", "取消"};
+        int isExit = JOptionPane.showOptionDialog(null, "是否退出计时器？", "提示", JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+        if(isExit == 0) {
+            System.exit(2);
         }
     }
 

@@ -66,7 +66,7 @@ public class TimerYeah {
             connection.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "上传时间函数异常。。\n", "提示", JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "上传时间函数异常。。\n", "提示", JOptionPane.ERROR_MESSAGE);
         }
         return flag;
     }

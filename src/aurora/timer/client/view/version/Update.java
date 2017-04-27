@@ -122,7 +122,7 @@ public class Update {
             System.out.println("替换旧版本结果：" + newTimer.renameTo(new File("AuroraTimer.jar")));
             textArea.append("更新完毕。");
 
-        } catch (ConnectException connectException) {
+        } catch (FileNotFoundException connectException) {
             textArea.append("无法访问到新版本，请检查服务器上是否存在源文件\n");
             connectException.printStackTrace();
         }catch (Exception e) {
