@@ -9,6 +9,7 @@ public class AutoOpen {
     private static final int WINDOWS_10 = 1;
     private static final int LINUX = 2;
     private static final int WINDOWS_OT = 3;
+    private static String autoDir;
 
     private static int judgeOs() {
         String osName = System.getProperty("os.name");
@@ -29,16 +30,33 @@ public class AutoOpen {
         OutputStreamWriter outputStreamWriter;
         switch (os) {
             case WINDOWS_10:try {
-                file = new File("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp\\TimerStar.bat");
+                autoDir = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp\\TimerStar.vbs";
+                file = new File(System.getProperty("java.io.tmpdir") + File.separator  + "TimerStar.bat");
+                File startFile = new File("timer.vbs");
+                startFile.createNewFile();
                 if (!file.exists()) {
                     file.createNewFile();
                 } else {
                     file.delete();
                     file.createNewFile();
                 }
+                //将执行计时器的bat放入系统的临时文件夹内
                 outputStreamWriter = new FileWriter(file);
                 outputStreamWriter.write("java -jar " + jarPath);
                 outputStreamWriter.close();
+
+                outputStreamWriter = new FileWriter(startFile);
+                outputStreamWriter.write("createobject(\"wscript.shell\").run \"" + file.getAbsolutePath() + "\",0 ");
+//                System.out.println("createobject(\"wscript.shell\").run \"" + file.getAbsolutePath() + "\",0 ");
+                outputStreamWriter.close();
+
+                //调用cmd命令来复制启动的vbs文件
+                Runtime runtime = Runtime.getRuntime();
+                runtime.exec("cmd /c copy " + formatPath(startFile.getAbsolutePath()) + " " + formatPath(autoDir));
+//                System.out.println("cmd /c copy " + formatPath(startFile.getAbsolutePath()) + " " + formatPath(autoDir));
+
+//                startFile.delete();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -58,5 +76,10 @@ public class AutoOpen {
             case WINDOWS_OT:break;
             default:System.err.println("未找到该系统");
         }
+    }
+
+    private static String formatPath(String path){
+        if(path==null) return "";
+        return path.replaceAll(" ", "\" \"");
     }
 }

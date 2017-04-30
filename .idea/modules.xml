@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AuroraTimer.iml" filepath="$PROJECT_DIR$/AuroraTimer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TimerUpdate/TimerUpdate.iml" filepath="$PROJECT_DIR$/TimerUpdate/TimerUpdate.iml" />
     </modules>
   </component>
 </project>

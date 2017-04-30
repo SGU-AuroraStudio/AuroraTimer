@@ -96,7 +96,7 @@ public class Update {
         File localFile = new File("AuroraTimer.jar");
         if (localFile.exists()) {
 //            System.out.println("localExists");
-            localFile.delete();
+            localFile.renameTo(new File("clean"));
         } else {
 //            System.out.println("NOT EXISTS");
         }

@@ -66,8 +66,7 @@ public class LoginForm {
                 loginLogic(); //因为loginButton.doClick()不知为何用不了，所以分离注册来复用代码
             }
         });
-        autoLoginCheckBox.addMouseListener(new MouseAdapter() {
-        });
+
         autoLoginCheckBox.addItemListener(new ItemListener() {
             /**
              * Invoked when an item has been selected or deselected by the user.

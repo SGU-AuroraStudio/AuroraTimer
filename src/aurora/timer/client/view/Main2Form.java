@@ -366,12 +366,12 @@ public class Main2Form {
             }
 
         });
-//        settingButton.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                SettingForm.main(new String[0]);
-//            }
-//        });
+        settingButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                SettingForm.main(new String[0]);
+            }
+        });
     }
 
     /**

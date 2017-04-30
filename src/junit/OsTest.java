@@ -9,5 +9,6 @@ public class OsTest {
     @Test
     public void osTest() {
         System.out.println(System.getProperty("os.name") + "\n" + System.getProperty("os.version"));
+        System.out.println(System.getProperty("java.io.tmpdir"));
     }
 }

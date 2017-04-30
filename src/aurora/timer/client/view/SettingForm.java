@@ -6,8 +6,7 @@ import org.omg.CORBA.FREE_MEM;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.prefs.Preferences;
 
 /**
@@ -23,6 +22,7 @@ public class SettingForm {
 
     public SettingForm() {
         preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
+        OkButton.setEnabled(false);
         autoOpenRadio.setSelected(preferences.getBoolean("autoOpen", false));
         CancelButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -41,6 +41,16 @@ public class SettingForm {
                 }
 
                 FRAME.dispose();
+            }
+        });
+        autoOpenRadio.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (autoOpenRadio.isSelected() == preferences.getBoolean("autoOpen", false)) {
+                    OkButton.setEnabled(false);
+                } else {
+                    OkButton.setEnabled(true);
+                }
             }
         });
     }
