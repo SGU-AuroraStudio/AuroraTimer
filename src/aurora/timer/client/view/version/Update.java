@@ -31,6 +31,12 @@ public class Update {
         StringBuffer stringBuffer = new StringBuffer("");
         byte[] buffer = new byte[1000];
 
+        //删除更新替换工具，以免碍眼
+        File updateTool = new File("UpdateTool.jar");
+        if (updateTool.exists()) {
+            updateTool.delete();
+        }
+
         textArea.append("正在检查更新....\n");
 
         try {
@@ -83,7 +89,8 @@ public class Update {
     }
 
     public void update(String version){
-        String updateUrl = ServerURL.UPDATE_URL + "/Timer" + version + ".jar";
+        String updateUrl = ServerURL.SOFT_URL + "/Timer" + version + ".jar";
+        String toolUrl = ServerURL.SOFT_URL + "/UpdateTool.jar";
         URL url = null;
         BufferedInputStream bufferedInputStream = null;
         OutputStream outputStream = null;
@@ -92,14 +99,12 @@ public class Update {
         textArea.append("正在下载更新....\n");
 
         File newTimer = new File("Timer" + version + ".jar");
-        //更新删除本地文件
-        File localFile = new File("AuroraTimer.jar");
-        if (localFile.exists()) {
-//            System.out.println("localExists");
-            localFile.renameTo(new File("clean"));
-        } else {
-//            System.out.println("NOT EXISTS");
-        }
+        File updateTool = new File("UpdateTool.jar");
+//        //更新删除本地文件
+//        File localFile = new File("AuroraTimer.jar");
+//        if (localFile.exists()) {
+//            localFile.renameTo(new File("clean"));
+//        }
 
         try {
             if (!newTimer.exists()) {
@@ -119,8 +124,20 @@ public class Update {
                 outputStream.flush();
             }
 
-            System.out.println("替换旧版本结果：" + newTimer.renameTo(new File("AuroraTimer.jar")));
-            textArea.append("更新完毕。");
+            url = new URL(toolUrl);
+            bufferedInputStream = new BufferedInputStream(url.openStream());
+            outputStream = new FileOutputStream(updateTool);
+
+            while ((size=bufferedInputStream.read(buffer))!=-1) {
+                outputStream.write(buffer, 0, size);
+                outputStream.flush();
+            }
+
+//            System.out.println("替换旧版本结果：" + newTimer.renameTo(new File("AuroraTimer.jar")));
+            textArea.append("下载完毕。");
+
+            Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName());
+            System.exit(666);
 
         } catch (FileNotFoundException connectException) {
             textArea.append("无法访问到新版本，请检查服务器上是否存在源文件\n");

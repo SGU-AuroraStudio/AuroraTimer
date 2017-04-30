@@ -1,6 +1,7 @@
 package aurora.timer.client;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by hao on 17-4-28.
@@ -20,6 +21,12 @@ public class UpdateTool {
             }
             newFile.renameTo(new File(oldFileName));
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Runtime.getRuntime().exec("java -jar AuroraTimer.jar");
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

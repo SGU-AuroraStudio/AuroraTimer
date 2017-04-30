@@ -39,20 +39,19 @@ public class OpenCheckForm {
                     updateStatus = JOptionPane.showOptionDialog(null, "已检测到新版本:" +
                                     checkObject.get("version") + "，是否更新？", "提示", JOptionPane.OK_CANCEL_OPTION,
                             JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
-                }
-                if (updateStatus == 0) {
-                    String newVersion = (String) checkObject.get("version");
-                    update.update(newVersion);
-                    try {
-                        Runtime.getRuntime().exec("java -jar AuroraTimer.jar");
-                    } catch (IOException e) {
-                        System.err.println("OPEN TIMER EXCEPTION");
-                        e.printStackTrace();
+                    if (updateStatus == 0) {
+                        String newVersion = (String) checkObject.get("version");
+                        update.update(newVersion);
+//                    try {
+//                        Runtime.getRuntime().exec("java -jar AuroraTimer.jar");
+//                    } catch (IOException e) {
+//                        System.err.println("OPEN TIMER EXCEPTION");
+//                        e.printStackTrace();
+//                    }
                     }
-                } else {
-                    LoginForm.main(new String[0]);
                 }
-
+                //进入主程序
+                LoginForm.main(new String[0]);
             }
         });
         Thread thisThread = Thread.currentThread();

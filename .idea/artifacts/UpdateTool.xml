@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="UpdateTool">
+    <output-path>$PROJECT_DIR$/out/artifacts/UpdateTool</output-path>
+    <root id="archive" name="UpdateTool.jar">
+      <element id="module-output" name="TimerUpdate" />
+    </root>
+  </artifact>
+</component>

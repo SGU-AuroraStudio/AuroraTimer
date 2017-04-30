@@ -33,5 +33,5 @@ public class ServerURL {
     public static final String CHECK_VERSION_URL = "http://" + HOST + "/timer/soft/ver.json";
 //    public static final String CHECK_VERSION_URL = "http://" + HOST + "/timer/version";
     //获得软件本体的路径
-    public static final String UPDATE_URL = "http://" + HOST + "/timer/soft"; // + TimerX.X.jar
+    public static final String SOFT_URL = "http://" + HOST + "/timer/soft"; // + TimerX.X.jar
 }

@@ -69,10 +69,7 @@ public class LoginForm {
 
         autoLoginCheckBox.addItemListener(new ItemListener() {
             /**
-             * Invoked when an item has been selected or deselected by the user.
-             * The code written for this method performs the operations
-             * that need to occur when an item is selected (or deselected).
-             * 选中自动登陆当然就要自动选中记住密码嘛！
+             * 选中自动登陆当然就要自动选中记住密码嘛
              * @param e
              */
             @Override
