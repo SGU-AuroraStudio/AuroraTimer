@@ -20,14 +20,10 @@ public class UpdateTool {
                 oldFile.delete();
             }
             newFile.renameTo(new File(oldFileName));
+            Runtime.getRuntime().exec("java -jar AuroraTimer.jar");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        try {
-            Runtime.getRuntime().exec("java -jar AuroraTimer.jar");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

@@ -46,7 +46,7 @@ public class AutoOpen {
                 outputStreamWriter.close();
 
                 outputStreamWriter = new FileWriter(startFile);
-                outputStreamWriter.write("createobject(\"wscript.shell\").run \"" + file.getAbsolutePath() + "\",0 ");
+                outputStreamWriter.write("createobject(\"wscript.shell\").run \"\"\"”" + file.getAbsolutePath() + "\"\"\",0 ");
 //                System.out.println("createobject(\"wscript.shell\").run \"" + file.getAbsolutePath() + "\",0 ");
                 outputStreamWriter.close();
 
