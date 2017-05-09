@@ -31,7 +31,7 @@ public class AutoOpen {
         switch (os) {
             case WINDOWS_10:try {
                 autoDir = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp\\TimerStar.vbs";
-                file = new File(System.getProperty("java.io.tmpdir") + File.separator  + "TimerStar.bat");
+                file = new File("TimerStar.bat");
                 File startFile = new File("timer.vbs");
                 startFile.createNewFile();
                 if (!file.exists()) {
@@ -42,7 +42,7 @@ public class AutoOpen {
                 }
                 //将执行计时器的bat放入系统的临时文件夹内
                 outputStreamWriter = new FileWriter(file);
-                outputStreamWriter.write("java -jar " + jarPath);
+                outputStreamWriter.write("java -jar " + formatPath(jarPath));
                 outputStreamWriter.close();
 
                 outputStreamWriter = new FileWriter(startFile);
