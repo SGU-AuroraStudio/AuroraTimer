@@ -7,200 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Timer3.0.jar" afterPath="$PROJECT_DIR$/Timer3.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-codec-1.10.jar" afterPath="$PROJECT_DIR$/lib/commons-codec-1.10.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterPath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/json-simple-1.1.jar" afterPath="$PROJECT_DIR$/lib/json-simple-1.1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/junit-4.12.jar" afterPath="$PROJECT_DIR$/lib/junit-4.12.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/ServerURL.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/ServerURL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/plugin/TestPlugin.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/plugin/TestPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/plugin/TimerPlugin.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/plugin/TimerPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/TimerYeah.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/TimerYeah.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserOnlineTimeService.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserOnlineTimeService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginButtonUI.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginButtonUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$2.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$3.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$4.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$5.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginFrame.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginPanelUI.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginPanelUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$10.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$11.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$12.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$13.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$14.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$14.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$2.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$3.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$4.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$5.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$6.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$7.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$8.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$9.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$2.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$3.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$4.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$5.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$6.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$7.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainFrame.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainParentPanelUI.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainParentPanelUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainTimePanelUI.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainTimePanelUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/WeekInfoForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/WeekInfoForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg2.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg5.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg5.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg8.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg8.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/geass.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/geass.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/login.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/login.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2P.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2P.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIconP.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIconP.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/count.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/count.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButton.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButtonP.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButtonP.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbutton.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbutton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbuttonp.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbuttonp.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/min.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/min.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/out.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/out.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/pwd.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/pwd.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbutton.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbutton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbuttonp.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbuttonp.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButton.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButtonP.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButtonP.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/select.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/select.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/selectp.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/selectp.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/unselect.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/unselect.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/trayIcon.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/trayIcon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/until/TableUntil$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/until/TableUntil$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/until/TableUntil.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/until/TableUntil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/vo/UserData.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/vo/UserData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/vo/UserOnlineTime.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/vo/UserOnlineTime.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/AbstractLayout.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/AbstractLayout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/DimensionInfo.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/DimensionInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridConstraints.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridConstraints.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridLayoutManager.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridLayoutManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/HorizontalInfo.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/HorizontalInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/LayoutState.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/LayoutState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Spacer.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Spacer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Util.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/VerticalInfo.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/VerticalInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/junit/HttpConnectionTest.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/junit/HttpConnectionTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/junit/UpdateTest.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/junit/UpdateTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/bg.png" afterPath="$PROJECT_DIR$/res/bg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/bg4.png" afterPath="$PROJECT_DIR$/res/bg4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/plugins/TestPlugin.class" afterPath="$PROJECT_DIR$/res/plugins/TestPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/plugins/TimerPlugin.class" afterPath="$PROJECT_DIR$/res/plugins/TimerPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/bg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg2.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/bg2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg5.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/bg5.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg8.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/bg8.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/geass.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/geass.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/login.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/login.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2P.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2P.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIconP.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIconP.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/count.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/count.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButton.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButtonP.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButtonP.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbutton.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbutton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbuttonp.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbuttonp.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/min.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/min.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/out.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/out.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/pwd.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/pwd.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbutton.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbutton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbuttonp.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbuttonp.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButton.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButtonP.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButtonP.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/select.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/select.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/selectp.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/selectp.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/unselect.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/unselect.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/trayIcon.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/trayIcon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/AuroraTimer.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/AuroraTimer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/UpdateTool.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/UpdateTool.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__5_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__5_.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AuroraTimer.iml" afterPath="$PROJECT_DIR$/AuroraTimer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerUpdate/TimerUpdate.iml" afterPath="$PROJECT_DIR$/TimerUpdate/TimerUpdate.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerUpdate/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/TimerUpdate/src/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java" afterPath="$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auroratimer.properties" afterPath="$PROJECT_DIR$/auroratimer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auroratimer.xml" afterPath="$PROJECT_DIR$/auroratimer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.properties" afterPath="$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.xml" afterPath="$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module_auroratimer.xml" afterPath="$PROJECT_DIR$/module_auroratimer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module_auroratimer_Thu_Feb_02_17-01-48_CST_2017.xml" afterPath="$PROJECT_DIR$/module_auroratimer_Thu_Feb_02_17-01-48_CST_2017.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/test/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/test/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/plugin/TestPlugin.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/plugin/TestPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/plugin/TimerPlugin.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/plugin/TimerPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/service/TimerYeah.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/service/TimerYeah.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/service/UserOnlineTimeService.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/service/UserOnlineTimeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainFrame.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainTimePanelUI.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainTimePanelUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/UserData.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/UserData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/UserOnlineTime.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/UserOnlineTime.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/junit/HttpConnectionTest.java" afterPath="$PROJECT_DIR$/src/junit/HttpConnectionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/junit/OsTest.java" afterPath="$PROJECT_DIR$/src/junit/OsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/junit/UpdateTest.java" afterPath="$PROJECT_DIR$/src/junit/UpdateTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/test/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -245,8 +57,8 @@
       <file leaf-file-name="AutoOpen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+            <state relative-caret-position="1127">
+              <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -265,8 +77,8 @@
       <file leaf-file-name="UpdateTool.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+            <state relative-caret-position="621">
+              <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -290,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -392,8 +204,8 @@
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" />
         <option value="$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java" />
       </list>
     </option>
@@ -437,7 +249,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -450,41 +263,11 @@
               <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="AuroraTimer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AuroraTimer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AuroraTimer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="until" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AuroraTimer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="version" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1137,7 +920,12 @@
       <workItem from="1494320979571" duration="177000" />
       <workItem from="1494321806553" duration="294000" />
       <workItem from="1494334700020" duration="371000" />
-      <workItem from="1494335133670" duration="380000" />
+      <workItem from="1494335133670" duration="566000" />
+      <workItem from="1494511120908" duration="865000" />
+      <workItem from="1494611775229" duration="16000" />
+      <workItem from="1494616960677" duration="85000" />
+      <workItem from="1494685220176" duration="374000" />
+      <workItem from="1494663007467" duration="517000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -1447,7 +1235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494302293037</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary=" 2.4修改更新工具">
+      <created>1494335521892</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1494335521892</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1483,7 +1278,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235421000" />
+    <option name="totallyTimeSpent" value="237464000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1751,7 +1546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1679">
           <caret line="86" column="37" lean-forward="false" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1770,21 +1564,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding>
-            <element signature="e#773#925#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#962#1372#0" expanded="true" />
-            <element signature="e#1371#1372#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1802,22 +1585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2208">
@@ -1826,10 +1593,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="621">
+          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
           <folding />
         </state>
       </provider>
