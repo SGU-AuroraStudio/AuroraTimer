@@ -55,7 +55,7 @@ public class Update {
 
             textArea.append("当前版本为： " + locVersion.get("version") + "\n最新版本为： " + netVersion.get("version") + "\n");
             String[] updateInfo = ((String) netVersion.get("des")).split(",");
-            textArea.append("新版本描述：\n");
+            textArea.append("公告：\n");
             for (int i = 0; i < updateInfo.length; i++) {
                 textArea.append("- " + updateInfo[i] + "\n");
             }
@@ -136,8 +136,16 @@ public class Update {
 //            System.out.println("替换旧版本结果：" + newTimer.renameTo(new File("AuroraTimer.jar")));
             textArea.append("下载完毕。");
 
-            Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName());
-            System.exit(666);
+            boolean flag = false;
+            while (!flag) {
+                try {
+                    Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName());
+                    System.out.println(newTimer.getName());
+                    flag = true;
+                } catch (Exception e) {
+                }
+            }
+                System.exit(666);
 
         } catch (FileNotFoundException connectException) {
             textArea.append("无法访问到新版本，请检查服务器上是否存在源文件\n");

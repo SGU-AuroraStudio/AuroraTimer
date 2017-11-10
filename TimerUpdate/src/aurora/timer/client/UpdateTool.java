@@ -9,8 +9,15 @@ import java.io.IOException;
 public class UpdateTool {
     public static void main(String args[]) {
         String newFileName = args[0];
+//        String newFileName = "df";
         String oldFileName = "AuroraTimer.jar";
+        try {
+            Thread.sleep(4000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         boolean isSuss = false;
+        int i = 0;
         while (!isSuss) {
             try {
                 File oldFile = new File(oldFileName);
@@ -25,8 +32,9 @@ public class UpdateTool {
                 Runtime.getRuntime().exec("java -jar AuroraTimer.jar");
                 isSuss = true;
             } catch (Exception e) {
+                System.out.println("try:" + i++);
                 isSuss = false;
-//                e.printStackTrace();
+                e.printStackTrace();
             }
         }
     }

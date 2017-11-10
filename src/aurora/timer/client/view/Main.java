@@ -1,9 +1,15 @@
 package aurora.timer.client.view;
 
+import aurora.timer.client.ServerURL;
+
+import javax.swing.*;
 import java.io.File;
 import java.io.RandomAccessFile;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
+import java.util.prefs.Preferences;
 
 /**
  * Created by hao on 17-4-18.
@@ -35,8 +41,30 @@ public class Main {
         }
     }
 
+    public static void setIp() {
+        Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
+        try {
+            //测试连接
+            String checkUrl = ServerURL.CHECK_VERSION_URL;
+            HttpURLConnection httpURLConnection = null;
+            URL url = new URL(checkUrl);
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.connect();
+            httpURLConnection.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+            String getHost = JOptionPane.showInputDialog(null, "连接服务器失败", ServerURL.HOST);
+            if (getHost.length()!=0) {
+                ServerURL.HOST = getHost;
+                preferences.put("host", getHost);
+            }
+            System.exit(11);
+        }
+    }
+
     public static void main(String args[]) {
         makeSingle("Timer");
+        setIp();
         OpenCheckForm.main(new String[2]);
 
     }

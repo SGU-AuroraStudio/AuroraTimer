@@ -15,7 +15,7 @@
           <component id="75902" class="javax.swing.JRadioButton" binding="autoOpenRadio">
             <constraints/>
             <properties>
-              <text value="开机自启"/>
+              <text value="生成自启文件"/>
             </properties>
           </component>
         </children>

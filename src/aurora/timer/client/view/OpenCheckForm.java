@@ -17,9 +17,9 @@ public class OpenCheckForm {
 
     public static void main(String[] args) {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
+//        EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
                 FRAME = new JFrame("检查更新");
                 OpenCheckForm form = new OpenCheckForm();
                 FRAME.setContentPane(form.parent);
@@ -51,15 +51,20 @@ public class OpenCheckForm {
                     }
                 }
                 //进入主程序
-                LoginForm.main(new String[0]);
-            }
-        });
+//            }
+//        });
         Thread thisThread = Thread.currentThread();
         try {
             thisThread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                LoginForm.main(new String[0]);
+            }
+        });
 
         FRAME.dispose();
     }

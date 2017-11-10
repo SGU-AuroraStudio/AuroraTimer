@@ -48,6 +48,7 @@ public class TimerYeah {
         HttpURLConnection connection = null;
         try {
             URL url = new URL(ServerURL.TIMER + "?id=" + id);
+            System.out.println(ServerURL.TIMER);
             connection = (HttpURLConnection) url.openConnection();
             connection.connect();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));

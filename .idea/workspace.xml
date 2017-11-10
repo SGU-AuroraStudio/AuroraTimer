@@ -2,17 +2,206 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="UpdateTool" />
+      <artifact name="AuroraTimer" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MyFirstJFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Timer3.0.jar" afterPath="$PROJECT_DIR$/Timer3.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-codec-1.10.jar" afterPath="$PROJECT_DIR$/lib/commons-codec-1.10.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterPath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/json-simple-1.1.jar" afterPath="$PROJECT_DIR$/lib/json-simple-1.1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/junit-4.12.jar" afterPath="$PROJECT_DIR$/lib/junit-4.12.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/ServerURL.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/ServerURL.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/plugin/TestPlugin.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/plugin/TestPlugin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/plugin/TimerPlugin.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/plugin/TimerPlugin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/TimerYeah.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/TimerYeah.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserOnlineTimeService.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserOnlineTimeService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginButtonUI.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginButtonUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$2.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$3.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$4.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$5.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginFrame.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginPanelUI.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginPanelUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$10.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$11.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$12.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$13.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$14.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$2.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$3.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$4.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$5.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$6.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$7.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$8.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$9.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$2.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$3.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$4.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$5.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$6.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$7.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainFrame.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainParentPanelUI.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainParentPanelUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainTimePanelUI.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainTimePanelUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/WeekInfoForm.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/WeekInfoForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg2.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg5.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg5.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg8.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg8.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/geass.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/geass.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/login.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/login.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2P.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2P.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIconP.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIconP.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/count.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/count.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButton.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButtonP.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButtonP.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbutton.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbutton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbuttonp.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbuttonp.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/min.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/min.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/out.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/out.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/pwd.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/pwd.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbutton.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbutton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbuttonp.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbuttonp.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButton.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButtonP.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButtonP.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/select.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/select.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/selectp.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/selectp.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/unselect.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/unselect.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/trayIcon.png" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/trayIcon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/until/TableUntil$1.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/until/TableUntil$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/until/TableUntil.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/until/TableUntil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/vo/UserData.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/vo/UserData.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/vo/UserOnlineTime.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/vo/UserOnlineTime.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/AbstractLayout.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/AbstractLayout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/DimensionInfo.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/DimensionInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridConstraints.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridConstraints.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridLayoutManager.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridLayoutManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/HorizontalInfo.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/HorizontalInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/LayoutState.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/LayoutState.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Spacer.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Spacer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Util.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Util.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/VerticalInfo.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/VerticalInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/junit/HttpConnectionTest.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/junit/HttpConnectionTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/junit/UpdateTest.class" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/junit/UpdateTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/bg.png" afterPath="$PROJECT_DIR$/res/bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/bg4.png" afterPath="$PROJECT_DIR$/res/bg4.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/plugins/TestPlugin.class" afterPath="$PROJECT_DIR$/res/plugins/TestPlugin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/plugins/TimerPlugin.class" afterPath="$PROJECT_DIR$/res/plugins/TimerPlugin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg2.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/bg2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg5.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/bg5.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg8.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/bg8.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/geass.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/geass.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/login.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/login.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2P.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2P.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIconP.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIconP.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/count.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/count.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButton.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButtonP.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButtonP.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbutton.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbutton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbuttonp.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbuttonp.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/min.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/min.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/out.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/out.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/pwd.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/pwd.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbutton.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbutton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbuttonp.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbuttonp.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButton.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButtonP.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButtonP.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/select.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/select.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/selectp.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/selectp.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/unselect.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/res/unselect.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/trayIcon.png" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/trayIcon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/AuroraTimer.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/AuroraTimer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/UpdateTool.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/UpdateTool.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__5_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__5_.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_12.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AuroraTimer.iml" afterPath="$PROJECT_DIR$/AuroraTimer.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerUpdate/TimerUpdate.iml" afterPath="$PROJECT_DIR$/TimerUpdate/TimerUpdate.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerUpdate/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/TimerUpdate/src/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java" afterPath="$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auroratimer.properties" afterPath="$PROJECT_DIR$/auroratimer.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auroratimer.xml" afterPath="$PROJECT_DIR$/auroratimer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.properties" afterPath="$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.xml" afterPath="$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module_auroratimer.xml" afterPath="$PROJECT_DIR$/module_auroratimer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module_auroratimer_Thu_Feb_02_17-01-48_CST_2017.xml" afterPath="$PROJECT_DIR$/module_auroratimer_Thu_Feb_02_17-01-48_CST_2017.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AuroraTimer/test/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/test/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/plugin/TestPlugin.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/plugin/TestPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/plugin/TimerPlugin.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/plugin/TimerPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/service/TimerYeah.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/service/TimerYeah.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/service/UserOnlineTimeService.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/service/UserOnlineTimeService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainFrame.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainTimePanelUI.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainTimePanelUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/UserData.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/UserData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/UserOnlineTime.java" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/UserOnlineTime.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/junit/HttpConnectionTest.java" afterPath="$PROJECT_DIR$/src/junit/HttpConnectionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/junit/OsTest.java" afterPath="$PROJECT_DIR$/src/junit/OsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/junit/UpdateTest.java" afterPath="$PROJECT_DIR$/src/junit/UpdateTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/test/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +225,6 @@
     <expand />
     <select />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="AuroraTimer">
       <favorite_root url="aurora.timer.client.view.LoginForm" module="AuroraTimer" type="form" klass="com.intellij.uiDesigner.projectView.FormNode">
@@ -47,18 +235,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WeekInfoForm.form" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
+      <file leaf-file-name="version.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="13" lean-forward="true" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AutoOpen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1127">
-              <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
+            <state relative-caret-position="110">
+              <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1364">
+              <caret line="139" column="75" lean-forward="true" selection-start-line="139" selection-start-column="75" selection-end-line="139" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDataService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="880">
+              <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerURL.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main2Form.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="442" column="24" lean-forward="false" selection-start-line="442" selection-start-column="24" selection-end-line="442" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimerYeah.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/service/TimerYeah.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1232">
+              <caret line="63" column="13" lean-forward="true" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateTool.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11">
+              <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpenCheckForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="30" column="39" lean-forward="false" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -67,42 +330,8 @@
       <file leaf-file-name="Update.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2208">
-              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpdateTool.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SettingForm.form" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main2Form.form" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="version.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+            <state relative-caret-position="176">
+              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -113,8 +342,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -133,6 +362,11 @@
       <find>Timer</find>
       <find>List</find>
       <find>exit(</find>
+      <find>JSON</find>
+      <find>de</find>
+      <find>Jpanel(</find>
+      <find>setting</find>
+      <find>addTime</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,8 +390,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanel.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -181,7 +413,6 @@
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/MainTimePanelUI.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/VersionURL.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/Updata.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.json" />
         <option value="$PROJECT_DIR$/src/junit/UpdateTest.java" />
         <option value="$PROJECT_DIR$/src/junit/HttpConnectionTest.java" />
@@ -190,23 +421,26 @@
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/until/setOneBackgroundColor.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/service/TimerYeah.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/until/OSJudge.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form" />
         <option value="$PROJECT_DIR$/src/junit/OsTest.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/Main.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" />
         <option value="$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/Main.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/IUpdate.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" />
+        <option value="$PROJECT_DIR$/src/JTableOperation.java" />
+        <option value="$PROJECT_DIR$/src/MyFirstJFrame.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form" />
         <option value="$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/Main.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/client/service/TimerYeah.java" />
       </list>
     </option>
   </component>
@@ -225,11 +459,11 @@
   <component name="MavenProjectNavigator">
     <treeState />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="320" />
+    <option name="y" value="142" />
+    <option name="width" value="1368" />
+    <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -249,8 +483,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -263,15 +495,47 @@
               <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="AuroraTimer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AuroraTimer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AuroraTimer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="LoginForm" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="AuroraTimer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuroraTimer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="Main2Form" type="e9f4de52:FormNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AuroraTimerServer" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -318,30 +582,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main ">
-    <configuration name="HttpConnectionTest.httpTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="junit.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="AuroraTimer" />
+    <configuration name="JTableOperation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="JTableOperation" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="junit" />
-      <option name="MAIN_CLASS_NAME" value="junit.HttpConnectionTest" />
-      <option name="METHOD_NAME" value="httpTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
+      <module name="AuroraTimer" />
       <envs />
-      <patterns />
     </configuration>
     <configuration name="Main " type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -362,14 +615,9 @@
       <module name="AuroraTimer" />
       <envs />
     </configuration>
-    <configuration name="OpenCheckForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="aurora.timer.client.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="aurora.timer.client.view.OpenCheckForm" />
+    <configuration name="MyFirstJFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="MyFirstJFrame" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -406,30 +654,24 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="UpdateTest.updateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UpdateTool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="junit.*" />
+          <option name="PATTERN" value="aurora.timer.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="AuroraTimer" />
+      <option name="MAIN_CLASS_NAME" value="aurora.timer.client.UpdateTool" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="junit" />
-      <option name="MAIN_CLASS_NAME" value="junit.UpdateTest" />
-      <option name="METHOD_NAME" value="updateTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
+      <module name="TimerUpdate" />
       <envs />
-      <patterns />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -451,53 +693,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-    </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
     </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
       <setting name="vmparams" value="" />
@@ -723,6 +918,55 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -809,18 +1053,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main " />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.UpdateTest.updateTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.HttpConnectionTest.httpTest" />
-      <item index="3" class="java.lang.String" itemvalue="Application.OpenCheckForm" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.OsTest.osTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.OsTest.osTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.JTableOperation" />
+      <item index="3" class="java.lang.String" itemvalue="Application.MyFirstJFrame" />
+      <item index="4" class="java.lang.String" itemvalue="Application.UpdateTool" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.Main " />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.OsTest.osTest" />
-        <item index="2" class="java.lang.String" itemvalue="Application.OpenCheckForm" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HttpConnectionTest.httpTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.UpdateTest.updateTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.UpdateTool" />
+        <item index="2" class="java.lang.String" itemvalue="Application.MyFirstJFrame" />
+        <item index="3" class="java.lang.String" itemvalue="Application.JTableOperation" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.OsTest.osTest" />
       </list>
     </recent_temporary>
   </component>
@@ -925,7 +1169,30 @@
       <workItem from="1494611775229" duration="16000" />
       <workItem from="1494616960677" duration="85000" />
       <workItem from="1494685220176" duration="374000" />
-      <workItem from="1494663007467" duration="517000" />
+      <workItem from="1494663007467" duration="554000" />
+      <workItem from="1494743928060" duration="61000" />
+      <workItem from="1496302407777" duration="3127000" />
+      <workItem from="1496309564755" duration="3754000" />
+      <workItem from="1496315263508" duration="3854000" />
+      <workItem from="1496321123251" duration="1494000" />
+      <workItem from="1496361424636" duration="2513000" />
+      <workItem from="1496382213078" duration="1888000" />
+      <workItem from="1496388739797" duration="1245000" />
+      <workItem from="1496396844037" duration="122000" />
+      <workItem from="1496405082222" duration="417000" />
+      <workItem from="1504592118867" duration="1063000" />
+      <workItem from="1504607034072" duration="140000" />
+      <workItem from="1504607322964" duration="3609000" />
+      <workItem from="1505003872939" duration="756000" />
+      <workItem from="1505004696806" duration="935000" />
+      <workItem from="1505048653348" duration="20000" />
+      <workItem from="1505301610750" duration="1236000" />
+      <workItem from="1507457573505" duration="1039000" />
+      <workItem from="1507462824479" duration="688000" />
+      <workItem from="1507465242790" duration="760000" />
+      <workItem from="1508846779230" duration="1137000" />
+      <workItem from="1508931872298" duration="5779000" />
+      <workItem from="1509100014914" duration="5910000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -1242,7 +1509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494335521892</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary=" 2.41修改更新工具">
+      <created>1494663542187</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1494663542187</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1278,7 +1552,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237464000" />
+    <option name="totallyTimeSpent" value="279048000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1290,48 +1564,47 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1122" y="63" width="159" height="716" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.4946695" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268839" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27139875" sideWeight="0.5170576" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18077324" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" x="274" y="322" width="661" height="173" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.49253732" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27089947" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" x="274" y="322" width="661" height="173" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.4969651" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12513313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39874738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新的主页面进阶" />
     <MESSAGE value="要开始做画圆盘了" />
     <MESSAGE value="主界面的一界面完成" />
     <MESSAGE value="基本完成。。" />
@@ -1356,7 +1629,8 @@
     <MESSAGE value="2.3" />
     <MESSAGE value="2.32" />
     <MESSAGE value=" 2.4修改更新工具" />
-    <option name="LAST_COMMIT_MESSAGE" value=" 2.4修改更新工具" />
+    <MESSAGE value=" 2.41修改更新工具" />
+    <option name="LAST_COMMIT_MESSAGE" value=" 2.41修改更新工具" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1369,19 +1643,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml" />
-    <entry file="file://$PROJECT_DIR$/auroratimer.properties" />
-    <entry file="file://$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.properties" />
-    <entry file="file://$PROJECT_DIR$/auroratimer_Thu_Feb_02_17-01-48_CST_2017.xml" />
-    <entry file="file://$PROJECT_DIR$/module_auroratimer.xml" />
-    <entry file="file://$PROJECT_DIR$/auroratimer.xml" />
-    <entry file="file://$PROJECT_DIR$/AuroraTimer.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1399,27 +1660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainTimePanelUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="28" column="56" lean-forward="false" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/VersionURL.java" />
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/version.json" />
     <entry file="jar://$USER_HOME$/lib/jdk1.8/src.zip!/java/util/Properties.java" />
@@ -1427,13 +1667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1457,120 +1690,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/setOneBackgroundColor.java" />
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/service/TimerYeah.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="49" column="30" lean-forward="true" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="28" column="1" lean-forward="false" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/Unique.java" />
-    <entry file="file://$PROJECT_DIR$/src/junit/OsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7958">
-          <caret line="371" column="22" lean-forward="false" selection-start-line="371" selection-start-column="22" selection-end-line="371" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/IUpdate.java" />
     <entry file="file://$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="52" column="23" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="86" column="37" lean-forward="false" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/plugin/TimerPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1585,10 +1712,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java">
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/login.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2208">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="15" column="66" lean-forward="false" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JTableOperation.java" />
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/lib/jdk1.8/src.zip!/java/awt/event/MouseListener.java" />
+    <entry file="jar://$USER_HOME$/lib/jdk1.8/src.zip!/java/awt/event/MouseAdapter.java" />
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyFirstJFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1349">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/TableUntil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/junit/OsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainTimePanelUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="16" column="51" lean-forward="true" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/javax/swing/JPanel.java" />
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/vo/UserData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1598,10 +1829,50 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/until/AutoOpen.java">
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
+        <state relative-caret-position="176">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="30" column="39" lean-forward="false" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="442" column="24" lean-forward="false" selection-start-line="442" selection-start-column="24" selection-end-line="442" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/service/TimerYeah.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1232">
+          <caret line="63" column="13" lean-forward="true" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1609,16 +1880,42 @@
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+          <caret line="0" column="13" lean-forward="true" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java">
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        <state relative-caret-position="110">
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1364">
+          <caret line="139" column="75" lean-forward="true" selection-start-line="139" selection-start-column="75" selection-end-line="139" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/client/ServerURL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1629,10 +1926,10 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="artifact" />
-              <type id="javaee-facet-resources" />
               <type id="jpa-descriptors" />
               <type id="library" />
+              <type id="artifact" />
+              <type id="javaee-facet-resources" />
             </show-content>
           </artifact-editor>
           <last-edited>AuroraTimer</last-edited>

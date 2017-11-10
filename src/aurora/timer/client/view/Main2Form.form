@@ -58,10 +58,12 @@
               <actionCommand value=""/>
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
+              <enabled value="false"/>
               <icon value="aurora/timer/client/view/res/setting.png"/>
               <label value=""/>
               <margin top="2" left="0" bottom="2" right="0"/>
               <text value=""/>
+              <visible value="false"/>
             </properties>
           </component>
         </children>
