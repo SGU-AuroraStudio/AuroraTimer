@@ -1,0 +1,1 @@
+createobject("wscript.shell").run """D:\workspace\IdeaProjects\AuroraTimer\out\artifacts\AuroraTimer\TimerStar.bat""",0 
