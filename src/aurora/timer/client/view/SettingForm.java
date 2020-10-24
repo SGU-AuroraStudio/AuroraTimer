@@ -2,7 +2,7 @@ package aurora.timer.client.view;
 
 import aurora.timer.client.ServerURL;
 import aurora.timer.client.view.until.AutoOpen;
-import org.omg.CORBA.FREE_MEM;
+//import org.omg.CORBA.FREE_MEM;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,6 @@
 package aurora.timer.client.view;
 
-import javafx.scene.control.ScrollBar;
+//import javafx.scene.control.ScrollBar;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
