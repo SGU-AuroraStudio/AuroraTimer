@@ -68,6 +68,7 @@ public class Main2Form {
 //                System.out.print(x + " " + y);
                 if (!(x + y <= 55 || x + y >= 165 || x - y >= 55 || x - y <= -55)) {
                     parent.remove(weekAllPane);
+                    parent.repaint();
                     timePanel.setVisible(true);
                 }
             }
@@ -192,6 +193,7 @@ public class Main2Form {
         } else {
             TableUntil.setOneRowBackgroundColor(thisWeekList, new int[0], Color.black, page);
         }
+        parent.repaint();
     }
 
     /**
@@ -365,6 +367,7 @@ public class Main2Form {
                     loadWeekTime(0);
                     setAllTime();
                     parent.add(weekAllPane);
+                    parent.repaint();
                 }
             }
 
