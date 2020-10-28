@@ -65,8 +65,8 @@ public class Main {
     public static void main(String args[]) {
         makeSingle("Timer");
         setIp();
-        OpenCheckForm.main(new String[2]);
-        //LoginForm.main(new String[0]);
+        //OpenCheckForm.main(new String[2]);
+        LoginForm.main(new String[0]);
 
     }
 }

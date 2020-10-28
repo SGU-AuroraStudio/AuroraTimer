@@ -3,6 +3,7 @@ package aurora.timer.client.view;
 //import javafx.scene.control.ScrollBar;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
@@ -35,6 +36,9 @@ public class WeekInfoForm {
         tableHeader.setBackground(new Color(200, 200, 200, 100));
         tableHeader.setReorderingAllowed(false);
         tableHeader.setResizingAllowed(false);
+        DefaultTableCellRenderer headerTCR = (DefaultTableCellRenderer) tableHeader.getDefaultRenderer();
+        headerTCR.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+
         weekList.setEnabled(false);
         weekList.setVisible(true);
 
