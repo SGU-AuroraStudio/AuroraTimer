@@ -46,6 +46,7 @@ public class Main2Form {
     private JTable thisWeekList; // 指向本周计时的表
     Point mousePoint; //鼠标位置，判断挂机用
     WeekInfoForm weekInfoForm; //用来查看周计时的panel
+    WorkForm workForm;
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
     String[] theRedPerson;
     int page; //查看周计时的页面
@@ -60,6 +61,7 @@ public class Main2Form {
         loadSystemTray();
         mousePoint = MouseInfo.getPointerInfo().getLocation();
         weekInfoForm = new WeekInfoForm();
+        workForm = new WorkForm();
         weekInfoForm.changeButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -91,6 +93,24 @@ public class Main2Form {
                     loadWeekTime(page);
                     setAllTime();
                 }
+            }
+        });
+        weekInfoForm.announceButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //parent.remove(weekAllPane);
+                weekAllPane.setVisible(false);
+                weekAllPane.setEnabled(false);
+                parent.add(workForm.parent);
+            }
+        });
+        workForm.announceButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //parent.remove(weekAllPane);
+                parent.remove(workForm.parent);
+                weekAllPane.setVisible(true);
+                weekAllPane.setEnabled(true);
             }
         });
         thisWeekList = weekInfoForm.weekList;
@@ -367,7 +387,6 @@ public class Main2Form {
                     loadWeekTime(0);
                     setAllTime();
                     parent.add(weekAllPane);
-                    parent.repaint();
                 }
             }
 

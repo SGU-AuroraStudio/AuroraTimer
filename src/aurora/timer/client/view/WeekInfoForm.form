@@ -84,6 +84,20 @@
           </component>
         </children>
       </grid>
+      <component id="b4a5" class="javax.swing.JButton" binding="announceButton">
+        <constraints border-constraint="West"/>
+        <properties>
+          <actionCommand value=""/>
+          <borderPainted value="false"/>
+          <enabled value="true"/>
+          <icon value="aurora/timer/client/view/res/leftWeekButton.png"/>
+          <label value=""/>
+          <margin top="30" left="35" bottom="0" right="0"/>
+          <opaque value="false"/>
+          <pressedIcon value="aurora/timer/client/view/res/rightWeekButton.png"/>
+          <text value=""/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

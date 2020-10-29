@@ -18,12 +18,14 @@ public class WeekInfoForm {
     public JTable weekList;
     public JButton leftButton;
     public JButton rightButton;
+    public JButton announceButton;
 
     public void init() {
         LoginButtonUI buttonUI = new LoginButtonUI();
         leftButton.setUI(buttonUI);
         rightButton.setUI(buttonUI);
         changeButton.setUI(buttonUI);
+        announceButton.setUI(buttonUI);
         changeButton.setContentAreaFilled(false);
         infoPane.getViewport().setOpaque(false);
         DefaultTableModel model = (DefaultTableModel) weekList.getModel();
