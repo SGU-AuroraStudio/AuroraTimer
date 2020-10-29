@@ -10,12 +10,12 @@ public class ServerURL {
     //服务器的地址加端口
 //    public static final String HOST = "192.168.1.17:8090";
     //服务器外网地址
-//    public static final String HOST = "210.38.206.110:8090";
+//    public static final String HOST = "47.107.77.200:8080";
     public static String HOST;
 
     static {
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
-        ServerURL.HOST = preferences.get("host", "192.168.1.218:8080");
+        ServerURL.HOST = preferences.get("host", "47.107.77.200:8080");
 //        HOST = "192.168.1.218:8080";
     }
 

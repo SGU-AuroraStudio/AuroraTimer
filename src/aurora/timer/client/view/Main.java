@@ -66,7 +66,7 @@ public class Main {
         makeSingle("Timer");
         setIp();
         //OpenCheckForm.main(new String[2]);
-        LoginForm.main(new String[0]);
+        LoginForm.main(new String[1]);
 
     }
 }

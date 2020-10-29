@@ -262,7 +262,7 @@ public class Main2Form {
             public void actionPerformed(ActionEvent e) {
                 //挂机检测，就是鼠标24分钟前后在相同位置则暂停加时，在对话框被取消后继续加时
                 if (MouseInfo.getPointerInfo().getLocation().equals(mousePoint)) {
-
+                    // TODO:每次在停止计时前向服务器询问时间，如果在挂机时间内，就不执行停止计时（为防止在比如18：01向服务器询问，然后停止计时，应该将挂机时间段设置多一点点）
                     freshAddTimer.stop();
                     createDialog();//打开提示框，此时计时线程会停止
                     freshAddTimer.start();
