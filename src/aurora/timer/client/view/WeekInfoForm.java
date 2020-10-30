@@ -33,6 +33,7 @@ public class WeekInfoForm {
         model.addColumn("本周在线总时间");
         weekList.setBackground(new Color(200, 200, 200, 100));
         weekList.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 16));
+        // 表头
         JTableHeader tableHeader = weekList.getTableHeader();
         tableHeader.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
         tableHeader.setBackground(new Color(200, 200, 200, 100));

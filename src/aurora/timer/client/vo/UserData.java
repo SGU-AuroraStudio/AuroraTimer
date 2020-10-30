@@ -15,6 +15,7 @@ public class UserData implements Serializable {
     private String displayURL;
     private Boolean loginStatus; //是不是已经登录
     private Boolean isLeave; //是不是已经离开不再纳入统计
+    private Boolean isAdmin; //是否是管理员
 
     public UserData() {
         this("null", "0", "0", "0", "0",
@@ -91,6 +92,24 @@ public class UserData implements Serializable {
      */
     public boolean getIsLeave() {
         return isLeave;
+    }
+
+    /**
+     * 设置是否是管理员
+     *
+     * @param isAdmin 是否是管理员
+     */
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    /**
+     * 取得用户是否是管理员
+     *
+     * @return 用户是否是管理员
+     */
+    public boolean getIsAdmin() {
+        return isAdmin;
     }
 
     /**
