@@ -18,7 +18,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.Time;
 import java.util.*;
-import java.util.List;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
@@ -161,9 +160,9 @@ public class Main2Form {
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
         if (page == 0) {
-            thisWeekList.getColumnModel().getColumn(1).setHeaderValue("本周在线总时间");
+            thisWeekList.getColumnModel().getColumn(2).setHeaderValue("本周在线总时间");
         } else {
-            thisWeekList.getColumnModel().getColumn(1).setHeaderValue("前" + page + "周在线总时间");
+            thisWeekList.getColumnModel().getColumn(2).setHeaderValue("前" + page + "周在线总时间");
         }
         int index;
         for (index = model.getRowCount() - 1; index >= 0; index--) {
@@ -202,7 +201,7 @@ public class Main2Form {
             try {
                 byte[] bytes = t.getName().getBytes();
                 String s = new String(bytes, "utf-8");
-                model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), "   " + parseTime(t.getTodayOnlineTime())});
+                model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), "","   " + parseTime(t.getTodayOnlineTime())});
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -549,7 +548,7 @@ public class Main2Form {
             EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-                    FRAME = new MainFrame();
+                    FRAME = new MainFrame("极光");
                     Main2Form main2Form = new Main2Form();
                     main2Form.loadUserData(args[0]);
 

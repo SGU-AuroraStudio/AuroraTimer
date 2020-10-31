@@ -34,7 +34,7 @@ public class TableUntil {
                             isSelected, hasFocus, row, column);
                 }
             };
-
+            tcr.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
             int columnCount = table.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 table.getColumn("姓名").setCellRenderer(tcr);

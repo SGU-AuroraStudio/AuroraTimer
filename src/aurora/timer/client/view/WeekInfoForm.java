@@ -3,6 +3,8 @@ package aurora.timer.client.view;
 //import javafx.scene.control.ScrollBar;
 
 import javax.swing.*;
+import javax.swing.event.RowSorterEvent;
+import javax.swing.event.RowSorterListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -30,9 +32,20 @@ public class WeekInfoForm {
         infoPane.getViewport().setOpaque(false);
         DefaultTableModel model = (DefaultTableModel) weekList.getModel();
         model.addColumn("姓名");
+        model.addColumn("本学期在线总时间");
         model.addColumn("本周在线总时间");
         weekList.setBackground(new Color(200, 200, 200, 100));
         weekList.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 16));
+        DefaultRowSorter sorter = (DefaultRowSorter)weekList.getRowSorter();
+        // 不加这段排序后会重影
+        sorter.addRowSorterListener(new RowSorterListener() {
+            @Override
+            public void sorterChanged(RowSorterEvent e) {
+                parent.repaint();
+            }
+        });
+        DefaultTableCellRenderer defaultTableCellRenderer = (DefaultTableCellRenderer) weekList.getDefaultRenderer(Object.class);
+        defaultTableCellRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         // 表头
         JTableHeader tableHeader = weekList.getTableHeader();
         tableHeader.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));

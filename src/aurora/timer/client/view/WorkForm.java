@@ -39,6 +39,9 @@ public class WorkForm {
         dutyList.setBackground(new Color(200, 200, 200, 100));
         DefaultTableCellRenderer defaultTableCellRenderer = (DefaultTableCellRenderer) dutyList.getDefaultRenderer(Object.class);
         defaultTableCellRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+        //TODO:点击表格外的位置取消选中
+        //TODO:管理员用的提交按钮
+
         // 表头
         JTableHeader tableHeader = dutyList.getTableHeader();
         tableHeader.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 20));
