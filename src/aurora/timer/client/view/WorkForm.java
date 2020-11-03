@@ -36,7 +36,7 @@ public class WorkForm {
         dutyList.setOpaque(false);
         dutyList.setBorder(null);
         dutyList.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 16));
-        dutyList.setBackground(new Color(200, 200, 200, 100));
+        dutyList.setBackground(new Color(0, 0, 0, 0));
         DefaultTableCellRenderer defaultTableCellRenderer = (DefaultTableCellRenderer) dutyList.getDefaultRenderer(Object.class);
         defaultTableCellRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         //TODO:点击表格外的位置取消选中
@@ -44,8 +44,9 @@ public class WorkForm {
 
         // 表头
         JTableHeader tableHeader = dutyList.getTableHeader();
+        // YaHei Consolas Hybrid
         tableHeader.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 20));
-        tableHeader.setBackground(new Color(200, 200, 200, 100));
+        tableHeader.setBackground(new Color(86, 209, 149, 70));
         tableHeader.setReorderingAllowed(false);
         tableHeader.setResizingAllowed(false);
         DefaultTableCellRenderer headerTCR = (DefaultTableCellRenderer) tableHeader.getDefaultRenderer();

@@ -290,7 +290,7 @@ public class Main2Form {
             }
         });
         checkTimer.setRepeats(true);
-        checkTimer.start();
+        //checkTimer.start();
     }
 
     /**
@@ -563,6 +563,8 @@ public class Main2Form {
 //                    FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
                     FRAME.setResizable(false);
                     FRAME.setVisible(true);
+                    FRAME.setAlwaysOnTop(true);
+                    FRAME.setAlwaysOnTop(false);
                 }
             });
 
