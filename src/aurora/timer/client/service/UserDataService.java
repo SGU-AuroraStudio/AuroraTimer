@@ -40,7 +40,7 @@ public class UserDataService {
             out.close();
 
             //这里只会返回一行字符串"true"或者"false"
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8")); //注意：到了这行代码才会发送请求
             String s = reader.readLine();
             reader.close();
 

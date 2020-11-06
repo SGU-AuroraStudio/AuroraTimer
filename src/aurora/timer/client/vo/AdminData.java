@@ -4,15 +4,16 @@ import java.sql.Time;
 
 public class AdminData {
     private String announcement;
-    private Object[] dutylist;
+    private String dutylist;
     private Time freeTimeStart;
     private Time freeTimeEnd;
 
     public AdminData(){
-
+        freeTimeStart = new Time((long)39600000);
+        freeTimeEnd = new Time((long)32400000);
     }
 
-    public AdminData(String announcement, Object[] dutylist) {
+    public AdminData(String announcement, String dutylist) {
         this.announcement = announcement;
         this.dutylist = dutylist;
     }
@@ -37,7 +38,7 @@ public class AdminData {
      * 获得值日表
      * @return 返回值日表
      */
-    public Object[] getDutylist() {
+    public String getDutylist() {
         return dutylist;
     }
 
@@ -45,7 +46,23 @@ public class AdminData {
      * 设置值日表
      * @param dutylist 值日表
      */
-    public void setDutylist(Object[] dutylist) {
+    public void setDutylist(String dutylist) {
         this.dutylist = dutylist;
+    }
+
+    public Time getFreeTimeStart() {
+        return freeTimeStart;
+    }
+
+    public void setFreeTimeStart(Time freeTimeStart) {
+        this.freeTimeStart = freeTimeStart;
+    }
+
+    public Time getFreeTimeEnd() {
+        return freeTimeEnd;
+    }
+
+    public void setFreeTimeEnd(Time freeTimeEnd) {
+        this.freeTimeEnd = freeTimeEnd;
     }
 }

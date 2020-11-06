@@ -28,6 +28,8 @@ public class ServerURL {
     public static final String PRE_PATH = "com.aurora.timer";
     //计时地址
     public static String TIMER = "http://" + HOST + "/timer/timer";
+    //管理员地址
+    public static String ADMIN = "http://" + HOST + "/timer/admin";
 
     public static final String ABOUT = "———— All Hai Lelouch! ————";
     //获取本周时间的地址
