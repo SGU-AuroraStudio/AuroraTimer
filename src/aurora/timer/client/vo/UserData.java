@@ -193,6 +193,7 @@ public class UserData implements Serializable {
         this.shortTelNumber = shortTelNumber;
     }
 
+    //TODO:用户头像
     /**
      * 设置用户的头像地址
      *

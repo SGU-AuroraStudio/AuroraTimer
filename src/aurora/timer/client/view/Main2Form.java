@@ -51,6 +51,7 @@ public class Main2Form {
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
     String[] theRedPerson;
     int page; //查看周计时的页面
+    int pageLimited=20; //查看上x周最大值
     int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
     Logger logger = Logger.getLogger("MAIN");
 
@@ -79,7 +80,7 @@ public class Main2Form {
         weekInfoForm.leftButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (page <= 5) {
+                if (page < pageLimited) {
                     page++;
                     loadWeekTime(page);
                     setAllTime();
@@ -162,6 +163,9 @@ public class Main2Form {
      * 将userOnlineTimes中的数据画到表上
      */
     public void setAllTime() {
+        // 如果这一页为空白，上限就是这一页了
+        if(userOnlineTimes.size()==0)
+            pageLimited = page;
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
         if (page == 0) {
@@ -173,7 +177,6 @@ public class Main2Form {
         for (index = model.getRowCount() - 1; index >= 0; index--) {
             model.removeRow(index);
         }
-
         //使用list存储并排序
         java.util.List<UserOnlineTime> list = new LinkedList<>();
         while (uiIt.hasNext()) {
@@ -190,8 +193,8 @@ public class Main2Form {
                 }
             }
         });
-        uiIt = list.iterator();
 
+        uiIt = list.iterator();
         //显示出来
         int redListFlag = 0;
         int[] redList = new int[theRedPerson.length];
@@ -287,7 +290,6 @@ public class Main2Form {
                 //挂机检测，就是鼠标24分钟前后在相同位置则暂停加时，在对话框被取消后继续加时
                 if (MouseInfo.getPointerInfo().getLocation().equals(mousePoint)) {
                     freshAddTimer.stop();
-                    // TODO:每次在停止计时前向服务器询问时间，如果在挂机时间内，就不执行停止计时（为防止在比如18：01向服务器询问，然后停止计时，应该将挂机时间段设置多一点点）
                     AdminDataService adms = new AdminDataService();
                     // 如果不是自由时间，就弹出对话框
                     if (!adms.isFreeTime())
