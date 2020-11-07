@@ -289,8 +289,9 @@ public class Main2Form {
                     freshAddTimer.stop();
                     // TODO:每次在停止计时前向服务器询问时间，如果在挂机时间内，就不执行停止计时（为防止在比如18：01向服务器询问，然后停止计时，应该将挂机时间段设置多一点点）
                     AdminDataService adms = new AdminDataService();
-                    if (adms.isFreeTime())
-                        createDialog();//打开提示框，此时计时线程会停止
+                    // 如果不是自由时间，就弹出对话框
+                    if (!adms.isFreeTime())
+                        //createDialog();//打开提示框，此时计时线程会停止
                     freshAddTimer.start();
                 }
                 mousePoint = MouseInfo.getPointerInfo().getLocation();
