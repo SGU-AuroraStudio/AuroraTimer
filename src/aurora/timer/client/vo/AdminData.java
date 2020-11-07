@@ -8,9 +8,9 @@ public class AdminData {
     private Time freeTimeStart;
     private Time freeTimeEnd;
 
-    public AdminData(){
-        freeTimeStart = new Time((long)39600000);
-        freeTimeEnd = new Time((long)32400000);
+    public AdminData() {
+        freeTimeStart = new Time((long) 39600000);
+        freeTimeEnd = new Time((long) 32400000);
     }
 
     public AdminData(String announcement, String dutylist) {
@@ -18,8 +18,16 @@ public class AdminData {
         this.dutylist = dutylist;
     }
 
+    public AdminData(String announcement, String dutylist, Time freeTimeStart, Time freeTimeEnd) {
+        this.announcement = announcement;
+        this.dutylist = dutylist;
+        this.freeTimeStart = freeTimeStart;
+        this.freeTimeEnd = freeTimeEnd;
+    }
+
     /**
      * 获得公告内容
+     *
      * @return 返回公告内容
      */
     public String getAnnouncement() {
@@ -28,6 +36,7 @@ public class AdminData {
 
     /**
      * 设置公告内容
+     *
      * @param announcement 公告内容
      */
     public void setAnnouncement(String announcement) {
@@ -36,6 +45,7 @@ public class AdminData {
 
     /**
      * 获得值日表
+     *
      * @return 返回值日表
      */
     public String getDutylist() {
@@ -44,6 +54,7 @@ public class AdminData {
 
     /**
      * 设置值日表
+     *
      * @param dutylist 值日表
      */
     public void setDutylist(String dutylist) {

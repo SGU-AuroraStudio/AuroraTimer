@@ -1,5 +1,8 @@
 package aurora.timer.client.view;
 
+import aurora.timer.client.service.AdminDataService;
+import aurora.timer.client.vo.AdminData;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -9,8 +12,6 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.Date;
-import java.time.DayOfWeek;
 
 public class WorkForm {
     public static JFrame FRAME;
@@ -22,32 +23,29 @@ public class WorkForm {
     private JScrollPane jspDutyList;
     private static final int MAX_CHARACTERS = 300;
     public WorkForm(){
+        init();
+    }
+
+    public void init(){
         parent.setOpaque(false);
+        announceButton.setUI(new LoginButtonUI());
+        //点击parent取消编辑表格
         parent.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int x = e.getX();
-                int y = e.getY();
-                System.out.println(x+" "+y);
                 if (dutyList.isEditing())
                     dutyList.getCellEditor().stopCellEditing();
-                dutyList.clearSelection();
             }
         });
-        // 设置表头，和数据
-        Object[] columnNames = {"星期天","星期一","星期二","星期三","星期四","星期五","星期六"};
-        Object[][] data = {{"张三","张三","张三","张三","张三","张三","张三"}};
-        DefaultTableModel model = new DefaultTableModel(data,columnNames);
-        dutyList.setModel(model);
         // 公告栏输入框
         announceText.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
         announceText.setLineWrap(true);
+        //公告栏获取焦点，停止表格输入
         announceText.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
                 if (dutyList.isEditing())
                     dutyList.getCellEditor().stopCellEditing();
-                dutyList.clearSelection();
             }
 
             @Override
@@ -55,16 +53,19 @@ public class WorkForm {
 
             }
         });
-
-        announceButton.setUI(new LoginButtonUI());
         // 公告栏外面的框架
         jspAnnounce.setViewportBorder(null);
         jspAnnounce.setBorder(BorderFactory.createEtchedBorder());
         jspAnnounce.getViewport().setOpaque(false);//将JScrollPane设置为透明
         jspAnnounce.setOpaque(false);//将中间的viewport设置为透明
         // 表格
+        // 设置表头，和数据
+        Object[] columnNames = {"星期天","星期一","星期二","星期三","星期四","星期五","星期六"};
+        Object[][] data = {{"张三","张三","张三","张三","张三","张三","张三"}};
+        DefaultTableModel model = new DefaultTableModel(data,columnNames);
+        dutyList.setModel(model);
         dutyList.setOpaque(false);
-        dutyList.setBorder(null);
+        //dutyList.setBorder(null);
         dutyList.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 16));
         dutyList.setBackground(new Color(0, 0, 0, 0));
         dutyList.setSelectionBackground(new Color(86, 209, 149));
@@ -75,7 +76,6 @@ public class WorkForm {
 
         // 表头
         JTableHeader tableHeader = dutyList.getTableHeader();
-        // YaHei Consolas Hybrid
         tableHeader.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 20));
         tableHeader.setBackground(new Color(86, 209, 149, 70));
         tableHeader.setReorderingAllowed(false);
@@ -87,10 +87,27 @@ public class WorkForm {
         jspDutyList.setOpaque(false);
     }
 
+    public boolean loadWorkInfo(){
+        AdminDataService adms = new AdminDataService();
+        AdminData data = adms.getAdminData();
+        if(data==null) {
+            return false;
+        }
+        announceText.setText(data.getAnnouncement());
+        String dutyListData[][] = new String[1][7];
+        String testData[] = data.getDutylist().split("\\|");
+        dutyListData[0] = testData;
+        Object[] columnNames = {"星期天","星期一","星期二","星期三","星期四","星期五","星期六"};
+        DefaultTableModel model = new DefaultTableModel(dutyListData,columnNames);
+        dutyList.setModel(model);
+
+        return true;
+    }
 
     public static void main(String[] args) {
         FRAME = new JFrame();
         WorkForm workForm=new WorkForm();
+        workForm.loadWorkInfo();
         FRAME.add(workForm.parent);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         FRAME.setSize(565,400);

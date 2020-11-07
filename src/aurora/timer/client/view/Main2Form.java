@@ -1,10 +1,12 @@
 package aurora.timer.client.view;
 
 import aurora.timer.client.ServerURL;
+import aurora.timer.client.service.AdminDataService;
 import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
 import aurora.timer.client.view.until.TableUntil;
+import aurora.timer.client.vo.AdminData;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
 import org.json.simple.JSONObject;
@@ -97,10 +99,13 @@ public class Main2Form {
         weekInfoForm.announceButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //parent.remove(weekAllPane);
-                weekAllPane.setVisible(false);
-                weekAllPane.setEnabled(false);
-                parent.add(workForm.parent);
+                if (workForm.loadWorkInfo() == true) {
+                    weekAllPane.setVisible(false);
+                    weekAllPane.setEnabled(false);
+                    parent.add(workForm.parent);
+                } else {
+                    logger.warning("加载公告界面失败");
+                }
             }
         });
         workForm.announceButton.addMouseListener(new MouseAdapter() {
@@ -201,7 +206,7 @@ public class Main2Form {
             try {
                 byte[] bytes = t.getName().getBytes();
                 String s = new String(bytes, "utf-8");
-                model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), "","   " + parseTime(t.getTodayOnlineTime())});
+                model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), "", "   " + parseTime(t.getTodayOnlineTime())});
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -281,9 +286,11 @@ public class Main2Form {
             public void actionPerformed(ActionEvent e) {
                 //挂机检测，就是鼠标24分钟前后在相同位置则暂停加时，在对话框被取消后继续加时
                 if (MouseInfo.getPointerInfo().getLocation().equals(mousePoint)) {
-                    // TODO:每次在停止计时前向服务器询问时间，如果在挂机时间内，就不执行停止计时（为防止在比如18：01向服务器询问，然后停止计时，应该将挂机时间段设置多一点点）
                     freshAddTimer.stop();
-                    createDialog();//打开提示框，此时计时线程会停止
+                    // TODO:每次在停止计时前向服务器询问时间，如果在挂机时间内，就不执行停止计时（为防止在比如18：01向服务器询问，然后停止计时，应该将挂机时间段设置多一点点）
+                    AdminDataService adms = new AdminDataService();
+                    if (adms.isFreeTime())
+                        createDialog();//打开提示框，此时计时线程会停止
                     freshAddTimer.start();
                 }
                 mousePoint = MouseInfo.getPointerInfo().getLocation();
