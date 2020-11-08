@@ -1,5 +1,6 @@
 package aurora.timer.client.vo;
 
+import java.sql.Date;
 import java.sql.Time;
 
 public class AdminData {
@@ -9,8 +10,8 @@ public class AdminData {
     private Time freeTimeEnd;
 
     public AdminData() {
-        freeTimeStart = new Time((long) 39600000);
-        freeTimeEnd = new Time((long) 32400000);
+        freeTimeStart = new Time(32400000);
+        freeTimeEnd = new Time(39600000);
     }
 
     public AdminData(String announcement, String dutylist) {

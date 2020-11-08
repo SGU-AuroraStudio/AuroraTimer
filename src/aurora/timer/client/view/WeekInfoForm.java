@@ -2,6 +2,9 @@ package aurora.timer.client.view;
 
 //import javafx.scene.control.ScrollBar;
 
+import aurora.timer.client.service.AdminDataService;
+import aurora.timer.client.service.UserOnlineTimeService;
+
 import javax.swing.*;
 import javax.swing.event.RowSorterEvent;
 import javax.swing.event.RowSorterListener;
@@ -64,6 +67,12 @@ public class WeekInfoForm {
         scrollBar.setIgnoreRepaint(false);
 
         infoPane.setVerticalScrollBar(scrollBar);
+    }
+
+    public void loadTermAll(){
+        UserOnlineTimeService uots = new UserOnlineTimeService();
+
+
     }
 
     public WeekInfoForm() {

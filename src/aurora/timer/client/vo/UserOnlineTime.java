@@ -11,7 +11,7 @@ public class UserOnlineTime {
     private Date todayDate; //今天的日期
     private Time lastOnlineTime; //今天最后在线时间
     private Long todayOnlineTime; //今天在线总毫秒数
-
+    private Long termOnlineTime; //本学期在线时间
     private String name; //不加这个太麻烦了
 
     public UserOnlineTime() {
@@ -106,4 +106,19 @@ public class UserOnlineTime {
         return todayOnlineTime;
     }
 
+    /**
+     * 返回本学期在线时间
+     * @return 本学期在线时间，类型Long
+     */
+    public Long getTermOnlineTime() {
+        return termOnlineTime;
+    }
+
+    /**
+     * 设置本学期在线时间
+     * @param termOnlineTime 本学期在线时间
+     */
+    public void setTermOnlineTime(Long termOnlineTime) {
+        this.termOnlineTime = termOnlineTime;
+    }
 }

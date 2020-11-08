@@ -209,7 +209,7 @@ public class Main2Form {
             try {
                 byte[] bytes = t.getName().getBytes();
                 String s = new String(bytes, "utf-8");
-                model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), "", "   " + parseTime(t.getTodayOnlineTime())});
+                model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), parseTime(t.getTermOnlineTime()), "   " + parseTime(t.getTodayOnlineTime())}); //填入表格
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -290,9 +290,9 @@ public class Main2Form {
                 //挂机检测，就是鼠标24分钟前后在相同位置则暂停加时，在对话框被取消后继续加时
                 if (MouseInfo.getPointerInfo().getLocation().equals(mousePoint)) {
                     freshAddTimer.stop();
-                    AdminDataService adms = new AdminDataService();
+                    AdminDataService ads = new AdminDataService();
                     // 如果不是自由时间，就弹出对话框
-                    if (!adms.isFreeTime())
+                    if (!ads.isFreeTime())
                         //createDialog();//打开提示框，此时计时线程会停止
                     freshAddTimer.start();
                 }

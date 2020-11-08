@@ -12,14 +12,14 @@ public class ServerURL {
     //服务器外网地址
 //    public static final String HOST = "47.107.77.200:8080";
     public static String HOST;
-
     static {
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
-        ServerURL.HOST = preferences.get("host", "47.107.77.200:8080");
+//        ServerURL.HOST = preferences.get("host", "47.107.77.200:8080");
 //        HOST = "192.168.1.218:8080";
+        HOST = "127.0.0.1:8080";
     }
 
-    //    public static final String HOST = "127.0.0.1:8080";
+//    public static final String HOST = "127.0.0.1:8080";
     //跳转的登陆页面，在页面完成注册
     public static String REGISTER_URL = "http://" + HOST + "/timer/pages/register.html";
     //登陆验证的url
@@ -34,6 +34,8 @@ public class ServerURL {
     public static final String ABOUT = "———— All Hai Lelouch! ————";
     //获取本周时间的地址
     public static String THIS_WEEK_TIME = "http://" + HOST + "/timer/lastXWeek";
+    //获取学期时间的地址
+    public static String THIS_TERM_TIME = "http://" + HOST + "/timer/termTime";
     //获取UserDataById
     public static String FIND_BY_ID = "http://" + HOST + "/timer/findById";
     //获取插件的文件夹
