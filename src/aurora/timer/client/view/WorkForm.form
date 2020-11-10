@@ -22,6 +22,8 @@
           <component id="d3c41" class="javax.swing.JTextArea" binding="announceText">
             <constraints/>
             <properties>
+              <editable value="false"/>
+              <enabled value="true"/>
               <opaque value="false"/>
               <text value="asdasdasd"/>
             </properties>
@@ -39,13 +41,13 @@
       </component>
       <component id="7d9de" class="javax.swing.JButton" binding="announceButton">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <borderPainted value="false"/>
           <icon value="aurora/timer/client/view/res/leftWeekButton.png"/>
           <label value=""/>
-          <margin top="50" left="35" bottom="0" right="0"/>
+          <margin top="37" left="0" bottom="0" right="0"/>
           <opaque value="false"/>
           <text value=""/>
         </properties>
@@ -66,12 +68,14 @@
             <properties>
               <autoResizeMode value="4"/>
               <dropMode value="ON"/>
+              <enabled value="false"/>
               <font/>
               <opaque value="false"/>
               <rowHeight value="26"/>
               <rowSelectionAllowed value="false"/>
               <showHorizontalLines value="false"/>
               <showVerticalLines value="false"/>
+              <updateSelectionOnSort value="true"/>
             </properties>
           </component>
         </children>

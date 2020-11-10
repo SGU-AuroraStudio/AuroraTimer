@@ -64,6 +64,7 @@ public class Main2Form {
         mousePoint = MouseInfo.getPointerInfo().getLocation();
         weekInfoForm = new WeekInfoForm();
         workForm = new WorkForm();
+        //TODO:bug:timePanel时间圆盘在点切换后会下移(发现是timeLabel变长了)
         weekInfoForm.changeButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -72,8 +73,8 @@ public class Main2Form {
 //                System.out.print(x + " " + y);
                 if (!(x + y <= 55 || x + y >= 165 || x - y >= 55 || x - y <= -55)) {
                     parent.remove(weekAllPane);
-                    parent.repaint();
                     timePanel.setVisible(true);
+                    parent.repaint();
                 }
             }
         });
@@ -235,6 +236,7 @@ public class Main2Form {
         userData = new UserData();
         onlineTime = new UserOnlineTime();
         userData.setID((String) object.get("id"));
+        userData.setIsAdmin(Boolean.parseBoolean((String) object.get("isAdmin")));
         userData.setNickName((String) object.get("name"));
         userData.setDisplayURL((String) object.get("disp"));
         userData.setTelNumber((String) object.get("tel"));
@@ -350,8 +352,14 @@ public class Main2Form {
     /**
      * 构造函数，进行初始化和开启Timer
      */
-    public Main2Form() {
+    public Main2Form(String id) {
         init();
+        loadUserData(id);
+        // 判断是不是管理员
+        if(userData.getIsAdmin()){
+            workForm.announceText.setEditable(true);
+            workForm.dutyList.setEnabled(true);
+        }
         backAddTime();
         backPaintTime();
 
@@ -559,9 +567,7 @@ public class Main2Form {
                 @Override
                 public void run() {
                     FRAME = new MainFrame("极光");
-                    Main2Form main2Form = new Main2Form();
-                    main2Form.loadUserData(args[0]);
-
+                    Main2Form main2Form = new Main2Form(args[0]);
                     //设置上周前N名至theRedPerson
                     main2Form.setLastWeekRedPerson(3);
 
