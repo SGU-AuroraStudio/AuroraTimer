@@ -1,6 +1,7 @@
 package aurora.timer.client.view;
 
 import aurora.timer.client.ServerURL;
+import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.view.until.CustomFileChooser;
 //import org.omg.CORBA.FREE_MEM;
 
@@ -11,6 +12,9 @@ import javax.swing.plaf.basic.BasicPanelUI;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.prefs.Preferences;
 
 /**
@@ -20,6 +24,7 @@ public class SettingForm {
     private static JFrame FRAME;
     private JPanel parent;
     private JPanel Main2FormParent;
+    private JButton Main2FormSettingButton;
     private JButton OkButton;
     private JButton CancelButton;
     private CustomFileChooser fileChooser;
@@ -29,14 +34,16 @@ public class SettingForm {
     ;
     private String filePath;
 
-    public SettingForm(JPanel Main2FormParent) {
+    public SettingForm(JPanel Main2FormParent,JButton Main2FormSettingButton) {
         initComboBox();
         filePath = preferences.get("bg", "res" + File.separator + "bg.png");
         setBgForThisParent(ServerURL.BG_PATH);
         this.Main2FormParent = Main2FormParent;
+        this.Main2FormSettingButton = Main2FormSettingButton;
         CancelButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                Main2FormSettingButton.setEnabled(true);
                 FRAME.dispose();
             }
         });
@@ -45,6 +52,12 @@ public class SettingForm {
             public void mouseClicked(MouseEvent e) {
                 setBgForMain2FormParent(filePath);
                 //TODO:上传图片到服务器
+                try {
+                    uploadBg();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                Main2FormSettingButton.setEnabled(true);
                 FRAME.dispose();
             }
         });
@@ -129,14 +142,22 @@ public class SettingForm {
         });
     }
 
-    public static void main(JPanel Main2FormParent) {
+    public void uploadBg() throws IOException {
+        File file = new File(filePath);
+        FileInputStream inputStream = new FileInputStream(file);
+        UserDataService uds = new UserDataService();
+        uds.uploadBg("123123",inputStream);
+    }
+
+
+    public static void main(JPanel Main2FormParent,JButton Main2FormSettingButton) {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         try {
             EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
                     FRAME = new MainFrame("设置");
-                    SettingForm settingForm = new SettingForm(Main2FormParent);
+                    SettingForm settingForm = new SettingForm(Main2FormParent,Main2FormSettingButton);
                     FRAME.setContentPane(settingForm.parent);
                     FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
                     FRAME.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -6,6 +6,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -77,6 +78,45 @@ public class UserDataService {
             e.printStackTrace();
         }
         return object;
+    }
+
+    public boolean uploadBg(String id, InputStream bg) {
+        HttpURLConnection connection = null;
+        boolean flag = false;
+        try {
+            URL url = new URL(ServerURL.BG);
+            connection = (HttpURLConnection) url.openConnection();
+
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setRequestMethod("POST");
+            connection.setUseCaches(false);
+            connection.setInstanceFollowRedirects(true);
+//            connection.setRequestProperty("Content-Type", "application/json"); //向服务器表示我传的是json
+            connection.connect();
+
+            int bytes = bg.available()-1;
+            byte[] bgByte = new byte[bg.available()];
+            bg.read(bgByte);
+            OutputStream out = connection.getOutputStream();
+            while (bytes>=0) {
+                out.write(bgByte[bytes]);
+                bytes--;
+            }
+            out.flush();
+            out.close();
+
+            //这里只会返回一行字符串"true"或者"false"
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8")); //注意：到了这行代码才会发送请求
+            String s = reader.readLine();
+            reader.close();
+
+            connection.disconnect();
+            flag = s.equals("true");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
     }
 
 }

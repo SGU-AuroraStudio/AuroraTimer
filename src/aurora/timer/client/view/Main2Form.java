@@ -18,6 +18,7 @@ import javax.swing.plaf.basic.BasicPanelUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.sql.Time;
 import java.util.*;
 import java.util.logging.Logger;
@@ -51,7 +52,7 @@ public class Main2Form {
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
     String[] theRedPerson;
     int page; //查看周计时的页面
-    int pageLimited=20; //查看上x周最大值
+    int pageLimited = 20; //查看上x周最大值
     int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
     Logger logger = Logger.getLogger("MAIN");
 
@@ -122,6 +123,8 @@ public class Main2Form {
         thisWeekList = weekInfoForm.weekList;
         weekAllPane = weekInfoForm.parent;
 
+        Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
+        ServerURL.BG_PATH = preferences.get("bg", "res" + File.separator + "bg.png");
         parent.setUI(new MainParentPanelUI());
         minButton.setUI(new LoginButtonUI());
         outButton.setUI(new LoginButtonUI());
@@ -165,7 +168,7 @@ public class Main2Form {
      */
     public void setAllTime() {
         // 如果这一页为空白，上限就是这一页了
-        if(userOnlineTimes.size()==0)
+        if (userOnlineTimes.size() == 0)
             pageLimited = page;
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
@@ -296,7 +299,7 @@ public class Main2Form {
                     // 如果不是自由时间，就弹出对话框
                     if (!ads.isFreeTime())
                         //createDialog();//打开提示框，此时计时线程会停止
-                    freshAddTimer.start();
+                        freshAddTimer.start();
                 }
                 mousePoint = MouseInfo.getPointerInfo().getLocation();
             }
@@ -356,7 +359,7 @@ public class Main2Form {
         init();
         loadUserData(id);
         // 判断是不是管理员
-        if(userData.getIsAdmin()){
+        if (userData.getIsAdmin()) {
             workForm.announceText.setEditable(true);
             workForm.dutyList.setEnabled(true);
         }
@@ -408,10 +411,11 @@ public class Main2Form {
             }
 
         });
-        settingButton.addMouseListener(new MouseAdapter() {
+        settingButton.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                SettingForm.main(new String[0]);
+            public void actionPerformed(ActionEvent e) {
+                settingButton.setEnabled(false);
+                SettingForm.main(parent,settingButton);
             }
         });
     }

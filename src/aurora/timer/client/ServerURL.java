@@ -42,6 +42,8 @@ public class ServerURL {
     public static final String PLUGIN_HOME = "res" + File.pathSeparator + "plugins";
     //背景图片的文件夹
     public static String BG_PATH = "res" + File.separator + "bg.png";
+    //背景图片地址
+    public static String BG = "http://" + HOST + "/timer/bg";
     //检查新版本
     public static String CHECK_VERSION_URL = "http://" + HOST + "/timer/soft/ver.json";
     //    public static final String CHECK_VERSION_URL = "http://" + HOST + "/timer/version";
