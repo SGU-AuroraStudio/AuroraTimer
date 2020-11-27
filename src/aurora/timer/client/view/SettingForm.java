@@ -3,6 +3,7 @@ package aurora.timer.client.view;
 import aurora.timer.client.ServerURL;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.view.until.CustomFileChooser;
+import aurora.timer.client.vo.UserData;
 //import org.omg.CORBA.FREE_MEM;
 
 import javax.swing.*;
@@ -31,15 +32,16 @@ public class SettingForm {
     private JButton selectBgImgBtn;
     private JComboBox<String> imgComboBox;
     private final Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
-    ;
     private String filePath;
+    private UserData userData;
 
-    public SettingForm(JPanel Main2FormParent,JButton Main2FormSettingButton) {
+    public SettingForm(JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
+        this.Main2FormParent = Main2FormParent;
+        this.userData = userData;
+        this.Main2FormSettingButton = Main2FormSettingButton;
         initComboBox();
         filePath = preferences.get("bg", "res" + File.separator + "bg.png");
         setBgForThisParent(ServerURL.BG_PATH);
-        this.Main2FormParent = Main2FormParent;
-        this.Main2FormSettingButton = Main2FormSettingButton;
         CancelButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -61,7 +63,6 @@ public class SettingForm {
                 FRAME.dispose();
             }
         });
-
         selectBgImgBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -69,11 +70,15 @@ public class SettingForm {
                 fileChooser.setMultiSelectionEnabled(false);
                 FileFilter filter = new FileNameExtensionFilter("图片(PNG,JPG,JPEG)", "png", "jpg", "jpeg");
                 fileChooser.setFileFilter(filter);
-
                 if (fileChooser.showOpenDialog(selectBgImgBtn) == JFileChooser.APPROVE_OPTION) {
-                    filePath = fileChooser.getSelectedFile().getAbsolutePath();
-                    // 预览背景图
-                    setBgForThisParent(filePath);
+                    File file = fileChooser.getSelectedFile();
+                    if (file.length() >= (1024L * 1024L * 15)) {
+                        JOptionPane.showMessageDialog(null, "请选择15M以下的文件", "错误", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        filePath = file.getAbsolutePath();
+                        // 预览背景图
+                        setBgForThisParent(filePath);
+                    }
                 }
             }
         });
@@ -146,18 +151,21 @@ public class SettingForm {
         File file = new File(filePath);
         FileInputStream inputStream = new FileInputStream(file);
         UserDataService uds = new UserDataService();
-        uds.uploadBg("123123",inputStream);
+        boolean flag = uds.uploadBg(userData.getID(), userData.getPassWord(), inputStream);
+        if(!flag){
+            JOptionPane.showMessageDialog(null, "上传背景图片到服务器失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 
-    public static void main(JPanel Main2FormParent,JButton Main2FormSettingButton) {
+    public static void main(JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         try {
             EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
                     FRAME = new MainFrame("设置");
-                    SettingForm settingForm = new SettingForm(Main2FormParent,Main2FormSettingButton);
+                    SettingForm settingForm = new SettingForm(Main2FormParent, Main2FormSettingButton, userData);
                     FRAME.setContentPane(settingForm.parent);
                     FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
                     FRAME.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

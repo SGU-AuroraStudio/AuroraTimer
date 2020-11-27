@@ -6,7 +6,6 @@ import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
 import aurora.timer.client.view.until.TableUntil;
-import aurora.timer.client.vo.AdminData;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
 import org.json.simple.JSONObject;
@@ -18,7 +17,7 @@ import javax.swing.plaf.basic.BasicPanelUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
+import java.io.*;
 import java.sql.Time;
 import java.util.*;
 import java.util.logging.Logger;
@@ -122,10 +121,6 @@ public class Main2Form {
         });
         thisWeekList = weekInfoForm.weekList;
         weekAllPane = weekInfoForm.parent;
-
-        Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
-        ServerURL.BG_PATH = preferences.get("bg", "res" + File.separator + "bg.png");
-        parent.setUI(new MainParentPanelUI());
         minButton.setUI(new LoginButtonUI());
         outButton.setUI(new LoginButtonUI());
         changeButton.setUI(new LoginButtonUI());
@@ -270,6 +265,38 @@ public class Main2Form {
         }
     }
 
+    public void loadBg() throws IOException {
+        Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
+        UserDataService uds = new UserDataService();
+        InputStream bg = uds.findBgByid(userData.getID(), userData.getPassWord());
+        if (bg == null) {
+            logger.warning("从服务器加载背景图片失败");
+            JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+        } else {
+            try {
+                String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
+                File file = new File(bgPath);
+                BufferedInputStream fi = new BufferedInputStream(bg);
+                FileOutputStream fo = new FileOutputStream(file);
+                int f;
+                while ((f = fi.read()) != -1) {
+                    fo.write(f);
+                }
+                fo.flush();
+                fo.close();
+                fi.close();
+                // 修改注册表
+                preferences.put("bg", bgPath);
+                logger.info("从服务器加载背景图片成功");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        ServerURL.BG_PATH = preferences.get("bg", "res" + File.separator + "bg.png");
+        parent.setUI(new MainParentPanelUI());
+    }
+
     /**
      * 后台计时，每隔24分钟提交一次
      */
@@ -355,9 +382,18 @@ public class Main2Form {
     /**
      * 构造函数，进行初始化和开启Timer
      */
-    public Main2Form(String id) {
+    public Main2Form(String id, String password) {
         init();
         loadUserData(id);
+        userData.setPassWord(password);
+
+        // 加载背景图片地址，在MainParentPanelUI里会用 ServerURL.BG_PATH 设置背景图,所以要在这之前从服务器加载背景图片。要用到id所以要在loadUserData之后
+        try {
+            loadBg();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         // 判断是不是管理员
         if (userData.getIsAdmin()) {
             workForm.announceText.setEditable(true);
@@ -415,7 +451,7 @@ public class Main2Form {
             @Override
             public void actionPerformed(ActionEvent e) {
                 settingButton.setEnabled(false);
-                SettingForm.main(parent,settingButton);
+                SettingForm.main(parent, settingButton, userData);
             }
         });
     }
@@ -571,7 +607,7 @@ public class Main2Form {
                 @Override
                 public void run() {
                     FRAME = new MainFrame("极光");
-                    Main2Form main2Form = new Main2Form(args[0]);
+                    Main2Form main2Form = new Main2Form(args[0], args[1]);
                     //设置上周前N名至theRedPerson
                     main2Form.setLastWeekRedPerson(3);
 
