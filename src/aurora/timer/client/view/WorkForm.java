@@ -8,29 +8,35 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableModel;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 public class WorkForm {
     public static JFrame FRAME;
     public JTextArea announceText;
     public JPanel parent;
     public JScrollPane jspAnnounce;
-    public JButton announceButton;
+    public JButton announceBtn;
     public JTable dutyList;
     public JScrollPane jspDutyList;
+    public JButton submitBtn;
     private UserData userData;
-    public WorkForm(){
-        init();
+
+    public WorkForm(){ init(); }
+
+    public UserData getUserData() {
+        return userData;
+    }
+
+    public void setUserData(UserData userData) {
+        this.userData = userData;
     }
 
     public void init(){
         parent.setOpaque(false);
-        announceButton.setUI(new LoginButtonUI());
-        //点击parent取消编辑表格
+        announceBtn.setUI(new LoginButtonUI());
+        // 点击parent取消编辑表格
         parent.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -43,7 +49,7 @@ public class WorkForm {
         // 公告栏输入框
         announceText.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
         announceText.setLineWrap(true);
-        //公告栏获取焦点，停止表格输入
+        // 公告栏获取焦点，停止表格输入
         announceText.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -64,9 +70,9 @@ public class WorkForm {
         jspAnnounce.getViewport().setOpaque(false);//将JScrollPane设置为透明
         jspAnnounce.setOpaque(false);//将中间的viewport设置为透明
         // 表格
-        // 设置表头，和数据
+        //   设置表头，和数据
         Object[] columnNames = {"星期天","星期一","星期二","星期三","星期四","星期五","星期六"};
-        Object[][] data = {{"张三","张三","张三","张三","张三","张三","张三"}};
+        Object[][] data = {{"阿巴","阿巴","阿巴","阿巴","阿巴","阿巴","阿巴"}};
         DefaultTableModel model = new DefaultTableModel(data,columnNames);
         dutyList.setModel(model);
         dutyList.setOpaque(false);
@@ -90,9 +96,35 @@ public class WorkForm {
         jspDutyList.getViewport().setOpaque(false);//将JScrollPane设置为透明
         jspDutyList.setOpaque(false);
 
-
+        // 管理员用的提交按钮
+        submitBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AdminDataService ads = new AdminDataService();
+                AdminData vo = new AdminData();
+                vo.setId(userData.getID());
+                vo.setPassword(userData.getPassWord());
+                vo.setAnnouncement(announceText.getText());
+                TableModel tableModel = dutyList.getModel();
+                StringBuilder dutyListStr = new StringBuilder();
+                // 读取值日表
+                for(int i=0;i<7;i++){
+                    dutyListStr.append(tableModel.getValueAt(0, i));
+                    if(i!=6)
+                        dutyListStr.append("|");
+                }
+                vo.setDutylist(dutyListStr.toString());
+                if(ads.uploadAdminData(vo, userData)){
+                    JOptionPane.showMessageDialog(null, "上传成功！\n", "提示", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "上传失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
     }
 
+    // 从服务器加载信息
     public boolean loadWorkInfo(){
         AdminDataService adms = new AdminDataService();
         AdminData data = adms.getAdminData();
@@ -101,7 +133,7 @@ public class WorkForm {
         }
         announceText.setText(data.getAnnouncement());
         String dutyListData[][] = new String[1][7];
-        String testData[] = data.getDutylist().split("\\|");
+        String testData[] = data.getDutylist().split("\\|"); // 注意要双斜杆
         dutyListData[0] = testData;
         Object[] columnNames = {"星期天","星期一","星期二","星期三","星期四","星期五","星期六"};
         DefaultTableModel model = new DefaultTableModel(dutyListData,columnNames);

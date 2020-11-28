@@ -15,6 +15,7 @@ import javax.swing.*;
 import javax.swing.Timer;
 import javax.swing.plaf.basic.BasicPanelUI;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -65,17 +66,25 @@ public class Main2Form {
         weekInfoForm = new WeekInfoForm();
         workForm = new WorkForm();
         //TODO:bug:timePanel时间圆盘在点切换后会下移(发现是timeLabel变长了)
-        weekInfoForm.changeButton.addMouseListener(new MouseAdapter() {
+//        weekInfoForm.changeButton.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                int x = e.getX() - 24;
+//                int y = e.getY() - 25;
+////                System.out.print(x + " " + y);
+//                if (!(x + y <= 55 || x + y >= 165 || x - y >= 55 || x - y <= -55)) {
+//                    parent.remove(weekAllPane);
+//                    timePanel.setVisible(true);
+//                    parent.repaint();
+//                }
+//            }
+//        });
+        weekInfoForm.changeButton.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                int x = e.getX() - 24;
-                int y = e.getY() - 25;
-//                System.out.print(x + " " + y);
-                if (!(x + y <= 55 || x + y >= 165 || x - y >= 55 || x - y <= -55)) {
-                    parent.remove(weekAllPane);
-                    timePanel.setVisible(true);
-                    parent.repaint();
-                }
+            public void actionPerformed(ActionEvent e) {
+                parent.remove(weekAllPane);
+                timePanel.setVisible(true);
+                parent.repaint();
             }
         });
         weekInfoForm.leftButton.addMouseListener(new MouseAdapter() {
@@ -110,7 +119,7 @@ public class Main2Form {
                 }
             }
         });
-        workForm.announceButton.addMouseListener(new MouseAdapter() {
+        workForm.announceBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 //parent.remove(weekAllPane);
@@ -386,18 +395,19 @@ public class Main2Form {
         init();
         loadUserData(id);
         userData.setPassWord(password);
-
         // 加载背景图片地址，在MainParentPanelUI里会用 ServerURL.BG_PATH 设置背景图,所以要在这之前从服务器加载背景图片。要用到id所以要在loadUserData之后
         try {
             loadBg();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        workForm.setUserData(userData);
         // 判断是不是管理员
         if (userData.getIsAdmin()) {
             workForm.announceText.setEditable(true);
             workForm.dutyList.setEnabled(true);
+            workForm.submitBtn.setEnabled(true);
+            workForm.submitBtn.setVisible(true);
         }
         backAddTime();
         backPaintTime();
@@ -432,20 +442,38 @@ public class Main2Form {
                 FRAME.setLocation(jfx + (e.getXOnScreen() - mx), jfy + (e.getYOnScreen() - my));
             }
         });
-        changeButton.addMouseListener(new MouseAdapter() {
+//        changeButton.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                int x = e.getX() - 227;
+//                int y = e.getY() - 25;
+//                if (!(x + y < 55 || x + y > 165 || x - y > 55 || x - y < -55)) {
+//                    timePanel.setVisible(false);
+//                    try {
+//                        TimerYeah.addTime(userData.getID());
+//                    } catch (Throwable throwable) {
+//                        JOptionPane.showMessageDialog(null, "计时线程异常，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+//                    }
+//                    loadWeekTime(0);
+//                    setAllTime();
+//                    parent.add(weekAllPane);
+//                }
+//            }
+//
+//        });
+        changeButton.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                int x = e.getX() - 227;
-                int y = e.getY() - 25;
-                if (!(x + y < 55 || x + y > 165 || x - y > 55 || x - y < -55)) {
-                    timePanel.setVisible(false);
+            public void actionPerformed(ActionEvent e) {
+                timePanel.setVisible(false);
+                try {
                     TimerYeah.addTime(userData.getID());
-                    loadWeekTime(0);
-                    setAllTime();
-                    parent.add(weekAllPane);
+                } catch (Throwable throwable) {
+                    JOptionPane.showMessageDialog(null, "计时线程异常，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
                 }
+                loadWeekTime(0);
+                setAllTime();
+                parent.add(weekAllPane);
             }
-
         });
         settingButton.addActionListener(new ActionListener() {
             @Override

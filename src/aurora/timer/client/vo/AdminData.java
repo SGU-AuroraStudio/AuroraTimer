@@ -8,10 +8,12 @@ public class AdminData {
     private String dutylist;
     private Time freeTimeStart;
     private Time freeTimeEnd;
+    private String id;
+    private String password;
 
     public AdminData() {
-        freeTimeStart = new Time(32400000);
-        freeTimeEnd = new Time(39600000);
+        freeTimeStart = new Time(32400000); //17:00
+        freeTimeEnd = new Time(39600000); //19:00
     }
 
     public AdminData(String announcement, String dutylist) {
@@ -76,5 +78,21 @@ public class AdminData {
 
     public void setFreeTimeEnd(Time freeTimeEnd) {
         this.freeTimeEnd = freeTimeEnd;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

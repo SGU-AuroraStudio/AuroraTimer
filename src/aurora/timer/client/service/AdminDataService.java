@@ -1,6 +1,7 @@
 package aurora.timer.client.service;
 
 import aurora.timer.client.vo.AdminData;
+import aurora.timer.client.vo.UserData;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
@@ -15,6 +16,7 @@ public class AdminDataService {
 
     /**
      * 获取管理员数据,服务器返回的数据里时间是long类型
+     *
      * @return AdminData对象
      */
     public AdminData getAdminData() {
@@ -55,11 +57,11 @@ public class AdminDataService {
             return null;
     }
 
-    public boolean uploadAdminData(AdminData vo) {
+    public boolean uploadAdminData(AdminData vo, UserData userData) {
         HttpURLConnection connection = null;
         boolean flag = false;
         try {
-            URL url = new URL(ADMIN);
+            URL url = new URL(ADMIN+"?id="+userData.getID()+"&password="+userData.getPassWord());
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);//设置是否向HttpUrlConnction输出，因为这个是POST请求，参数要放在http正文内，因此需要设为true，默认情况下是false
@@ -69,7 +71,7 @@ public class AdminDataService {
             connection.connect();
 
             // post参数要用String形式
-            String param = String.format("announcement=%s&dutyList=%s&freeTimeStart=%s&freeTimeEnd=%s", vo.getAnnouncement(), vo.getDutylist(), vo.getFreeTimeStart().getTime(), vo.getFreeTimeEnd().getTime());
+            String param = String.format("id=%s&password=%s&announcement=%s&dutyList=%s&freeTimeStart=%s&freeTimeEnd=%s", vo.getId(), vo.getPassword(), vo.getAnnouncement(), vo.getDutylist(), vo.getFreeTimeStart().getTime(), vo.getFreeTimeEnd().getTime());
             OutputStream out = connection.getOutputStream();
             out.write(param.getBytes());
             out.flush();
@@ -77,13 +79,10 @@ public class AdminDataService {
 
             //这里只会返回一行字符串"true"或者"false"
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8")); //注意：到了这行代码才会发送请求
-            StringBuffer sb = new StringBuffer("");
-            String temp;
-            while ((temp = reader.readLine()) != null) {
-                sb.append(temp);
-            }
+            String str;
+            str = reader.readLine();
             reader.close();
-            flag = sb.equals("true");
+            flag = str.equals("true");
             connection.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,11 +90,11 @@ public class AdminDataService {
         return flag;
     }
 
-    public boolean isFreeTime(){
+    public boolean isFreeTime() {
         HttpURLConnection connection = null;
         boolean flag = false;
         try {
-            URL url = new URL(ADMIN+"x=freeTime");
+            URL url = new URL(ADMIN + "x=freeTime");
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setUseCaches(true);
@@ -112,13 +111,12 @@ public class AdminDataService {
         return flag;
     }
 
-    public static void main(String[] args) {
-        AdminDataService adminDataService = new AdminDataService();
-        adminDataService.getAdminData();
-        AdminData vo = new AdminData();
-        vo.setAnnouncement("李四announcement");
-        vo.setDutylist("李四|李四|李四|李四|李四|李四|李四");
-        adminDataService.uploadAdminData(vo);
-    }
+//    public static void main(String[] args) {
+//        AdminDataService adminDataService = new AdminDataService();
+//        adminDataService.getAdminData();
+//        AdminData vo = new AdminData();
+//        vo.setAnnouncement("李四announcement");
+//        vo.setDutylist("李四|李四|李四|李四|李四|李四|李四");
+//    }
 }
 
