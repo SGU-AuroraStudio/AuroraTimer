@@ -5,7 +5,9 @@
     <constraints>
       <xy x="20" y="20" width="642" height="607"/>
     </constraints>
-    <properties/>
+    <properties>
+      <opaque value="false"/>
+    </properties>
     <border type="empty"/>
     <children>
       <scrollpane id="eb6eb" binding="jspAnnounce">
@@ -16,7 +18,9 @@
             <maximum-size width="550" height="386"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <opaque value="false"/>
+        </properties>
         <border type="empty"/>
         <children>
           <component id="d3c41" class="javax.swing.JTextArea" binding="announceText">

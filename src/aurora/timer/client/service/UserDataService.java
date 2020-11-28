@@ -114,6 +114,8 @@ public class UserDataService {
         try {
             URL url = new URL(ServerURL.BG+"?id="+id+"&password="+password);
             connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(3000);
+            connection.setReadTimeout(3000);
             connection.connect();
             bg = connection.getInputStream();
         } catch (Exception e) {

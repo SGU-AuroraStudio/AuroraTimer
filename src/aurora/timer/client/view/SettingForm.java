@@ -14,7 +14,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.prefs.Preferences;
 
@@ -40,7 +39,7 @@ public class SettingForm {
         this.userData = userData;
         this.Main2FormSettingButton = Main2FormSettingButton;
         initComboBox();
-        filePath = preferences.get("bg", "res" + File.separator + "bg.png");
+        this.filePath = preferences.get("bg", "res" + File.separator + "bg.png");
         setBgForThisParent(ServerURL.BG_PATH);
         CancelButton.addMouseListener(new MouseAdapter() {
             @Override

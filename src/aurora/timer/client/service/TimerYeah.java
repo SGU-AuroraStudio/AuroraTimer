@@ -50,6 +50,8 @@ public class TimerYeah {
             URL url = new URL(ServerURL.TIMER + "?id=" + id);
             System.out.println(ServerURL.TIMER);
             connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
             connection.connect();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String req = null;

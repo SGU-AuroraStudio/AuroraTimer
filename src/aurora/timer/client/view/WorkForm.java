@@ -34,7 +34,6 @@ public class WorkForm {
     }
 
     public void init(){
-        parent.setOpaque(false);
         announceBtn.setUI(new LoginButtonUI());
         // 点击parent取消编辑表格
         parent.addMouseListener(new MouseAdapter() {
@@ -49,6 +48,7 @@ public class WorkForm {
         // 公告栏输入框
         announceText.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
         announceText.setLineWrap(true);
+        announceText.setBackground(new Color(200, 200, 200, 100));
         // 公告栏获取焦点，停止表格输入
         announceText.addFocusListener(new FocusListener() {
             @Override
@@ -67,22 +67,21 @@ public class WorkForm {
         // 公告栏外面的框架
         jspAnnounce.setViewportBorder(null);
         jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
-        jspAnnounce.getViewport().setOpaque(false);//将JScrollPane设置为透明
-        jspAnnounce.setOpaque(false);//将中间的viewport设置为透明
+//        jspAnnounce.setOpaque(false);//将JScrollPane设置为透明
+        jspAnnounce.getViewport().setOpaque(false);//将中间的viewport设置为透明
+//        jspAnnounce.setBackground(new Color(200, 200, 200, 100));
         // 表格
         //   设置表头，和数据
         Object[] columnNames = {"星期天","星期一","星期二","星期三","星期四","星期五","星期六"};
         Object[][] data = {{"阿巴","阿巴","阿巴","阿巴","阿巴","阿巴","阿巴"}};
         DefaultTableModel model = new DefaultTableModel(data,columnNames);
         dutyList.setModel(model);
-        dutyList.setOpaque(false);
         dutyList.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
         dutyList.setBackground(new Color(0, 0, 0, 0));
-        dutyList.setSelectionBackground(new Color(86, 209, 149));
+//        dutyList.setSelectionBackground(new Color(86, 209, 149));
         DefaultTableCellRenderer defaultTableCellRenderer = (DefaultTableCellRenderer) dutyList.getDefaultRenderer(Object.class);
         defaultTableCellRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         //TODO:点击表格外的位置取消选中
-        //TODO:管理员用的提交按钮
 
         // 表头
         JTableHeader tableHeader = dutyList.getTableHeader();
@@ -94,7 +93,7 @@ public class WorkForm {
         headerTCR.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         // 表格外面的框架
         jspDutyList.getViewport().setOpaque(false);//将JScrollPane设置为透明
-        jspDutyList.setOpaque(false);
+//        jspDutyList.setOpaque(false);
 
         // 管理员用的提交按钮
         submitBtn.addActionListener(new ActionListener() {
@@ -122,6 +121,7 @@ public class WorkForm {
                 }
             }
         });
+        announceText.setBackground(new Color(200, 200, 200, 100));
     }
 
     // 从服务器加载信息

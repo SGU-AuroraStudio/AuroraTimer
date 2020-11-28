@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicPanelUI;
 import java.awt.*;
 import java.io.File;
+import java.util.prefs.Preferences;
 
 /**
  * Created by hao on 17-2-22.
@@ -17,10 +18,12 @@ public class MainParentPanelUI extends BasicPanelUI {
 
         super.paint(g, c);
         File bg = new File(ServerURL.BG_PATH);
-        if (bg.exists()) {
+        if (bg.exists() && bg.length() > 100) {
             g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
         } else {
             g.drawImage(new ImageIcon(getClass().getResource("bg.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
+            Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
+            preferences.put("bg", "res" + File.separator + "bg.png");
         }
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(new Color(255, 255, 255, 200));

@@ -65,6 +65,14 @@ public class Main2Form {
         mousePoint = MouseInfo.getPointerInfo().getLocation();
         weekInfoForm = new WeekInfoForm();
         workForm = new WorkForm();
+        workForm.setUserData(userData);
+        // 判断是不是管理员
+        if (userData.getIsAdmin()) {
+            workForm.announceText.setEditable(true);
+            workForm.dutyList.setEnabled(true);
+            workForm.submitBtn.setEnabled(true);
+            workForm.submitBtn.setVisible(true);
+        }
         //TODO:bug:timePanel时间圆盘在点切换后会下移(发现是timeLabel变长了)
 //        weekInfoForm.changeButton.addMouseListener(new MouseAdapter() {
 //            @Override
@@ -130,6 +138,12 @@ public class Main2Form {
         });
         thisWeekList = weekInfoForm.weekList;
         weekAllPane = weekInfoForm.parent;
+        // 加载背景图片地址，在MainParentPanelUI里会用 ServerURL.BG_PATH 设置背景图,所以要在这之前从服务器加载背景图片。要用到id所以要在loadUserData之后
+        try {
+            loadBg();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         minButton.setUI(new LoginButtonUI());
         outButton.setUI(new LoginButtonUI());
         changeButton.setUI(new LoginButtonUI());
@@ -278,7 +292,7 @@ public class Main2Form {
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();
         InputStream bg = uds.findBgByid(userData.getID(), userData.getPassWord());
-        if (bg == null) {
+        if (bg == null || bg.available() < 100) { // 100b、0.1kb都没有还说自己是图片，看不见，重来！
             logger.warning("从服务器加载背景图片失败");
             JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -301,7 +315,7 @@ public class Main2Form {
                 e.printStackTrace();
             }
         }
-
+        // 优先从注册表里读取，没有就设置为默认。（在上边从服务器读取到到话会改注册表）
         ServerURL.BG_PATH = preferences.get("bg", "res" + File.separator + "bg.png");
         parent.setUI(new MainParentPanelUI());
     }
@@ -392,23 +406,9 @@ public class Main2Form {
      * 构造函数，进行初始化和开启Timer
      */
     public Main2Form(String id, String password) {
-        init();
         loadUserData(id);
-        userData.setPassWord(password);
-        // 加载背景图片地址，在MainParentPanelUI里会用 ServerURL.BG_PATH 设置背景图,所以要在这之前从服务器加载背景图片。要用到id所以要在loadUserData之后
-        try {
-            loadBg();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        workForm.setUserData(userData);
-        // 判断是不是管理员
-        if (userData.getIsAdmin()) {
-            workForm.announceText.setEditable(true);
-            workForm.dutyList.setEnabled(true);
-            workForm.submitBtn.setEnabled(true);
-            workForm.submitBtn.setVisible(true);
-        }
+        this.userData.setPassWord(password);
+        init();
         backAddTime();
         backPaintTime();
 
