@@ -62,7 +62,7 @@ public class TimerYeah {
                 logger.info("上传时间");
             } else {
                 logger.warning("加时返回错误信息：" + req);
-                JOptionPane.showMessageDialog(null, "上传时间失败。。请重启试试。。\n", "提示", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "上传时间失败。。请重启试试。。\n" + req, "提示", JOptionPane.ERROR_MESSAGE);
             }
 
             reader.close();

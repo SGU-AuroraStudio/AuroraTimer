@@ -55,6 +55,7 @@ public class Main2Form {
     int pageLimited = 20; //查看上x周最大值
     int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
     Logger logger = Logger.getLogger("MAIN");
+    Boolean SHOW_LOAD_BG_ERROR_DIALOG = false;
 
     /**
      * 初始化函数
@@ -95,9 +96,9 @@ public class Main2Form {
                 parent.repaint();
             }
         });
-        weekInfoForm.leftButton.addMouseListener(new MouseAdapter() {
+        weekInfoForm.leftButton.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 if (page < pageLimited) {
                     page++;
                     loadWeekTime(page);
@@ -105,9 +106,9 @@ public class Main2Form {
                 }
             }
         });
-        weekInfoForm.rightButton.addMouseListener(new MouseAdapter() {
+        weekInfoForm.rightButton.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 if (page > 0) {
                     page--;
                     loadWeekTime(page);
@@ -118,12 +119,16 @@ public class Main2Form {
         weekInfoForm.announceBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (workForm.loadWorkInfo() == true) {
+                int x=e.getX();
+                int y=e.getY();
+                if(x<56 || y<56 || x>324 || y>110)
+                    return ;
+                if (workForm.loadWorkInfo()) {
                     weekAllPane.setVisible(false);
                     weekAllPane.setEnabled(false);
                     parent.add(workForm.parent);
                 } else {
-                    logger.warning("加载公告界面失败");
+                    JOptionPane.showMessageDialog(null, "加载公告界面失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -295,7 +300,7 @@ public class Main2Form {
         boolean flag=false;
         if (bg == null || bg.available()<1000) {
             logger.warning("从服务器加载背景图片失败");
-            JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+            SHOW_LOAD_BG_ERROR_DIALOG=true;
         } else {
             try {
                 String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
@@ -667,6 +672,10 @@ public class Main2Form {
                     FRAME.setVisible(true);
                     FRAME.setAlwaysOnTop(true);
                     FRAME.setAlwaysOnTop(false);
+                    if(main2Form.SHOW_LOAD_BG_ERROR_DIALOG){
+                        JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+                        main2Form.SHOW_LOAD_BG_ERROR_DIALOG = false;
+                    }
                 }
             });
 

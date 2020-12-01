@@ -129,13 +129,14 @@ public class SettingForm {
             public void paint(Graphics g, JComponent c) {
                 super.paint(g, c);
                 File bg = new File(filePath);
-                ServerURL.BG_PATH = filePath;
                 if (bg.exists()) {
                     g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
                     preferences.put("bg", filePath);
+                    ServerURL.BG_PATH = filePath;
                 } else {
                     g.drawImage(new ImageIcon(getClass().getResource("bg.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
                     preferences.put("bg", "res" + File.separator + "bg.png");
+                    ServerURL.BG_PATH = "res" + File.separator + "bg.png";
                 }
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setColor(new Color(255, 255, 255, 200));

@@ -7,12 +7,9 @@ import aurora.timer.client.service.UserOnlineTimeService;
 import javax.swing.*;
 import javax.swing.event.RowSorterEvent;
 import javax.swing.event.RowSorterListener;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
+import javax.swing.table.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.util.Comparator;
 
 /**
  * Created by hao on 17-2-24.
@@ -40,9 +37,8 @@ public class WeekInfoForm {
         model.addColumn("本周在线总时间");
         weekList.setBackground(new Color(200, 200, 200, 100));
         weekList.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 16));
-        DefaultRowSorter sorter = (DefaultRowSorter)weekList.getRowSorter();
         // 不加这段排序后会重影
-        sorter.addRowSorterListener(new RowSorterListener() {
+        weekList.getRowSorter().addRowSorterListener(new RowSorterListener() {
             @Override
             public void sorterChanged(RowSorterEvent e) {
                 parent.repaint();
@@ -50,6 +46,7 @@ public class WeekInfoForm {
         });
         DefaultTableCellRenderer defaultTableCellRenderer = (DefaultTableCellRenderer) weekList.getDefaultRenderer(Object.class);
         defaultTableCellRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+
         // 表头
         JTableHeader tableHeader = weekList.getTableHeader();
         tableHeader.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
@@ -66,13 +63,14 @@ public class WeekInfoForm {
         scrollBar.setBorder(null);
         scrollBar.setOpaque(false);
         scrollBar.setIgnoreRepaint(false);
-
         infoPane.setVerticalScrollBar(scrollBar);
-        announceBtn.addMouseListener(new MouseAdapter() {
+        //不加会按默认，按字符串ascii排序。自定义按 时间"："前到小时int大小排序
+        TableRowSorter<TableModel> sorter = (TableRowSorter<TableModel>) weekList.getRowSorter();
+        sorter.setComparator(1, new Comparator<String>() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println(e.getX() + " Y:"+e.getY());
-                // X53 Y115
+            public int compare(String o1, String o2) {
+                int dif = Integer.parseInt(o1.split(":")[0]) - Integer.parseInt(o2.split(":")[0]);
+                return dif;
             }
         });
     }

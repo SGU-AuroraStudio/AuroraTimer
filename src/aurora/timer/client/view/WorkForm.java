@@ -68,9 +68,8 @@ public class WorkForm {
         // 公告栏外面的框架
         jspAnnounce.setViewportBorder(null);
         jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
-//        jspAnnounce.setOpaque(false);//将JScrollPane设置为透明
         jspAnnounce.getViewport().setOpaque(false);//将中间的viewport设置为透明
-//        jspAnnounce.setBackground(new Color(200, 200, 200, 100));
+        jspAnnounce.setOpaque(false);//将JScrollPane设置为透明
         // 表格
         //   设置表头，和数据
         Object[] columnNames = {"星期天","星期一","星期二","星期三","星期四","星期五","星期六"};
@@ -114,6 +113,7 @@ public class WorkForm {
                         dutyListStr.append("|");
                 }
                 vo.setDutylist(dutyListStr.toString());
+                // 上传
                 if(ads.uploadAdminData(vo, userData)){
                     JOptionPane.showMessageDialog(null, "上传成功！\n", "提示", JOptionPane.INFORMATION_MESSAGE);
                 }

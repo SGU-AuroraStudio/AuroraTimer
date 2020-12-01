@@ -10,11 +10,12 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Time;
+import java.util.logging.Logger;
 
 public class AdminDataService {
 
 //    public static String ADMIN = "http://" + "127.0.0.1:8080" + "/timer/admin"; //本地调试用
-
+    private static Logger logger = Logger.getLogger("admin");
     /**
      * 获取管理员数据,服务器返回的数据里时间是long类型
      *
@@ -52,10 +53,14 @@ public class AdminDataService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (flag)
+        if (flag) {
+            logger.info("加载公告");
             return vo;
-        else
+        }
+        else {
+            logger.warning("加载公告失败");
             return null;
+        }
     }
 
     public boolean uploadAdminData(AdminData vo, UserData userData) {
@@ -88,6 +93,10 @@ public class AdminDataService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if(flag)
+            logger.info("上传公告");
+        else
+            logger.warning("上传公告失败");
         return flag;
     }
 
@@ -108,6 +117,9 @@ public class AdminDataService {
             connection.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        if(flag){
+
         }
         return flag;
     }
