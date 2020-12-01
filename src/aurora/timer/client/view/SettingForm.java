@@ -41,16 +41,16 @@ public class SettingForm {
         initComboBox();
         this.filePath = preferences.get("bg", "res" + File.separator + "bg.png");
         setBgForThisParent(ServerURL.BG_PATH);
-        CancelButton.addMouseListener(new MouseAdapter() {
+        CancelButton.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 Main2FormSettingButton.setEnabled(true);
                 FRAME.dispose();
             }
         });
-        OkButton.addMouseListener(new MouseAdapter() {
+        OkButton.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 setBgForMain2FormParent(filePath);
                 //TODO:上传图片到服务器
                 try {
@@ -62,9 +62,9 @@ public class SettingForm {
                 FRAME.dispose();
             }
         });
-        selectBgImgBtn.addMouseListener(new MouseAdapter() {
+        selectBgImgBtn.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 fileChooser = new CustomFileChooser();
                 fileChooser.setMultiSelectionEnabled(false);
                 FileFilter filter = new FileNameExtensionFilter("图片(PNG,JPG,JPEG)", "png", "jpg", "jpeg");

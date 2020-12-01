@@ -56,6 +56,7 @@ public class WorkForm {
                 if (dutyList.isEditing())
                     dutyList.getCellEditor().stopCellEditing();
                 jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(86, 180, 130)));
+                System.out.println(announceBtn.getWidth()+" height:"+announceBtn.getHeight());
             }
 
             @Override
@@ -122,6 +123,7 @@ public class WorkForm {
             }
         });
         announceText.setBackground(new Color(200, 200, 200, 100));
+
     }
 
     // 从服务器加载信息

@@ -13,10 +13,10 @@ public class ServerURL {
 //    public static final String HOST = "47.107.77.200:8080";
     public static String HOST;
     static {
-//        Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
-//        ServerURL.HOST = preferences.get("host", "47.107.77.200:8080");
+        Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
+        ServerURL.HOST = preferences.get("host", "47.107.77.200:8080");
 //        HOST = "192.168.1.218:8080";
-        HOST = "127.0.0.1:8080";
+//        HOST = "127.0.0.1:8080";
     }
 
 //    public static final String HOST = "127.0.0.1:8080";

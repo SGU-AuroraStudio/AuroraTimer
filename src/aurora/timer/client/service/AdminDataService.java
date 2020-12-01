@@ -1,5 +1,6 @@
 package aurora.timer.client.service;
 
+import aurora.timer.client.ServerURL;
 import aurora.timer.client.vo.AdminData;
 import aurora.timer.client.vo.UserData;
 import org.json.simple.JSONObject;
@@ -12,7 +13,7 @@ import java.sql.Time;
 
 public class AdminDataService {
 
-    public static String ADMIN = "http://" + "127.0.0.1:8080" + "/timer/admin"; //本地调试用
+//    public static String ADMIN = "http://" + "127.0.0.1:8080" + "/timer/admin"; //本地调试用
 
     /**
      * 获取管理员数据,服务器返回的数据里时间是long类型
@@ -25,7 +26,7 @@ public class AdminDataService {
         AdminData vo = null;
         boolean flag = false;
         try {
-            URL url = new URL(ADMIN);
+            URL url = new URL(ServerURL.ADMIN);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setUseCaches(true);
@@ -61,7 +62,7 @@ public class AdminDataService {
         HttpURLConnection connection = null;
         boolean flag = false;
         try {
-            URL url = new URL(ADMIN+"?id="+userData.getID()+"&password="+userData.getPassWord());
+            URL url = new URL(ServerURL.ADMIN + "?id=" + userData.getID() + "&password=" + userData.getPassWord());
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);//设置是否向HttpUrlConnction输出，因为这个是POST请求，参数要放在http正文内，因此需要设为true，默认情况下是false
@@ -94,7 +95,7 @@ public class AdminDataService {
         HttpURLConnection connection = null;
         boolean flag = false;
         try {
-            URL url = new URL(ADMIN + "x=freeTime");
+            URL url = new URL(ServerURL.ADMIN + "x=freeTime");
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setUseCaches(true);

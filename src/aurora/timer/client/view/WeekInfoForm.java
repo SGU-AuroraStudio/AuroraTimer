@@ -2,7 +2,6 @@ package aurora.timer.client.view;
 
 //import javafx.scene.control.ScrollBar;
 
-import aurora.timer.client.service.AdminDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
 
 import javax.swing.*;
@@ -12,6 +11,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Created by hao on 17-2-24.
@@ -23,14 +24,14 @@ public class WeekInfoForm {
     public JTable weekList;
     public JButton leftButton;
     public JButton rightButton;
-    public JButton announceButton;
+    public JButton announceBtn;
 
     public void init() {
         LoginButtonUI buttonUI = new LoginButtonUI();
         leftButton.setUI(buttonUI);
         rightButton.setUI(buttonUI);
         changeButton.setUI(buttonUI);
-        announceButton.setUI(buttonUI);
+        announceBtn.setUI(buttonUI);
         changeButton.setContentAreaFilled(false);
         infoPane.getViewport().setOpaque(false);
         DefaultTableModel model = (DefaultTableModel) weekList.getModel();
@@ -67,15 +68,17 @@ public class WeekInfoForm {
         scrollBar.setIgnoreRepaint(false);
 
         infoPane.setVerticalScrollBar(scrollBar);
-    }
-
-    public void loadTermAll(){
-        UserOnlineTimeService uots = new UserOnlineTimeService();
-
-
+        announceBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println(e.getX() + " Y:"+e.getY());
+                // X53 Y115
+            }
+        });
     }
 
     public WeekInfoForm() {
         init();
     }
+
 }

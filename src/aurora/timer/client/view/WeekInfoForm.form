@@ -85,7 +85,7 @@
           </component>
         </children>
       </grid>
-      <component id="b4a5" class="javax.swing.JButton" binding="announceButton">
+      <component id="b4a5" class="javax.swing.JButton" binding="announceBtn">
         <constraints border-constraint="West"/>
         <properties>
           <actionCommand value=""/>
@@ -96,8 +96,8 @@
           <margin top="0" left="35" bottom="0" right="0"/>
           <maximumSize width="-1" height="-1"/>
           <minimumSize width="-1" height="-1"/>
-          <opaque value="false"/>
-          <preferredSize width="340" height="178"/>
+          <opaque value="true"/>
+          <preferredSize width="273" height="93"/>
           <text value=""/>
         </properties>
       </component>

@@ -15,7 +15,6 @@ import javax.swing.*;
 import javax.swing.Timer;
 import javax.swing.plaf.basic.BasicPanelUI;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -115,7 +114,7 @@ public class Main2Form {
                 }
             }
         });
-        weekInfoForm.announceButton.addMouseListener(new MouseAdapter() {
+        weekInfoForm.announceBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (workForm.loadWorkInfo() == true) {
