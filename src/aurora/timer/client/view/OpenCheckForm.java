@@ -1,11 +1,12 @@
 package aurora.timer.client.view;
 
+import aurora.timer.client.view.until.SaveBg;
 import aurora.timer.client.view.version.Update;
 import org.json.simple.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Created by hao on 17-4-19.
@@ -14,6 +15,7 @@ public class OpenCheckForm {
     private static JFrame FRAME;
     private JPanel parent;
     private JTextArea InfoPane;
+    private aurora.timer.client.view.until.SaveBg SaveBg;
 
     public static void main(String[] args) {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -54,6 +56,26 @@ public class OpenCheckForm {
 //            }
 //        });
         Thread thisThread = Thread.currentThread();
+        Thread saveBgThread = new Thread() {
+            @Override
+            public void run() {
+                InputStream bg1 = getClass().getResourceAsStream("bg1.png");
+                String bgPath1 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg1.png";
+                InputStream bg2 = getClass().getResourceAsStream("bg2.png");
+                String bgPath2 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg2.png";
+                InputStream bg3 = getClass().getResourceAsStream("bg3.png");
+                String bgPath3 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
+                try {
+                    form.SaveBg.saveBg(bgPath1, bg1, true);
+                    form.SaveBg.saveBg(bgPath2, bg2, true);
+                    form.SaveBg.saveBg(bgPath3, bg3, true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        saveBgThread.run();
+
         try {
             thisThread.sleep(5000);
         } catch (InterruptedException e) {

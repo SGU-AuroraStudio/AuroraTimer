@@ -5,6 +5,7 @@ import aurora.timer.client.service.AdminDataService;
 import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
+import aurora.timer.client.view.until.SaveBg;
 import aurora.timer.client.view.until.TableUntil;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
@@ -142,12 +143,7 @@ public class Main2Form {
         });
         thisWeekList = weekInfoForm.weekList;
         weekAllPane = weekInfoForm.parent;
-        // 加载背景图片地址，在MainParentPanelUI里会用 ServerURL.BG_PATH 设置背景图,所以要在这之前从服务器加载背景图片。要用到id所以要在loadUserData之后
-//        try {
-//            loadBg();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+
         minButton.setUI(new LoginButtonUI());
         outButton.setUI(new LoginButtonUI());
         changeButton.setUI(new LoginButtonUI());
@@ -297,32 +293,31 @@ public class Main2Form {
         UserDataService uds = new UserDataService();
         InputStream bg = uds.findBgByid(userData.getID(), userData.getPassWord());
         boolean flag=false;
+        // 图片不存在或者返回数据过小，失败
         if (bg == null || bg.available()<1000) {
             logger.warning("从服务器加载背景图片失败");
-            SHOW_LOAD_BG_ERROR_DIALOG=true;
+            EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+                    SHOW_LOAD_BG_ERROR_DIALOG = false;
+                }
+            });
         } else {
             try {
                 String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
-                File file = new File(bgPath);
-                BufferedInputStream fi = new BufferedInputStream(bg);
-                FileOutputStream fo = new FileOutputStream(file);
-                int f;
-                while ((f = fi.read()) != -1) {
-                    fo.write(f);
+                if(SaveBg.saveBg(bgPath, bg, true)) {
+                    // 修改注册表
+                    preferences.put("bg", bgPath);
+                    logger.info("从服务器加载背景图片");
+                    flag = true;
                 }
-                fo.flush();
-                fo.close();
-                fi.close();
-                // 修改注册表
-                preferences.put("bg", bgPath);
-                logger.info("从服务器加载背景图片");
-                flag=true;
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         // 优先从注册表里读取，没有就设置为默认。（在上边从服务器读取到到话会改注册表）
-        ServerURL.BG_PATH = preferences.get("bg", "res" + File.separator + "bg.png");
+//        ServerURL.BG_PATH = preferences.get("bg", "res" + File.separator + "bg1.png");
         parent.setUI(new MainParentPanelUI());
         return flag;
     }
@@ -420,16 +415,6 @@ public class Main2Form {
         try {
             loadBg();
         } catch (IOException e) {
-            SHOW_LOAD_BG_ERROR_DIALOG=true;
-            if(SHOW_LOAD_BG_ERROR_DIALOG){
-                EventQueue.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        //JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
-                        SHOW_LOAD_BG_ERROR_DIALOG = false;
-                    }
-                });
-            }
             e.printStackTrace();
         }
         workForm.setUserData(userData);

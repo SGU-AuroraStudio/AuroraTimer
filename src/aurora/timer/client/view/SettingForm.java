@@ -3,6 +3,7 @@ package aurora.timer.client.view;
 import aurora.timer.client.ServerURL;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.view.until.CustomFileChooser;
+import aurora.timer.client.view.until.SaveBg;
 import aurora.timer.client.vo.UserData;
 //import org.omg.CORBA.FREE_MEM;
 
@@ -12,10 +13,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.basic.BasicPanelUI;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.URISyntaxException;
+import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
 /**
@@ -34,19 +34,15 @@ public class SettingForm {
     private final Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
     private String filePath;
     private UserData userData;
+    Logger logger = Logger.getLogger("SETTING");
 
     public SettingForm(JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
         this.Main2FormParent = Main2FormParent;
         this.userData = userData;
         this.Main2FormSettingButton = Main2FormSettingButton;
         initComboBox();
-        try {
-            String tempFilePath = getClass().getResource("bg.png").toURI().getPath();
-            this.filePath = preferences.get("bg", tempFilePath);
-        } catch (URISyntaxException uriSyntaxException) {
-            uriSyntaxException.printStackTrace();
-        }
-        setBgForThisParent(ServerURL.BG_PATH);
+        this.filePath = preferences.get("bg", "");
+        setBgForThisParent(filePath);
         CancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,6 +73,7 @@ public class SettingForm {
                 fileChooser.setFileFilter(filter);
                 if (fileChooser.showOpenDialog(selectBgImgBtn) == JFileChooser.APPROVE_OPTION) {
                     File file = fileChooser.getSelectedFile();
+                    // 文件不合格
                     if (file.length() >= (1024L * 1024L * 15)) {
                         JOptionPane.showMessageDialog(null, "请选择15M以下的文件", "错误", JOptionPane.ERROR_MESSAGE);
                     } else {
@@ -99,25 +96,27 @@ public class SettingForm {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     String imgName = (String) imgComboBox.getSelectedItem();
+                    InputStream bg = null;
+                    String bgPath = null;
                     if (imgName.equals("经典1")) {
-                        try {
-                            filePath = getClass().getResource("bg.png").toURI().getPath();
-                        } catch (URISyntaxException uriSyntaxException) {
-                            uriSyntaxException.printStackTrace();
-                        }
-                        setBgForThisParent(filePath);
+                        bg = getClass().getResourceAsStream("bg1.png");
+                        bgPath = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg1.png";
                     } else if (imgName.equals("经典2")) {
-                        try {
-                            filePath = getClass().getResource("bg4.png").toURI().getPath();
-                        } catch (URISyntaxException uriSyntaxException) {
-                            uriSyntaxException.printStackTrace();
-                        }
-                        setBgForThisParent(filePath);
+                        bg = getClass().getResourceAsStream("bg2.png");
+                        bgPath = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg2.png";
                     } else if (imgName.equals("经典3")) {
+                        bg = getClass().getResourceAsStream("bg3.png");
+                        bgPath = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
+                    }
+                    if (!imgName.equals("")) {
                         try {
-                            filePath = getClass().getResource("bg5.png").toURI().getPath();
-                        } catch (URISyntaxException uriSyntaxException) {
-                            uriSyntaxException.printStackTrace();
+                            if (SaveBg.saveBg(bgPath, bg, false))
+                                filePath = bgPath;
+                            else
+                                logger.warning("保存背景图失败");
+                        } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                            logger.warning("保存背景图错误！");
                         }
                         setBgForThisParent(filePath);
                     }
@@ -135,7 +134,7 @@ public class SettingForm {
                 if (bg.exists()) {
                     g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
                 } else {
-                    g.drawImage(new ImageIcon(getClass().getResource("bg.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
+                    g.drawImage(new ImageIcon(getClass().getResource("bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
                 }
             }
         });
@@ -150,9 +149,9 @@ public class SettingForm {
                 if (bg.exists()) {
                     g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
                     preferences.put("bg", filePath);
-                    ServerURL.BG_PATH = filePath;
+//                    ServerURL.BG_PATH = filePath;
                 } else {
-                    g.drawImage(new ImageIcon(getClass().getResource("bg.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
+                    g.drawImage(new ImageIcon(getClass().getResource("bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
                 }
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setColor(new Color(255, 255, 255, 200));
@@ -164,12 +163,21 @@ public class SettingForm {
     }
 
     public void uploadBg() throws IOException {
+        String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
         File file = new File(filePath);
-        FileInputStream inputStream = new FileInputStream(file);
+        FileInputStream bg = new FileInputStream(file);
         UserDataService uds = new UserDataService();
-        boolean flag = uds.uploadBg(userData.getID(), userData.getPassWord(), inputStream);
-        if(!flag){
-            JOptionPane.showMessageDialog(null, "上传背景图片到服务器失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+        // 上传的同时保存到临时文件夹
+        if (SaveBg.saveBg(bgPath, bg, true)) ;
+        preferences.put("bg", bgPath);
+        boolean flag = uds.uploadBg(userData.getID(), userData.getPassWord(), bg);
+        if (!flag) {
+            EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    JOptionPane.showMessageDialog(null, "上传背景图片到服务器失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+                }
+            });
         }
     }
 
@@ -185,7 +193,7 @@ public class SettingForm {
                     SettingForm settingForm = new SettingForm(Main2FormParent, Main2FormSettingButton, userData);
                     FRAME.setContentPane(settingForm.parent);
 //                    FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
-                    FRAME.setLocation((int)d.getX(), (int)d.getY());
+                    FRAME.setLocation((int) d.getX(), (int) d.getY());
                     FRAME.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     FRAME.setResizable(false);
                     FRAME.setVisible(true);

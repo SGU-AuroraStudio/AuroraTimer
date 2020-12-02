@@ -40,8 +40,8 @@ public class ServerURL {
     public static String FIND_BY_ID = "http://" + HOST + "/timer/findById";
     //获取插件的文件夹
     public static final String PLUGIN_HOME = "res" + File.pathSeparator + "plugins";
-    //背景图片的文件夹
-    public static String BG_PATH = "res" + File.separator + "bg.png";
+    //背景图片的文件夹(作废，打包成jar后访问jar内部资源的方式不一样)
+    ///public static String BG_PATH = "res" + File.separator + "bg1.png";
     //背景图片地址
     public static String BG = "http://" + HOST + "/timer/bg";
     //检查新版本
