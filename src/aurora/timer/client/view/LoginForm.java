@@ -150,6 +150,7 @@ public class LoginForm {
             FRAME.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "登陆失败", "提示", JOptionPane.ERROR_MESSAGE);
+            loginLogic();
         }
     }
 

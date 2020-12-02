@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
+import javax.swing.undo.UndoManager;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -49,6 +50,8 @@ public class WorkForm {
         announceText.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
         announceText.setLineWrap(true);
         announceText.setBackground(new Color(200, 200, 200, 100));
+        UndoManager undoManager = new UndoManager();
+        announceText.getDocument().addUndoableEditListener(undoManager);
         // 公告栏获取焦点，停止表格输入
         announceText.addFocusListener(new FocusListener() {
             @Override
@@ -62,6 +65,21 @@ public class WorkForm {
             public void focusLost(FocusEvent e) {
                 jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
 
+            }
+        });
+        announceText.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Z) {
+                    if (undoManager.canUndo()) {
+                        undoManager.undo();
+                    }
+                }
+                if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Y) {
+                    if (undoManager.canRedo()) {
+                        undoManager.redo();
+                    }
+                }
             }
         });
         // 公告栏外面的框架
