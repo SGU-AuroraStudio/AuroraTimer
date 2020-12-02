@@ -50,6 +50,7 @@ public class Main2Form {
     Point mousePoint; //鼠标位置，判断挂机用
     WeekInfoForm weekInfoForm; //用来查看周计时的panel
     WorkForm workForm;
+    SettingForm settingForm;
     Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
     String[] theRedPerson;
     int page; //查看周计时的页面
@@ -67,7 +68,12 @@ public class Main2Form {
         mousePoint = MouseInfo.getPointerInfo().getLocation();
         weekInfoForm = new WeekInfoForm();
         workForm = new WorkForm();
+        settingForm = new SettingForm(parent, settingButton, userData);
         workForm.setUserData(userData);
+        thisWeekList = weekInfoForm.weekList;
+        weekAllPane = weekInfoForm.parent;
+//        settingForm.setTimePanel(timePanel);
+//        settingForm.setWeekAllPane(weekAllPane);
         // 判断是不是管理员
         if (userData.getIsAdmin()) {
             workForm.announceText.setEditable(true);
@@ -76,25 +82,28 @@ public class Main2Form {
             workForm.submitBtn.setVisible(true);
         }
         //TODO:bug:timePanel时间圆盘在点切换后会下移(发现是timeLabel变长了)
-//        weekInfoForm.changeButton.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                int x = e.getX() - 24;
-//                int y = e.getY() - 25;
-////                System.out.print(x + " " + y);
-//                if (!(x + y <= 55 || x + y >= 165 || x - y >= 55 || x - y <= -55)) {
-//                    parent.remove(weekAllPane);
-//                    timePanel.setVisible(true);
-//                    parent.repaint();
-//                }
-//            }
-//        });
         weekInfoForm.changeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 parent.remove(weekAllPane);
+                weekAllPane.setVisible(false);
                 timePanel.setVisible(true);
                 parent.repaint();
+            }
+        });
+        changeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timePanel.setVisible(false);
+                try {
+                    TimerYeah.addTime(userData.getID());
+                } catch (Throwable throwable) {
+                    JOptionPane.showMessageDialog(null, "计时线程异常，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+                }
+                loadWeekTime(0);
+                setAllTime();
+                weekAllPane.setVisible(true);
+                parent.add(weekAllPane);
             }
         });
         weekInfoForm.leftButton.addActionListener(new ActionListener() {
@@ -120,10 +129,10 @@ public class Main2Form {
         weekInfoForm.announceBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int x=e.getX();
-                int y=e.getY();
-                if(x<56 || y<56 || x>324 || y>110)
-                    return ;
+                int x = e.getX();
+                int y = e.getY();
+                if (x < 56 || y < 56 || x > 324 || y > 110)
+                    return;
                 if (workForm.loadWorkInfo()) {
                     weekAllPane.setVisible(false);
                     weekAllPane.setEnabled(false);
@@ -142,9 +151,22 @@ public class Main2Form {
                 weekAllPane.setEnabled(true);
             }
         });
-        thisWeekList = weekInfoForm.weekList;
-        weekAllPane = weekInfoForm.parent;
-
+        settingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                settingForm.parent.setVisible(true);
+                settingButton.setEnabled(false);
+                parent.add(settingForm.parent);
+                // 在哪点进去设置的，用于显示回来
+                if (timePanel.isVisible())
+                    settingForm.setMain2BeforeInComponent(timePanel);
+                else if (weekAllPane.isVisible())
+                    settingForm.setMain2BeforeInComponent(weekAllPane);
+                weekAllPane.setVisible(false);
+                timePanel.setVisible(false);
+                parent.repaint();
+            }
+        });
         minButton.setUI(new LoginButtonUI());
         outButton.setUI(new LoginButtonUI());
         changeButton.setUI(new LoginButtonUI());
@@ -293,9 +315,9 @@ public class Main2Form {
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();
         InputStream bg = uds.findBgByid(userData.getID(), userData.getPassWord());
-        boolean flag=false;
+        boolean flag = false;
         // 图片不存在或者返回数据过小，失败
-        if (bg == null || bg.available()<1000) {
+        if (bg == null || bg.available() < 1000) {
             logger.warning("从服务器加载背景图片失败");
             EventQueue.invokeLater(new Runnable() {
                 @Override
@@ -307,7 +329,7 @@ public class Main2Form {
         } else {
             try {
                 String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
-                if(SaveBg.saveBg(bgPath, bg, true)) {
+                if (SaveBg.saveBg(bgPath, bg, true)) {
                     // 修改注册表
                     preferences.put("bg", bgPath);
                     logger.info("从服务器加载背景图片");
@@ -352,7 +374,7 @@ public class Main2Form {
                     // 如果不是自由时间，就弹出对话框
                     if (!ads.isFreeTime())
                         createDialog();//打开提示框，此时计时线程会停止
-                        freshAddTimer.start();
+                    freshAddTimer.start();
                 }
                 mousePoint = MouseInfo.getPointerInfo().getLocation();
             }
@@ -457,46 +479,6 @@ public class Main2Form {
             @Override
             public void mouseDragged(MouseEvent e) {
                 FRAME.setLocation(jfx + (e.getXOnScreen() - mx), jfy + (e.getYOnScreen() - my));
-            }
-        });
-//        changeButton.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                int x = e.getX() - 227;
-//                int y = e.getY() - 25;
-//                if (!(x + y < 55 || x + y > 165 || x - y > 55 || x - y < -55)) {
-//                    timePanel.setVisible(false);
-//                    try {
-//                        TimerYeah.addTime(userData.getID());
-//                    } catch (Throwable throwable) {
-//                        JOptionPane.showMessageDialog(null, "计时线程异常，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
-//                    }
-//                    loadWeekTime(0);
-//                    setAllTime();
-//                    parent.add(weekAllPane);
-//                }
-//            }
-//
-//        });
-        changeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                timePanel.setVisible(false);
-                try {
-                    TimerYeah.addTime(userData.getID());
-                } catch (Throwable throwable) {
-                    JOptionPane.showMessageDialog(null, "计时线程异常，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
-                }
-                loadWeekTime(0);
-                setAllTime();
-                parent.add(weekAllPane);
-            }
-        });
-        settingButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                settingButton.setEnabled(false);
-                SettingForm.main(FRAME, parent, settingButton, userData);
             }
         });
     }

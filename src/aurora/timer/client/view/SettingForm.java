@@ -14,7 +14,6 @@ import javax.swing.plaf.basic.BasicPanelUI;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.net.URISyntaxException;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
@@ -22,18 +21,19 @@ import java.util.prefs.Preferences;
  * Created by hao on 17-4-27.
  */
 public class SettingForm {
-    private static JFrame FRAME;
-    private JPanel parent;
+    public static JFrame FRAME;
+    public JPanel parent;
+    public JButton OkButton;
+    public JButton CancelButton;
+    public CustomFileChooser fileChooser;
+    public JButton selectBgImgBtn;
+    public JComboBox<String> imgComboBox;
+    public final Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
+    public String filePath;
+    public UserData userData;
+    private JPanel Main2BeforeInComponent;
     private JPanel Main2FormParent;
     private JButton Main2FormSettingButton;
-    private JButton OkButton;
-    private JButton CancelButton;
-    private CustomFileChooser fileChooser;
-    private JButton selectBgImgBtn;
-    private JComboBox<String> imgComboBox;
-    private final Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
-    private String filePath;
-    private UserData userData;
     Logger logger = Logger.getLogger("SETTING");
 
     public SettingForm(JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
@@ -47,7 +47,9 @@ public class SettingForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main2FormSettingButton.setEnabled(true);
-                FRAME.dispose();
+                Main2BeforeInComponent.setVisible(true);
+                Main2FormParent.remove(parent);
+                Main2FormParent.repaint();
             }
         });
         OkButton.addActionListener(new ActionListener() {
@@ -62,7 +64,9 @@ public class SettingForm {
                     ioException.printStackTrace();
                 }
                 Main2FormSettingButton.setEnabled(true);
-                FRAME.dispose();
+                Main2BeforeInComponent.setVisible(true);
+                Main2FormParent.remove(parent);
+                Main2FormParent.repaint();
             }
         });
         selectBgImgBtn.addActionListener(new ActionListener() {
@@ -185,6 +189,9 @@ public class SettingForm {
         }
     }
 
+    public void setMain2BeforeInComponent(JPanel Main2BeforeInComponent) {
+        this.Main2BeforeInComponent = Main2BeforeInComponent;
+    }
 
     public static void main(JFrame Main2FRAME, JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
 //        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
