@@ -15,6 +15,7 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.prefs.Preferences;
 
 /**
@@ -39,7 +40,12 @@ public class SettingForm {
         this.userData = userData;
         this.Main2FormSettingButton = Main2FormSettingButton;
         initComboBox();
-        this.filePath = preferences.get("bg", "res" + File.separator + "bg.png");
+        try {
+            String tempFilePath = getClass().getResource("bg.png").toURI().getPath();
+            this.filePath = preferences.get("bg", tempFilePath);
+        } catch (URISyntaxException uriSyntaxException) {
+            uriSyntaxException.printStackTrace();
+        }
         setBgForThisParent(ServerURL.BG_PATH);
         CancelButton.addActionListener(new ActionListener() {
             @Override
@@ -94,13 +100,25 @@ public class SettingForm {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     String imgName = (String) imgComboBox.getSelectedItem();
                     if (imgName.equals("经典1")) {
-                        filePath = "res" + File.separator + "bg.png";
+                        try {
+                            filePath = getClass().getResource("bg.png").toURI().getPath();
+                        } catch (URISyntaxException uriSyntaxException) {
+                            uriSyntaxException.printStackTrace();
+                        }
                         setBgForThisParent(filePath);
                     } else if (imgName.equals("经典2")) {
-                        filePath = "res" + File.separator + "bg4.png";
+                        try {
+                            filePath = getClass().getResource("bg4.png").toURI().getPath();
+                        } catch (URISyntaxException uriSyntaxException) {
+                            uriSyntaxException.printStackTrace();
+                        }
                         setBgForThisParent(filePath);
                     } else if (imgName.equals("经典3")) {
-                        filePath = "res" + File.separator + "bg5.png";
+                        try {
+                            filePath = getClass().getResource("bg5.png").toURI().getPath();
+                        } catch (URISyntaxException uriSyntaxException) {
+                            uriSyntaxException.printStackTrace();
+                        }
                         setBgForThisParent(filePath);
                     }
                 }
@@ -135,8 +153,6 @@ public class SettingForm {
                     ServerURL.BG_PATH = filePath;
                 } else {
                     g.drawImage(new ImageIcon(getClass().getResource("bg.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
-                    preferences.put("bg", "res" + File.separator + "bg.png");
-                    ServerURL.BG_PATH = "res" + File.separator + "bg.png";
                 }
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setColor(new Color(255, 255, 255, 200));
@@ -158,8 +174,9 @@ public class SettingForm {
     }
 
 
-    public static void main(JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+    public static void main(JFrame Main2FRAME, JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
+//        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        Point d = Main2FRAME.getLocation();
         try {
             EventQueue.invokeLater(new Runnable() {
                 @Override
@@ -167,7 +184,8 @@ public class SettingForm {
                     FRAME = new MainFrame("设置");
                     SettingForm settingForm = new SettingForm(Main2FormParent, Main2FormSettingButton, userData);
                     FRAME.setContentPane(settingForm.parent);
-                    FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
+//                    FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
+                    FRAME.setLocation((int)d.getX(), (int)d.getY());
                     FRAME.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     FRAME.setResizable(false);
                     FRAME.setVisible(true);

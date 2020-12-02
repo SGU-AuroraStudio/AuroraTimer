@@ -145,7 +145,7 @@ public class LoginForm {
             }
             //跳个转
 //            MainForm.main(inf);
-            TimerYeah.addTime(vo.getID());
+//            TimerYeah.addTime(vo.getID());
             Main2Form.main(inf);
             FRAME.dispose();
         } else {

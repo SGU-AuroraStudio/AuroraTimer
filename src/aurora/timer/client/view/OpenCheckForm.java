@@ -59,13 +59,6 @@ public class OpenCheckForm {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                LoginForm.main(new String[0]);
-            }
-        });
-
         FRAME.dispose();
     }
 }

@@ -27,7 +27,6 @@ import java.util.prefs.Preferences;
  * Created by hao on 17-2-22.
  */
 public class Main2Form {
-    private static boolean SHOW_LOAD_BG_ERROR_DIALOG = false;
     private static MainFrame FRAME;
     private JPanel parent;
     private JButton minButton;
@@ -144,11 +143,11 @@ public class Main2Form {
         thisWeekList = weekInfoForm.weekList;
         weekAllPane = weekInfoForm.parent;
         // 加载背景图片地址，在MainParentPanelUI里会用 ServerURL.BG_PATH 设置背景图,所以要在这之前从服务器加载背景图片。要用到id所以要在loadUserData之后
-        try {
-            loadBg();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            loadBg();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         minButton.setUI(new LoginButtonUI());
         outButton.setUI(new LoginButtonUI());
         changeButton.setUI(new LoginButtonUI());
@@ -422,6 +421,15 @@ public class Main2Form {
             loadBg();
         } catch (IOException e) {
             SHOW_LOAD_BG_ERROR_DIALOG=true;
+            if(SHOW_LOAD_BG_ERROR_DIALOG){
+                EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        //JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+                        SHOW_LOAD_BG_ERROR_DIALOG = false;
+                    }
+                });
+            }
             e.printStackTrace();
         }
         workForm.setUserData(userData);
@@ -502,7 +510,7 @@ public class Main2Form {
             @Override
             public void actionPerformed(ActionEvent e) {
                 settingButton.setEnabled(false);
-                SettingForm.main(parent, settingButton, userData);
+                SettingForm.main(FRAME, parent, settingButton, userData);
             }
         });
     }
@@ -672,13 +680,8 @@ public class Main2Form {
                     FRAME.setVisible(true);
                     FRAME.setAlwaysOnTop(true);
                     FRAME.setAlwaysOnTop(false);
-                    if(main2Form.SHOW_LOAD_BG_ERROR_DIALOG){
-                        JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
-                        main2Form.SHOW_LOAD_BG_ERROR_DIALOG = false;
-                    }
                 }
             });
-
         } catch (Exception e) {
             e.printStackTrace();
         }

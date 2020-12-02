@@ -93,6 +93,7 @@ public class WorkForm {
         headerTCR.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         // 表格外面的框架
         jspDutyList.getViewport().setOpaque(false);//将JScrollPane设置为透明
+        jspDutyList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 //        jspDutyList.setOpaque(false);
 
         // 管理员用的提交按钮
@@ -140,7 +141,6 @@ public class WorkForm {
         Object[] columnNames = {"星期天","星期一","星期二","星期三","星期四","星期五","星期六"};
         DefaultTableModel model = new DefaultTableModel(dutyListData,columnNames);
         dutyList.setModel(model);
-
         return true;
     }
 

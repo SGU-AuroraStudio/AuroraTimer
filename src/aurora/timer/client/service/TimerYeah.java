@@ -3,6 +3,7 @@ package aurora.timer.client.service;
 import aurora.timer.client.ServerURL;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -62,7 +63,13 @@ public class TimerYeah {
                 logger.info("上传时间");
             } else {
                 logger.warning("加时返回错误信息：" + req);
-                JOptionPane.showMessageDialog(null, "上传时间失败。。请重启试试。。\n" + req, "提示", JOptionPane.ERROR_MESSAGE);
+                String finalReq = req;
+                EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        JOptionPane.showMessageDialog(null, "上传时间失败。。请重启试试。。\n" + finalReq, "提示", JOptionPane.ERROR_MESSAGE);
+                    }
+                });
             }
 
             reader.close();

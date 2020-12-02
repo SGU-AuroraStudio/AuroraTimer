@@ -96,7 +96,7 @@
           <margin top="0" left="35" bottom="0" right="0"/>
           <maximumSize width="-1" height="-1"/>
           <minimumSize width="-1" height="-1"/>
-          <opaque value="true"/>
+          <opaque value="false"/>
           <preferredSize width="273" height="93"/>
           <text value=""/>
         </properties>

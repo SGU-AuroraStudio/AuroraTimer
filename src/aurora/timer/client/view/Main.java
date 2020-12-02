@@ -57,6 +57,7 @@ public class Main {
             if (getHost.length() != 0) {
                 ServerURL.HOST = getHost;
                 preferences.put("host", getHost);
+                setIp();
             }
             System.exit(11);
         }
