@@ -54,6 +54,7 @@ public class SettingForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setBgForMain2FormParent(filePath);
+                preferences.put("bg",filePath);
                 //TODO:上传图片到服务器
                 try {
                     uploadBg();

@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.sql.Time;
 import java.util.*;
 import java.util.logging.Logger;
@@ -230,7 +231,7 @@ public class Main2Form {
             }
             try {
                 byte[] bytes = t.getName().getBytes();
-                String s = new String(bytes, "utf-8");
+                String s = new String(bytes, StandardCharsets.UTF_8);
                 model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), parseTime(t.getTermOnlineTime()), "   " + parseTime(t.getTodayOnlineTime())}); //填入表格
             } catch (Exception e) {
                 e.printStackTrace();
