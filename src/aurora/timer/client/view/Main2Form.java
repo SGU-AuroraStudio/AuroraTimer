@@ -27,6 +27,7 @@ import java.util.prefs.Preferences;
  * Created by hao on 17-2-22.
  */
 public class Main2Form {
+    private static boolean SHOW_LOAD_BG_ERROR_DIALOG = false;
     private static MainFrame FRAME;
     private JPanel parent;
     private JButton minButton;
@@ -287,11 +288,12 @@ public class Main2Form {
         }
     }
 
-    public void loadBg() throws IOException {
+    public boolean loadBg() throws IOException {
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();
         InputStream bg = uds.findBgByid(userData.getID(), userData.getPassWord());
-        if (bg == null || bg.available() < 100) { // 100b、0.1kb都没有还说自己是图片，看不见，重来！
+        boolean flag=false;
+        if (bg == null || bg.available()<1000) {
             logger.warning("从服务器加载背景图片失败");
             JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -309,7 +311,8 @@ public class Main2Form {
                 fi.close();
                 // 修改注册表
                 preferences.put("bg", bgPath);
-                logger.info("从服务器加载背景图片成功");
+                logger.info("从服务器加载背景图片");
+                flag=true;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -317,6 +320,7 @@ public class Main2Form {
         // 优先从注册表里读取，没有就设置为默认。（在上边从服务器读取到到话会改注册表）
         ServerURL.BG_PATH = preferences.get("bg", "res" + File.separator + "bg.png");
         parent.setUI(new MainParentPanelUI());
+        return flag;
     }
 
     /**
@@ -347,7 +351,7 @@ public class Main2Form {
                     AdminDataService ads = new AdminDataService();
                     // 如果不是自由时间，就弹出对话框
                     if (!ads.isFreeTime())
-                        //createDialog();//打开提示框，此时计时线程会停止
+                        createDialog();//打开提示框，此时计时线程会停止
                         freshAddTimer.start();
                 }
                 mousePoint = MouseInfo.getPointerInfo().getLocation();
@@ -406,8 +410,23 @@ public class Main2Form {
      */
     public Main2Form(String id, String password) {
         loadUserData(id);
-        this.userData.setPassWord(password);
         init();
+        this.userData.setPassWord(password);
+        // 加载背景图片地址，在MainParentPanelUI里会用 ServerURL.BG_PATH 设置背景图,所以要在这之前从服务器加载背景图片。要用到id所以要在loadUserData之后
+        try {
+            loadBg();
+        } catch (IOException e) {
+            SHOW_LOAD_BG_ERROR_DIALOG=true;
+            e.printStackTrace();
+        }
+        workForm.setUserData(userData);
+        // 判断是不是管理员
+        if (userData.getIsAdmin()) {
+            workForm.announceText.setEditable(true);
+            workForm.dutyList.setEnabled(true);
+            workForm.submitBtn.setEnabled(true);
+            workForm.submitBtn.setVisible(true);
+        }
         backAddTime();
         backPaintTime();
 

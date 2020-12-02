@@ -43,7 +43,7 @@ public class Update {
             url = new URL(checkNewUrl);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
-            reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "gbk"));
+            reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "utf-8"));
             String temp;
             while ((temp = reader.readLine()) != null) {
                 stringBuffer.append(temp);
