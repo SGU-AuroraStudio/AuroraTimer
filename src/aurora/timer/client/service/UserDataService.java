@@ -98,7 +98,7 @@ public class UserDataService {
 //                System.out.println(line);
             }
         } catch (IOException ex) {
-            System.err.println(ex);
+            ex.printStackTrace();
         }
         if (flag) {
             logger.info("上传背景图片成功");
@@ -115,7 +115,7 @@ public class UserDataService {
             URL url = new URL(ServerURL.BG+"?id="+id+"&password="+password);
             connection = (HttpURLConnection) url.openConnection();
             connection.setConnectTimeout(3000);
-            connection.setReadTimeout(3000);
+//            connection.setReadTimeout(3000);
             connection.connect();
             bg = connection.getInputStream();
         } catch (Exception e) {

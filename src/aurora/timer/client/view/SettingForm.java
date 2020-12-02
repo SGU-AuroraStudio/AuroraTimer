@@ -108,6 +108,8 @@ public class SettingForm {
                     } else if (imgName.equals("经典3")) {
                         bg = getClass().getResourceAsStream("bg3.png");
                         bgPath = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
+                    } else if (imgName.equals("")){
+                        bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
                     }
                     if (!imgName.equals("")) {
                         try {
@@ -119,8 +121,8 @@ public class SettingForm {
                             ioException.printStackTrace();
                             logger.warning("保存背景图错误！");
                         }
-                        setBgForThisParent(filePath);
                     }
+                    setBgForThisParent(filePath);
                 }
             }
         });
@@ -167,9 +169,10 @@ public class SettingForm {
         String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
         File file = new File(filePath);
         FileInputStream bg = new FileInputStream(file);
+        FileInputStream bg1 = new FileInputStream(file);
         UserDataService uds = new UserDataService();
-        // 上传的同时保存到临时文件夹
-        if (SaveBg.saveBg(bgPath, bg, true)) ;
+        // 上传的同时保存到临时文件夹,注意：inputstream用一次就没了！
+        if (SaveBg.saveBg(bgPath, bg1, true)) ;
         preferences.put("bg", bgPath);
         boolean flag = uds.uploadBg(userData.getID(), userData.getPassWord(), bg);
         if (!flag) {
