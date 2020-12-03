@@ -8,6 +8,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Date;
+import java.util.Properties;
 import java.util.logging.Logger;
 
 /**
@@ -48,7 +50,9 @@ public class TimerYeah {
         boolean flag = false;
         HttpURLConnection connection = null;
         try {
-            URL url = new URL(ServerURL.TIMER + "?id=" + id);
+            Properties locVersion = new Properties();
+            locVersion.load(TimerYeah.class.getResourceAsStream("/aurora/timer/client/view/version/version.properties"));
+            URL url = new URL(ServerURL.TIMER + "?id=" + id + "&ver=" + locVersion.get("version"));
             System.out.println(ServerURL.TIMER);
             connection = (HttpURLConnection) url.openConnection();
             connection.setConnectTimeout(5000);
@@ -57,7 +61,6 @@ public class TimerYeah {
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String req = null;
             req = reader.readLine();
-
             if ("true".equals(req)) {
                 flag = true;
                 logger.info("上传时间");
@@ -71,7 +74,6 @@ public class TimerYeah {
                     }
                 });
             }
-
             reader.close();
             connection.disconnect();
         } catch (Exception e) {

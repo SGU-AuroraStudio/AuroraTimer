@@ -380,7 +380,7 @@ public class Main2Form {
             }
         });
         checkTimer.setRepeats(true);
-        //checkTimer.start();
+        checkTimer.start();
     }
 
     /**
@@ -450,7 +450,7 @@ public class Main2Form {
         }
         backAddTime();
         backPaintTime();
-
+        TimerYeah.addTime(id);
         //缩小到托盘按钮
         minButton.addMouseListener(new MouseAdapter() {
             @Override

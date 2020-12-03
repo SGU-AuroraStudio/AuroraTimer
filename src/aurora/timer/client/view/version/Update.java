@@ -135,12 +135,16 @@ public class Update {
 
 //            System.out.println("替换旧版本结果：" + newTimer.renameTo(new File("AuroraTimer.jar")));
             textArea.append("下载完毕。");
-
             boolean flag = false;
             while (!flag) {
                 try {
-                    Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName());
-                    System.out.println(newTimer.getName());
+                    String oldFileName = new java.io.File(Update.class.getProtectionDomain()
+                            .getCodeSource()
+                            .getLocation()
+                            .getPath())
+                            .getName();
+                    Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName);
+                    System.out.println(newTimer.toURI().getPath());
                     flag = true;
                 } catch (Exception e) {
                 }

@@ -104,7 +104,7 @@ public class AdminDataService {
         HttpURLConnection connection = null;
         boolean flag = false;
         try {
-            URL url = new URL(ServerURL.ADMIN + "x=freeTime");
+            URL url = new URL(ServerURL.ADMIN + "?x=freeTime");
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setUseCaches(true);
