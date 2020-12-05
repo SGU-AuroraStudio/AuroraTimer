@@ -24,8 +24,9 @@ public class UpdateTool {
             oldFileName = "AuroraTimer.jar";
         System.out.println("新版："+newFileName);
         System.out.println("旧版："+oldFileName);
+        //提示窗口
         JFrame FRAME = new JFrame("检查更新");
-        JTextArea textArea = new JTextArea(" 正在打开新计时器...\n "+ newFileName);
+        JTextArea textArea = new JTextArea(" 正在打开新计时器...\n "+ oldFileName);
         FRAME.setContentPane(textArea);
         int width = 270;
         int height = 190;

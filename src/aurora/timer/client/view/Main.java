@@ -35,6 +35,7 @@ public class Main {
             if (lock == null) {
                 // 如果没有得到锁，则程序退出.
                 // 没有必要手动释放锁和关闭流，当程序退出时，他们会被关闭的.
+                JOptionPane.showMessageDialog(null, "有一个计时器正在运行中", "错误", JOptionPane.ERROR_MESSAGE);
                 throw new Error("An instance of the application is running.");
             }
         } catch (Exception e) {
