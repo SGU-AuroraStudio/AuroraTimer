@@ -10,6 +10,7 @@ import aurora.timer.client.view.until.TableUntil;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
 import org.json.simple.JSONObject;
+import sun.reflect.generics.tree.VoidDescriptor;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -57,40 +58,49 @@ public class Main2Form {
     int pageLimited = 20; //查看上x周最大值
     int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
     Logger logger = Logger.getLogger("MAIN");
-    Boolean SHOW_LOAD_BG_ERROR_DIALOG = false;
+
+    /**
+     * 构造函数，进行初始化和开启Timer
+     */
+    public Main2Form(String id, String password) {
+        loadUserData(id);
+        this.userData.setPassWord(password);
+        initMain2Form();
+        // 加载背景图片地址，在MainParentPanelUI里会用 设置背景图,所以要在这之前从服务器加载背景图片。loadBg要用到id所以要在loadUserData之后
+        Thread loadBgThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    loadBg();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        loadBgThread.start();
+        initWeekInfoForm();
+        initWorkForm();
+        backAddTime();
+        backPaintTime();
+        TimerYeah.addTime(id);
+        try{
+            loadBgThread.join(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * 初始化函数
      */
-    public void init() {
+    private void initMain2Form() {
         page = 0;
         loadSystemTray();
         mousePoint = MouseInfo.getPointerInfo().getLocation();
-        weekInfoForm = new WeekInfoForm();
-        workForm = new WorkForm();
 //        settingForm = new SettingForm(parent, settingButton, userData);
-        workForm.setUserData(userData);
-        thisWeekList = weekInfoForm.weekList;
-        weekAllPane = weekInfoForm.parent;
 //        settingForm.setTimePanel(timePanel);
 //        settingForm.setWeekAllPane(weekAllPane);
-        // 判断是不是管理员
-        if (userData.getIsAdmin()) {
-            workForm.announceText.setEditable(true);
-            workForm.dutyList.setEnabled(true);
-            workForm.submitBtn.setEnabled(true);
-            workForm.submitBtn.setVisible(true);
-        }
         //TODO:bug:timePanel时间圆盘在点切换后会下移(发现是timeLabel变长了)
-        weekInfoForm.changeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                parent.remove(weekAllPane);
-                weekAllPane.setVisible(false);
-                timePanel.setVisible(true);
-                parent.repaint();
-            }
-        });
         changeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -104,6 +114,119 @@ public class Main2Form {
                 setAllTime();
                 weekAllPane.setVisible(true);
                 parent.add(weekAllPane);
+            }
+        });
+        settingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                settingForm.parent.setVisible(true);
+                settingForm = new SettingForm(parent, settingButton, userData);
+                settingButton.setEnabled(false);
+                parent.add(settingForm.parent);
+                // 在哪点进去设置的，用于显示回来
+                if (timePanel.isVisible())
+                    settingForm.setMain2BeforeInComponent(timePanel);
+                else if (weekAllPane.isVisible())
+                    settingForm.setMain2BeforeInComponent(weekAllPane);
+                weekAllPane.setVisible(false);
+                timePanel.setVisible(false);
+                parent.repaint();
+            }
+        });
+
+        minButton.setUI(new LoginButtonUI());
+        outButton.setUI(new LoginButtonUI());
+        changeButton.setUI(new LoginButtonUI());
+        changeButton.setContentAreaFilled(false);
+
+        //缩小到托盘按钮
+        minButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                FRAME.setVisible(false);
+            }
+        });
+        //关闭按钮
+        outButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                onExit();
+            }
+        });
+        //设置拖动
+        headPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                mx = e.getX();
+                my = e.getY();
+                jfx = headPanel.getX();
+                jfy = headPanel.getY();
+            }
+        });
+        headPanel.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                FRAME.setLocation(jfx + (e.getXOnScreen() - mx), jfy + (e.getYOnScreen() - my));
+            }
+        });
+        timePanel.setUI(new BasicPanelUI() {
+            @Override
+            public void update(Graphics g, JComponent c) {
+                super.update(g, c);
+                c.setSize(565, 780);
+                Graphics2D g2 = (Graphics2D) g;
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(new Color(30, 40, 50, 140));
+                g2.fillOval(c.getWidth() / 2 - 242, 38, 484, 484);
+
+                g2.setStroke(new BasicStroke(26));
+                //如果时间大于24小时，那么进度条就要画金黄色
+                if (Integer.parseInt(parseTime(thisWeekTime).split(":")[0]) >= 24) {
+                    g2.setColor(new Color(88, 222, 234, 200));
+                    g2.drawArc(c.getWidth() / 2 - 187, 86, 375, 375, 0, 360);
+
+                    g2.setColor(new Color(251, 216, 96, 255));
+                } else {
+                    g2.setColor(new Color(12, 96, 108, 140));
+                    g2.drawArc(c.getWidth() / 2 - 187, 86, 375, 375, 0, 360);
+
+                    g2.setColor(new Color(88, 222, 234, 200));
+                }
+                int angel = (int) (thisWeekTime / (60 * 1000 * 4)); //转成分，每分钟0.25度
+                angel = -(angel % 360); //这是drawArc的角度
+                g2.drawArc(timePanel.getWidth() / 2 - 187, 86, 375, 375, 90, angel);
+                g2.setColor(Color.white);
+                g2.drawArc(timePanel.getWidth() / 2 - 187, 86, 375, 375, angel + 89, 1);
+            }
+        });
+        timeLabel.setFont(new Font("Arial", Font.PLAIN, 120));
+    }
+
+    private void initWorkForm() {
+        workForm = new WorkForm();
+        workForm.setUserData(userData);
+        workForm.announceBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //parent.remove(weekAllPane);
+                parent.remove(workForm.parent);
+                weekAllPane.setVisible(true);
+                weekAllPane.setEnabled(true);
+            }
+        });
+    }
+
+    private void initWeekInfoForm() {
+        weekInfoForm = new WeekInfoForm();
+        thisWeekList = weekInfoForm.weekList;
+        weekAllPane = weekInfoForm.parent;
+        weekInfoForm.changeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                parent.remove(weekAllPane);
+                weekAllPane.setVisible(false);
+                timePanel.setVisible(true);
+                parent.repaint();
             }
         });
         weekInfoForm.leftButton.addActionListener(new ActionListener() {
@@ -142,67 +265,6 @@ public class Main2Form {
                 }
             }
         });
-        workForm.announceBtn.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                //parent.remove(weekAllPane);
-                parent.remove(workForm.parent);
-                weekAllPane.setVisible(true);
-                weekAllPane.setEnabled(true);
-            }
-        });
-        settingButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                settingForm.parent.setVisible(true);
-                settingForm = new SettingForm(parent, settingButton, userData);
-                settingButton.setEnabled(false);
-                parent.add(settingForm.parent);
-                // 在哪点进去设置的，用于显示回来
-                if (timePanel.isVisible())
-                    settingForm.setMain2BeforeInComponent(timePanel);
-                else if (weekAllPane.isVisible())
-                    settingForm.setMain2BeforeInComponent(weekAllPane);
-                weekAllPane.setVisible(false);
-                timePanel.setVisible(false);
-                parent.repaint();
-            }
-        });
-        minButton.setUI(new LoginButtonUI());
-        outButton.setUI(new LoginButtonUI());
-        changeButton.setUI(new LoginButtonUI());
-        changeButton.setContentAreaFilled(false);
-        timePanel.setUI(new BasicPanelUI() {
-            @Override
-            public void update(Graphics g, JComponent c) {
-                super.update(g, c);
-                c.setSize(565, 780);
-                Graphics2D g2 = (Graphics2D) g;
-                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                g2.setColor(new Color(30, 40, 50, 140));
-                g2.fillOval(c.getWidth() / 2 - 242, 38, 484, 484);
-
-                g2.setStroke(new BasicStroke(26));
-                //如果时间大于24小时，那么进度条就要画金黄色
-                if (Integer.parseInt(parseTime(thisWeekTime).split(":")[0]) >= 24) {
-                    g2.setColor(new Color(88, 222, 234, 200));
-                    g2.drawArc(c.getWidth() / 2 - 187, 86, 375, 375, 0, 360);
-
-                    g2.setColor(new Color(251, 216, 96, 255));
-                } else {
-                    g2.setColor(new Color(12, 96, 108, 140));
-                    g2.drawArc(c.getWidth() / 2 - 187, 86, 375, 375, 0, 360);
-
-                    g2.setColor(new Color(88, 222, 234, 200));
-                }
-                int angel = (int) (thisWeekTime / (60 * 1000 * 4)); //转成分，每分钟0.25度
-                angel = -(angel % 360); //这是drawArc的角度
-                g2.drawArc(timePanel.getWidth() / 2 - 187, 86, 375, 375, 90, angel);
-                g2.setColor(Color.white);
-                g2.drawArc(timePanel.getWidth() / 2 - 187, 86, 375, 375, angel + 89, 1);
-            }
-        });
-        timeLabel.setFont(new Font("Arial", Font.PLAIN, 120));
     }
 
     /**
@@ -312,11 +374,10 @@ public class Main2Form {
         }
     }
 
-    public boolean loadBg() throws IOException {
+    public void loadBg() throws IOException {
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();
         InputStream bg = uds.findBgByid(userData.getID(), userData.getPassWord());
-        boolean flag = false;
         // 图片不存在或者返回数据过小，失败
         if (bg == null || bg.available() < 1000) {
             logger.warning("从服务器加载背景图片失败");
@@ -324,7 +385,6 @@ public class Main2Form {
                 @Override
                 public void run() {
                     JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
-                    SHOW_LOAD_BG_ERROR_DIALOG = false;
                 }
             });
         } else {
@@ -334,16 +394,13 @@ public class Main2Form {
                     // 修改注册表
                     preferences.put("bg", bgPath);
                     logger.info("从服务器加载背景图片");
-                    flag = true;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         // 优先从注册表里读取，没有就设置为默认。（在上边从服务器读取到到话会改注册表）
-//        ServerURL.BG_PATH = preferences.get("bg", "res" + File.separator + "bg1.png");
         parent.setUI(new MainParentPanelUI());
-        return flag;
     }
 
     /**
@@ -429,62 +486,6 @@ public class Main2Form {
     }
 
     /**
-     * 构造函数，进行初始化和开启Timer
-     */
-    public Main2Form(String id, String password) {
-        loadUserData(id);
-        init();
-        this.userData.setPassWord(password);
-        // 加载背景图片地址，在MainParentPanelUI里会用 ServerURL.BG_PATH 设置背景图,所以要在这之前从服务器加载背景图片。要用到id所以要在loadUserData之后
-        try {
-            loadBg();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        workForm.setUserData(userData);
-        // 判断是不是管理员
-        if (userData.getIsAdmin()) {
-            workForm.announceText.setEditable(true);
-            workForm.dutyList.setEnabled(true);
-            workForm.submitBtn.setEnabled(true);
-            workForm.submitBtn.setVisible(true);
-        }
-        backAddTime();
-        backPaintTime();
-        TimerYeah.addTime(id);
-        //缩小到托盘按钮
-        minButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                FRAME.setVisible(false);
-            }
-        });
-        //关闭按钮
-        outButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                onExit();
-            }
-        });
-        //设置拖动
-        headPanel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                mx = e.getX();
-                my = e.getY();
-                jfx = headPanel.getX();
-                jfy = headPanel.getY();
-            }
-        });
-        headPanel.addMouseMotionListener(new MouseMotionAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                FRAME.setLocation(jfx + (e.getXOnScreen() - mx), jfy + (e.getYOnScreen() - my));
-            }
-        });
-    }
-
-    /**
      * 加载托盘图标
      */
     public void loadSystemTray() {
@@ -497,6 +498,7 @@ public class Main2Form {
         Menu pluginMenu = new Menu("插件");
         MenuItem restoreItem = new MenuItem("还原");
         MenuItem logoutItem = new MenuItem("注销");
+        MenuItem aboutItem = new MenuItem("关于");
         MenuItem exitItem = new MenuItem("退出");
 
         // 通过反射加载插件
@@ -545,6 +547,25 @@ public class Main2Form {
                 onExit();
             }
         });
+        //TODO:关于窗口
+        aboutItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame aboutFrame = new JFrame();
+                aboutFrame.setSize(200, 100);
+                JLabel label = new JLabel();
+                label.setText("功能待完善");
+                JTextArea textArea = new JTextArea();
+                textArea.append("功能待完善");
+                aboutFrame.add(label);
+                Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+                aboutFrame.setLocation((d.width - aboutFrame.getWidth()) / 2, (d.height - aboutFrame.getHeight()) / 2);
+                System.out.println(FRAME.getX());
+                System.out.println(FRAME.getY());
+                aboutFrame.setResizable(false);
+                aboutFrame.setVisible(true);
+            }
+        });
         logoutItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -566,8 +587,10 @@ public class Main2Form {
         popupMenu.add(restoreItem);
         popupMenu.addSeparator();
         popupMenu.add(logoutItem);
-//        popupMenu.addSeparator();
+        popupMenu.addSeparator();
 //        popupMenu.add(pluginMenu);
+//        popupMenu.addSeparator();
+        popupMenu.add(aboutItem);
         popupMenu.addSeparator();
         popupMenu.add(exitItem);
 
@@ -646,8 +669,8 @@ public class Main2Form {
                     FRAME.setLocation((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2);
 //                    FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
                     FRAME.setResizable(false);
-                    FRAME.setVisible(true);
                     FRAME.setAlwaysOnTop(true);
+                    FRAME.setVisible(true);
                     FRAME.setAlwaysOnTop(false);
                 }
             });

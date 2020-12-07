@@ -26,7 +26,7 @@
               <cellSelectionEnabled value="false"/>
               <columnSelectionAllowed value="false"/>
               <dropMode value="ON"/>
-              <enabled value="true"/>
+              <enabled value="false"/>
               <fillsViewportHeight value="false"/>
               <opaque value="false"/>
               <preferredScrollableViewportSize width="566" height="400"/>

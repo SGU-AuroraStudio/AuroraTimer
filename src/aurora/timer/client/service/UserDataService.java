@@ -24,12 +24,11 @@ public class UserDataService {
         try {
             URL url = new URL(ServerURL.LOGIN_URL);
             connection = (HttpURLConnection) url.openConnection();
-
-            connection.setDoInput(true);
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
+//            connection.setConnectTimeout(5000);
+//            connection.setReadTimeout(5000);
             connection.setUseCaches(false);
-            connection.setInstanceFollowRedirects(true);
             connection.setRequestProperty("Content-Type", "application/json"); //向服务器表示我传的是json
             connection.connect();
 
@@ -115,7 +114,7 @@ public class UserDataService {
             URL url = new URL(ServerURL.BG+"?id="+id+"&password="+password);
             connection = (HttpURLConnection) url.openConnection();
             connection.setConnectTimeout(3000);
-//            connection.setReadTimeout(3000);
+            connection.setReadTimeout(10000);
             connection.connect();
             bg = connection.getInputStream();
         } catch (Exception e) {

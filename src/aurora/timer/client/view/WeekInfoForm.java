@@ -56,9 +56,7 @@ public class WeekInfoForm {
         DefaultTableCellRenderer headerTCR = (DefaultTableCellRenderer) tableHeader.getDefaultRenderer();
         headerTCR.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
 
-        weekList.setEnabled(false);
-        weekList.setVisible(true);
-
+        //不加值日表到滚条可能会吹来
         JScrollBar scrollBar = new JScrollBar();
         scrollBar.setBorder(null);
         scrollBar.setOpaque(false);

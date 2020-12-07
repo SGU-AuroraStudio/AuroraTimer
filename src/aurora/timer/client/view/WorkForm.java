@@ -30,8 +30,19 @@ public class WorkForm {
         return userData;
     }
 
+    /**
+     * 设置和判断是不是管理员
+     * @param userData 当前用户信息
+     */
     public void setUserData(UserData userData) {
         this.userData = userData;
+        // 判断是不是管理员
+        if (userData.getIsAdmin()) {
+            announceText.setEditable(true);
+            dutyList.setEnabled(true);
+            submitBtn.setEnabled(true);
+            submitBtn.setVisible(true);
+        }
     }
 
     public void init(){
@@ -42,31 +53,15 @@ public class WorkForm {
             public void mouseClicked(MouseEvent e) {
                 if (dutyList.isEditing())
                     dutyList.getCellEditor().stopCellEditing();
-                announceText.setFocusable(false);
-                announceText.setFocusable(true);
             }
         });
         // 公告栏输入框
         announceText.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
         announceText.setLineWrap(true);
-        announceText.setBackground(new Color(200, 200, 200, 100));
+//        announceText.setBackground(new Color(200, 200, 200, 100));
+        //撤回功能
         UndoManager undoManager = new UndoManager();
         announceText.getDocument().addUndoableEditListener(undoManager);
-        // 公告栏获取焦点，停止表格输入
-        announceText.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                if (dutyList.isEditing())
-                    dutyList.getCellEditor().stopCellEditing();
-                jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(86, 180, 130)));
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
-
-            }
-        });
         announceText.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -82,13 +77,29 @@ public class WorkForm {
                 }
             }
         });
+        // 公告栏获取焦点，停止表格输入
+        announceText.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (dutyList.isEditing())
+                    dutyList.getCellEditor().stopCellEditing();
+                jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(86, 180, 130)));
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
+
+            }
+        });
         // 公告栏外面的框架
         jspAnnounce.setViewportBorder(null);
         jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(0,0,0)));
         jspAnnounce.getViewport().setOpaque(false);//将中间的viewport设置为透明
         jspAnnounce.setOpaque(false);//将JScrollPane设置为透明
+
         // 表格
-        //   设置表头，和数据
+        // 设置默认数据
         Object[] columnNames = {"星期天","星期一","星期二","星期三","星期四","星期五","星期六"};
         Object[][] data = {{"阿巴","阿巴","阿巴","阿巴","阿巴","阿巴","阿巴"}};
         DefaultTableModel model = new DefaultTableModel(data,columnNames);
@@ -140,7 +151,6 @@ public class WorkForm {
                 }
             }
         });
-        announceText.setBackground(new Color(200, 200, 200, 100));
 
     }
 

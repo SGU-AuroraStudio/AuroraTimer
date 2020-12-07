@@ -168,7 +168,9 @@ public class LoginForm {
                     FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //                    FRAME.pack();
                     FRAME.setResizable(false);
+                    FRAME.setAlwaysOnTop(true);
                     FRAME.setVisible(true);
+                    FRAME.setAlwaysOnTop(false);
                     Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
                     if (preferences.getBoolean("auto", false)) {
                         form.loginLogic();

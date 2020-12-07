@@ -7,6 +7,7 @@ public class SaveBg {
         if(bgPath == null || bg==null)
             return false;
         File file = new File(bgPath);
+        //已经存在就直接返回
         if(file.exists() && !forceSave)
             return true;
         BufferedInputStream fi = new BufferedInputStream(bg);

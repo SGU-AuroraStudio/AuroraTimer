@@ -17,6 +17,27 @@ public class OpenCheckForm {
     private JTextArea InfoPane;
 
     public static void main(String[] args) {
+        //预加载默认背景图
+        Thread saveBgThread = new Thread() {
+            @Override
+            public void run() {
+                InputStream bg1 = getClass().getResourceAsStream("bg1.png");
+                String bgPath1 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg1.png";
+                InputStream bg2 = getClass().getResourceAsStream("bg2.png");
+                String bgPath2 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg2.png";
+                InputStream bg3 = getClass().getResourceAsStream("bg3.png");
+                String bgPath3 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
+                try {
+                    SaveBg.saveBg(bgPath1, bg1, true);
+                    SaveBg.saveBg(bgPath2, bg2, true);
+                    SaveBg.saveBg(bgPath3, bg3, true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        saveBgThread.start();//启动线程
+
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 //        EventQueue.invokeLater(new Runnable() {
 //            @Override
@@ -29,8 +50,9 @@ public class OpenCheckForm {
         FRAME.setBounds((d.width - width) / 2, (d.height - height) / 2, width, height);
         FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FRAME.setResizable(false);
+        FRAME.setAlwaysOnTop(true);
         FRAME.setVisible(true);
-
+        FRAME.setAlwaysOnTop(false);
         //检查更新
         Update update = new Update(form.InfoPane);
         JSONObject checkObject = update.checkNew();
@@ -55,26 +77,6 @@ public class OpenCheckForm {
 //            }
 //        });
         Thread thisThread = Thread.currentThread();
-        Thread saveBgThread = new Thread() {
-            @Override
-            public void run() {
-                InputStream bg1 = getClass().getResourceAsStream("bg1.png");
-                String bgPath1 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg1.png";
-                InputStream bg2 = getClass().getResourceAsStream("bg2.png");
-                String bgPath2 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg2.png";
-                InputStream bg3 = getClass().getResourceAsStream("bg3.png");
-                String bgPath3 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
-                try {
-                    SaveBg.saveBg(bgPath1, bg1, true);
-                    SaveBg.saveBg(bgPath2, bg2, true);
-                    SaveBg.saveBg(bgPath3, bg3, true);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        saveBgThread.start();
-
         try {
             thisThread.sleep(3000);
         } catch (InterruptedException e) {
