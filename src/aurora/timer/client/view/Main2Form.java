@@ -68,7 +68,7 @@ public class Main2Form {
         mousePoint = MouseInfo.getPointerInfo().getLocation();
         weekInfoForm = new WeekInfoForm();
         workForm = new WorkForm();
-        settingForm = new SettingForm(parent, settingButton, userData);
+//        settingForm = new SettingForm(parent, settingButton, userData);
         workForm.setUserData(userData);
         thisWeekList = weekInfoForm.weekList;
         weekAllPane = weekInfoForm.parent;
@@ -155,6 +155,7 @@ public class Main2Form {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                settingForm.parent.setVisible(true);
+                settingForm = new SettingForm(parent, settingButton, userData);
                 settingButton.setEnabled(false);
                 parent.add(settingForm.parent);
                 // 在哪点进去设置的，用于显示回来

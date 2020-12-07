@@ -97,7 +97,7 @@
           <maximumSize width="-1" height="-1"/>
           <minimumSize width="-1" height="-1"/>
           <opaque value="false"/>
-          <preferredSize width="273" height="93"/>
+          <preferredSize width="341" height="105"/>
           <text value=""/>
         </properties>
       </component>

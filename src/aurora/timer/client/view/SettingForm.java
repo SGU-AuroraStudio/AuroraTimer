@@ -34,18 +34,21 @@ public class SettingForm {
     private JPanel Main2BeforeInComponent;
     private JPanel Main2FormParent;
     private JButton Main2FormSettingButton;
+    private String defaultBgFilePath;
     Logger logger = Logger.getLogger("SETTING");
 
     public SettingForm(JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
         this.Main2FormParent = Main2FormParent;
         this.userData = userData;
         this.Main2FormSettingButton = Main2FormSettingButton;
+        this.defaultBgFilePath = preferences.get("bg","");
         initComboBox();
         this.filePath = preferences.get("bg", "");
-        setBgForThisParent(filePath);
+//        setBgForThisParent(filePath);
         CancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setBgForMain2FormParent(defaultBgFilePath);
                 Main2FormSettingButton.setEnabled(true);
                 Main2BeforeInComponent.setVisible(true);
                 Main2FormParent.remove(parent);
@@ -84,7 +87,8 @@ public class SettingForm {
                     } else {
                         filePath = file.getAbsolutePath();
                         // 预览背景图
-                        setBgForThisParent(filePath);
+//                        setBgForThisParent(filePath);
+                        setBgForMain2FormParent(filePath);
                     }
                 }
             }
@@ -126,26 +130,27 @@ public class SettingForm {
                             logger.warning("保存背景图错误！");
                         }
                     }
-                    setBgForThisParent(filePath);
+//                    setBgForThisParent(filePath);
+                    setBgForMain2FormParent(filePath);
                 }
             }
         });
     }
-
-    private void setBgForThisParent(String filePath) {
-        parent.setUI(new BasicPanelUI() {
-            @Override
-            public void paint(Graphics g, JComponent c) {
-                super.paint(g, c);
-                File bg = new File(filePath);
-                if (bg.exists()) {
-                    g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
-                } else {
-                    g.drawImage(new ImageIcon(getClass().getResource("bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
-                }
-            }
-        });
-    }
+//
+//    private void setBgForThisParent(String filePath) {
+//        parent.setUI(new BasicPanelUI() {
+//            @Override
+//            public void paint(Graphics g, JComponent c) {
+//                super.paint(g, c);
+//                File bg = new File(filePath);
+//                if (bg.exists()) {
+//                    g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
+//                } else {
+//                    g.drawImage(new ImageIcon(getClass().getResource("bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
+//                }
+//            }
+//        });
+//    }
 
     private void setBgForMain2FormParent(String filePath) {
         Main2FormParent.setUI(new BasicPanelUI() {
