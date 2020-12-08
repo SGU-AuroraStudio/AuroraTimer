@@ -1,6 +1,7 @@
 package aurora.timer.client.service;
 
 import aurora.timer.client.ServerURL;
+import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +19,7 @@ import java.util.logging.Logger;
 public class TimerYeah {
     //    private String id;
     public boolean isStop;
+    private static boolean canShowDialog = true;
     private static Logger logger = Logger.getLogger("timer");
 
 //    @Override
@@ -58,7 +60,7 @@ public class TimerYeah {
             connection.setConnectTimeout(5000);
             connection.setReadTimeout(5000);
             connection.connect();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"GBK"));
             String req = null;
             req = reader.readLine();
             if ("true".equals(req)) {
@@ -67,7 +69,19 @@ public class TimerYeah {
             } else {
                 logger.warning("加时返回错误信息：" + req);
                 String finalReq = req;
-                JOptionPane.showMessageDialog(null, "上传时间失败。。请重启试试。。\n" + finalReq, "提示", JOptionPane.ERROR_MESSAGE);
+                if(canShowDialog){
+                    EventQueue.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            canShowDialog = false;
+//                            JOptionPane.showConfirmDialog(null, "上传时间失败。。请重启试试。。\n" + finalReq, "提示",JOptionPane.DEFAULT_OPTION);
+                            JOptionPane.showMessageDialog(null, "上传时间失败。。请重启试试。。\n" + finalReq, "提示", JOptionPane.ERROR_MESSAGE);
+                            canShowDialog = true;
+                        }
+                    });
+                }
+
+
             }
             reader.close();
             connection.disconnect();
