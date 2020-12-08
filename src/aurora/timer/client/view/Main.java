@@ -14,6 +14,7 @@ import java.util.prefs.Preferences;
 
 /**
  * Created by hao on 17-4-18.
+ * Updated by Yao on 20-12-02.
  */
 public class Main {
     // 在应用程序的main方法里调用此函数保证程序只有一个实例在运行.

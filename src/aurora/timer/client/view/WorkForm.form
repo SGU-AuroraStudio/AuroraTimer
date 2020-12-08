@@ -51,7 +51,7 @@
           <borderPainted value="false"/>
           <icon value="aurora/timer/client/view/res/auroraAnnounceBtn.png"/>
           <label value=""/>
-          <margin top="47" left="34" bottom="0" right="0"/>
+          <margin top="50" left="34" bottom="0" right="0"/>
           <opaque value="false"/>
           <text value=""/>
         </properties>

@@ -7,6 +7,7 @@ import java.io.IOException;
 
 /**
  * Created by hao on 17-4-28.
+ * Updated by Yao on 20-12-04.
  */
 public class UpdateTool {
     // 传入[0]newFileName [1]oldFileName

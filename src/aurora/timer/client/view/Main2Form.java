@@ -28,6 +28,7 @@ import java.util.prefs.Preferences;
 
 /**
  * Created by hao on 17-2-22.
+ * Updated by Yao on 20-12-02.
  */
 public class Main2Form {
     private static MainFrame FRAME;
@@ -128,8 +129,11 @@ public class Main2Form {
                     settingForm.setMain2BeforeInComponent(timePanel);
                 else if (weekAllPane.isVisible())
                     settingForm.setMain2BeforeInComponent(weekAllPane);
+                else if (workForm.parent.isVisible())
+                    settingForm.setMain2BeforeInComponent(workForm.parent);
                 weekAllPane.setVisible(false);
                 timePanel.setVisible(false);
+                workForm.parent.setVisible(false);
                 parent.repaint();
             }
         });
