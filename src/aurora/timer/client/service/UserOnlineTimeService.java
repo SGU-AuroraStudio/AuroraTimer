@@ -36,7 +36,7 @@ public class UserOnlineTimeService {
             connection.setRequestProperty("accept", "application/json"); //向服务器表示我要的是json
             connection.connect();
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"GBK")); //修改编码，解决“鹏，濠”字乱码。需要在服务端设置resp为GBK
             StringBuffer buffer = new StringBuffer("");
             String temp;
             while ((temp = reader.readLine()) != null) {

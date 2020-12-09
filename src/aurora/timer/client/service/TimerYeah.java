@@ -60,7 +60,7 @@ public class TimerYeah {
             connection.setConnectTimeout(5000);
             connection.setReadTimeout(5000);
             connection.connect();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"GBK"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"GBK")); //解决编码问题
             String req = null;
             req = reader.readLine();
             if ("true".equals(req)) {
