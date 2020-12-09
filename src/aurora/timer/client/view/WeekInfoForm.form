@@ -21,14 +21,15 @@
             <constraints/>
             <properties>
               <autoCreateColumnsFromModel value="true"/>
-              <autoCreateRowSorter value="false"/>
+              <autoCreateRowSorter value="true"/>
               <autoResizeMode value="4"/>
               <cellSelectionEnabled value="false"/>
               <columnSelectionAllowed value="false"/>
               <dropMode value="ON"/>
-              <enabled value="true"/>
+              <enabled value="false"/>
               <fillsViewportHeight value="false"/>
               <opaque value="false"/>
+              <preferredScrollableViewportSize width="566" height="400"/>
               <rowHeight value="26"/>
               <rowMargin value="1"/>
               <rowSelectionAllowed value="false"/>
@@ -84,6 +85,22 @@
           </component>
         </children>
       </grid>
+      <component id="b4a5" class="javax.swing.JButton" binding="announceBtn">
+        <constraints border-constraint="West"/>
+        <properties>
+          <actionCommand value=""/>
+          <borderPainted value="false"/>
+          <enabled value="true"/>
+          <icon value="aurora/timer/client/view/res/auroraAnnounceBtn.png"/>
+          <label value=""/>
+          <margin top="0" left="31" bottom="0" right="0"/>
+          <maximumSize width="-1" height="-1"/>
+          <minimumSize width="-1" height="-1"/>
+          <opaque value="false"/>
+          <preferredSize width="310" height="90"/>
+          <text value=""/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

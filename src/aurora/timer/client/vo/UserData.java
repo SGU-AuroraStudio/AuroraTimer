@@ -15,6 +15,7 @@ public class UserData implements Serializable {
     private String displayURL;
     private Boolean loginStatus; //是不是已经登录
     private Boolean isLeave; //是不是已经离开不再纳入统计
+    private Boolean isAdmin; //是否是管理员
 
     public UserData() {
         this("null", "0", "0", "0", "0",
@@ -41,6 +42,7 @@ public class UserData implements Serializable {
 
     /**
      * 设置密码
+     *
      * @param passWord 这是密码。。
      */
     public void setPassWord(String passWord) {
@@ -49,6 +51,7 @@ public class UserData implements Serializable {
 
     /**
      * 取得密码
+     *
      * @return 密码
      */
     public String getPassWord() {
@@ -57,6 +60,7 @@ public class UserData implements Serializable {
 
     /**
      * 设置登录状态，默认为false
+     *
      * @param loginStatus 用户是否在线标记,防止重复登录。当然，这没法用，删了麻烦
      */
     public void setLoginStatus(boolean loginStatus) {
@@ -65,6 +69,7 @@ public class UserData implements Serializable {
 
     /**
      * 取得用户在线状态
+     *
      * @return false
      */
     public boolean getLoginStatus() {
@@ -73,6 +78,7 @@ public class UserData implements Serializable {
 
     /**
      * 输入管理密码来设置一个账号是否还在工作室,离开的将不显示
+     *
      * @param leave true为离开，false为在工作室中
      */
     public void setIsLeave(boolean leave) {
@@ -81,6 +87,7 @@ public class UserData implements Serializable {
 
     /**
      * 取得用户是否在工作室
+     *
      * @return 用户是否在工作室
      */
     public boolean getIsLeave() {
@@ -88,7 +95,26 @@ public class UserData implements Serializable {
     }
 
     /**
+     * 设置是否是管理员
+     *
+     * @param isAdmin 是否是管理员
+     */
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    /**
+     * 取得用户是否是管理员
+     *
+     * @return 用户是否是管理员
+     */
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    /**
      * 设置用户的ID,要求设置为学号
+     *
      * @param ID ID
      */
     public void setID(String ID) {
@@ -97,6 +123,7 @@ public class UserData implements Serializable {
 
     /**
      * 取得用户的昵称
+     *
      * @return 返回用户昵称
      */
     public String getNickName() {
@@ -105,6 +132,7 @@ public class UserData implements Serializable {
 
     /**
      * 取得用户的ID
+     *
      * @return 返回用户的ID
      */
     public String getID() {
@@ -113,6 +141,7 @@ public class UserData implements Serializable {
 
     /**
      * 取得用户的电话号码
+     *
      * @return 返回用户的电话号码
      */
     public String getTelNumber() {
@@ -121,6 +150,7 @@ public class UserData implements Serializable {
 
     /**
      * 取得用户的短号
+     *
      * @return 返回用户短号
      */
     public String getShortTelNumber() {
@@ -129,6 +159,7 @@ public class UserData implements Serializable {
 
     /**
      * 取得用户头像的URL
+     *
      * @return 返回用户头像的地址
      */
     public String getDisplayURL() {
@@ -137,6 +168,7 @@ public class UserData implements Serializable {
 
     /**
      * 设置用户的昵称
+     *
      * @param nickName 昵称
      */
     public void setNickName(String nickName) {
@@ -145,6 +177,7 @@ public class UserData implements Serializable {
 
     /**
      * 设置用户的电话号码
+     *
      * @param telNumber 用户的电话号码
      */
     public void setTelNumber(String telNumber) {
@@ -153,14 +186,17 @@ public class UserData implements Serializable {
 
     /**
      * 设置用户的短号
+     *
      * @param shortTelNumber 用户的短号，默认0
      */
     public void setShortTelNumber(String shortTelNumber) {
         this.shortTelNumber = shortTelNumber;
     }
 
+    //TODO:用户头像
     /**
      * 设置用户的头像地址
+     *
      * @param displayURL 头像的URL
      */
     public void setDisplayURL(String displayURL) {

@@ -71,14 +71,14 @@ public class MainForm {
         //获取
         data = new UserData();
         onlineTime = new UserOnlineTime();
-        data.setID((String)object.get("id"));
-        data.setNickName((String)object.get("name"));
-        data.setDisplayURL((String)object.get("disp"));
-        data.setTelNumber((String)object.get("tel"));
-        data.setShortTelNumber((String)object.get("stel"));
-        onlineTime.setID((String)object.get("id"));
-        onlineTime.setTodayOnlineTime(Long.decode((String)object.getOrDefault("totime","0")));
-        onlineTime.setLastOnlineTime(new Time((Long)object.getOrDefault("laslog",Long.decode("0"))));
+        data.setID((String) object.get("id"));
+        data.setNickName((String) object.get("name"));
+        data.setDisplayURL((String) object.get("disp"));
+        data.setTelNumber((String) object.get("tel"));
+        data.setShortTelNumber((String) object.get("stel"));
+        onlineTime.setID((String) object.get("id"));
+        onlineTime.setTodayOnlineTime(Long.decode((String) object.getOrDefault("totime", "0")));
+        onlineTime.setLastOnlineTime(new Time((Long) object.getOrDefault("laslog", Long.decode("0"))));
     }
 
     public void init() {
@@ -121,7 +121,7 @@ public class MainForm {
         systemTray = SystemTray.getSystemTray();
         PopupMenu popupMenu = new PopupMenu();
         MenuItem restoreItem = new MenuItem("还原");
-        MenuItem exitItem  = new MenuItem("退出");
+        MenuItem exitItem = new MenuItem("退出");
 
         restoreItem.addActionListener(new ActionListener() {
             @Override
@@ -152,7 +152,7 @@ public class MainForm {
                  */
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    if (e.getButton()==MouseEvent.BUTTON1 && !FRAME.isVisible()) {
+                    if (e.getButton() == MouseEvent.BUTTON1 && !FRAME.isVisible()) {
                         FRAME.setVisible(true);
                     }
                 }
@@ -179,7 +179,7 @@ public class MainForm {
         FRAME.setJMenuBar(jMenuBar);
     }
 
-    public void zhuce(){
+    public void zhuce() {
         logoutItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -198,7 +198,7 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, ServerURL.ABOUT, "关于",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("geass.png"), "geass"));
+                        JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("geass.png"), "geass"));
             }
         });
     }
@@ -210,7 +210,7 @@ public class MainForm {
         Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
         int index;
-        for (index = model.getRowCount() - 1; index >= 0; index --) {
+        for (index = model.getRowCount() - 1; index >= 0; index--) {
             model.removeRow(index);
         }
         while (uiIt.hasNext()) {
@@ -220,15 +220,15 @@ public class MainForm {
 
 //            String s = t.getID() + " : " + new Time(t.getTodayOnlineTime()).toLocalTime().minusHours(Long.decode("8"));
             StringBuffer sb = new StringBuffer("");
-            if (t.getTodayOnlineTime()/3600000<10) {
+            if (t.getTodayOnlineTime() / 3600000 < 10) {
                 sb.append("0");
             }
-            sb.append((t.getTodayOnlineTime()/3600000)+":");
-            if (t.getTodayOnlineTime()%3600000/60000<10){
+            sb.append((t.getTodayOnlineTime() / 3600000) + ":");
+            if (t.getTodayOnlineTime() % 3600000 / 60000 < 10) {
                 sb.append("0");
             }
-            sb.append(t.getTodayOnlineTime()%3600000/60000);
-            model.addRow(new Object[]{t.getID(),sb});
+            sb.append(t.getTodayOnlineTime() % 3600000 / 60000);
+            model.addRow(new Object[]{t.getID(), sb});
         }
     }
 

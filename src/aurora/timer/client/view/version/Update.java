@@ -43,9 +43,9 @@ public class Update {
             url = new URL(checkNewUrl);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
-            reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "gbk"));
+            reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "utf-8"));
             String temp;
-            while ((temp=reader.readLine())!=null) {
+            while ((temp = reader.readLine()) != null) {
                 stringBuffer.append(temp);
             }
 
@@ -65,13 +65,13 @@ public class Update {
 
                 textArea.append("已经是最新版本\n");
 
-            } else  {
+            } else {
                 returnObject.put("status", "old");
                 returnObject.put("version", netVersion.get("version"));
 
             }
 
-        } catch(ConnectException exception) {
+        } catch (ConnectException exception) {
             textArea.append("发送请求失败，请检查网络连接或者服务器运行情况\n");
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -88,7 +88,7 @@ public class Update {
         return returnObject;
     }
 
-    public void update(String version){
+    public void update(String version) {
         String updateUrl = ServerURL.SOFT_URL + "/Timer" + version + ".jar";
         String toolUrl = ServerURL.SOFT_URL + "/UpdateTool.jar";
         URL url = null;
@@ -119,7 +119,7 @@ public class Update {
             outputStream = new FileOutputStream(newTimer);
 
             int size = 0;
-            while ((size=bufferedInputStream.read(buffer))!=-1) {
+            while ((size = bufferedInputStream.read(buffer)) != -1) {
                 outputStream.write(buffer, 0, size);
                 outputStream.flush();
             }
@@ -128,29 +128,33 @@ public class Update {
             bufferedInputStream = new BufferedInputStream(url.openStream());
             outputStream = new FileOutputStream(updateTool);
 
-            while ((size=bufferedInputStream.read(buffer))!=-1) {
+            while ((size = bufferedInputStream.read(buffer)) != -1) {
                 outputStream.write(buffer, 0, size);
                 outputStream.flush();
             }
 
 //            System.out.println("替换旧版本结果：" + newTimer.renameTo(new File("AuroraTimer.jar")));
             textArea.append("下载完毕。");
-
             boolean flag = false;
             while (!flag) {
                 try {
-                    Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName());
-                    System.out.println(newTimer.getName());
+                    String oldFileName = new java.io.File(Update.class.getProtectionDomain()
+                            .getCodeSource()
+                            .getLocation()
+                            .getPath())
+                            .getName();
+                    Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName);
+                    System.out.println(newTimer.toURI().getPath());
                     flag = true;
                 } catch (Exception e) {
                 }
             }
-                System.exit(666);
+            System.exit(666);
 
         } catch (FileNotFoundException connectException) {
             textArea.append("无法访问到新版本，请检查服务器上是否存在源文件\n");
             connectException.printStackTrace();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             System.exit(200);
         } finally {

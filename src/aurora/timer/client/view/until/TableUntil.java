@@ -17,12 +17,12 @@ public class TableUntil {
                                                                int row, int column) {
 
                     boolean flag = false;
-                    for (int i = 0; i < rowIndex.length; i ++) {
+                    for (int i = 0; i < rowIndex.length; i++) {
                         //把名字和前n的渲染
-                        if (row==rowIndex[i] && column==0) {
+                        if (row == rowIndex[i] && column == 0) {
                             flag = true;
                             setBackground(color);
-                            setForeground(new Color(230,230,230,230));
+                            setForeground(new Color(230, 230, 230, 230));
                         }
                     }
                     if (!flag) {
@@ -34,11 +34,11 @@ public class TableUntil {
                             isSelected, hasFocus, row, column);
                 }
             };
-
+            tcr.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
             int columnCount = table.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 table.getColumn("姓名").setCellRenderer(tcr);
-                if (page==0) {
+                if (page == 0) {
                     table.getColumn("本周在线总时间").setCellRenderer(tcr);
                 } else {
                     table.getColumn("前" + page + "周在线总时间").setCellRenderer(tcr);

@@ -29,58 +29,66 @@ public class AutoOpen {
         File file;
         OutputStreamWriter outputStreamWriter;
         switch (os) {
-            case WINDOWS_10:try {
-                autoDir = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp\\TimerStar.vbs";
-                file = new File("TimerStar.bat");
-                File startFile = new File("timer.vbs");
-                startFile.createNewFile();
-                if (!file.exists()) {
-                    file.createNewFile();
-                } else {
-                    file.delete();
-                    file.createNewFile();
-                }
-                //将执行计时器的bat放入系统的临时文件夹内
-                outputStreamWriter = new FileWriter(file);
-                outputStreamWriter.write("java -jar " + formatPath(jarPath));
-                outputStreamWriter.close();
+            case WINDOWS_10:
+                try {
+                    autoDir = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp\\TimerStar.vbs";
+                    file = new File("TimerStar.bat");
+                    File startFile = new File("timer.vbs");
+                    startFile.createNewFile();
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    } else {
+                        file.delete();
+                        file.createNewFile();
+                    }
+                    //将执行计时器的bat放入系统的临时文件夹内
+                    outputStreamWriter = new FileWriter(file);
+                    outputStreamWriter.write("java -jar " + formatPath(jarPath));
+                    outputStreamWriter.close();
 
-                outputStreamWriter = new FileWriter(startFile);
-                outputStreamWriter.write("createobject(\"wscript.shell\").run \"\"\""+file.getAbsolutePath()+"\"\"\",0 ");
-                System.out.println("createobject(\"wscript.shell\").run \"\"\"");
+                    outputStreamWriter = new FileWriter(startFile);
+                    outputStreamWriter.write("createobject(\"wscript.shell\").run \"\"\"" + file.getAbsolutePath() + "\"\"\",0 ");
+                    System.out.println("createobject(\"wscript.shell\").run \"\"\"");
 //                System.out.println("createobject(\"wscript.shell\").run \"" + file.getAbsolutePath() + "\",0 ");
-                outputStreamWriter.close();
+                    outputStreamWriter.close();
 
-                //调用cmd命令来复制启动的vbs文件
-                Runtime runtime = Runtime.getRuntime();
-                runtime.exec("cmd /c copy " + formatPath(startFile.getAbsolutePath()) + " " + formatPath(autoDir));
+                    //调用cmd命令来复制启动的vbs文件
+                    Runtime runtime = Runtime.getRuntime();
+                    runtime.exec("cmd /c copy " + formatPath(startFile.getAbsolutePath()) + " " + formatPath(autoDir));
 //                System.out.println("cmd /c copy " + formatPath(startFile.getAbsolutePath()) + " " + formatPath(autoDir));
 
 //                startFile.delete();
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            break;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
 
-            case LINUX:break;
-            case WINDOWS_OT:break;
-            default:System.err.println("未找到该系统");
+            case LINUX:
+                break;
+            case WINDOWS_OT:
+                break;
+            default:
+                System.err.println("未找到该系统");
         }
     }
 
     public static void cancelAuto() {
         int os = judgeOs();
         switch (os) {
-            case WINDOWS_10:break;
-            case LINUX:break;
-            case WINDOWS_OT:break;
-            default:System.err.println("未找到该系统");
+            case WINDOWS_10:
+                break;
+            case LINUX:
+                break;
+            case WINDOWS_OT:
+                break;
+            default:
+                System.err.println("未找到该系统");
         }
     }
 
-    private static String formatPath(String path){
-        if(path==null) return "";
+    private static String formatPath(String path) {
+        if (path == null) return "";
         return path.replaceAll(" ", "\" \"");
     }
 }

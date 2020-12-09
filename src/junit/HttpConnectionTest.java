@@ -23,7 +23,7 @@ public class HttpConnectionTest {
             connection.setDoInput(true);
             connection.setUseCaches(false);
             connection.setInstanceFollowRedirects(true);
-            connection.setRequestProperty("accept","application/json"); //向服务器表示我要的是json
+            connection.setRequestProperty("accept", "application/json"); //向服务器表示我要的是json
             connection.connect();
             inputStream = connection.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));

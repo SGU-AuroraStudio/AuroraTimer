@@ -110,8 +110,8 @@ public class LoginForm {
         parent.setUI(new LoginPanelUI());
         loginButton.setUI(new LoginButtonUI());
         registerButton.setUI(new LoginButtonUI());
-        idText.setBorder(new EmptyBorder(0,0,0,0));
-        pwdText.setBorder(new EmptyBorder(0,0,0,0));
+        idText.setBorder(new EmptyBorder(0, 0, 0, 0));
+        pwdText.setBorder(new EmptyBorder(0, 0, 0, 0));
 
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         remPasswordCheckBox.setSelected(preferences.getBoolean("rem", false));
@@ -125,15 +125,16 @@ public class LoginForm {
         }
     }
 
-    public void loginLogic(){
+    public void loginLogic() {
         UserDataService service = new UserDataService();
         UserData vo = new UserData();
         vo.setID(idText.getText());
         vo.setPassWord(DigestUtils.md5Hex(String.valueOf(pwdText.getPassword())).toString()); //转换成32位md5值
         if (service.LoginService(vo)) {
-            String inf[] = new String[1];
+            String inf[] = new String[2];
             //传值给主界面
             inf[0] = vo.getID();
+            inf[1] = vo.getPassWord();
             //存个档
             Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
             preferences.putBoolean("rem", remPasswordCheckBox.isSelected());
@@ -144,7 +145,7 @@ public class LoginForm {
             }
             //跳个转
 //            MainForm.main(inf);
-            TimerYeah.addTime(vo.getID());
+//            TimerYeah.addTime(vo.getID());
             Main2Form.main(inf);
             FRAME.dispose();
         } else {
@@ -163,11 +164,13 @@ public class LoginForm {
                     FRAME.setContentPane(form.parent);
                     int width = 270;
                     int height = 190;
-                    FRAME.setBounds((d.width-width)/2, (d.height-height)/2, width, height);
+                    FRAME.setBounds((d.width - width) / 2, (d.height - height) / 2, width, height);
                     FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //                    FRAME.pack();
                     FRAME.setResizable(false);
+                    FRAME.setAlwaysOnTop(true);
                     FRAME.setVisible(true);
+                    FRAME.setAlwaysOnTop(false);
                     Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
                     if (preferences.getBoolean("auto", false)) {
                         form.loginLogic();

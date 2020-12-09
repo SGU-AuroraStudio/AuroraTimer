@@ -33,10 +33,10 @@ public class UserOnlineTimeService {
             connection.setDoInput(true);
             connection.setUseCaches(false);
             connection.setInstanceFollowRedirects(true);
-            connection.setRequestProperty("accept","application/json"); //向服务器表示我要的是json
+            connection.setRequestProperty("accept", "application/json"); //向服务器表示我要的是json
             connection.connect();
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"GBK")); //修改编码，解决“鹏，濠”字乱码。需要在服务端设置resp为GBK
             StringBuffer buffer = new StringBuffer("");
             String temp;
             while ((temp = reader.readLine()) != null) {
@@ -52,8 +52,9 @@ public class UserOnlineTimeService {
             while (keyIt.hasNext()) {
                 vo = new UserOnlineTime();
                 oTemp = (JSONObject) object.get(keyIt.next());
-                vo.setID( (String) oTemp.get("id"));
-                vo.setTodayOnlineTime( Long.decode((String)oTemp.get("time")));
+                vo.setID((String) oTemp.get("id"));
+                vo.setTodayOnlineTime(Long.decode((String) oTemp.get("time")));
+                vo.setTermOnlineTime(Long.parseLong((String) oTemp.get("termTime")));
                 vo.setName((String) oTemp.get("name"));
                 voVector.add(vo);
             }

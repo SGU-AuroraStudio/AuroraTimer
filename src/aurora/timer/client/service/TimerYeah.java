@@ -1,20 +1,25 @@
 package aurora.timer.client.service;
 
 import aurora.timer.client.ServerURL;
+import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Date;
+import java.util.Properties;
 import java.util.logging.Logger;
 
 /**
  * Created by hao on 17-1-30.
  */
 public class TimerYeah {
-//    private String id;
+    //    private String id;
     public boolean isStop;
+    private static boolean canShowDialog = true;
     private static Logger logger = Logger.getLogger("timer");
 
 //    @Override
@@ -47,22 +52,37 @@ public class TimerYeah {
         boolean flag = false;
         HttpURLConnection connection = null;
         try {
-            URL url = new URL(ServerURL.TIMER + "?id=" + id);
+            Properties locVersion = new Properties();
+            locVersion.load(TimerYeah.class.getResourceAsStream("/aurora/timer/client/view/version/version.properties"));
+            URL url = new URL(ServerURL.TIMER + "?id=" + id + "&ver=" + locVersion.get("version"));
             System.out.println(ServerURL.TIMER);
             connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
             connection.connect();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"GBK")); //解决编码问题
             String req = null;
             req = reader.readLine();
-
             if ("true".equals(req)) {
                 flag = true;
                 logger.info("上传时间");
             } else {
                 logger.warning("加时返回错误信息：" + req);
-                JOptionPane.showMessageDialog(null, "上传时间失败。。请重启试试。。\n", "提示", JOptionPane.ERROR_MESSAGE);
-            }
+                String finalReq = req;
+                if(canShowDialog){
+                    EventQueue.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            canShowDialog = false;
+//                            JOptionPane.showConfirmDialog(null, "上传时间失败。。请重启试试。。\n" + finalReq, "提示",JOptionPane.DEFAULT_OPTION);
+                            JOptionPane.showMessageDialog(null, "上传时间失败。。请重启试试。。\n" + finalReq, "提示", JOptionPane.ERROR_MESSAGE);
+                            canShowDialog = true;
+                        }
+                    });
+                }
 
+
+            }
             reader.close();
             connection.disconnect();
         } catch (Exception e) {

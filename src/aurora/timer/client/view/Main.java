@@ -9,10 +9,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
+import java.util.Arrays;
 import java.util.prefs.Preferences;
 
 /**
  * Created by hao on 17-4-18.
+ * Updated by Yao on 20-12-02.
  */
 public class Main {
     // 在应用程序的main方法里调用此函数保证程序只有一个实例在运行.
@@ -34,6 +36,7 @@ public class Main {
             if (lock == null) {
                 // 如果没有得到锁，则程序退出.
                 // 没有必要手动释放锁和关闭流，当程序退出时，他们会被关闭的.
+                JOptionPane.showMessageDialog(null, "有一个计时器正在运行中", "错误", JOptionPane.ERROR_MESSAGE);
                 throw new Error("An instance of the application is running.");
             }
         } catch (Exception e) {
@@ -54,9 +57,10 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
             String getHost = JOptionPane.showInputDialog(null, "连接服务器失败", ServerURL.HOST);
-            if (getHost.length()!=0) {
+            if (getHost.length() != 0) {
                 ServerURL.HOST = getHost;
                 preferences.put("host", getHost);
+                setIp();
             }
             System.exit(11);
         }
@@ -66,6 +70,6 @@ public class Main {
         makeSingle("Timer");
         setIp();
         OpenCheckForm.main(new String[2]);
-
+        LoginForm.main(new String[1]);
     }
 }
