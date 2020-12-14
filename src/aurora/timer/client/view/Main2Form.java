@@ -84,7 +84,7 @@ public class Main2Form {
         backAddTime();
         backPaintTime();
         TimerYeah.addTime(id);
-        try{
+        try {
             loadBgThread.join(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -124,7 +124,7 @@ public class Main2Form {
                 settingForm = new SettingForm(parent, settingButton, userData);
                 settingButton.setEnabled(false);
                 parent.add(settingForm.parent);
-                // 在哪点进去设置的，用于显示回来
+                // 传入在哪点进去设置的，用于显示回来
                 if (timePanel.isVisible())
                     settingForm.setMain2BeforeInComponent(timePanel);
                 else if (weekAllPane.isVisible())
@@ -320,7 +320,11 @@ public class Main2Form {
             }
             try {
                 byte[] bytes = t.getName().getBytes();
-                String s = new String(bytes, StandardCharsets.UTF_8);
+                String s = null;
+                if (System.getProperty("os.name").contains("Windows")) //Windows用GBK，MAC用UTF-8。MAC调试的时候依然乱码，但是打包后就正常。
+                    s = new String(bytes, "GBK");
+                else
+                    s = new String(bytes, StandardCharsets.UTF_8);
                 model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), parseTime(t.getTermOnlineTime()), "   " + parseTime(t.getTodayOnlineTime())}); //填入表格
             } catch (Exception e) {
                 e.printStackTrace();
@@ -388,7 +392,7 @@ public class Main2Form {
             EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-                    JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n或因为服务器没有您的背景图", "提示", JOptionPane.ERROR_MESSAGE);
                 }
             });
         } else {
@@ -665,9 +669,7 @@ public class Main2Form {
                     Main2Form main2Form = new Main2Form(args[0], args[1]);
                     //设置上周前N名至theRedPerson
                     main2Form.setLastWeekRedPerson(3);
-
                     main2Form.loadWeekTime(0);
-
                     FRAME.setContentPane(main2Form.parent);
                     FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                     FRAME.setLocation((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2);
