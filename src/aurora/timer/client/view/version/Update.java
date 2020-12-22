@@ -1,6 +1,7 @@
 package aurora.timer.client.view.version;
 
 import aurora.timer.client.ServerURL;
+import aurora.timer.client.UpdateTool;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
@@ -123,7 +124,7 @@ public class Update {
                 outputStream.write(buffer, 0, size);
                 outputStream.flush();
             }
-
+            //下载UpdateTool.jar
             url = new URL(toolUrl);
             bufferedInputStream = new BufferedInputStream(url.openStream());
             outputStream = new FileOutputStream(updateTool);
@@ -143,10 +144,11 @@ public class Update {
                             .getLocation()
                             .getPath())
                             .getName();
-                    Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName);
-                    System.out.println(newTimer.toURI().getPath());
+                    Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName + " && del UpdateTool.jar");
+//                    UpdateTool.main(new String[] {newTimer.getName(),oldFileName}); //调试用
                     flag = true;
                 } catch (Exception e) {
+
                 }
             }
             System.exit(666);
