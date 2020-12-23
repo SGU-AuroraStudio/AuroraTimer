@@ -320,6 +320,7 @@ public class Main2Form {
             }
             try {
                 byte[] bytes = t.getName().getBytes();
+                // 解决编码问题
                 String s = null;
                 if (System.getProperty("os.name").contains("Windows")) //Windows用GBK，MAC用UTF-8。MAC调试的时候依然乱码，但是打包后就正常。
                     s = new String(bytes, "GBK");

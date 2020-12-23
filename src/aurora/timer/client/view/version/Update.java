@@ -144,6 +144,9 @@ public class Update {
                             .getLocation()
                             .getPath())
                             .getName();
+//                    String oldFileName = Update.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+                    oldFileName = java.net.URLDecoder.decode(oldFileName,"utf-8");
+                    System.out.println(oldFileName);
                     Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName + " && del UpdateTool.jar");
 //                    UpdateTool.main(new String[] {newTimer.getName(),oldFileName}); //调试用
                     flag = true;
