@@ -26,8 +26,8 @@ public class UserDataService {
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
-//            connection.setConnectTimeout(5000);
-//            connection.setReadTimeout(5000);
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
             connection.setUseCaches(false);
             connection.setRequestProperty("Content-Type", "application/json"); //向服务器表示我传的是json
             connection.connect();
@@ -62,8 +62,9 @@ public class UserDataService {
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.setUseCaches(false);
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
             connection.connect();
-
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
             StringBuffer sb = new StringBuffer("");
             String temp;

@@ -145,7 +145,7 @@ public class Update {
                             .getPath())
                             .getName();
 //                    String oldFileName = Update.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-                    oldFileName = java.net.URLDecoder.decode(oldFileName,"utf-8");
+                    oldFileName = java.net.URLDecoder.decode(oldFileName,"utf-8"); // 不这样会乱码，原本是URL编码，%e5%b7啥啥啥的
                     System.out.println(oldFileName);
                     Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName + " && del UpdateTool.jar");
 //                    UpdateTool.main(new String[] {newTimer.getName(),oldFileName}); //调试用

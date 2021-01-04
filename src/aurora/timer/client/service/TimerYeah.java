@@ -57,8 +57,8 @@ public class TimerYeah {
             URL url = new URL(ServerURL.TIMER + "?id=" + id + "&ver=" + locVersion.get("version"));
             System.out.println(ServerURL.TIMER);
             connection = (HttpURLConnection) url.openConnection();
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
+            connection.setConnectTimeout(3000);
+            connection.setReadTimeout(3000);
             connection.connect();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"GBK")); //解决编码问题
             String req = null;
