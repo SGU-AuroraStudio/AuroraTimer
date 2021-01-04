@@ -14,8 +14,9 @@ import java.util.logging.Logger;
 
 public class AdminDataService {
 
-//    public static String ADMIN = "http://" + "127.0.0.1:8080" + "/timer/admin"; //本地调试用
+    //    public static String ADMIN = "http://" + "127.0.0.1:8080" + "/timer/admin"; //本地调试用
     private static Logger logger = Logger.getLogger("admin");
+
     /**
      * 获取管理员数据,服务器返回的数据里时间是long类型
      *
@@ -56,8 +57,7 @@ public class AdminDataService {
         if (flag) {
             logger.info("加载公告");
             return vo;
-        }
-        else {
+        } else {
             logger.warning("加载公告失败");
             return null;
         }
@@ -67,7 +67,7 @@ public class AdminDataService {
         HttpURLConnection connection = null;
         boolean flag = false;
         try {
-            URL url = new URL(ServerURL.ADMIN + "?id=" + userData.getID() + "&password=" + userData.getPassWord());
+            URL url = new URL(ServerURL.ADMIN);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);//设置是否向HttpUrlConnction输出，因为这个是POST请求，参数要放在http正文内，因此需要设为true，默认情况下是false
@@ -79,7 +79,7 @@ public class AdminDataService {
             // post参数要用String形式
             String param = String.format("id=%s&password=%s&announcement=%s&dutyList=%s&freeTimeStart=%s&freeTimeEnd=%s", vo.getId(), vo.getPassword(), vo.getAnnouncement(), vo.getDutylist(), vo.getFreeTimeStart().getTime(), vo.getFreeTimeEnd().getTime());
             OutputStream out = connection.getOutputStream();
-            out.write(param.getBytes());
+            out.write(param.getBytes("utf-8")); //参考：https://www.iteye.com/blog/nopainnogain-970628
             out.flush();
             out.close();
 
@@ -93,7 +93,7 @@ public class AdminDataService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(flag)
+        if (flag)
             logger.info("上传公告");
         else
             logger.warning("上传公告失败");
@@ -118,7 +118,7 @@ public class AdminDataService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(flag){
+        if (flag) {
 
         }
         return flag;
