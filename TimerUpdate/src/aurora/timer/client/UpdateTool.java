@@ -3,6 +3,7 @@ package aurora.timer.client;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.net.URLDecoder;
 
 /**
  * Created by hao on 17-4-28.
@@ -23,6 +24,13 @@ public class UpdateTool {
 
     private void setFileName(String tNewFileName, String tOldFileName) {
         newFileName = tNewFileName;
+        //兼容旧版本，旧版本如果是中文名会传进来一个URL编码的字符串
+        String[] array=tOldFileName.split(tOldFileName);
+        try {
+            tOldFileName = URLDecoder.decode(tOldFileName,"utf-8"); // 不这样会乱码，原本是URL编码，%e5%b7啥啥啥的
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         oldFileName = tOldFileName;
         textArea.append("旧版名称：" + oldFileName + "\n");
         // 没有传入旧版名称，尝试这些名称
