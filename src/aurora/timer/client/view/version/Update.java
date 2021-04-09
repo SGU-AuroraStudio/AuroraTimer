@@ -44,6 +44,8 @@ public class Update {
             url = new URL(checkNewUrl);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
+            httpURLConnection.setConnectTimeout(2000);
+            httpURLConnection.setReadTimeout(2000);
             reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "utf-8"));
             String temp;
             while ((temp = reader.readLine()) != null) {

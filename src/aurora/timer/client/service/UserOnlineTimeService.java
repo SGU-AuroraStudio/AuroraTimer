@@ -16,6 +16,7 @@ import java.util.Vector;
 /**
  * Created by hao on 17-1-25.
  */
+//TODO:用SmartHttpUtil重写
 public class UserOnlineTimeService {
 //    public TimerYeah startTimer(String id) {
 //        TimerYeah yeah = new TimerYeah(id);
@@ -30,14 +31,11 @@ public class UserOnlineTimeService {
         try {
             URL url = new URL(ServerURL.THIS_WEEK_TIME + "?x=" + lastXWeek);
             connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.setUseCaches(false);
-            connection.setInstanceFollowRedirects(true);
             connection.setRequestProperty("accept", "application/json"); //向服务器表示我要的是json
             connection.setConnectTimeout(3000);
             connection.setReadTimeout(3000);
             connection.connect();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"GBK")); //修改编码，解决“鹏，濠”字乱码。需要在服务端设置resp为GBK，在Main2Form里的填入表格那也需要改
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"UTF-8")); //修改编码，解决“鹏，濠”字乱码。需要在服务端设置resp为GBK，在Main2Form里的填入表格那也需要改
             StringBuffer buffer = new StringBuffer("");
             String temp;
             while ((temp = reader.readLine()) != null) {
@@ -54,8 +52,8 @@ public class UserOnlineTimeService {
                 vo = new UserOnlineTime();
                 oTemp = (JSONObject) object.get(keyIt.next());
                 vo.setID((String) oTemp.get("id"));
-                vo.setTodayOnlineTime(Long.decode((String) oTemp.get("time")));
-                vo.setTermOnlineTime(Long.parseLong((String) oTemp.get("termTime")));
+                vo.setTodayOnlineTime((Long)oTemp.get("time"));
+                vo.setTermOnlineTime((Long) oTemp.get("termTime"));
                 vo.setName((String) oTemp.get("name"));
                 voVector.add(vo);
             }

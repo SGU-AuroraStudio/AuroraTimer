@@ -1,7 +1,7 @@
 package aurora.timer.client.service;
 
 import aurora.timer.client.ServerURL;
-import aurora.timer.client.view.until.MultipartUtility;
+import aurora.timer.client.view.util.MultipartUtility;
 import aurora.timer.client.vo.UserData;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 /**
  * Created by hao on 17-1-25.
  */
+//TODO:用SmartHttpUtil重写
 public class UserDataService {
     private static Logger logger = Logger.getLogger("UserDataService");
 

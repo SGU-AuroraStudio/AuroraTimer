@@ -2,8 +2,8 @@ package aurora.timer.client.view;
 
 import aurora.timer.client.ServerURL;
 import aurora.timer.client.service.UserDataService;
-import aurora.timer.client.view.until.CustomFileChooser;
-import aurora.timer.client.view.until.SaveBg;
+import aurora.timer.client.view.util.CustomFileChooser;
+import aurora.timer.client.view.util.SaveBg;
 import aurora.timer.client.vo.UserData;
 //import org.omg.CORBA.FREE_MEM;
 

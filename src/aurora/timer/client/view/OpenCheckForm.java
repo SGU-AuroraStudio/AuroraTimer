@@ -1,6 +1,6 @@
 package aurora.timer.client.view;
 
-import aurora.timer.client.view.until.SaveBg;
+import aurora.timer.client.view.util.SaveBg;
 import aurora.timer.client.view.version.Update;
 import org.json.simple.JSONObject;
 

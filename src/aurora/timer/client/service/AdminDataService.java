@@ -11,7 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Time;
 import java.util.logging.Logger;
-
+//TODO:用SmartHttpUtil重写
 public class AdminDataService {
 
     //    public static String ADMIN = "http://" + "127.0.0.1:8080" + "/timer/admin"; //本地调试用
@@ -77,7 +77,7 @@ public class AdminDataService {
             connection.connect();
 
             // post参数要用String形式
-            String param = String.format("id=%s&password=%s&announcement=%s&dutyList=%s&freeTimeStart=%s&freeTimeEnd=%s", vo.getId(), vo.getPassword(), vo.getAnnouncement(), vo.getDutylist(), vo.getFreeTimeStart().getTime(), vo.getFreeTimeEnd().getTime());
+            String param = String.format("id=%s&password=%s&announcement=%s&dutyList=%s&freeTimeStart=%s&freeTimeEnd=%s", vo.getId(), vo.getPassword(), vo.getAnnouncement(), vo.getDutylist(), vo.getFreeTimeStart(), vo.getFreeTimeEnd());
             OutputStream out = connection.getOutputStream();
             out.write(param.getBytes("utf-8")); //参考：https://www.iteye.com/blog/nopainnogain-970628
             out.flush();
