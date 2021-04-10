@@ -151,8 +151,6 @@ public class WorkForm {
                 // 上传
                 if (ads.uploadAdminData(vo, userData)) {
                     JOptionPane.showMessageDialog(null, "上传成功！\n", "提示", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(null, "上传失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

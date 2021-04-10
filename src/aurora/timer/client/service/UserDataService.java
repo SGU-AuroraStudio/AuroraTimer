@@ -2,6 +2,7 @@ package aurora.timer.client.service;
 
 import aurora.timer.client.ServerURL;
 import aurora.timer.client.view.util.MultipartUtility;
+import aurora.timer.client.view.util.SmartHttpUtil;
 import aurora.timer.client.vo.UserData;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -9,7 +10,9 @@ import org.json.simple.JSONValue;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -20,66 +23,28 @@ public class UserDataService {
     private static Logger logger = Logger.getLogger("UserDataService");
 
     public boolean LoginService(UserData vo) {
-        HttpURLConnection connection = null;
-        boolean flag = false;
+        Map<String,String> params = new HashMap<>();
+        params.put("id", vo.getID());
+        params.put("password", vo.getPassWord());
+        String res;
         try {
-            URL url = new URL(ServerURL.LOGIN_URL);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
-            connection.setUseCaches(false);
-            connection.setRequestProperty("Content-Type", "application/json"); //向服务器表示我传的是json
-            connection.connect();
-
-            JSONObject object = new JSONObject();
-            object.put("id", vo.getID());
-            object.put("pwd", vo.getPassWord());
-
-            OutputStream out = connection.getOutputStream();
-            out.write(object.toJSONString().getBytes());
-            out.flush();
-            out.close();
-
-            //这里只会返回一行字符串"true"或者"false"
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8")); //注意：到了这行代码才会发送请求
-            String s = reader.readLine();
-            reader.close();
-
-            connection.disconnect();
-            flag = s.equals("true");
+            res = SmartHttpUtil.sendPostForm(ServerURL.LOGIN_URL, params, null);
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
-        return flag;
+        return res.equals("true");
     }
 
-    public JSONObject findById(String id) {
-        HttpURLConnection connection = null;
-        JSONObject object = null;
+    public JSONObject findById(String id){
+        String res;
         try {
-            URL url = new URL(ServerURL.FIND_BY_ID + "?id=" + id);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.setUseCaches(false);
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
-            connection.connect();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
-            StringBuffer sb = new StringBuffer("");
-            String temp;
-            while ((temp = reader.readLine()) != null) {
-                sb.append(temp);
-            }
-            reader.close();
-
-            object = (JSONObject) JSONValue.parse(sb.toString());
-
-            connection.disconnect();
+            res = SmartHttpUtil.sendGet(ServerURL.FIND_BY_ID + "?id=" + id, null, null);
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
+        JSONObject object = (JSONObject) JSONValue.parse(res);
         return object;
     }
 

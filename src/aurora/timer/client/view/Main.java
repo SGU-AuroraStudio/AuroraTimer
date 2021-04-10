@@ -56,7 +56,7 @@ public class Main {
             httpURLConnection.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
-            String getHost = JOptionPane.showInputDialog(null, "连接服务器失败", ServerURL.HOST);
+            String getHost = JOptionPane.showInputDialog(new JFrame(), "连接服务器失败", ServerURL.HOST);
             if (getHost.length() != 0) {
                 ServerURL.HOST = getHost;
                 preferences.put("host", getHost);

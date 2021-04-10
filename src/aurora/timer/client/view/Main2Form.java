@@ -5,12 +5,11 @@ import aurora.timer.client.service.AdminDataService;
 import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
-import aurora.timer.client.view.until.SaveBg;
-import aurora.timer.client.view.until.TableUntil;
+import aurora.timer.client.view.util.SaveBg;
+import aurora.timer.client.view.util.TableUntil;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
 import org.json.simple.JSONObject;
-import sun.reflect.generics.tree.VoidDescriptor;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,6 +22,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.Time;
 import java.util.*;
+import java.util.List;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
@@ -53,7 +53,7 @@ public class Main2Form {
     WeekInfoForm weekInfoForm; //用来查看周计时的panel
     WorkForm workForm;
     SettingForm settingForm;
-    Vector<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
+    List<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
     String[] theRedPerson;
     int page; //查看周计时的页面
     int pageLimited = 20; //查看上x周最大值
@@ -105,12 +105,9 @@ public class Main2Form {
         changeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!TimerYeah.addTime(userData.getID()))
+                    return;
                 timePanel.setVisible(false);
-                try {
-                    TimerYeah.addTime(userData.getID());
-                } catch (Throwable throwable) {
-                    JOptionPane.showMessageDialog(null, "计时线程异常，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
-                }
                 loadWeekTime(0);
                 setAllTime();
                 weekAllPane.setVisible(true);
@@ -264,8 +261,6 @@ public class Main2Form {
                     weekAllPane.setVisible(false);
                     weekAllPane.setEnabled(false);
                     parent.add(workForm.parent);
-                } else {
-                    JOptionPane.showMessageDialog(null, "加载公告界面失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -352,14 +347,14 @@ public class Main2Form {
         userData = new UserData();
         onlineTime = new UserOnlineTime();
         userData.setID((String) object.get("id"));
-        userData.setIsAdmin(Boolean.parseBoolean((String) object.get("isAdmin")));
+        userData.setIsAdmin((Boolean)object.get("isAdmin"));
         userData.setNickName((String) object.get("name"));
-        userData.setDisplayURL((String) object.get("disp"));
-        userData.setTelNumber((String) object.get("tel"));
-        userData.setShortTelNumber((String) object.get("stel"));
+//        userData.setDisplayURL((String) object.get("disp"));
+//        userData.setTelNumber((String) object.get("tel"));
+//        userData.setShortTelNumber((String) object.get("stel"));
         onlineTime.setID((String) object.get("id"));
         onlineTime.setTodayOnlineTime(Long.decode((String) object.getOrDefault("totime", "0")));
-        onlineTime.setLastOnlineTime(new Time((Long) object.getOrDefault("laslog", Long.decode("0"))));
+        onlineTime.setLastOnlineTime(new Time((Long) object.getOrDefault("laslog", 0l)));
     }
 
     /**
@@ -370,14 +365,14 @@ public class Main2Form {
     public void loadWeekTime(int lastX) {
         UserOnlineTimeService service = new UserOnlineTimeService();
         userOnlineTimes = service.getLastXWeekTime(lastX);
-        Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
-        UserOnlineTime uot;
+        if(userOnlineTimes==null){
+            return;
+        }
         //当加载的周计时为0的时候刷新本地的周计时
         logger.info("加载第" + lastX + "周计时数据");
-        while (uiIt.hasNext() && lastX == 0) {
-            uot = uiIt.next();
-            if (uot.getID().equals(userData.getID())) {
-                thisWeekTime = uot.getTodayOnlineTime();
+        for (UserOnlineTime userOnlineTime : userOnlineTimes) {
+            if (userOnlineTime.getID().equals(userData.getID())) {
+                thisWeekTime = userOnlineTime.getTodayOnlineTime();
                 break;
             }
         }
@@ -420,7 +415,8 @@ public class Main2Form {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    TimerYeah.addTime(userData.getID());
+                    if(!TimerYeah.addTime(userData.getID()))
+                        return;
                     loadUserData(userData.getID());
                     loadWeekTime(0);
                 } catch (Throwable throwable) {

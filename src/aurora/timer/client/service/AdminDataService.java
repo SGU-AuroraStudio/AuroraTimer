@@ -1,15 +1,18 @@
 package aurora.timer.client.service;
 
 import aurora.timer.client.ServerURL;
+import aurora.timer.client.view.util.SmartHttpUtil;
 import aurora.timer.client.vo.AdminData;
 import aurora.timer.client.vo.UserData;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+import javax.swing.*;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Time;
+import java.util.HashMap;
 import java.util.logging.Logger;
 //TODO:用SmartHttpUtil重写
 public class AdminDataService {
@@ -22,7 +25,7 @@ public class AdminDataService {
      *
      * @return AdminData对象
      */
-    public AdminData getAdminData() {
+    public AdminData getAdminData1() {
         HttpURLConnection connection = null;
         JSONObject object = new JSONObject();
         AdminData vo = null;
@@ -63,44 +66,59 @@ public class AdminDataService {
         }
     }
 
-    public boolean uploadAdminData(AdminData vo, UserData userData) {
-        HttpURLConnection connection = null;
-        boolean flag = false;
+    /**
+     * 获取管理员数据,服务器返回的数据里时间是long类型
+     * @return AdminData对象
+     */
+    public AdminData getAdminData(){
+        String res;
         try {
-            URL url = new URL(ServerURL.ADMIN);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setDoOutput(true);//设置是否向HttpUrlConnction输出，因为这个是POST请求，参数要放在http正文内，因此需要设为true，默认情况下是false
-            connection.setDoInput(true);//设置是否向HttpUrlConnection读入，默认情况下是true
-            connection.setUseCaches(false);//POST请求不能使用缓存（POST不能被缓存）
-            connection.setInstanceFollowRedirects(true);//设置只作用于当前的实例
-            connection.connect();
-
-            // post参数要用String形式
-            String param = String.format("id=%s&password=%s&announcement=%s&dutyList=%s&freeTimeStart=%s&freeTimeEnd=%s", vo.getId(), vo.getPassword(), vo.getAnnouncement(), vo.getDutylist(), vo.getFreeTimeStart(), vo.getFreeTimeEnd());
-            OutputStream out = connection.getOutputStream();
-            out.write(param.getBytes("utf-8")); //参考：https://www.iteye.com/blog/nopainnogain-970628
-            out.flush();
-            out.close();
-
-            //这里只会返回一行字符串"true"或者"false"
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8")); //注意：到了这行代码才会发送请求
-            String str;
-            str = reader.readLine();
-            reader.close();
-            flag = str.equals("true");
-            connection.disconnect();
+            res = SmartHttpUtil.sendGet(ServerURL.ADMIN, null, null);
         } catch (Exception e) {
             e.printStackTrace();
+            logger.warning(e.toString());
+            return null;
         }
-        if (flag)
-            logger.info("上传公告");
-        else
-            logger.warning("上传公告失败");
-        return flag;
+        JSONObject object = (JSONObject) JSONValue.parse(res);
+        AdminData vo = new AdminData((String)object.get("announcement"),(String) object.get("dutyList"), new Time((Long)object.get("freeTimeStart")),new Time((Long)object.get("freeTimeEnd")));
+        logger.info("加载公告 "+vo.getAnnouncement()+" "+vo.getDutylist());
+        return vo;
     }
 
-    public boolean isFreeTime() {
+    public boolean uploadAdminData(AdminData vo, UserData userData){
+        HashMap<String, String> params = new HashMap<>();
+        params.put("announcement",vo.getAnnouncement());
+        params.put("dutyList",vo.getDutylist());
+        params.put("freeTimeStart",vo.getFreeTimeStart().toString());
+        params.put("freeTimeEnd",vo.getFreeTimeEnd().toString());
+        String res;
+        try {
+            res = SmartHttpUtil.sendPostForm(ServerURL.ADMIN, params, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.warning(e.toString());
+            return false;
+        }
+        if(res.equals("true"))
+            return true;
+        else {
+            JOptionPane.showMessageDialog(null, "上传失败\n"+res, "提示", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    public boolean isFreeTime(){
+        String res;
+        try {
+            res = SmartHttpUtil.sendGet(ServerURL.ADMIN + "?x=freeTime", null, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return res.equals("true");
+    }
+
+    public boolean isFreeTime1() {
         HttpURLConnection connection = null;
         boolean flag = false;
         try {

@@ -50,7 +50,7 @@ public class LoginForm {
                         e1.printStackTrace();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "您的系统不支持跳转，请手动打开\n" +
+                    JOptionPane.showMessageDialog(FRAME, "您的系统不支持跳转，请手动打开\n" +
                             ServerURL.REGISTER_URL, "提示", JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -149,7 +149,7 @@ public class LoginForm {
             Main2Form.main(inf);
             FRAME.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "登陆失败", "提示", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(FRAME, "登陆失败", "提示", JOptionPane.ERROR_MESSAGE);
         }
     }
 

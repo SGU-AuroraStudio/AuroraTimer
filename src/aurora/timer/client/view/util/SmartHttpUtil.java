@@ -2,23 +2,29 @@ package aurora.timer.client.view.util;
 
 //import org.apache.commons.collections.CollectionUtils;
 //import org.apache.commons.lang3.StringUtils;
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+import javax.swing.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Description:[ HttpUtils ]
@@ -27,6 +33,7 @@ import java.util.Map.Entry;
  * @Date: 2019/10/31 9:11
  */
 public class SmartHttpUtil {
+    private static String JSESSIONID_COOKIE=""; //格式是JSESSIONID=xxxxxx
 
     /**
      * 方法描述: 发送get请求
@@ -57,6 +64,8 @@ public class SmartHttpUtil {
             httpGet = new HttpGet(url);
             httpGet.setHeader("Content-type", "application/json; charset=utf-8");
             httpGet.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
+            //带上cookie
+            httpGet.addHeader("Cookie",JSESSIONID_COOKIE);
             if (header != null) {
                 for (Entry<String, String> entry : header.entrySet()) {
                     httpGet.setHeader(entry.getKey(), entry.getValue());
@@ -71,6 +80,7 @@ public class SmartHttpUtil {
                 body = EntityUtils.toString(response.getEntity(), "UTF-8");
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "连接服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
             throw e;
         } finally {
             if (httpGet != null) {
@@ -98,6 +108,8 @@ public class SmartHttpUtil {
             httpPost = new HttpPost(url);
             httpPost.setHeader("Content-type", "application/json; charset=utf-8");
             httpPost.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
+            //带上cookie
+            httpPost.addHeader("Cookie", JSESSIONID_COOKIE);
             if (header != null) {
                 for (Entry<String, String> entry : header.entrySet()) {
                     httpPost.setHeader(entry.getKey(), entry.getValue());
@@ -116,6 +128,7 @@ public class SmartHttpUtil {
                 body = EntityUtils.toString(response.getEntity(), "UTF-8");
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "连接服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
             throw e;
         } finally {
             if (httpPost != null) {
@@ -138,10 +151,13 @@ public class SmartHttpUtil {
         HttpPost httpPost = null;
         String body = "";
         try {
-            CloseableHttpClient httpClient = HttpClients.createDefault();
+            CloseableHttpClient httpClient = HttpClients.custom().setConnectionTimeToLive(6000, TimeUnit.MILLISECONDS).build();
+
             httpPost = new HttpPost(url);
             httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");
             httpPost.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
+            //带上cookie
+            httpPost.addHeader("Cookie", JSESSIONID_COOKIE);
             if (header != null) {
                 for (Entry<String, String> entry : header.entrySet()) {
                     httpPost.setHeader(entry.getKey(), entry.getValue());
@@ -157,6 +173,12 @@ public class SmartHttpUtil {
             httpPost.setEntity(new UrlEncodedFormEntity(nvps, "UTF-8"));
             HttpResponse response = httpClient.execute(httpPost);
 
+            //看看有没有set-cookie
+            Header[] responseHeaders = response.getHeaders("Set-Cookie");
+            if(responseHeaders.length>0) {
+                JSESSIONID_COOKIE = "JSESSIONID=" + responseHeaders[0].getElements()[0].getValue();
+            }
+
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode != HttpStatus.SC_OK) {
                 throw new RuntimeException("请求失败");
@@ -164,6 +186,7 @@ public class SmartHttpUtil {
                 body = EntityUtils.toString(response.getEntity(), "UTF-8");
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "连接服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
             throw e;
         } finally {
             if (httpPost != null) {
