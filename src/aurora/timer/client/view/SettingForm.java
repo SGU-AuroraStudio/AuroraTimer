@@ -22,7 +22,7 @@ import java.util.prefs.Preferences;
  */
 public class SettingForm {
     public static JFrame FRAME;
-    public JPanel parent;
+    public JPanel settingPanel;
     public JButton OkButton;
     public JButton CancelButton;
     public CustomFileChooser fileChooser;
@@ -31,30 +31,15 @@ public class SettingForm {
     public final Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
     public String filePath;
     public UserData userData;
-    private JPanel Main2BeforeInComponent;
-    private JPanel Main2FormParent;
-    private JButton Main2FormSettingButton;
-    private String defaultBgFilePath;
+    private final JPanel Main2FormParent;
     Logger logger = Logger.getLogger("SETTING");
 
-    public SettingForm(JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
+    public SettingForm(JPanel Main2FormParent, UserData userData) {
         this.Main2FormParent = Main2FormParent;
         this.userData = userData;
-        this.Main2FormSettingButton = Main2FormSettingButton;
-        this.defaultBgFilePath = preferences.get("bg","");
         initComboBox();
         this.filePath = preferences.get("bg", "");
 //        setBgForThisParent(filePath);
-        CancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setBgForMain2FormParent(defaultBgFilePath);
-                Main2FormSettingButton.setEnabled(true);
-                Main2BeforeInComponent.setVisible(true);
-                Main2FormParent.remove(parent);
-                Main2FormParent.repaint();
-            }
-        });
         OkButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,10 +51,6 @@ public class SettingForm {
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
-                Main2FormSettingButton.setEnabled(true);
-                Main2BeforeInComponent.setVisible(true);
-                Main2FormParent.remove(parent);
-                Main2FormParent.repaint();
             }
         });
         selectBgImgBtn.addActionListener(new ActionListener() {
@@ -138,7 +119,7 @@ public class SettingForm {
     }
 //
 //    private void setBgForThisParent(String filePath) {
-//        parent.setUI(new BasicPanelUI() {
+//        settingPanel.setUI(new BasicPanelUI() {
 //            @Override
 //            public void paint(Graphics g, JComponent c) {
 //                super.paint(g, c);
@@ -194,30 +175,4 @@ public class SettingForm {
         }
     }
 
-    public void setMain2BeforeInComponent(JPanel Main2BeforeInComponent) {
-        this.Main2BeforeInComponent = Main2BeforeInComponent;
-    }
-
-    public static void main(JFrame Main2FRAME, JPanel Main2FormParent, JButton Main2FormSettingButton, UserData userData) {
-//        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        Point d = Main2FRAME.getLocation();
-        try {
-            EventQueue.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    FRAME = new MainFrame("设置");
-                    SettingForm settingForm = new SettingForm(Main2FormParent, Main2FormSettingButton, userData);
-                    FRAME.setContentPane(settingForm.parent);
-//                    FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());
-                    FRAME.setLocation((int) d.getX(), (int) d.getY());
-                    FRAME.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    FRAME.setResizable(false);
-                    FRAME.setVisible(true);
-                }
-            });
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

@@ -19,12 +19,13 @@ import java.awt.event.*;
 public class WorkForm {
     public static JFrame FRAME;
     public JTextArea announceText;
-    public JPanel parent;
+    public JPanel workPanel;
     public JScrollPane jspAnnounce;
     public JButton announceBtn;
     public JTable dutyList;
-    public JScrollPane jspDutyList;
+//    public JScrollPane jspDutyList;
     public JButton submitBtn;
+    private JPanel dutyListPanel;
     private UserData userData;
 
     public WorkForm() {
@@ -54,7 +55,7 @@ public class WorkForm {
     public void init() {
         announceBtn.setUI(new LoginButtonUI());
         // 点击parent取消编辑表格
-        parent.addMouseListener(new MouseAdapter() {
+        workPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (dutyList.isEditing())
@@ -125,9 +126,10 @@ public class WorkForm {
         tableHeader.setResizingAllowed(false);
         DefaultTableCellRenderer headerTCR = (DefaultTableCellRenderer) tableHeader.getDefaultRenderer();
         headerTCR.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+        dutyListPanel.add(tableHeader, BorderLayout.NORTH);
         // 表格外面的框架
-        jspDutyList.getViewport().setOpaque(false);//将JScrollPane设置为透明
-        jspDutyList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+//        jspDutyList.getViewport().setOpaque(false);//将JScrollPane设置为透明
+//        jspDutyList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 //        jspDutyList.setOpaque(false);
 
         // 管理员用的提交按钮
@@ -178,7 +180,7 @@ public class WorkForm {
 //        FRAME = new JFrame();
 //        WorkForm workForm=new WorkForm();
 //        workForm.loadWorkInfo();
-//        FRAME.add(workForm.parent);
+//        FRAME.add(workForm.settingPanel);
 //        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 //        FRAME.setSize(565,400);
 //        FRAME.setBounds((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2, FRAME.getWidth(), FRAME.getHeight());

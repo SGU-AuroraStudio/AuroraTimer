@@ -25,7 +25,7 @@ public class MainParentPanelUI extends BasicPanelUI {
         }
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(new Color(255, 255, 255, 200));
-        g2.fillRect(0, 0, c.getWidth(), 37);
+        g2.fillRect(0, 0, c.getWidth(), 40);
         g2.setColor(new Color(50, 50, 50, 200));
         g2.drawRect(0, 0, c.getWidth() - 1, c.getHeight() - 1);
     }

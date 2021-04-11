@@ -24,7 +24,7 @@
 // */
 //public class MainForm {
 //    private static JFrame FRAME = null;
-//    private JPanel parent;
+//    private JPanel settingPanel;
 //    private JLabel myTimeLabel;
 //    private JTabbedPane panelGroup;
 //    private JPanel rightPanel;
@@ -247,7 +247,7 @@
 ////                    mainForm.setAddTimeThread(uots.startTimer(args[0])); //将后台发送计时请求的加载
 ////                    mainForm.setData(uds.findById(args[0])); //将用户信息加载
 ////                    mainForm.refreshAll();
-////                    FRAME.setContentPane(mainForm.parent);
+////                    FRAME.setContentPane(mainForm.settingPanel);
 ////                    FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 ////                    int height = 520;
 ////                    int width = 700;

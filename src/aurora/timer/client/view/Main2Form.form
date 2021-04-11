@@ -2,42 +2,63 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="aurora.timer.client.view.Main2Form">
   <grid id="27dc6" binding="parent" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="425"/>
+      <xy x="20" y="20" width="565" height="780"/>
     </constraints>
     <properties>
+      <minimumSize width="565" height="780"/>
       <opaque value="false"/>
+      <preferredSize width="565" height="780"/>
     </properties>
     <border type="none"/>
     <children>
-      <grid id="7ca60" binding="headPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="3" left="0" bottom="2" right="0"/>
+      <grid id="7ca60" binding="headPanel" layout-manager="GridBagLayout">
         <constraints border-constraint="North"/>
         <properties>
           <autoscrolls value="false"/>
           <enabled value="true"/>
           <focusCycleRoot value="false"/>
           <opaque value="false"/>
+          <preferredSize width="565" height="40"/>
           <visible value="true"/>
         </properties>
         <border type="none"/>
         <children>
           <component id="c2764" class="javax.swing.JButton" binding="minButton">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="0" left="10" bottom="0" right="0" weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
               <defaultCapable value="true"/>
               <icon value="aurora/timer/client/view/res/min.png"/>
-              <margin top="2" left="10" bottom="0" right="0"/>
+              <margin top="0" left="0" bottom="0" right="0"/>
               <opaque value="false"/>
               <text value=""/>
             </properties>
           </component>
+          <component id="7ad5c" class="javax.swing.JButton" binding="settingButton">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <actionCommand value=""/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <enabled value="true"/>
+              <icon value="aurora/timer/client/view/res/setting.png"/>
+              <label value=""/>
+              <margin top="0" left="0" bottom="0" right="0"/>
+              <text value=""/>
+              <visible value="true"/>
+            </properties>
+          </component>
           <component id="f44d0" class="javax.swing.JButton" binding="outButton">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="0" left="0" bottom="0" right="10" weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <borderPainted value="false"/>
@@ -50,74 +71,84 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="7ad5c" class="javax.swing.JButton" binding="settingButton">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <actionCommand value=""/>
-              <borderPainted value="false"/>
-              <contentAreaFilled value="false"/>
-              <enabled value="true"/>
-              <icon value="aurora/timer/client/view/res/setting.png"/>
-              <label value=""/>
-              <margin top="0" left="20" bottom="2" right="40"/>
-              <text value=""/>
-              <visible value="true"/>
-            </properties>
-          </component>
         </children>
       </grid>
-      <grid id="6bc24" binding="timePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints border-constraint="Center"/>
+      <grid id="e0f2f" binding="cardPanel" layout-manager="CardLayout" hgap="0" vgap="0">
+        <constraints border-constraint="South"/>
         <properties>
           <opaque value="false"/>
-          <visible value="true"/>
         </properties>
         <border type="none"/>
         <children>
-          <grid id="9cbb7" layout-manager="BorderLayout" hgap="0" vgap="0">
+          <grid id="6bc24" binding="timePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="561" height="265"/>
-              </grid>
+              <card name="Card1"/>
             </constraints>
             <properties>
+              <minimumSize width="565" height="740"/>
               <opaque value="false"/>
+              <preferredSize width="565" height="740"/>
+              <visible value="true"/>
             </properties>
             <border type="none"/>
             <children>
-              <component id="5decd" class="javax.swing.JLabel" binding="timeLabel">
-                <constraints border-constraint="Center"/>
+              <grid id="9cbb7" binding="clockPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="561" height="265"/>
+                  </grid>
+                </constraints>
                 <properties>
-                  <doubleBuffered value="false"/>
-                  <font name="Arial" size="72" style="0"/>
-                  <foreground color="-10952982"/>
-                  <horizontalAlignment value="0"/>
-                  <horizontalTextPosition value="0"/>
-                  <inheritsPopupMenu value="false"/>
                   <opaque value="false"/>
-                  <text value="00:00"/>
                 </properties>
-              </component>
-              <component id="7b090" class="javax.swing.JButton" binding="changeButton">
-                <constraints border-constraint="South"/>
-                <properties>
-                  <borderPainted value="false"/>
-                  <enabled value="true"/>
-                  <focusPainted value="false"/>
-                  <horizontalAlignment value="0"/>
-                  <horizontalTextPosition value="0"/>
-                  <icon value="aurora/timer/client/view/res/changeIcon.png"/>
-                  <label value=""/>
-                  <margin top="20" left="2" bottom="50" right="2"/>
-                  <opaque value="true"/>
-                  <pressedIcon value="aurora/timer/client/view/res/changeIconP.png"/>
-                  <selected value="false"/>
-                  <text value=""/>
-                </properties>
-              </component>
+                <border type="none"/>
+                <children>
+                  <component id="5decd" class="javax.swing.JLabel" binding="timeLabel">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <doubleBuffered value="false"/>
+                      <font name="Arial" size="72" style="0"/>
+                      <foreground color="-10952982"/>
+                      <horizontalAlignment value="0"/>
+                      <horizontalTextPosition value="0"/>
+                      <inheritsPopupMenu value="false"/>
+                      <opaque value="false"/>
+                      <text value="00:00"/>
+                    </properties>
+                  </component>
+                  <grid id="361ee" layout-manager="GridBagLayout">
+                    <constraints border-constraint="South"/>
+                    <properties>
+                      <opaque value="false"/>
+                      <preferredSize width="146" height="162"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="7b090" class="javax.swing.JButton" binding="changeButton">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="0.0" weighty="0.0"/>
+                        </constraints>
+                        <properties>
+                          <borderPainted value="false"/>
+                          <enabled value="true"/>
+                          <focusPainted value="false"/>
+                          <horizontalAlignment value="0"/>
+                          <horizontalTextPosition value="0"/>
+                          <icon value="aurora/timer/client/view/res/changeIcon.png"/>
+                          <label value=""/>
+                          <margin top="20" left="2" bottom="50" right="2"/>
+                          <opaque value="true"/>
+                          <pressedIcon value="aurora/timer/client/view/res/changeIconP.png"/>
+                          <selected value="false"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
             </children>
           </grid>
         </children>

@@ -2,8 +2,6 @@ package aurora.timer.client.view;
 
 //import javafx.scene.control.ScrollBar;
 
-import aurora.timer.client.service.UserOnlineTimeService;
-
 import javax.swing.*;
 import javax.swing.event.RowSorterEvent;
 import javax.swing.event.RowSorterListener;
@@ -15,7 +13,7 @@ import java.util.Comparator;
  * Created by hao on 17-2-24.
  */
 public class WeekInfoForm {
-    public JPanel parent;
+    public JPanel weekInfoPanel;
     public JButton changeButton;
     public JScrollPane infoPane;
     public JTable weekList;
@@ -41,7 +39,7 @@ public class WeekInfoForm {
         weekList.getRowSorter().addRowSorterListener(new RowSorterListener() {
             @Override
             public void sorterChanged(RowSorterEvent e) {
-                parent.repaint();
+                weekInfoPanel.repaint();
             }
         });
         DefaultTableCellRenderer defaultTableCellRenderer = (DefaultTableCellRenderer) weekList.getDefaultRenderer(Object.class);

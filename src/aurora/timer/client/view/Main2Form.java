@@ -40,30 +40,32 @@ public class Main2Form {
     private JLabel timeLabel;
     private JButton changeButton;
     private JButton settingButton;
+    private JPanel clockPanel;
+    private final CardLayout cardLayout;
+    private JPanel cardPanel;
     private TrayIcon trayIcon;
     private SystemTray systemTray;
     private Long thisWeekTime = 0L;
-    private UserOnlineTime onlineTime;
     private UserData userData;
     private Timer freshAddTimer; // 用来加时的计时器
     private Timer paintTimer; // 用来不停的画的计时器
-    private JPanel weekAllPane; // 指向周计时的panel
     private JTable thisWeekList; // 指向本周计时的表
-    Point mousePoint; //鼠标位置，判断挂机用
-    WeekInfoForm weekInfoForm; //用来查看周计时的panel
-    WorkForm workForm;
-    SettingForm settingForm;
-    List<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
-    String[] theRedPerson;
-    int page; //查看周计时的页面
-    int pageLimited = 20; //查看上x周最大值
-    int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
+    private Point mousePoint; //鼠标位置，判断挂机用
+    private WeekInfoForm weekInfoForm; //用来查看周计时的panel
+    private WorkForm workForm;
+    private SettingForm settingForm;
+    private List<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
+    private String[] theRedPerson;
+    private int page; //查看周计时的页面
+    private int pageLimited = 20; //查看上x周最大值
+    private int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
     Logger logger = Logger.getLogger("MAIN");
 
     /**
      * 构造函数，进行初始化和开启Timer
      */
     public Main2Form(String id, String password) {
+        cardLayout = (CardLayout) cardPanel.getLayout();
         loadUserData(id);
         this.userData.setPassWord(password);
         initMain2Form();
@@ -79,8 +81,17 @@ public class Main2Form {
             }
         });
         loadBgThread.start();
+
         initWeekInfoForm();
         initWorkForm();
+        settingForm = new SettingForm(parent, userData);
+        settingForm.CancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(cardPanel, "weekInfoPanel");
+            }
+        });
+        cardPanel.add(settingForm.settingPanel, "settingPanel");
         backAddTime();
         backPaintTime();
         TimerYeah.addTime(id);
@@ -98,7 +109,7 @@ public class Main2Form {
         page = 0;
         loadSystemTray();
         mousePoint = MouseInfo.getPointerInfo().getLocation();
-//        settingForm = new SettingForm(parent, settingButton, userData);
+//        settingForm = new SettingForm(settingPanel, settingButton, userData);
 //        settingForm.setTimePanel(timePanel);
 //        settingForm.setWeekAllPane(weekAllPane);
         //TODO:bug:timePanel时间圆盘在点切换后会下移(发现是timeLabel变长了)
@@ -107,31 +118,17 @@ public class Main2Form {
             public void actionPerformed(ActionEvent e) {
                 if(!TimerYeah.addTime(userData.getID()))
                     return;
-                timePanel.setVisible(false);
                 loadWeekTime(0);
                 setAllTime();
-                weekAllPane.setVisible(true);
-                parent.add(weekAllPane);
+
+                cardLayout.show(cardPanel, "weekInfoPanel");
             }
         });
         settingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                settingForm.parent.setVisible(true);
-                settingForm = new SettingForm(parent, settingButton, userData);
-                settingButton.setEnabled(false);
-                parent.add(settingForm.parent);
-                // 传入在哪点进去设置的，用于显示回来
-                if (timePanel.isVisible())
-                    settingForm.setMain2BeforeInComponent(timePanel);
-                else if (weekAllPane.isVisible())
-                    settingForm.setMain2BeforeInComponent(weekAllPane);
-                else if (workForm.parent.isVisible())
-                    settingForm.setMain2BeforeInComponent(workForm.parent);
-                weekAllPane.setVisible(false);
-                timePanel.setVisible(false);
-                workForm.parent.setVisible(false);
-                parent.repaint();
+//                settingButton.setEnabled(false);
+                cardLayout.show(cardPanel, "settingPanel");
             }
         });
 
@@ -206,13 +203,12 @@ public class Main2Form {
     private void initWorkForm() {
         workForm = new WorkForm();
         workForm.setUserData(userData);
+        cardPanel.add(workForm.workPanel, "workPanel");
         workForm.announceBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //parent.remove(weekAllPane);
-                parent.remove(workForm.parent);
-                weekAllPane.setVisible(true);
-                weekAllPane.setEnabled(true);
+                //settingPanel.remove(weekAllPane);
+                cardLayout.show(cardPanel, "weekInfoPanel");
             }
         });
     }
@@ -220,14 +216,11 @@ public class Main2Form {
     private void initWeekInfoForm() {
         weekInfoForm = new WeekInfoForm();
         thisWeekList = weekInfoForm.weekList;
-        weekAllPane = weekInfoForm.parent;
+        cardPanel.add(weekInfoForm.weekInfoPanel, "weekInfoPanel");
         weekInfoForm.changeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                parent.remove(weekAllPane);
-                weekAllPane.setVisible(false);
-                timePanel.setVisible(true);
-                parent.repaint();
+                cardLayout.show(cardPanel, "Card1");
             }
         });
         weekInfoForm.leftButton.addActionListener(new ActionListener() {
@@ -258,9 +251,7 @@ public class Main2Form {
                 if (x < 56 || y < 56 || x > 324 || y > 110)
                     return;
                 if (workForm.loadWorkInfo()) {
-                    weekAllPane.setVisible(false);
-                    weekAllPane.setEnabled(false);
-                    parent.add(workForm.parent);
+                    cardLayout.show(cardPanel, "workPanel");
                 }
             }
         });
@@ -332,7 +323,7 @@ public class Main2Form {
         } else {
             TableUntil.setOneRowBackgroundColor(thisWeekList, new int[0], Color.black, page);
         }
-        parent.repaint();
+        weekInfoForm.weekInfoPanel.repaint();
     }
 
     /**
@@ -345,7 +336,7 @@ public class Main2Form {
         UserDataService uds = new UserDataService();
         JSONObject object = uds.findById(id);
         userData = new UserData();
-        onlineTime = new UserOnlineTime();
+        UserOnlineTime onlineTime = new UserOnlineTime();
         userData.setID((String) object.get("id"));
         userData.setIsAdmin((Boolean)object.get("isAdmin"));
         userData.setNickName((String) object.get("name"));
