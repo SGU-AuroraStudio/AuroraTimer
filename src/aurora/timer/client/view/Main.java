@@ -9,7 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-import java.util.Arrays;
 import java.util.prefs.Preferences;
 
 /**
@@ -17,6 +16,8 @@ import java.util.prefs.Preferences;
  * Updated by Yao on 20-12-02.
  */
 public class Main {
+    public static boolean canConnect = false;
+
     // 在应用程序的main方法里调用此函数保证程序只有一个实例在运行.
     public static void makeSingle(String singleId) {
         RandomAccessFile raf = null;
@@ -54,19 +55,31 @@ public class Main {
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
             httpURLConnection.disconnect();
+            canConnect = true;
         } catch (Exception e) {
             e.printStackTrace();
-            String getHost = JOptionPane.showInputDialog(new JFrame(), "连接服务器失败", ServerURL.HOST);
+            //自定义弹窗
+            JOptionPane jOptionPane = new JOptionPane("连接服务器失败");
+            jOptionPane.setWantsInput(true);
+            jOptionPane.setInitialSelectionValue(ServerURL.HOST);
+            JDialog dialog = jOptionPane.createDialog("错误");
+            dialog.show();
+            dialog.dispose();
+
+            String getHost = (String) jOptionPane.getInputValue();
+//            String getHost = JOptionPane.showInputDialog(new JFrame(), "连接服务器失败", ServerURL.HOST);
             if (getHost.length() != 0) {
                 ServerURL.HOST = getHost;
                 preferences.put("host", getHost);
                 setIp();
             }
-            System.exit(11);
+            //因为是递归，如果canConnect定义在函数里，永远是false，所以定义为static
+            if (!canConnect)
+                System.exit(11);
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         makeSingle("Timer");
         setIp();
         OpenCheckForm.main(new String[2]);

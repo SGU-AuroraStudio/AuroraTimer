@@ -61,8 +61,17 @@ public class TimerYeah {
         }
         if(res.equals("true")){
             logger.info("上传时间");
+            //在这关掉弹窗
+            if(SmartHttpUtil.dialog!=null) {
+                SmartHttpUtil.dialog.dispose();
+                SmartHttpUtil.dialog=null;
+            }
             return true;
-        }else {
+        }else if(res.equals("")){
+            logger.warning("重连失败");
+            return false;
+        }else
+            {
             logger.warning("加时返回错误信息：" + res);
             JOptionPane.showMessageDialog(null, "连接服务器成功，但是上传时间失败\n" + res, "提示", JOptionPane.ERROR_MESSAGE);
             return false;

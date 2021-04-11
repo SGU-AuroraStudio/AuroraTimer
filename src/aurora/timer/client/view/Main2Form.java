@@ -7,22 +7,23 @@ import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
 import aurora.timer.client.view.util.SaveBg;
 import aurora.timer.client.view.util.TableUntil;
+import aurora.timer.client.vo.Constants;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
-import jdk.nashorn.internal.scripts.JO;
 import org.json.simple.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.Timer;
 import javax.swing.plaf.basic.BasicPanelUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.sql.Time;
-import java.util.*;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
@@ -56,7 +57,7 @@ public class Main2Form {
     private WorkForm workForm;
     private SettingForm settingForm;
     private List<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
-    private UserOnlineTimeService userOnlineTimeService;
+    private final UserOnlineTimeService userOnlineTimeService;
     private String[] theRedPerson;
     private boolean loadingWeekTime = false; //是否正在加载计时，防止多次按钮多次加载，浪费资源
     private int page; //查看周计时的页面
@@ -108,7 +109,7 @@ public class Main2Form {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        if(loadingWeekTime || !TimerYeah.addTime(userData.getID()))
+                        if (loadingWeekTime || !TimerYeah.addTime(userData.getID()))
                             return;
                         loadWeekTime(0);
                         cardLayout.show(cardPanel, "weekInfoPanel");
@@ -206,7 +207,7 @@ public class Main2Form {
         });
     }
 
-    private void initSettingForm(){
+    private void initSettingForm() {
         settingForm = new SettingForm(parent, cardPanel, userData);
         cardPanel.add(settingForm.settingPanel, "settingPanel");
     }
@@ -284,7 +285,7 @@ public class Main2Form {
         }
         //使用list存储并排序
         List<UserOnlineTime> list = userOnlineTimes;
-        list.sort((o1,o2)->{
+        list.sort((o1, o2) -> {
             if (o1.getTodayOnlineTime() > o2.getTodayOnlineTime()) {
                 return -1;
             } else {
@@ -335,7 +336,7 @@ public class Main2Form {
         userData = new UserData();
         UserOnlineTime onlineTime = new UserOnlineTime();
         userData.setID((String) object.get("id"));
-        userData.setIsAdmin((Boolean)object.get("isAdmin"));
+        userData.setIsAdmin((Boolean) object.get("isAdmin"));
         userData.setNickName((String) object.get("name"));
 //        userData.setDisplayURL((String) object.get("disp"));
 //        userData.setTelNumber((String) object.get("tel"));
@@ -353,7 +354,7 @@ public class Main2Form {
     public void loadWeekTime(int lastX) {
         loadingWeekTime = true;
         userOnlineTimes = userOnlineTimeService.getLastXWeekTime(lastX);
-        if(userOnlineTimes==null){
+        if (userOnlineTimes == null) {
             return;
         }
         //当加载的周计时为0的时候刷新本地的周计时
@@ -396,10 +397,11 @@ public class Main2Form {
      * 后台计时，每隔24分钟提交一次
      */
     public void backAddTime() {
-        freshAddTimer = new Timer(5 * 60 * 1000, new ActionListener() {
+        //后台请求服务器计时
+        freshAddTimer = new Timer(Constants.backAddTimeDelay, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!TimerYeah.addTime(userData.getID()))
+                if (!TimerYeah.addTime(userData.getID()))
                     return;
                 loadUserData(userData.getID());
                 loadWeekTime(0);
@@ -407,8 +409,8 @@ public class Main2Form {
         });
         freshAddTimer.setRepeats(true);
         freshAddTimer.start();
-
-        Timer checkTimer = new Timer(24 * 60 * 1000, new ActionListener() {
+        //挂机检测
+        Timer checkTimer = new Timer(Constants.checkTimerDelay, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //挂机检测，就是鼠标24分钟前后在相同位置则暂停加时，在对话框被取消后继续加时
@@ -459,7 +461,7 @@ public class Main2Form {
      * @return 转换后的字符串
      */
     public String parseTime(Long time) {
-        StringBuffer sb = new StringBuffer("");
+        StringBuffer sb = new StringBuffer();
         if (time / 3600000 < 10) {
             sb.append("0");
         }
@@ -627,7 +629,7 @@ public class Main2Form {
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         try {
             EventQueue.invokeLater(new Runnable() {

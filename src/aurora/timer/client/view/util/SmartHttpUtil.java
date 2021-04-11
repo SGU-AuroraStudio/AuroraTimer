@@ -19,6 +19,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import javax.swing.*;
+import java.awt.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class SmartHttpUtil {
     private static String JSESSIONID_COOKIE=""; //格式是JSESSIONID=xxxxxx
-
+    private static boolean canShowDialog = true; //防止多次弹窗
+    public static JDialog dialog;
     /**
      * 方法描述: 发送get请求
      *
@@ -80,8 +82,24 @@ public class SmartHttpUtil {
                 body = EntityUtils.toString(response.getEntity(), "UTF-8");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "连接服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
-            throw e;
+            //防止多次弹窗
+            if(canShowDialog) {
+                //多线程弹窗，不阻塞线程
+                EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        canShowDialog=false;
+                        //不用showMessageDialog，用自定义弹窗，创建全局变量，重连上就在TimeYear自动关掉该弹窗
+                        JOptionPane jOptionPane = new JOptionPane("连接服务器失败");
+                        dialog = jOptionPane.createDialog("错误");
+                        dialog.show();
+//                        JOptionPane.showMessageDialog(null, "连接服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
+                        canShowDialog=true;
+                    }
+                });
+                throw e;
+            }
+
         } finally {
             if (httpGet != null) {
                 httpGet.releaseConnection();
