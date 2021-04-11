@@ -35,17 +35,12 @@
       <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/WeekInfoForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/WeekInfoForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WorkForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WorkForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WorkForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WorkForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -589,7 +584,7 @@
       <workItem from="1617945010961" duration="3019000" />
       <workItem from="1617956991690" duration="11172000" />
       <workItem from="1618030087480" duration="13203000" />
-      <workItem from="1618136801068" duration="303000" />
+      <workItem from="1618136801068" duration="8975000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -975,6 +970,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="420" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609928200198" />
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1618140190371">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1618140190371" />
     <state x="689" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1618131916685">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -995,38 +994,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="287" key="GridCell.Tab.-1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609762485694" />
-    <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1618137110052">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1618146070956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618137110052" />
-    <state width="1877" height="338" key="GridCell.Tab.0.center" timestamp="1618137110052">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618146070956" />
+    <state width="1877" height="338" key="GridCell.Tab.0.center" timestamp="1618146070956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618137110052" />
-    <state width="1877" height="338" key="GridCell.Tab.0.left" timestamp="1618137110051">
+    <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618146070956" />
+    <state width="1877" height="338" key="GridCell.Tab.0.left" timestamp="1618146070956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618137110051" />
-    <state width="1877" height="338" key="GridCell.Tab.0.right" timestamp="1618137110052">
+    <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618146070956" />
+    <state width="1877" height="338" key="GridCell.Tab.0.right" timestamp="1618146070956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618137110052" />
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1618137117250">
+    <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618146070956" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1618146070788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618137117250" />
-    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1618137117249">
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618146070788" />
+    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1618146070788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618137117249" />
-    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1618137117249">
+    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618146070788" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1618146070788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618137117249" />
-    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1618137117249">
+    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618146070788" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1618146070788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618137117249" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618146070788" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1617958116963">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -1035,10 +1034,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1618051877409" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618045405256">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618144618793">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618045405256" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618144618793" />
     <state x="658" y="411" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1617958073246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -1047,21 +1046,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="727" y="399" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618135905283" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1618127452190">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1618139930576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1618127452190" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1618139930576" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java</url>
-          <line>656</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo typeName="javax.swing.JPanel" fieldName="layoutMgr" />

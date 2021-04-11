@@ -9,6 +9,7 @@ import aurora.timer.client.view.util.SaveBg;
 import aurora.timer.client.view.util.TableUntil;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
+import jdk.nashorn.internal.scripts.JO;
 import org.json.simple.JSONObject;
 
 import javax.imageio.ImageIO;
@@ -31,8 +32,11 @@ import java.util.prefs.Preferences;
  * Updated by Yao on 20-12-02.
  */
 public class Main2Form {
-    private static MainFrame FRAME;
+    public static UserData userData;
+    public static CardLayout cardLayout;
+    private JPanel cardPanel;
     private JPanel parent;
+    private static MainFrame FRAME;
     private JButton minButton;
     private JButton outButton;
     private JPanel timePanel;
@@ -41,12 +45,9 @@ public class Main2Form {
     private JButton changeButton;
     private JButton settingButton;
     private JPanel clockPanel;
-    private final CardLayout cardLayout;
-    private JPanel cardPanel;
     private TrayIcon trayIcon;
     private SystemTray systemTray;
     private Long thisWeekTime = 0L;
-    private UserData userData;
     private Timer freshAddTimer; // 用来加时的计时器
     private Timer paintTimer; // 用来不停的画的计时器
     private JTable thisWeekList; // 指向本周计时的表
@@ -55,7 +56,9 @@ public class Main2Form {
     private WorkForm workForm;
     private SettingForm settingForm;
     private List<UserOnlineTime> userOnlineTimes; //本周时间所有人的集合，本周时间存在u.todayOnlineTime
+    private UserOnlineTimeService userOnlineTimeService;
     private String[] theRedPerson;
+    private boolean loadingWeekTime = false; //是否正在加载计时，防止多次按钮多次加载，浪费资源
     private int page; //查看周计时的页面
     private int pageLimited = 20; //查看上x周最大值
     private int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
@@ -64,13 +67,9 @@ public class Main2Form {
     /**
      * 构造函数，进行初始化和开启Timer
      */
-    public Main2Form(String id, String password) {
-        cardLayout = (CardLayout) cardPanel.getLayout();
-        loadUserData(id);
-        this.userData.setPassWord(password);
-        initMain2Form();
+    public Main2Form() {
         // 加载背景图片地址，在MainParentPanelUI里会用 设置背景图,所以要在这之前从服务器加载背景图片。loadBg要用到id所以要在loadUserData之后
-        Thread loadBgThread = new Thread(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -79,27 +78,17 @@ public class Main2Form {
                     e.printStackTrace();
                 }
             }
-        });
-        loadBgThread.start();
-
+        }).start();
+        userOnlineTimeService = new UserOnlineTimeService();
+        cardLayout = (CardLayout) cardPanel.getLayout();
+        loadUserData(userData.getID());
+        initMain2Form();
         initWeekInfoForm();
         initWorkForm();
-        settingForm = new SettingForm(parent, userData);
-        settingForm.CancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cardLayout.show(cardPanel, "weekInfoPanel");
-            }
-        });
-        cardPanel.add(settingForm.settingPanel, "settingPanel");
+        initSettingForm();
         backAddTime();
         backPaintTime();
-        TimerYeah.addTime(id);
-        try {
-            loadBgThread.join(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        TimerYeah.addTime(userData.getID());
     }
 
     /**
@@ -116,12 +105,16 @@ public class Main2Form {
         changeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!TimerYeah.addTime(userData.getID()))
-                    return;
-                loadWeekTime(0);
-                setAllTime();
-
-                cardLayout.show(cardPanel, "weekInfoPanel");
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(loadingWeekTime || !TimerYeah.addTime(userData.getID()))
+                            return;
+                        loadWeekTime(0);
+                        cardLayout.show(cardPanel, "weekInfoPanel");
+                        setAllTime();
+                    }
+                }).start();
             }
         });
         settingButton.addActionListener(new ActionListener() {
@@ -213,6 +206,11 @@ public class Main2Form {
         });
     }
 
+    private void initSettingForm(){
+        settingForm = new SettingForm(parent, cardPanel, userData);
+        cardPanel.add(settingForm.settingPanel, "settingPanel");
+    }
+
     private void initWeekInfoForm() {
         weekInfoForm = new WeekInfoForm();
         thisWeekList = weekInfoForm.weekList;
@@ -226,21 +224,31 @@ public class Main2Form {
         weekInfoForm.leftButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (page < pageLimited) {
-                    page++;
-                    loadWeekTime(page);
-                    setAllTime();
-                }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (page < pageLimited && !loadingWeekTime) {
+                            page++;
+                            loadWeekTime(page);
+                            setAllTime();
+                        }
+                    }
+                }).start();
             }
         });
         weekInfoForm.rightButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (page > 0) {
-                    page--;
-                    loadWeekTime(page);
-                    setAllTime();
-                }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (page > 0 && !loadingWeekTime) {
+                            page--;
+                            loadWeekTime(page);
+                            setAllTime();
+                        }
+                    }
+                }).start();
             }
         });
         weekInfoForm.announceBtn.addMouseListener(new MouseAdapter() {
@@ -264,7 +272,6 @@ public class Main2Form {
         // 如果这一页为空白，上限就是这一页了
         if (userOnlineTimes.size() == 0)
             pageLimited = page;
-        Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
         if (page == 0) {
             thisWeekList.getColumnModel().getColumn(2).setHeaderValue("本周在线总时间");
@@ -276,30 +283,20 @@ public class Main2Form {
             model.removeRow(index);
         }
         //使用list存储并排序
-        java.util.List<UserOnlineTime> list = new LinkedList<>();
-        while (uiIt.hasNext()) {
-            UserOnlineTime t = uiIt.next();
-            list.add(t);
-        }
-        list.sort(new Comparator<UserOnlineTime>() {
-            @Override
-            public int compare(UserOnlineTime o1, UserOnlineTime o2) {
-                if (o1.getTodayOnlineTime() > o2.getTodayOnlineTime()) {
-                    return -1;
-                } else {
-                    return 1;
-                }
+        List<UserOnlineTime> list = userOnlineTimes;
+        list.sort((o1,o2)->{
+            if (o1.getTodayOnlineTime() > o2.getTodayOnlineTime()) {
+                return -1;
+            } else {
+                return 1;
             }
         });
-
-        uiIt = list.iterator();
         //显示出来
         int redListFlag = 0;
         int[] redList = new int[theRedPerson.length];
-        while (uiIt.hasNext()) {
-            UserOnlineTime t = uiIt.next();
-            for (int i = 0; i < theRedPerson.length; i++) {
-                if (t.getID().equals(theRedPerson[i])) {
+        for (UserOnlineTime t : list) {
+            for (String redPerson : theRedPerson) {
+                if (t.getID().equals(redPerson)) {
                     redList[redListFlag] = model.getRowCount();
                     redListFlag++;
                 }
@@ -316,8 +313,8 @@ public class Main2Form {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //将红名的index集合传入变色
         }
+        //将红名的index集合传入变色
         if (page == 0) {
             TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255, 77, 93, 150), page);
         } else {
@@ -354,8 +351,8 @@ public class Main2Form {
      * @param lastX 表示前第多少周，0表示本周
      */
     public void loadWeekTime(int lastX) {
-        UserOnlineTimeService service = new UserOnlineTimeService();
-        userOnlineTimes = service.getLastXWeekTime(lastX);
+        loadingWeekTime = true;
+        userOnlineTimes = userOnlineTimeService.getLastXWeekTime(lastX);
         if(userOnlineTimes==null){
             return;
         }
@@ -367,6 +364,7 @@ public class Main2Form {
                 break;
             }
         }
+        loadingWeekTime = false;
     }
 
     public void loadBg() throws IOException {
@@ -383,15 +381,11 @@ public class Main2Form {
                 }
             });
         } else {
-            try {
-                String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
-                if (SaveBg.saveBg(bgPath, bg, true)) {
-                    // 修改注册表
-                    preferences.put("bg", bgPath);
-                    logger.info("从服务器加载背景图片");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+            String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
+            if (SaveBg.saveBg(bgPath, bg, true)) {
+                // 修改注册表
+                preferences.put("bg", bgPath);
+                logger.info("从服务器加载背景图片");
             }
         }
         // 优先从注册表里读取，没有就设置为默认。（在上边从服务器读取到到话会改注册表）
@@ -405,14 +399,10 @@ public class Main2Form {
         freshAddTimer = new Timer(5 * 60 * 1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    if(!TimerYeah.addTime(userData.getID()))
-                        return;
-                    loadUserData(userData.getID());
-                    loadWeekTime(0);
-                } catch (Throwable throwable) {
-                    JOptionPane.showMessageDialog(null, "计时线程异常，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
-                }
+                if(!TimerYeah.addTime(userData.getID()))
+                    return;
+                loadUserData(userData.getID());
+                loadWeekTime(0);
             }
         });
         freshAddTimer.setRepeats(true);
@@ -618,30 +608,20 @@ public class Main2Form {
     }
 
     public void setLastWeekRedPerson(int x) {
-        loadWeekTime(1);
-        Iterator<UserOnlineTime> uiIt = userOnlineTimes.iterator();
-
         //使用list存储并排序
-        java.util.List<UserOnlineTime> list = new LinkedList<>();
-        while (uiIt.hasNext()) {
-            UserOnlineTime t = uiIt.next();
-            list.add(t);
-        }
-        list.sort(new Comparator<UserOnlineTime>() {
-            @Override
-            public int compare(UserOnlineTime o1, UserOnlineTime o2) {
-                if (o1.getTodayOnlineTime() > o2.getTodayOnlineTime()) {
-                    return -1;
-                } else {
-                    return 1;
-                }
+        List<UserOnlineTime> list = userOnlineTimeService.getLastXWeekTime(1);
+        list.sort((o1, o2) -> {
+            if (o1.getTodayOnlineTime() > o2.getTodayOnlineTime()) {
+                return -1;
+            } else {
+                return 1;
             }
         });
-        uiIt = list.iterator();
+        Iterator<UserOnlineTime> uiIt = list.iterator();
         theRedPerson = new String[x];
         for (int i = 0; i < x; i++) {
             if (uiIt.hasNext()) {
-                theRedPerson[i] = uiIt.next().getID();
+                theRedPerson[i] = list.get(i).getID();
 //                System.out.println(theRedPerson[i]);
             }
         }
@@ -654,10 +634,15 @@ public class Main2Form {
                 @Override
                 public void run() {
                     FRAME = new MainFrame("极光");
-                    Main2Form main2Form = new Main2Form(args[0], args[1]);
+                    Main2Form main2Form = new Main2Form();
                     //设置上周前N名至theRedPerson
-                    main2Form.setLastWeekRedPerson(3);
                     main2Form.loadWeekTime(0);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            main2Form.setLastWeekRedPerson(3);
+                        }
+                    }).start();
                     FRAME.setContentPane(main2Form.parent);
                     FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                     FRAME.setLocation((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2);

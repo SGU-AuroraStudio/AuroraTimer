@@ -23,24 +23,28 @@ import java.util.prefs.Preferences;
 public class SettingForm {
     public static JFrame FRAME;
     public JPanel settingPanel;
-    public JButton OkButton;
-    public JButton CancelButton;
+    public JButton okButton;
+    public JButton cancelButton;
     public CustomFileChooser fileChooser;
     public JButton selectBgImgBtn;
     public JComboBox<String> imgComboBox;
     public final Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
     public String filePath;
+    public String defaultFilePath;
     public UserData userData;
     private final JPanel Main2FormParent;
+    private final JPanel Main2FormCardPanel;
     Logger logger = Logger.getLogger("SETTING");
 
-    public SettingForm(JPanel Main2FormParent, UserData userData) {
+    public SettingForm(JPanel Main2FormParent,JPanel Main2FormCardPanel, UserData userData) {
         this.Main2FormParent = Main2FormParent;
+        this.Main2FormCardPanel = Main2FormCardPanel;
         this.userData = userData;
         initComboBox();
         this.filePath = preferences.get("bg", "");
+        this.defaultFilePath=filePath;
 //        setBgForThisParent(filePath);
-        OkButton.addActionListener(new ActionListener() {
+        okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setBgForMain2FormParent(filePath);
@@ -51,6 +55,13 @@ public class SettingForm {
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
+            }
+        });
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBgForMain2FormParent(defaultFilePath);
+                Main2Form.cardLayout.show(Main2FormCardPanel, "weekInfoPanel");
             }
         });
         selectBgImgBtn.addActionListener(new ActionListener() {
@@ -148,7 +159,7 @@ public class SettingForm {
                 }
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setColor(new Color(255, 255, 255, 200));
-                g2.fillRect(0, 0, c.getWidth(), 37);
+                g2.fillRect(0, 0, c.getWidth(), 40);
                 g2.setColor(new Color(50, 50, 50, 200));
                 g2.drawRect(0, 0, c.getWidth() - 1, c.getHeight() - 1);
             }

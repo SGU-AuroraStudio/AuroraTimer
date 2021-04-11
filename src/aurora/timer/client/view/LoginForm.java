@@ -131,10 +131,6 @@ public class LoginForm {
         vo.setID(idText.getText());
         vo.setPassWord(DigestUtils.md5Hex(String.valueOf(pwdText.getPassword())).toString()); //转换成32位md5值
         if (service.LoginService(vo)) {
-            String inf[] = new String[2];
-            //传值给主界面
-            inf[0] = vo.getID();
-            inf[1] = vo.getPassWord();
             //存个档
             Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
             preferences.putBoolean("rem", remPasswordCheckBox.isSelected());
@@ -146,7 +142,8 @@ public class LoginForm {
             //跳个转
 //            MainForm.main(inf);
 //            TimerYeah.addTime(vo.getID());
-            Main2Form.main(inf);
+            Main2Form.userData = vo;
+            Main2Form.main(new String[1]);
             FRAME.dispose();
         } else {
             JOptionPane.showMessageDialog(FRAME, "登陆失败", "提示", JOptionPane.ERROR_MESSAGE);
