@@ -1,16 +1,9 @@
 package aurora.timer.client.service;
 
-import aurora.timer.client.ServerURL;
+import aurora.timer.client.vo.base.ServerURL;
 import aurora.timer.client.view.util.SmartHttpUtil;
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Logger;
 

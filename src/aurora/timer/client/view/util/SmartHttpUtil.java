@@ -2,15 +2,15 @@ package aurora.timer.client.view.util;
 
 //import org.apache.commons.collections.CollectionUtils;
 //import org.apache.commons.lang3.StringUtils;
-import org.apache.http.Header;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.NameValuePair;
+import org.apache.http.*;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -20,11 +20,16 @@ import org.apache.http.util.EntityUtils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -76,8 +81,8 @@ public class SmartHttpUtil {
             HttpResponse response = httpClient.execute(httpGet);
 
             int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
-                throw new RuntimeException("请求失败");
+            if (statusCode == 404) {
+                throw new RuntimeException("请求失败"+statusCode);
             } else {
                 body = EntityUtils.toString(response.getEntity(), "UTF-8");
             }
@@ -90,7 +95,7 @@ public class SmartHttpUtil {
                     public void run() {
                         canShowDialog=false;
                         //不用showMessageDialog，用自定义弹窗，创建全局变量，重连上就在TimeYear自动关掉该弹窗
-                        JOptionPane jOptionPane = new JOptionPane("连接服务器失败");
+                        JOptionPane jOptionPane = new JOptionPane("连接服务器失败\n"+e.getMessage());
                         dialog = jOptionPane.createDialog("错误");
                         dialog.show();
 //                        JOptionPane.showMessageDialog(null, "连接服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
@@ -140,13 +145,13 @@ public class SmartHttpUtil {
             HttpResponse response = httpClient.execute(httpPost);
 
             int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
-                throw new RuntimeException("请求失败");
+            if (statusCode == 404) {
+                throw new RuntimeException("请求失败"+statusCode);
             } else {
                 body = EntityUtils.toString(response.getEntity(), "UTF-8");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "连接服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "连接服务器失败\n"+e.getMessage(), "提示", JOptionPane.ERROR_MESSAGE);
             throw e;
         } finally {
             if (httpPost != null) {
@@ -156,6 +161,7 @@ public class SmartHttpUtil {
         return body;
     }
 
+    //TODO:新写的方法，别的地方有旧的方法没删，有点乱。
     /**
      * 方法描述: 发送post请求-form表单数据
      *
@@ -198,15 +204,74 @@ public class SmartHttpUtil {
             }
 
             int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
-                throw new RuntimeException("请求失败");
+            if (statusCode == 404) {
+                throw new RuntimeException("请求失败"+statusCode);
             } else {
                 body = EntityUtils.toString(response.getEntity(), "UTF-8");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "连接服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "连接服务器失败\n"+e.getMessage(), "提示", JOptionPane.ERROR_MESSAGE);
             throw e;
         } finally {
+            if (httpPost != null) {
+                httpPost.releaseConnection();
+            }
+        }
+        return body;
+    }
+
+    public static String sendPostMultipart(String url, Map<String, String> params, Map<String, String> header, List<File> files) throws Exception {
+        HttpPost httpPost = null;
+        String body = "";
+        try {
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+            httpPost = new HttpPost(url);
+            httpPost.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
+
+            MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+            //设置header
+            httpPost.addHeader("Cookie", JSESSIONID_COOKIE);
+            if (header != null) {
+                for (Entry<String, String> entry : header.entrySet()) {
+                    httpPost.setHeader(entry.getKey(), entry.getValue());
+                }
+            }
+            //添加params
+            if (params != null) {
+                for (Entry<String, String> entry : params.entrySet()) {
+                    builder.addTextBody(entry.getKey(), entry.getValue(), ContentType.TEXT_PLAIN);
+                }
+            }
+            //添加files
+            if(files!=null) {
+                for (File file : files) {
+                    builder.addBinaryBody(
+                            "file",
+                            new FileInputStream(file),
+                            ContentType.APPLICATION_OCTET_STREAM,
+                            file.getName()
+                    );
+                    builder.setMimeSubtype(URLConnection.guessContentTypeFromName(file.getName()));
+                }
+            }
+            //设置参数到请求对象中
+            String boundary = "===" + System.currentTimeMillis() + "===";
+            builder.setBoundary(boundary);
+            httpPost.setHeader("Content-type", "multipart/form-data; boundary=" + boundary);
+            httpPost.setEntity(builder.build());
+
+            HttpResponse response = httpClient.execute(httpPost);
+
+            int statusCode = response.getStatusLine().getStatusCode();
+            if (statusCode == 404) {
+                throw new RuntimeException("请求失败"+statusCode);
+            } else {
+                body = EntityUtils.toString(response.getEntity(), "UTF-8");
+            }
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "连接服务器失败\n"+e.getMessage(), "提示", JOptionPane.ERROR_MESSAGE);
+            throw e;
+        }finally {
             if (httpPost != null) {
                 httpPost.releaseConnection();
             }

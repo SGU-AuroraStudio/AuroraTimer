@@ -1,6 +1,6 @@
 package aurora.timer.client.service;
 
-import aurora.timer.client.ServerURL;
+import aurora.timer.client.vo.base.ServerURL;
 import aurora.timer.client.view.util.SmartHttpUtil;
 import aurora.timer.client.vo.AdminData;
 import aurora.timer.client.vo.UserData;

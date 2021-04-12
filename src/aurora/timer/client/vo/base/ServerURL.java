@@ -1,7 +1,6 @@
-package aurora.timer.client;
+package aurora.timer.client.vo.base;
 
 import java.io.File;
-import java.util.prefs.Preferences;
 
 /**
  * Created by hao on 17-1-25.
@@ -16,7 +15,7 @@ public class ServerURL {
 //        Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
 //        ServerURL.HOST = preferences.get("host", "47.107.77.200:8080");
 //        HOST = "192.168.1.218:8080";
-        HOST = "127.0.0.1.:8080";
+        HOST = "127.0.0.1:8080";
 //        HOST = "47.99.134.104:8083";
 
     }

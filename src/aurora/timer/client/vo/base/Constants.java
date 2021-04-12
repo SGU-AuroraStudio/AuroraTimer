@@ -1,4 +1,4 @@
-package aurora.timer.client.vo;
+package aurora.timer.client.vo.base;
 
 /**
  * @Author Yao

@@ -1,6 +1,6 @@
 package aurora.timer.client.view;
 
-import aurora.timer.client.ServerURL;
+import aurora.timer.client.vo.base.ServerURL;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.view.util.CustomFileChooser;
 import aurora.timer.client.view.util.SaveBg;
@@ -49,12 +49,19 @@ public class SettingForm {
             public void actionPerformed(ActionEvent e) {
                 setBgForMain2FormParent(filePath);
                 preferences.put("bg",filePath);
-                //TODO:上传图片到服务器
-                try {
-                    uploadBg();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+                defaultFilePath = filePath;
+                //上传到服务器，多线程防止上传慢按钮卡死不动。
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //TODO:上传图片到服务器
+                        try {
+                            uploadBg();
+                        } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                        }
+                    }
+                }).start();
             }
         });
         cancelButton.addActionListener(new ActionListener() {
@@ -173,14 +180,8 @@ public class SettingForm {
         // 上传的同时保存到临时文件夹,注意：inputstream用一次就没了！
         SaveBg.saveBg(bgPath, new FileInputStream(file), true);
         preferences.put("bg", bgPath);
-        if (!uds.uploadBg(file)) {
-            EventQueue.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    JOptionPane.showMessageDialog(null, "连接服务器成功，但是上传背景图片到服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
-                }
-            });
-        }
+        uds.uploadBg(file);
+
     }
 
 }

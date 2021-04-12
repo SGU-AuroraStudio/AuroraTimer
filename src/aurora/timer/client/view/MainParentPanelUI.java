@@ -1,6 +1,6 @@
 package aurora.timer.client.view;
 
-import aurora.timer.client.ServerURL;
+import aurora.timer.client.vo.base.ServerURL;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicPanelUI;

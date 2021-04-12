@@ -1,13 +1,13 @@
 package aurora.timer.client.view;
 
-import aurora.timer.client.ServerURL;
+import aurora.timer.client.vo.base.ServerURL;
 import aurora.timer.client.service.AdminDataService;
 import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
 import aurora.timer.client.view.util.SaveBg;
 import aurora.timer.client.view.util.TableUntil;
-import aurora.timer.client.vo.Constants;
+import aurora.timer.client.vo.base.Constants;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
 import org.json.simple.JSONObject;
@@ -25,6 +25,7 @@ import java.nio.charset.StandardCharsets;
 import java.sql.Time;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
@@ -117,6 +118,7 @@ public class Main2Form {
                 }).start();
             }
         });
+        //TODO:在等待加载的时候，需要有提示，没位置放，转圈圈功能很难。可以试试让按钮提示，旋转啊什么的。
         settingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -373,7 +375,7 @@ public class Main2Form {
     public void loadBg() throws IOException {
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();
-        InputStream bg = uds.findBgById(userData.getID(), userData.getPassWord());
+        InputStream bg = uds.getBg(userData.getBgUrl());
         // 图片不存在或者返回数据过小，失败
         if (bg == null || bg.available() < 1000) {
             logger.warning("从服务器加载背景图片失败");
@@ -484,7 +486,7 @@ public class Main2Form {
         }
         systemTray = SystemTray.getSystemTray();
         PopupMenu popupMenu = new PopupMenu();
-        popupMenu.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 10));
+//        popupMenu.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 14));
         Menu pluginMenu = new Menu("插件");
         MenuItem restoreItem = new MenuItem("还原");
         MenuItem logoutItem = new MenuItem("注销");
@@ -541,19 +543,30 @@ public class Main2Form {
         aboutItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame aboutFrame = new JFrame();
-                aboutFrame.setSize(200, 100);
-                JLabel label = new JLabel();
-                label.setText("功能待完善");
+//                JFrame aboutFrame = new JFrame("关于");
+//                aboutFrame.setSize(200, 100);
+                JDialog dialog = new JDialog(FRAME, "关于");
+                dialog.setLayout(new FlowLayout());
+                dialog.setSize(200, 100);
+
                 JTextArea textArea = new JTextArea();
-                textArea.append("功能待完善");
-                aboutFrame.add(label);
+//                textArea.setBounds(10, 0, 0, 0);
+                textArea.setEditable(false);
+                String info = "功能待完善w(ﾟДﾟ)w\n";
+                Properties locVersion = new Properties();
+                try {
+                    locVersion.load(TimerYeah.class.getResourceAsStream("/aurora/timer/client/view/version/version.properties"));
+                    info += "版本：" + locVersion.getProperty("version");
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                textArea.setText(info);
+                dialog.add(textArea);
+
                 Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-                aboutFrame.setLocation((d.width - aboutFrame.getWidth()) / 2, (d.height - aboutFrame.getHeight()) / 2);
-                System.out.println(FRAME.getX());
-                System.out.println(FRAME.getY());
-                aboutFrame.setResizable(false);
-                aboutFrame.setVisible(true);
+                dialog.setLocation((d.width - dialog.getWidth()) / 2, (d.height - dialog.getHeight()) / 2);
+                dialog.setResizable(false);
+                dialog.setVisible(true);
             }
         });
         logoutItem.addActionListener(new ActionListener() {

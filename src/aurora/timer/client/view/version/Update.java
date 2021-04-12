@@ -1,7 +1,6 @@
 package aurora.timer.client.view.version;
 
-import aurora.timer.client.ServerURL;
-import aurora.timer.client.UpdateTool;
+import aurora.timer.client.vo.base.ServerURL;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
