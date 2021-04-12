@@ -13,6 +13,7 @@ public class UserData implements Serializable {
     private String telNumber;
     private String shortTelNumber;
     private String displayURL;
+    private String bgUrl;
     private Boolean loginStatus; //是不是已经登录
     private Boolean isLeave; //是不是已经离开不再纳入统计
     private Boolean isAdmin; //是否是管理员
@@ -201,5 +202,13 @@ public class UserData implements Serializable {
      */
     public void setDisplayURL(String displayURL) {
         this.displayURL = displayURL;
+    }
+
+    public String getBgUrl() {
+        return bgUrl;
+    }
+
+    public void setBgUrl(String bgUrl) {
+        this.bgUrl = bgUrl;
     }
 }

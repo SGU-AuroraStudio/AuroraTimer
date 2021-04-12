@@ -67,6 +67,7 @@ public class SettingForm {
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                imgComboBox.setSelectedIndex(0);
                 setBgForMain2FormParent(defaultFilePath);
                 Main2Form.cardLayout.show(Main2FormCardPanel, "weekInfoPanel");
             }
@@ -181,7 +182,6 @@ public class SettingForm {
         SaveBg.saveBg(bgPath, new FileInputStream(file), true);
         preferences.put("bg", bgPath);
         uds.uploadBg(file);
-
     }
 
 }

@@ -39,7 +39,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: 2019/10/31 9:11
  */
 public class SmartHttpUtil {
-    private static String JSESSIONID_COOKIE=""; //格式是JSESSIONID=xxxxxx
+    public static String JSESSIONID_COOKIE=""; //格式是JSESSIONID=xxxxxx
     private static boolean canShowDialog = true; //防止多次弹窗
     public static JDialog dialog;
     /**
@@ -247,13 +247,14 @@ public class SmartHttpUtil {
                 for (File file : files) {
                     builder.addBinaryBody(
                             "file",
-                            new FileInputStream(file),
-                            ContentType.APPLICATION_OCTET_STREAM,
+                            file,
+                            ContentType.parse(URLConnection.guessContentTypeFromName(file.getName())),
                             file.getName()
                     );
-                    builder.setMimeSubtype(URLConnection.guessContentTypeFromName(file.getName()));
+//                    builder.setMimeSubtype(URLConnection.guessContentTypeFromName(file.getName()));
                 }
             }
+
             //设置参数到请求对象中
             String boundary = "===" + System.currentTimeMillis() + "===";
             builder.setBoundary(boundary);

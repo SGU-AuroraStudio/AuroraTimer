@@ -17,6 +17,7 @@ public class MainParentPanelUI extends BasicPanelUI {
     @Override
     public void paint(Graphics g, JComponent c) {
         super.paint(g, c);
+        // 优先从注册表里读取，没有就设置为默认。（从服务器读取到到会改注册表）
         File bg = new File(preferences.get("bg", ""));
         if (bg.exists() && bg.length() > 100) {
             g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);

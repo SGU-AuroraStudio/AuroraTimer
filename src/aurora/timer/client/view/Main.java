@@ -14,6 +14,7 @@ import java.util.prefs.Preferences;
 /**
  * Created by hao on 17-4-18.
  * Updated by Yao on 20-12-02.
+ * @Description 程序主入口
  */
 public class Main {
 //    public static boolean canConnect = false;

@@ -61,23 +61,17 @@ public class UserDataService {
         boolean flag = false;
         String res;
         try {
-            // 一个现成的工具类，用multipart/form-data同时传id和图片的inpustream给服务器
-//            MultipartUtility multipart = new MultipartUtility(ServerURL.BG, "UTF-8");
-//            multipart.addFormField("id", id);
-//            multipart.addFormField("password", password);
-//            multipart.addFilePart("file", bg);
-//            List<String> response = multipart.finish();
             LinkedList<File> files = new LinkedList<>();
             files.add(bg);
             res = SmartHttpUtil.sendPostMultipart(ServerURL.BG, null, null, files);
-
         } catch (Exception ex) {
             ex.printStackTrace();
+            //弹窗让SmartHttpUtil弹了，这里就不弹了
             return false;
         }
         if (res.equals("true")) {
             logger.info("上传背景图片成功");
-            JOptionPane.showMessageDialog(null, "上传成功\n"+res, "提示", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "上传成功\n"+res, "提示", JOptionPane.INFORMATION_MESSAGE);
         } else {
             logger.warning("上传背景图片失败");
             JOptionPane.showMessageDialog(null, "上传失败\n"+res, "提示", JOptionPane.ERROR_MESSAGE);
@@ -85,14 +79,21 @@ public class UserDataService {
         return res.equals("true");
     }
 
+    /**
+     * 根据url下载图片，网络图片也可以，要求路径是文件
+     * @param urlStr
+     * @return
+     */
     public InputStream getBg(String urlStr) {
-        HttpURLConnection connection = null;
+        HttpURLConnection connection;
         InputStream bg = null;
         try {
             URL url = new URL(urlStr);
             connection = (HttpURLConnection) url.openConnection();
             connection.setConnectTimeout(3000);
             connection.setReadTimeout(10000);
+            //带上cookie
+            connection.setRequestProperty("Cookie", SmartHttpUtil.JSESSIONID_COOKIE);
             connection.connect();
             bg = connection.getInputStream();
         } catch (Exception e) {

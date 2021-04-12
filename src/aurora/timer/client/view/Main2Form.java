@@ -70,6 +70,9 @@ public class Main2Form {
      * 构造函数，进行初始化和开启Timer
      */
     public Main2Form() {
+        loadUserData(userData.getID());
+        userOnlineTimeService = new UserOnlineTimeService();
+        cardLayout = (CardLayout) cardPanel.getLayout();
         // 加载背景图片地址，在MainParentPanelUI里会用 设置背景图,所以要在这之前从服务器加载背景图片。loadBg要用到id所以要在loadUserData之后
         new Thread(new Runnable() {
             @Override
@@ -81,13 +84,30 @@ public class Main2Form {
                 }
             }
         }).start();
-        userOnlineTimeService = new UserOnlineTimeService();
-        cardLayout = (CardLayout) cardPanel.getLayout();
-        loadUserData(userData.getID());
-        initMain2Form();
-        initWeekInfoForm();
-        initWorkForm();
-        initSettingForm();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                initMain2Form();
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                initWeekInfoForm();
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                initWorkForm();
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                initSettingForm();
+            }
+        }).start();
         backAddTime();
         backPaintTime();
         TimerYeah.addTime(userData.getID());
@@ -339,6 +359,7 @@ public class Main2Form {
         userData.setID((String) object.get("id"));
         userData.setIsAdmin((Boolean) object.get("isAdmin"));
         userData.setNickName((String) object.get("name"));
+        userData.setBgUrl((String) object.get("bgUrl"));
 //        userData.setDisplayURL((String) object.get("disp"));
 //        userData.setTelNumber((String) object.get("tel"));
 //        userData.setShortTelNumber((String) object.get("stel"));
@@ -373,6 +394,8 @@ public class Main2Form {
      * 加载背景图
      */
     public void loadBg() throws IOException {
+        //先设置一个本地的图片
+        parent.setUI(new MainParentPanelUI());
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();
         InputStream bg = uds.getBg(userData.getBgUrl());
@@ -385,7 +408,9 @@ public class Main2Form {
                     JOptionPane.showMessageDialog(null, "从服务器加载背景图片失败，请检查网络或者服务器\n或因为服务器没有您的背景图", "提示", JOptionPane.ERROR_MESSAGE);
                 }
             });
-        } else {
+        } else { //从服务器加载到了图片，那就用服务器的
+            parent.setUI(new MainParentPanelUI());
+            //把图片保存到临时路径
             String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
             if (SaveBg.saveBg(bgPath, bg, true)) {
                 // 修改注册表
@@ -393,8 +418,6 @@ public class Main2Form {
                 logger.info("从服务器加载背景图片");
             }
         }
-        // 优先从注册表里读取，没有就设置为默认。（在上边从服务器读取到到话会改注册表）
-        parent.setUI(new MainParentPanelUI());
     }
 
     /**
