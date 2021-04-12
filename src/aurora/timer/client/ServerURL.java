@@ -16,7 +16,7 @@ public class ServerURL {
 //        Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
 //        ServerURL.HOST = preferences.get("host", "47.107.77.200:8080");
 //        HOST = "192.168.1.218:8080";
-        HOST = "127.0.0.1:8080";
+        HOST = "127.0.0.1.:8080";
 //        HOST = "47.99.134.104:8083";
 
     }
@@ -51,4 +51,19 @@ public class ServerURL {
     //    public static final String CHECK_VERSION_URL = "http://" + HOST + "/timer/version";
     //获得软件本体的路径
     public static String SOFT_URL = "http://" + HOST + "/timer/soft"; // + TimerX.X.jar
+
+    public static void setHost(String host){
+        ServerURL.HOST = host;
+
+        REGISTER_URL = "http://" + HOST + "/timer/pages/register.html";
+        LOGIN_URL = "http://" + HOST + "/timer/login";
+        TIMER = "http://" + HOST + "/timer/timer";
+        ADMIN = "http://" + HOST + "/timer/admin";
+        THIS_WEEK_TIME = "http://" + HOST + "/timer/lastXWeek";
+        THIS_TERM_TIME = "http://" + HOST + "/timer/termTime";
+        FIND_BY_ID = "http://" + HOST + "/timer/findById";
+        BG = "http://" + HOST + "/timer/bg";
+        CHECK_VERSION_URL = "http://" + HOST + "/timer/soft/ver.json";
+        SOFT_URL = "http://" + HOST + "/timer/soft"; // + TimerX.X.jar
+    }
 }

@@ -64,7 +64,7 @@ public class Main2Form {
     private int pageLimited = 20; //查看上x周最大值
     private int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
     Logger logger = Logger.getLogger("MAIN");
-
+    //TODO:把资源统一放到最外面的res里，设置为资源路径
     /**
      * 构造函数，进行初始化和开启Timer
      */
@@ -93,7 +93,7 @@ public class Main2Form {
     }
 
     /**
-     * 初始化函数
+     * 初始化界面
      */
     private void initMain2Form() {
         page = 0;
@@ -102,18 +102,17 @@ public class Main2Form {
 //        settingForm = new SettingForm(settingPanel, settingButton, userData);
 //        settingForm.setTimePanel(timePanel);
 //        settingForm.setWeekAllPane(weekAllPane);
-        //TODO:bug:timePanel时间圆盘在点切换后会下移(发现是timeLabel变长了)
         changeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        if (loadingWeekTime || !TimerYeah.addTime(userData.getID()))
-                            return;
                         loadWeekTime(0);
                         cardLayout.show(cardPanel, "weekInfoPanel");
                         setAllTime();
+                        if (loadingWeekTime || !TimerYeah.addTime(userData.getID()))
+                            return;
                     }
                 }).start();
             }
@@ -368,10 +367,13 @@ public class Main2Form {
         loadingWeekTime = false;
     }
 
+    /**
+     * 加载背景图
+     */
     public void loadBg() throws IOException {
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();
-        InputStream bg = uds.findBgByid(userData.getID(), userData.getPassWord());
+        InputStream bg = uds.findBgById(userData.getID(), userData.getPassWord());
         // 图片不存在或者返回数据过小，失败
         if (bg == null || bg.available() < 1000) {
             logger.warning("从服务器加载背景图片失败");

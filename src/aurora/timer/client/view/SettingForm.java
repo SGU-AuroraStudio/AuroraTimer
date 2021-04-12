@@ -169,18 +169,15 @@ public class SettingForm {
     public void uploadBg() throws IOException {
         String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
         File file = new File(filePath);
-        FileInputStream bg = new FileInputStream(file);
-        FileInputStream bg1 = new FileInputStream(file);
         UserDataService uds = new UserDataService();
         // 上传的同时保存到临时文件夹,注意：inputstream用一次就没了！
-        if (SaveBg.saveBg(bgPath, bg1, true)) ;
+        SaveBg.saveBg(bgPath, new FileInputStream(file), true);
         preferences.put("bg", bgPath);
-        boolean flag = uds.uploadBg(userData.getID(), userData.getPassWord(), bg);
-        if (!flag) {
+        if (!uds.uploadBg(file)) {
             EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-                    JOptionPane.showMessageDialog(null, "上传背景图片到服务器失败，请检查网络或者服务器\n", "提示", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "连接服务器成功，但是上传背景图片到服务器失败\n", "提示", JOptionPane.ERROR_MESSAGE);
                 }
             });
         }

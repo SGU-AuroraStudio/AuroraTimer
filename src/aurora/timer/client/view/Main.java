@@ -16,7 +16,7 @@ import java.util.prefs.Preferences;
  * Updated by Yao on 20-12-02.
  */
 public class Main {
-    public static boolean canConnect = false;
+//    public static boolean canConnect = false;
 
     // 在应用程序的main方法里调用此函数保证程序只有一个实例在运行.
     public static void makeSingle(String singleId) {
@@ -55,7 +55,7 @@ public class Main {
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
             httpURLConnection.disconnect();
-            canConnect = true;
+//            canConnect = true;
         } catch (Exception e) {
             e.printStackTrace();
             //自定义弹窗
@@ -68,14 +68,17 @@ public class Main {
 
             String getHost = (String) jOptionPane.getInputValue();
 //            String getHost = JOptionPane.showInputDialog(new JFrame(), "连接服务器失败", ServerURL.HOST);
+            //在关掉输入框后getHost="uninitializedValue"
+            if(getHost.equals("uninitializedValue"))
+                System.exit(11);
             if (getHost.length() != 0) {
-                ServerURL.HOST = getHost;
+                ServerURL.setHost(getHost);
                 preferences.put("host", getHost);
                 setIp();
             }
-            //因为是递归，如果canConnect定义在函数里，永远是false，所以定义为static
-            if (!canConnect)
-                System.exit(11);
+//            //因为是递归，如果canConnect定义在函数里，永远是false，所以定义为static，用getHost.equals("uninitializedValue")代替。
+//            if (!canConnect)
+//                System.exit(11);
         }
     }
 
