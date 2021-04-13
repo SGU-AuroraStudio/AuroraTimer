@@ -1,5 +1,6 @@
 package aurora.timer.client.view;
 
+import aurora.timer.client.vo.base.Constants;
 import aurora.timer.client.vo.base.ServerURL;
 
 import javax.swing.*;
@@ -12,13 +13,12 @@ import java.util.prefs.Preferences;
  * Created by hao on 17-2-22.
  */
 public class MainParentPanelUI extends BasicPanelUI {
-    private final Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
 
     @Override
     public void paint(Graphics g, JComponent c) {
         super.paint(g, c);
         // 优先从注册表里读取，没有就设置为默认。（从服务器读取到到会改注册表）
-        File bg = new File(preferences.get("bg", ""));
+        File bg = new File(Constants.preferences.get("bg", ""));
         if (bg.exists() && bg.length() > 100) {
             g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
         } else {

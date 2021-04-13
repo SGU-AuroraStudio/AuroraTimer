@@ -15,6 +15,7 @@ import java.util.Properties;
  * Created by hao on 17-4-18.
  * 自动更新装置
  */
+//TODO:代码太乱了，得重写
 public class Update {
     private JTextArea textArea = null;
 

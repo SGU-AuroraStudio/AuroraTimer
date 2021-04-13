@@ -69,13 +69,6 @@ public class UserDataService {
             //弹窗让SmartHttpUtil弹了，这里就不弹了
             return false;
         }
-        if (res.equals("true")) {
-            logger.info("上传背景图片成功");
-            JOptionPane.showMessageDialog(null, "上传成功\n"+res, "提示", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            logger.warning("上传背景图片失败");
-            JOptionPane.showMessageDialog(null, "上传失败\n"+res, "提示", JOptionPane.ERROR_MESSAGE);
-        }
         return res.equals("true");
     }
 

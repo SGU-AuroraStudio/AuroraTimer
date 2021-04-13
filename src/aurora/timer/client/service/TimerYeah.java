@@ -1,5 +1,6 @@
 package aurora.timer.client.service;
 
+import aurora.timer.client.vo.base.Constants;
 import aurora.timer.client.vo.base.ServerURL;
 import aurora.timer.client.view.util.SmartHttpUtil;
 
@@ -43,18 +44,16 @@ public class TimerYeah {
 //    }
 
     public static boolean addTime(String id){
-        Properties locVersion = new Properties();
         String res;
         try {
-            locVersion.load(TimerYeah.class.getResourceAsStream("/aurora/timer/client/view/version/version.properties"));
-            res = SmartHttpUtil.sendGet(ServerURL.TIMER + "?id=" + id + "&ver=" + locVersion.get("version"), null, null);
+            res = SmartHttpUtil.sendGet(ServerURL.TIMER + "?id=" + id + "&ver=" + Constants.locVersion.get("version"), null, null);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
         if(res.equals("true")){
             logger.info("上传时间");
-            //在这关掉弹窗
+            //自动关闭弹窗。如果之前有连接失败过，弹窗了，就把它关了
             if(SmartHttpUtil.dialog!=null) {
                 SmartHttpUtil.dialog.dispose();
                 SmartHttpUtil.dialog=null;
@@ -63,8 +62,7 @@ public class TimerYeah {
         }else if(res.equals("")){
             logger.warning("重连失败");
             return false;
-        }else
-            {
+        }else {
             logger.warning("加时返回错误信息：" + res);
             JOptionPane.showMessageDialog(null, "连接服务器成功，但是上传时间失败\n" + res, "提示", JOptionPane.ERROR_MESSAGE);
             return false;

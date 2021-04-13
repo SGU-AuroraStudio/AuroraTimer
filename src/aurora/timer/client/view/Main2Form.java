@@ -1,15 +1,15 @@
 package aurora.timer.client.view;
 
-import aurora.timer.client.vo.base.ServerURL;
 import aurora.timer.client.service.AdminDataService;
 import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
 import aurora.timer.client.view.util.SaveBg;
 import aurora.timer.client.view.util.TableUntil;
-import aurora.timer.client.vo.base.Constants;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
+import aurora.timer.client.vo.base.Constants;
+import aurora.timer.client.vo.base.ServerURL;
 import org.json.simple.JSONObject;
 
 import javax.imageio.ImageIO;
@@ -66,6 +66,7 @@ public class Main2Form {
     private int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
     Logger logger = Logger.getLogger("MAIN");
     //TODO:把资源统一放到最外面的res里，设置为资源路径
+
     /**
      * 构造函数，进行初始化和开启Timer
      */
@@ -84,24 +85,33 @@ public class Main2Form {
                 }
             }
         }).start();
+        //加载时钟界面
         new Thread(new Runnable() {
             @Override
             public void run() {
                 initMain2Form();
             }
         }).start();
+        //加载排名界面
         new Thread(new Runnable() {
             @Override
             public void run() {
                 initWeekInfoForm();
+                loadWeekTime(0);
+                //设置上周前N名至theRedPerson
+                setLastWeekRedPerson(3);
+                setAllTime(); //setAllTime里用到红名，所以先加载红名
+
             }
         }).start();
+        //加载公告界面
         new Thread(new Runnable() {
             @Override
             public void run() {
                 initWorkForm();
             }
         }).start();
+        //加载设置界面
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -110,7 +120,6 @@ public class Main2Form {
         }).start();
         backAddTime();
         backPaintTime();
-        TimerYeah.addTime(userData.getID());
     }
 
     /**
@@ -394,8 +403,14 @@ public class Main2Form {
      * 加载背景图
      */
     public void loadBg() throws IOException {
-        //先设置一个本地的图片
-        parent.setUI(new MainParentPanelUI());
+        String fileName = userData.getBgUrl().split("/")[5];
+        String bgPath = System.getProperty("java.io.tmpdir") + File.separator + fileName;
+        //如果是默认图片，就不从服务器获取了。看看本地文件有没有，没有还是要从服务器获取的
+        if (userData.getBgUrl().contains("AuroraTimer_bg") || (userData.getBgUrl().equals(Constants.preferences.get("bg", "")) && new File(bgPath).exists())) {
+            parent.setUI(new MainParentPanelUI());
+            return;
+        }
+        logger.info("从服务器加载背景图片");
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();
         InputStream bg = uds.getBg(userData.getBgUrl());
@@ -409,14 +424,11 @@ public class Main2Form {
                 }
             });
         } else { //从服务器加载到了图片，那就用服务器的
-            parent.setUI(new MainParentPanelUI());
             //把图片保存到临时路径
-            String bgPath = System.getProperty("java.io.tmpdir") + File.separator + userData.getID() + "_bg.png";
-            if (SaveBg.saveBg(bgPath, bg, true)) {
-                // 修改注册表
-                preferences.put("bg", bgPath);
-                logger.info("从服务器加载背景图片");
-            }
+            SaveBg.saveBg(bgPath, bg, true);
+            // 修改注册表
+            preferences.put("bg", bgPath);
+            parent.setUI(new MainParentPanelUI());
         }
     }
 
@@ -431,7 +443,6 @@ public class Main2Form {
                 if (!TimerYeah.addTime(userData.getID()))
                     return;
                 loadUserData(userData.getID());
-                loadWeekTime(0);
             }
         });
         freshAddTimer.setRepeats(true);
@@ -576,13 +587,7 @@ public class Main2Form {
 //                textArea.setBounds(10, 0, 0, 0);
                 textArea.setEditable(false);
                 String info = "功能待完善w(ﾟДﾟ)w\n";
-                Properties locVersion = new Properties();
-                try {
-                    locVersion.load(TimerYeah.class.getResourceAsStream("/aurora/timer/client/view/version/version.properties"));
-                    info += "版本：" + locVersion.getProperty("version");
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+                info += "版本：" + Constants.locVersion.getProperty("version");
                 textArea.setText(info);
                 dialog.add(textArea);
 
@@ -675,14 +680,6 @@ public class Main2Form {
                 public void run() {
                     FRAME = new MainFrame("极光");
                     Main2Form main2Form = new Main2Form();
-                    //设置上周前N名至theRedPerson
-                    main2Form.loadWeekTime(0);
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            main2Form.setLastWeekRedPerson(3);
-                        }
-                    }).start();
                     FRAME.setContentPane(main2Form.parent);
                     FRAME.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                     FRAME.setLocation((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2);
