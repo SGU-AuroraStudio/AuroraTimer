@@ -14,11 +14,12 @@ import java.util.prefs.Preferences;
 public class Constants {
     public static final int backAddTimeDelay = 5 * 60 * 1000;
     public static final int checkTimerDelay = 24 * 60 * 1000;
-    public static final Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
+    public static Preferences preferences = null;
     public static final Properties locVersion = new Properties();
     static {
         try {
             locVersion.load(TimerYeah.class.getResourceAsStream("/aurora/timer/client/view/version/version.properties"));
+            preferences= Preferences.userRoot().node(ServerURL.PRE_PATH);
         } catch (IOException e) {
             e.printStackTrace();
         }

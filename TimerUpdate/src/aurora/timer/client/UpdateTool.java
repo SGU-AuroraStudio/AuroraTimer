@@ -3,6 +3,7 @@ package aurora.timer.client;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URLDecoder;
 
 /**
@@ -25,7 +26,6 @@ public class UpdateTool {
     private void setFileName(String tNewFileName, String tOldFileName) {
         newFileName = tNewFileName;
         //兼容旧版本，旧版本如果是中文名会传进来一个URL编码的字符串
-        String[] array=tOldFileName.split(tOldFileName);
         try {
             tOldFileName = URLDecoder.decode(tOldFileName,"utf-8"); // 不这样会乱码，原本是URL编码，%e5%b7啥啥啥的
         }catch (Exception e){
@@ -38,12 +38,10 @@ public class UpdateTool {
         if (oldFileName == null) {
             textArea.append("没有传入旧版名称\n正在尝试可能的老版本名称...\n");
             oldFileName = "AuroraTimer.jar";
-            boolean hasOldFile = false;
             for (String tryOldName : tryOldNames) {
                 oldFile = new File(tryOldName);
                 if (oldFile.length() > 1000) {
                     oldFileName = tryOldName;
-                    hasOldFile = true;
                     textArea.append("找到老版本：" + oldFileName);
                     break;
                 }
@@ -55,11 +53,11 @@ public class UpdateTool {
         //提示窗口
         FRAME = new JFrame("更新工具");
         textArea = new JTextArea();
+        textArea.setEditable(false);
+        FRAME.setSize(270,190);
         FRAME.setContentPane(textArea);
-        int width = 270;
-        int height = 190;
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        FRAME.setBounds((d.width - width) / 2, (d.height - height) / 2, width, height);
+        FRAME.setLocation((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2);
         FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FRAME.setResizable(false);
         FRAME.setVisible(true);
@@ -72,25 +70,20 @@ public class UpdateTool {
             oldFile = new File(oldFileName);
             newFile = new File(newFileName);
             try {
-                if (!newFile.exists()) {
-                    System.out.println("新版不存在");
-                    System.exit(-1);
-                }
-                if (oldFile.exists()) {
+                if (oldFile.exists() && !oldFileName.equals(newFileName)) {
                     oldFile.delete();
-                    System.out.println("删除旧版");
                 }
-                textArea.append("新计时器名称：" + oldFileName + "\n");
-                newFile.renameTo(new File(oldFileName));
+                newFileName = newFile.getName();
+                textArea.append("新计时器名称：" + newFileName + "\n");
+                textArea.append("正在打开新计时器...\n ");
                 try {
-                    Thread.sleep(2000);
+                    Thread.currentThread().sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                textArea.append("正在打开新计时器...\n ");
                 FRAME.dispose();
-                Runtime.getRuntime().exec("java -jar " + oldFileName);
                 isSuss = true;
+                Runtime.getRuntime().exec("java -jar " + newFileName);
             } catch (Exception e) {
                 System.out.println("try:" + i++);
                 isSuss = false;

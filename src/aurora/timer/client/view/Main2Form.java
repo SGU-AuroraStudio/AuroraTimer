@@ -354,6 +354,7 @@ public class Main2Form {
         weekInfoForm.weekInfoPanel.repaint();
     }
 
+    //TODO:加载每周时间时，时钟显示的时间有bug
     /**
      * 获取用户信息
      * 这里之前写的时候就把servlet中一次返回了userData和userOnlineTime

@@ -30,10 +30,11 @@ public class UserDataService {
     public boolean LoginService(UserData vo) {
         Map<String,String> params = new HashMap<>();
         params.put("id", vo.getID());
-        params.put("password", vo.getPassWord());
+        params.put("password", vo.getPassWord()); //以前是pwd
         String res;
         try {
             res = SmartHttpUtil.sendPostForm(ServerURL.LOGIN_URL, params, null);
+//            res = SmartHttpUtil.sendPostJson(ServerURL.LOGIN_URL, JSONObject.toJSONString(params), null);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

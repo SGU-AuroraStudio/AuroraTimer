@@ -18,7 +18,7 @@ public class OpenCheckForm {
 
     public static void main(String[] args) {
         //预加载默认背景图
-        Thread saveBgThread = new Thread() {
+        new Thread() {
             @Override
             public void run() {
                 InputStream bg1 = getClass().getResourceAsStream("bg1.png");
@@ -35,8 +35,7 @@ public class OpenCheckForm {
                     e.printStackTrace();
                 }
             }
-        };
-        saveBgThread.start();//启动线程
+        }.start();
 
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 //        EventQueue.invokeLater(new Runnable() {
@@ -45,9 +44,8 @@ public class OpenCheckForm {
         FRAME = new JFrame("检查更新");
         OpenCheckForm form = new OpenCheckForm();
         FRAME.setContentPane(form.parent);
-        int width = 270;
-        int height = 190;
-        FRAME.setBounds((d.width - width) / 2, (d.height - height) / 2, width, height);
+        FRAME.setSize(270,190);
+        FRAME.setLocation((d.width - FRAME.getWidth()) / 2, (d.height - FRAME.getHeight()) / 2);
         FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FRAME.setResizable(false);
         FRAME.setAlwaysOnTop(true);
@@ -57,6 +55,7 @@ public class OpenCheckForm {
         Update update = new Update(form.InfoPane);
         JSONObject checkObject = update.checkNew();
         int updateStatus = -1;
+        //如果当前版本是旧版
         if (checkObject.get("status").equals("old")) {
             String[] option = {"更新", "不更"};
             updateStatus = JOptionPane.showOptionDialog(null, "已检测到新版本:" +
@@ -65,20 +64,10 @@ public class OpenCheckForm {
             if (updateStatus == 0) {
                 String newVersion = (String) checkObject.get("version");
                 update.update(newVersion);
-//                    try {
-//                        Runtime.getRuntime().exec("java -jar AuroraTimer.jar");
-//                    } catch (IOException e) {
-//                        System.err.println("OPEN TIMER EXCEPTION");
-//                        e.printStackTrace();
-//                    }
             }
         }
-        //进入主程序
-//            }
-//        });
-        Thread thisThread = Thread.currentThread();
         try {
-            thisThread.sleep(3000);
+            Thread.currentThread().sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

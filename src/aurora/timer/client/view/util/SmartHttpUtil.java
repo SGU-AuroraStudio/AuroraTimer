@@ -176,7 +176,6 @@ public class SmartHttpUtil {
         String body = "";
         try {
             CloseableHttpClient httpClient = HttpClients.custom().setConnectionTimeToLive(6000, TimeUnit.MILLISECONDS).build();
-
             httpPost = new HttpPost(url);
             httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");
             httpPost.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
