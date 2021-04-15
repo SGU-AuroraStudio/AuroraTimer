@@ -97,11 +97,14 @@ public class Main2Form {
             @Override
             public void run() {
                 initWeekInfoForm();
-                loadWeekTime(0);
-                //设置上周前N名至theRedPerson
-                setLastWeekRedPerson(3);
-                setAllTime(); //setAllTime里用到红名，所以先加载红名
-
+                try {
+                    loadWeekTime(0);
+                    //设置上周前N名至theRedPerson
+                    setLastWeekRedPerson(3);
+                    setAllTime(); //setAllTime里用到红名，所以先加载红名
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
         //加载公告界面
@@ -135,14 +138,24 @@ public class Main2Form {
         changeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //TODO:防止多次点击多次加载
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        loadWeekTime(0);
-                        cardLayout.show(cardPanel, "weekInfoPanel");
-                        setAllTime();
-                        if (loadingWeekTime || !TimerYeah.addTime(userData.getID()))
+                        if(loadingWeekTime)
                             return;
+                        try {
+                            loadingWeekTime=true;
+                            loadWeekTime(0);
+                            cardLayout.show(cardPanel, "weekInfoPanel");
+                            setAllTime();
+                            TimerYeah.addTime(userData.getID());
+                            loadingWeekTime=false;
+
+                        } catch (Exception exception) {
+                            exception.printStackTrace();
+                            loadingWeekTime=false;
+                        }
                     }
                 }).start();
             }
@@ -259,9 +272,18 @@ public class Main2Form {
                     @Override
                     public void run() {
                         if (page < pageLimited && !loadingWeekTime) {
-                            page++;
-                            loadWeekTime(page);
-                            setAllTime();
+
+                            try {
+                                page++;
+                                loadingWeekTime=true;
+                                loadWeekTime(page);
+                                setAllTime();
+                                loadingWeekTime=false;
+                            } catch (Exception exception) {
+                                exception.printStackTrace();
+                                loadingWeekTime=false;
+                            }
+
                         }
                     }
                 }).start();
@@ -274,9 +296,18 @@ public class Main2Form {
                     @Override
                     public void run() {
                         if (page > 0 && !loadingWeekTime) {
-                            page--;
-                            loadWeekTime(page);
-                            setAllTime();
+
+                            try {
+                                page--;
+                                loadingWeekTime=true;
+                                loadWeekTime(page);
+                                setAllTime();
+                                loadingWeekTime=false;
+                            } catch (Exception exception) {
+                                exception.printStackTrace();
+                                loadingWeekTime=false;
+                            }
+
                         }
                     }
                 }).start();
@@ -316,11 +347,7 @@ public class Main2Form {
         //使用list存储并排序
         List<UserOnlineTime> list = userOnlineTimes;
         list.sort((o1, o2) -> {
-            if (o1.getTodayOnlineTime() > o2.getTodayOnlineTime()) {
-                return -1;
-            } else {
-                return 1;
-            }
+            return o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime());
         });
         //显示出来
         int redListFlag = 0;
@@ -383,21 +410,21 @@ public class Main2Form {
      *
      * @param lastX 表示前第多少周，0表示本周
      */
-    public void loadWeekTime(int lastX) {
-        loadingWeekTime = true;
+    public void loadWeekTime(int lastX) throws Exception {
         userOnlineTimes = userOnlineTimeService.getLastXWeekTime(lastX);
         if (userOnlineTimes == null) {
             return;
         }
-        //当加载的周计时为0的时候刷新本地的周计时
-        logger.info("加载第" + lastX + "周计时数据");
-        for (UserOnlineTime userOnlineTime : userOnlineTimes) {
-            if (userOnlineTime.getID().equals(userData.getID())) {
-                thisWeekTime = userOnlineTime.getTodayOnlineTime();
-                break;
+        //当加载的周计时为0的时候刷新本地用户的周计时
+        if(lastX==0) {
+            logger.info("加载第" + lastX + "周计时数据");
+            for (UserOnlineTime userOnlineTime : userOnlineTimes) {
+                if (userOnlineTime.getID().equals(userData.getID())) {
+                    thisWeekTime = userOnlineTime.getTodayOnlineTime();
+                    break;
+                }
             }
         }
-        loadingWeekTime = false;
     }
 
     /**
@@ -653,7 +680,7 @@ public class Main2Form {
         }
     }
 
-    public void setLastWeekRedPerson(int x) {
+    public void setLastWeekRedPerson(int x) throws Exception {
         //使用list存储并排序
         List<UserOnlineTime> list = userOnlineTimeService.getLastXWeekTime(1);
         list.sort((o1, o2) -> {

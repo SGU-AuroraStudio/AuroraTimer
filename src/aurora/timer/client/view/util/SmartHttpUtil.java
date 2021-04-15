@@ -4,6 +4,7 @@ package aurora.timer.client.view.util;
 //import org.apache.commons.lang3.StringUtils;
 import org.apache.http.*;
 import org.apache.http.client.CookieStore;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -37,7 +38,9 @@ import java.util.concurrent.TimeUnit;
  * @Author: tarzan Liu
  * @Company: 洛阳图联科技有限公司
  * @Date: 2019/10/31 9:11
+ *
  */
+//TODO:设置连接超时
 public class SmartHttpUtil {
     public static String JSESSIONID_COOKIE=""; //格式是JSESSIONID=xxxxxx
     private static boolean canShowDialog = true; //防止多次弹窗
@@ -69,6 +72,11 @@ public class SmartHttpUtil {
                 url = url + paramsStr;
             }
             httpGet = new HttpGet(url);
+            RequestConfig config = RequestConfig.custom()
+                    .setConnectTimeout(5000)
+                    .setConnectionRequestTimeout(5000)
+                    .build();
+            httpGet.setConfig(config);
             httpGet.setHeader("Content-type", "application/json; charset=utf-8");
             httpGet.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
             //带上cookie
@@ -129,6 +137,11 @@ public class SmartHttpUtil {
         try {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             httpPost = new HttpPost(url);
+            RequestConfig config = RequestConfig.custom()
+                    .setConnectTimeout(5000)
+                    .setConnectionRequestTimeout(5000)
+                    .build();
+            httpPost.setConfig(config);
             httpPost.setHeader("Content-type", "application/json; charset=utf-8");
             httpPost.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
             //带上cookie
@@ -177,6 +190,11 @@ public class SmartHttpUtil {
         try {
             CloseableHttpClient httpClient = HttpClients.custom().setConnectionTimeToLive(6000, TimeUnit.MILLISECONDS).build();
             httpPost = new HttpPost(url);
+            RequestConfig config = RequestConfig.custom()
+                    .setConnectTimeout(5000)
+                    .setConnectionRequestTimeout(5000)
+                    .build();
+            httpPost.setConfig(config);
             httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");
             httpPost.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
             //带上cookie
@@ -225,6 +243,11 @@ public class SmartHttpUtil {
         try {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             httpPost = new HttpPost(url);
+            RequestConfig config = RequestConfig.custom()
+                    .setConnectTimeout(5000)
+                    .setConnectionRequestTimeout(5000)
+                    .build();
+            httpPost.setConfig(config);
             httpPost.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
 
             MultipartEntityBuilder builder = MultipartEntityBuilder.create();

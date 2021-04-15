@@ -14,7 +14,6 @@ import java.net.URL;
 import java.sql.Time;
 import java.util.HashMap;
 import java.util.logging.Logger;
-//TODO:用SmartHttpUtil重写
 public class AdminDataService {
 
     //    public static String ADMIN = "http://" + "127.0.0.1:8080" + "/timer/admin"; //本地调试用

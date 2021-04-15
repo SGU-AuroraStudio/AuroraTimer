@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 /**
  * Created by hao on 17-1-25.
  */
-//TODO:用SmartHttpUtil重写
 public class UserDataService {
     private static Logger logger = Logger.getLogger("UserDataService");
 

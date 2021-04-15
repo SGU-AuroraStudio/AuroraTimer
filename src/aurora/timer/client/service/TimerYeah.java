@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 /**
  * Created by hao on 17-1-30.
  */
-//TODO:用SmartHttpUtil重写
 public class TimerYeah {
     //    private String id;
     public boolean isStop;

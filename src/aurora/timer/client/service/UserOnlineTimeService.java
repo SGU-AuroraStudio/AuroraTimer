@@ -11,18 +11,12 @@ import java.util.*;
 /**
  * Created by hao on 17-1-25.
  */
-//TODO:用SmartHttpUtil重写
 public class UserOnlineTimeService {
 
-    public List<UserOnlineTime> getLastXWeekTime(int lastXWeek) {
+    public List<UserOnlineTime> getLastXWeekTime(int lastXWeek) throws Exception {
         List<UserOnlineTime> list = new ArrayList<>();
         String res = null;
-        try {
-            res = SmartHttpUtil.sendGet(ServerURL.THIS_WEEK_TIME + "?x=" + lastXWeek, null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        res = SmartHttpUtil.sendGet(ServerURL.THIS_WEEK_TIME + "?x=" + lastXWeek, null, null);
         JSONObject object = (JSONObject) JSONValue.parse(res);
         Set<String> keys = object.keySet();
         for (String key : keys) {

@@ -11,6 +11,7 @@ import java.io.*;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 /**
@@ -42,10 +43,10 @@ public class Update {
         try {
             url = new URL(checkNewUrl);
             httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setConnectTimeout(3000);
+            httpURLConnection.setReadTimeout(15000);
             httpURLConnection.connect();
-            httpURLConnection.setConnectTimeout(2000);
-            httpURLConnection.setReadTimeout(2000);
-            reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "utf-8"));
+            reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), StandardCharsets.UTF_8));
             String temp;
             while ((temp = reader.readLine()) != null) {
                 stringBuffer.append(temp);
@@ -64,15 +65,15 @@ public class Update {
                 returnObject.put("status", "old");
                 returnObject.put("version", netVersion.get("version"));
             }
-        } catch (ConnectException exception) {
-            textArea.append("发送请求失败，请检查网络连接或者服务器运行情况\n");
         } catch (Exception exception) {
+            textArea.append("发送请求失败，请检查网络连接或者服务器运行情况\n");
             exception.printStackTrace();
             returnObject.put("status", "err");
             exception.printStackTrace();
         } finally {
             try {
-                reader.close();
+                if(reader!=null)
+                    reader.close();
                 httpURLConnection.disconnect();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -136,6 +137,7 @@ public class Update {
                             .getName();
 //                    String oldFileName = Update.class.getProtectionDomain().getCodeSource().getLocation().getPath();
                     oldFileName = java.net.URLDecoder.decode(oldFileName,"utf-8"); // 不这样会乱码，原本是URL编码，%e5%b7啥啥啥的
+                    newTimer.renameTo(new File(oldFileName));
                     Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName);
 //                    UpdateTool.main(new String[] {newTimer.getName(),oldFileName}); //调试用
                     flag = true;

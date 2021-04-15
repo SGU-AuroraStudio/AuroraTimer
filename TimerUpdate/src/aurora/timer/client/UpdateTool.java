@@ -73,17 +73,17 @@ public class UpdateTool {
                 if (oldFile.exists() && !oldFileName.equals(newFileName)) {
                     oldFile.delete();
                 }
-                newFileName = newFile.getName();
-                textArea.append("新计时器名称：" + newFileName + "\n");
+                newFile.renameTo(oldFile);
+                textArea.append("新计时器名称：" + newFile.getName() + "\n");
                 textArea.append("正在打开新计时器...\n ");
                 try {
-                    Thread.currentThread().sleep(2000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 FRAME.dispose();
                 isSuss = true;
-                Runtime.getRuntime().exec("java -jar " + newFileName);
+                Runtime.getRuntime().exec("java -jar " + newFile.getName());
             } catch (Exception e) {
                 System.out.println("try:" + i++);
                 isSuss = false;
