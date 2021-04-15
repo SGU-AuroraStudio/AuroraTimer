@@ -49,6 +49,7 @@
                   <component id="26c6d" class="javax.swing.JTextArea" binding="announceText">
                     <constraints/>
                     <properties>
+                      <editable value="false"/>
                       <maximumSize width="545" height="2147483647"/>
                       <minimumSize width="545" height="19"/>
                       <opaque value="false"/>
@@ -57,12 +58,6 @@
                   </component>
                 </children>
               </scrollpane>
-              <hspacer id="bece8">
-                <constraints/>
-              </hspacer>
-              <vspacer id="f7e33">
-                <constraints/>
-              </vspacer>
             </children>
           </grid>
         </children>
@@ -94,7 +89,9 @@
               </grid>
             </constraints>
             <properties>
+              <enabled value="false"/>
               <text value="提交"/>
+              <visible value="false"/>
             </properties>
           </component>
         </children>
@@ -110,6 +107,7 @@
           <component id="27b21" class="javax.swing.JTable" binding="dutyList">
             <constraints border-constraint="Center"/>
             <properties>
+              <enabled value="false"/>
               <opaque value="false"/>
               <preferredSize width="150" height="60"/>
               <rowHeight value="40"/>

@@ -8,17 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -580,7 +571,8 @@
       <workItem from="1618379923940" duration="3657000" />
       <workItem from="1618396266445" duration="8190000" />
       <workItem from="1618410300637" duration="5570000" />
-      <workItem from="1618450515101" duration="9662000" />
+      <workItem from="1618450515101" duration="10666000" />
+      <workItem from="1618488133599" duration="2162000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -981,38 +973,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="246" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1618380941392" />
-    <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1618458408877">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1618488142816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618458408877" />
-    <state width="1877" height="338" key="GridCell.Tab.0.center" timestamp="1618458408877">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618488142816" />
+    <state width="1877" height="338" key="GridCell.Tab.0.center" timestamp="1618488142816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618458408877" />
-    <state width="1877" height="338" key="GridCell.Tab.0.left" timestamp="1618458408877">
+    <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618488142816" />
+    <state width="1877" height="338" key="GridCell.Tab.0.left" timestamp="1618488142816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618458408877" />
-    <state width="1877" height="338" key="GridCell.Tab.0.right" timestamp="1618458408877">
+    <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618488142816" />
+    <state width="1877" height="338" key="GridCell.Tab.0.right" timestamp="1618488142816">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618458408877" />
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1618458408738">
+    <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618488142816" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1618468922791">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618458408738" />
-    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1618458408738">
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618468922791" />
+    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1618468922791">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618458408738" />
-    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1618458408738">
+    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618468922791" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1618468922791">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618458408738" />
-    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1618458408738">
+    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618468922791" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1618468922791">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618458408738" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618468922791" />
     <state x="440" y="94" width="1039" height="851" key="SettingsEditor" timestamp="1618380947697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

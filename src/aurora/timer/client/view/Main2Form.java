@@ -319,6 +319,7 @@ public class Main2Form {
                 int y = e.getY();
                 if (x < 56 || y < 56 || x > 324 || y > 110)
                     return;
+                //TODO:多线程，防止加载慢卡死
                 if (workForm.loadWorkInfo()) {
                     cardLayout.show(cardPanel, "workPanel");
                 }
