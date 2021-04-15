@@ -272,7 +272,6 @@ public class Main2Form {
                     @Override
                     public void run() {
                         if (page < pageLimited && !loadingWeekTime) {
-
                             try {
                                 page++;
                                 loadingWeekTime=true;
