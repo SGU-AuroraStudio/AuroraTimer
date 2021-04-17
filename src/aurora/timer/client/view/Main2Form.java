@@ -150,10 +150,10 @@ public class Main2Form {
                             return;
                         try {
                             loadingWeekTime=true;
+                            TimerYeah.addTime(userData.getID());
                             loadWeekTime(0);
                             cardLayout.show(cardPanel, "weekInfoPanel");
                             setAllTime();
-                            TimerYeah.addTime(userData.getID());
                             loadingWeekTime=false;
 
                         } catch (Exception exception) {
@@ -662,7 +662,7 @@ public class Main2Form {
         popupMenu.add(exitItem);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(getClass().getResource("aurora/timer/img/trayIcon.png")));
+            trayIcon = new TrayIcon(ImageIO.read(getClass().getClassLoader().getResource("aurora/timer/img/trayIcon.png")));
             trayIcon.setPopupMenu(popupMenu);
             trayIcon.addMouseListener(new MouseAdapter() {
                 @Override

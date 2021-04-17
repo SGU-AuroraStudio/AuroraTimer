@@ -227,8 +227,7 @@ public class SettingForm {
         UserDataService uds = new UserDataService();
         // 上传的同时保存到临时文件夹,注意：inputstream用一次就没了！
         SaveBg.saveBg(bgPath, new FileInputStream(file), true);
-        uds.uploadBg(file);
-        return true;
+        return uds.uploadBg(file);
     }
 
 }
