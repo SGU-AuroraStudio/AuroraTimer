@@ -1,4 +1,4 @@
-package aurora.timer.client.view;
+package aurora.timer.client.view.baseUI.mainForm;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicPanelUI;

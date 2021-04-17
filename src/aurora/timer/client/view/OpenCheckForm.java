@@ -21,11 +21,11 @@ public class OpenCheckForm {
         new Thread() {
             @Override
             public void run() {
-                InputStream bg1 = getClass().getResourceAsStream("bg1.png");
+                InputStream bg1 = getClass().getResourceAsStream("aurora/timer/img/bg/bg1.png");
                 String bgPath1 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg1.png";
-                InputStream bg2 = getClass().getResourceAsStream("bg2.png");
+                InputStream bg2 = getClass().getResourceAsStream("aurora/timer/img/bg/bg2.png");
                 String bgPath2 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg2.png";
-                InputStream bg3 = getClass().getResourceAsStream("bg3.png");
+                InputStream bg3 = getClass().getResourceAsStream("aurora/timer/img/bg/bg3.png");
                 String bgPath3 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
                 try {
                     SaveBg.saveBg(bgPath1, bg1, true);

@@ -8,7 +8,122 @@
   <component name="ChangeListManager">
     <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AuroraTimer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AuroraTimer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/META-INF/AuroraTimer.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginButtonUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginPanelUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainParentPanelUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/MainTimePanelUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/WeekInfoForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/WeekInfoForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/bg8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/geass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/auroraAnnounceBtn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/bg8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIcon2P.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/changeIconP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/count.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/leftWeekButtonP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbutton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/loginbuttonp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/out.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/pwd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbutton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/registerbuttonp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/rightWeekButtonP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/select.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/selectp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/setting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/res/unselect.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/trayIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginButtonUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/login/LoginButtonUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/login/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginPanelUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/login/LoginPanelUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/mainForm/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainParentPanelUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/mainForm/MainParentPanelUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainTimePanelUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/mainForm/MainTimePanelUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WorkForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WorkForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WorkForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WorkForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/bg/bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg1.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/bg/bg1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg2.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/bg/bg2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg3.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/bg/bg3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/bg8.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/bg/bg8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/geass.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/geass.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/login.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/login.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/auroraAnnounceBtn.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/auroraAnnounceBtn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/bg8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIcon2P.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon2P.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/changeIconP.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIconP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/count.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/count.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/leftWeekButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/leftWeekButtonP.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/leftWeekButtonP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbutton.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/loginbutton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/loginbuttonp.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/loginbuttonp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/min.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/out.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/out.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/pwd.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/pwd.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbutton.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/registerbutton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/registerbuttonp.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/registerbuttonp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/rightWeekButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/rightWeekButtonP.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/rightWeekButtonP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/select.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/select.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/selectp.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/selectp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/setting.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/setting.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/res/unselect.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/login/unselect.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/trayIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/trayIcon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,17 +205,17 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Users\56440\Desktop\AuroraTimer\res\aurora\timer\img\login" />
+      <recent name="G:\Users\56440\Desktop\AuroraTimer\out\production\AuroraTimer\aurora\timer\img\login" />
+      <recent name="G:\Users\56440\Desktop\AuroraTimer\res\aurora\timer\img" />
+      <recent name="G:\Users\56440\Desktop\AuroraTimer\res\aurora\timer" />
+      <recent name="G:\Users\56440\Desktop\AuroraTimer\res" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Users\56440\Desktop\AuroraTimer\lib" />
       <recent name="$PROJECT_DIR$/src/lib" />
       <recent name="$PROJECT_DIR$/src/aurora/timer/client/vo" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/res" />
-      <recent name="$PROJECT_DIR$/src/plugins" />
-      <recent name="$PROJECT_DIR$/src/plugin" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/aurora/timer/client/view" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main ">
@@ -144,7 +259,7 @@
       <option name="VM_PARAMETERS" value="-DarchetypeCatalog=internal -Dfile.encoding=GBK" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="aurora.timer.client.view.*" />
+          <option name="PATTERN" value="aurora.timer.client.view.baseUI.login.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -572,7 +687,12 @@
       <workItem from="1618396266445" duration="8190000" />
       <workItem from="1618410300637" duration="5570000" />
       <workItem from="1618450515101" duration="10666000" />
-      <workItem from="1618488133599" duration="2162000" />
+      <workItem from="1618488133599" duration="2851000" />
+      <workItem from="1618546512312" duration="2079000" />
+      <workItem from="1618574574388" duration="3159000" />
+      <workItem from="1618582215677" duration="1188000" />
+      <workItem from="1618627371177" duration="982000" />
+      <workItem from="1618628457988" duration="2244000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -949,62 +1069,58 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="183" key="#Template/0.0.1920.1040@0.0.1920.1040" timestamp="1618205822415" />
-    <state x="420" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609928200198">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="420" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609928200198" />
     <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1618232901081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1618232901081" />
-    <state x="689" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1618131916685">
+    <state x="689" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1618630329596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618131916685" />
+    <state x="689" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618630329596" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1617957994833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617957994833" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1618451679705">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1618627736539">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618451679705" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618627736539" />
     <state x="740" y="246" key="FileChooserDialogImpl" timestamp="1618380941392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="246" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1618380941392" />
-    <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1618488142816">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1618630669480">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618488142816" />
-    <state width="1877" height="338" key="GridCell.Tab.0.center" timestamp="1618488142816">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618630669480" />
+    <state width="1877" height="338" key="GridCell.Tab.0.center" timestamp="1618630669480">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618488142816" />
-    <state width="1877" height="338" key="GridCell.Tab.0.left" timestamp="1618488142816">
+    <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618630669480" />
+    <state width="1877" height="338" key="GridCell.Tab.0.left" timestamp="1618630669479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618488142816" />
-    <state width="1877" height="338" key="GridCell.Tab.0.right" timestamp="1618488142816">
+    <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618630669479" />
+    <state width="1877" height="338" key="GridCell.Tab.0.right" timestamp="1618630669480">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618488142816" />
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1618468922791">
+    <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618630669480" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1618630669341">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618468922791" />
-    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1618468922791">
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618630669341" />
+    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1618630669341">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618468922791" />
-    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1618468922791">
+    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618630669341" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1618630669341">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618468922791" />
-    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1618468922791">
+    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618630669341" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1618630669341">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618468922791" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618630669341" />
     <state x="440" y="94" width="1039" height="851" key="SettingsEditor" timestamp="1618380947697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

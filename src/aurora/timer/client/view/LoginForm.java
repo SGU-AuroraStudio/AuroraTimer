@@ -1,5 +1,8 @@
 package aurora.timer.client.view;
 
+import aurora.timer.client.view.baseUI.login.LoginButtonUI;
+import aurora.timer.client.view.baseUI.login.LoginFrame;
+import aurora.timer.client.view.baseUI.login.LoginPanelUI;
 import aurora.timer.client.vo.base.ServerURL;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.vo.UserData;
@@ -128,7 +131,7 @@ public class LoginForm {
         UserDataService service = new UserDataService();
         UserData vo = new UserData();
         vo.setID(idText.getText());
-        vo.setPassWord(DigestUtils.md5Hex(String.valueOf(pwdText.getPassword())).toString()); //转换成32位md5值
+        vo.setPassWord(DigestUtils.md5Hex(String.valueOf(pwdText.getPassword()))); //转换成32位md5值
         if (service.LoginService(vo)) {
             //存个档
             Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);

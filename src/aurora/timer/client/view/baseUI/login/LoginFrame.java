@@ -1,4 +1,4 @@
-package aurora.timer.client.view;
+package aurora.timer.client.view.baseUI.login;
 
 import javax.swing.*;
 import java.awt.*;

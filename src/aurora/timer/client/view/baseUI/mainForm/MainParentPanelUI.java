@@ -1,13 +1,11 @@
-package aurora.timer.client.view;
+package aurora.timer.client.view.baseUI.mainForm;
 
 import aurora.timer.client.vo.base.Constants;
-import aurora.timer.client.vo.base.ServerURL;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicPanelUI;
 import java.awt.*;
 import java.io.File;
-import java.util.prefs.Preferences;
 
 /**
  * Created by hao on 17-2-22.
@@ -22,7 +20,7 @@ public class MainParentPanelUI extends BasicPanelUI {
         if (bg.exists() && bg.length() > 100) {
             g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
         } else {
-            g.drawImage(new ImageIcon(getClass().getResource("bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
+            g.drawImage(new ImageIcon(getClass().getResource("aurora/timer/img/bg/bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
         }
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(new Color(255, 255, 255, 200));

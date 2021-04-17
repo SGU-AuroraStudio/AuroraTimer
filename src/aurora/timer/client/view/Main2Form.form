@@ -32,7 +32,7 @@
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
               <defaultCapable value="true"/>
-              <icon value="aurora/timer/client/view/res/min.png"/>
+              <icon value="aurora/timer/img/main/min.png"/>
               <margin top="0" left="0" bottom="0" right="0"/>
               <opaque value="false"/>
               <text value=""/>
@@ -48,7 +48,7 @@
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
               <enabled value="true"/>
-              <icon value="aurora/timer/client/view/res/setting.png"/>
+              <icon value="aurora/timer/img/main/setting.png"/>
               <label value=""/>
               <margin top="0" left="0" bottom="0" right="0"/>
               <text value=""/>
@@ -63,7 +63,7 @@
             <properties>
               <borderPainted value="false"/>
               <contentAreaFilled value="false"/>
-              <icon value="aurora/timer/client/view/res/out.png"/>
+              <icon value="aurora/timer/img/main/out.png"/>
               <inheritsPopupMenu value="false"/>
               <label value=""/>
               <margin top="2" left="0" bottom="0" right="10"/>
@@ -136,11 +136,11 @@
                           <focusPainted value="false"/>
                           <horizontalAlignment value="0"/>
                           <horizontalTextPosition value="0"/>
-                          <icon value="aurora/timer/client/view/res/changeIcon.png"/>
+                          <icon value="aurora/timer/img/main/changeIcon.png"/>
                           <label value=""/>
                           <margin top="20" left="2" bottom="50" right="2"/>
-                          <opaque value="true"/>
-                          <pressedIcon value="aurora/timer/client/view/res/changeIconP.png"/>
+                          <opaque value="false"/>
+                          <pressedIcon value="aurora/timer/img/main/changeIconP.png"/>
                           <selected value="false"/>
                           <text value=""/>
                         </properties>

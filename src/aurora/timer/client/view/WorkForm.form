@@ -76,7 +76,7 @@
             </constraints>
             <properties>
               <borderPainted value="false"/>
-              <icon value="aurora/timer/client/view/res/auroraAnnounceBtn.png"/>
+              <icon value="aurora/timer/img/main/auroraAnnounceBtn.png"/>
               <opaque value="false"/>
               <preferredSize width="310" height="90"/>
               <text value=""/>

@@ -4,6 +4,9 @@ import aurora.timer.client.service.AdminDataService;
 import aurora.timer.client.service.TimerYeah;
 import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.service.UserOnlineTimeService;
+import aurora.timer.client.view.baseUI.login.LoginButtonUI;
+import aurora.timer.client.view.baseUI.mainForm.MainFrame;
+import aurora.timer.client.view.baseUI.mainForm.MainParentPanelUI;
 import aurora.timer.client.view.util.SaveBg;
 import aurora.timer.client.view.util.TableUntil;
 import aurora.timer.client.vo.UserData;
@@ -25,7 +28,6 @@ import java.nio.charset.StandardCharsets;
 import java.sql.Time;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
@@ -61,6 +63,7 @@ public class Main2Form {
     private final UserOnlineTimeService userOnlineTimeService;
     private String[] theRedPerson;
     private boolean loadingWeekTime = false; //是否正在加载计时，防止多次按钮多次加载，浪费资源
+    private boolean loadingWorkFrom = false; //是否正在加载计时，防止多次按钮多次加载，浪费资源
     private int page; //查看周计时的页面
     private int pageLimited = 20; //查看上x周最大值
     private int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
@@ -295,7 +298,6 @@ public class Main2Form {
                     @Override
                     public void run() {
                         if (page > 0 && !loadingWeekTime) {
-
                             try {
                                 page--;
                                 loadingWeekTime=true;
@@ -319,10 +321,18 @@ public class Main2Form {
                 int y = e.getY();
                 if (x < 56 || y < 56 || x > 324 || y > 110)
                     return;
-                //TODO:多线程，防止加载慢卡死
-                if (workForm.loadWorkInfo()) {
-                    cardLayout.show(cardPanel, "workPanel");
-                }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!loadingWorkFrom) {
+                            loadingWorkFrom=true;
+                            if(workForm.loadWorkInfo())
+                                cardLayout.show(cardPanel, "workPanel");
+                            loadingWorkFrom=false;
+                        }
+                    }
+                }).start();
+
             }
         });
     }
@@ -346,9 +356,7 @@ public class Main2Form {
         }
         //使用list存储并排序
         List<UserOnlineTime> list = userOnlineTimes;
-        list.sort((o1, o2) -> {
-            return o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime());
-        });
+        list.sort((o1, o2) -> o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime())); //o2>o1 1 后面一个大于前一个，交换
         //显示出来
         int redListFlag = 0;
         int[] redList = new int[theRedPerson.length];
@@ -362,7 +370,7 @@ public class Main2Form {
             try {
                 byte[] bytes = t.getName().getBytes();
                 // 解决编码问题
-                String s = null;
+                String s;
                 if (System.getProperty("os.name").contains("Windows")) //Windows用GBK，MAC用UTF-8。MAC调试的时候依然乱码，但是打包后就正常。
                     s = new String(bytes, "GBK");
                 else
@@ -381,7 +389,6 @@ public class Main2Form {
         weekInfoForm.weekInfoPanel.repaint();
     }
 
-    //TODO:加载每周时间时，时钟显示的时间有bug
     /**
      * 获取用户信息
      * 这里之前写的时候就把servlet中一次返回了userData和userOnlineTime
@@ -654,7 +661,7 @@ public class Main2Form {
         popupMenu.add(exitItem);
 
         try {
-            trayIcon = new TrayIcon(ImageIO.read(getClass().getResource("trayIcon.png")));
+            trayIcon = new TrayIcon(ImageIO.read(getClass().getResource("aurora/timer/img/trayIcon.png")));
             trayIcon.setPopupMenu(popupMenu);
             trayIcon.addMouseListener(new MouseAdapter() {
                 @Override

@@ -51,11 +51,11 @@
             <constraints border-constraint="Center"/>
             <properties>
               <borderPainted value="false"/>
-              <icon value="aurora/timer/client/view/res/changeIcon2.png"/>
+              <icon value="aurora/timer/img/main/changeIcon2.png"/>
               <margin top="20" left="2" bottom="50" right="2"/>
               <opaque value="true"/>
               <preferredSize width="110" height="110"/>
-              <pressedIcon value="aurora/timer/client/view/res/changeIcon2P.png"/>
+              <pressedIcon value="aurora/timer/img/main/changeIcon2P.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -63,11 +63,11 @@
             <constraints border-constraint="West"/>
             <properties>
               <borderPainted value="false"/>
-              <icon value="aurora/timer/client/view/res/leftWeekButton.png"/>
+              <icon value="aurora/timer/img/main/leftWeekButton.png"/>
               <label value=""/>
               <margin top="20" left="35" bottom="50" right="2"/>
               <opaque value="false"/>
-              <pressedIcon value="aurora/timer/client/view/res/leftWeekButtonP.png"/>
+              <pressedIcon value="aurora/timer/img/main/leftWeekButtonP.png"/>
               <selected value="false"/>
               <text value=""/>
             </properties>
@@ -76,10 +76,10 @@
             <constraints border-constraint="East"/>
             <properties>
               <borderPainted value="false"/>
-              <icon value="aurora/timer/client/view/res/rightWeekButton.png"/>
+              <icon value="aurora/timer/img/main/rightWeekButton.png"/>
               <margin top="20" left="2" bottom="50" right="35"/>
               <opaque value="false"/>
-              <pressedIcon value="aurora/timer/client/view/res/rightWeekButtonP.png"/>
+              <pressedIcon value="aurora/timer/img/main/rightWeekButtonP.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -91,7 +91,7 @@
           <actionCommand value=""/>
           <borderPainted value="false"/>
           <enabled value="true"/>
-          <icon value="aurora/timer/client/view/res/auroraAnnounceBtn.png"/>
+          <icon value="aurora/timer/img/main/auroraAnnounceBtn.png"/>
           <label value=""/>
           <margin top="0" left="31" bottom="0" right="0"/>
           <maximumSize width="-1" height="-1"/>

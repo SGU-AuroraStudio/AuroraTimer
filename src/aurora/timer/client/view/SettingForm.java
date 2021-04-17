@@ -42,10 +42,12 @@ public class SettingForm {
         this.userData = userData;
         initComboBox();
         this.localBgPath = preferences.get("bg", "");
-//        setBgForThisParent(filePath);
+        this.tempFilePath = localBgPath;
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(tempFilePath.equals(localBgPath))
+                    return;
                 setBgForMain2FormParent(tempFilePath);
                 preferences.put("bg",tempFilePath);
                 localBgPath = tempFilePath;
@@ -135,15 +137,15 @@ public class SettingForm {
                     switch (imgName) {
                         case "经典1":
                             bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg1.png";
-                            bg = getClass().getResourceAsStream("bg1.png");
+                            bg = getClass().getClassLoader().getResourceAsStream("aurora/timer/img/bg/bg1.png");
                             break;
                         case "经典2":
                             bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg2.png";
-                            bg = getClass().getResourceAsStream("bg2.png");
+                            bg = getClass().getClassLoader().getResourceAsStream("aurora/timer/img/bg/bg2.png");
                             break;
                         case "经典3":
                             bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
-                            bg = getClass().getResourceAsStream("bg3.png");
+                            bg = getClass().getClassLoader().getResourceAsStream("aurora/timer/img/bg/bg3.png");
                             break;
                         case "":
                             bgPathToSave = "";
@@ -191,7 +193,7 @@ public class SettingForm {
 //                if (bg.exists()) {
 //                    g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
 //                } else {
-//                    g.drawImage(new ImageIcon(getClass().getResource("bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
+//                    g.drawImage(new ImageIcon(getClass().getClassLoader().getResource("bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
 //                }
 //            }
 //        });
@@ -206,7 +208,7 @@ public class SettingForm {
                 if (bg.exists()) {
                     g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
                 } else {
-                    g.drawImage(new ImageIcon(getClass().getResource("bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
+                    g.drawImage(new ImageIcon(getClass().getClassLoader().getResource("aurora/timer/img/bg/bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
                 }
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setColor(new Color(255, 255, 255, 200));
