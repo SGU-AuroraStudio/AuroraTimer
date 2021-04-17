@@ -126,6 +126,7 @@ public class Main2Form {
         }).start();
         backAddTime();
         backPaintTime();
+        TimerYeah.addTime(userData.getID());
     }
 
     /**
