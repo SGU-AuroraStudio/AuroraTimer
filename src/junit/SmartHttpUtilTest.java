@@ -1,6 +1,6 @@
 package junit;
 
-import aurora.timer.client.view.util.SmartHttpUtil;
+import aurora.timer.client.service.util.SmartHttpUtil;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.junit.Test;

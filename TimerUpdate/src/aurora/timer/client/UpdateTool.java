@@ -32,7 +32,7 @@ public class UpdateTool {
             e.printStackTrace();
         }
         oldFileName = tOldFileName;
-        textArea.append("旧版名称：" + oldFileName + "\n");
+//        textArea.append("旧版名称：" + oldFileName + "\n");
         // 没有传入旧版名称，尝试这些名称
         String[] tryOldNames = {"AuroraTimer.jar", "TimerAlpha.jar", "Timer4.0.jar"};
         if (oldFileName == null) {
@@ -70,11 +70,15 @@ public class UpdateTool {
             oldFile = new File(oldFileName);
             newFile = new File(newFileName);
             try {
-                if (oldFile.exists() && !oldFileName.equals(newFileName)) {
-                    oldFile.delete();
+                //删除旧版
+                if (newFile.exists() && oldFile.exists() && !oldFileName.equals(newFileName)) {
+                    if(oldFile.delete()) {
+                        //把新版改名为旧版的名字
+                        if (newFile.renameTo(oldFile))
+                            newFileName = oldFileName;
+                    }
                 }
-                newFile.renameTo(oldFile);
-                textArea.append("新计时器名称：" + newFile.getName() + "\n");
+                textArea.append("新计时器名称：" + newFileName + "\n");
                 textArea.append("正在打开新计时器...\n ");
                 try {
                     Thread.sleep(2000);
@@ -83,7 +87,7 @@ public class UpdateTool {
                 }
                 FRAME.dispose();
                 isSuss = true;
-                Runtime.getRuntime().exec("java -jar " + newFile.getName());
+                Runtime.getRuntime().exec("java -jar " + newFileName);
             } catch (Exception e) {
                 System.out.println("try:" + i++);
                 isSuss = false;

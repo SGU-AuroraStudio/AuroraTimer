@@ -1,12 +1,11 @@
 package aurora.timer.client.service;
 
 import aurora.timer.client.vo.base.ServerURL;
-import aurora.timer.client.view.util.SmartHttpUtil;
+import aurora.timer.client.service.util.SmartHttpUtil;
 import aurora.timer.client.vo.UserData;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
-import javax.swing.*;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;

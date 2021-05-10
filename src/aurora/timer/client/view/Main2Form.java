@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.sql.Time;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
@@ -101,9 +102,9 @@ public class Main2Form {
             public void run() {
                 initWeekInfoForm();
                 try {
-                    loadWeekTime(0);
                     //设置上周前N名至theRedPerson
                     setLastWeekRedPerson(3);
+                    loadWeekTime(0);
                     setAllTime(); //setAllTime里用到红名，所以先加载红名
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -154,10 +155,9 @@ public class Main2Form {
                             loadWeekTime(0);
                             cardLayout.show(cardPanel, "weekInfoPanel");
                             setAllTime();
-                            loadingWeekTime=false;
-
                         } catch (Exception exception) {
                             exception.printStackTrace();
+                        } finally {
                             loadingWeekTime=false;
                         }
                     }
@@ -281,9 +281,9 @@ public class Main2Form {
                                 loadingWeekTime=true;
                                 loadWeekTime(page);
                                 setAllTime();
-                                loadingWeekTime=false;
                             } catch (Exception exception) {
                                 exception.printStackTrace();
+                            } finally {
                                 loadingWeekTime=false;
                             }
 
@@ -304,9 +304,9 @@ public class Main2Form {
                                 loadingWeekTime=true;
                                 loadWeekTime(page);
                                 setAllTime();
-                                loadingWeekTime=false;
                             } catch (Exception exception) {
                                 exception.printStackTrace();
+                            } finally {
                                 loadingWeekTime=false;
                             }
 
@@ -357,7 +357,7 @@ public class Main2Form {
         }
         //使用list存储并排序
         List<UserOnlineTime> list = userOnlineTimes;
-        list.sort((o1, o2) -> o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime())); //o2>o1 1 后面一个大于前一个，交换
+        list.sort((o1, o2) -> o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime())); //o2>o1 后面一个大于前一个，交换
         //显示出来
         int redListFlag = 0;
         int[] redList = new int[theRedPerson.length];
@@ -469,7 +469,8 @@ public class Main2Form {
     }
 
     /**
-     * 后台计时，每隔24分钟提交一次
+     * 后台计时，每5分钟提交一次，每隔24分钟检测一次鼠标位置
+     * 在Constants里设置间隔
      */
     public void backAddTime() {
         //后台请求服务器计时
@@ -691,13 +692,16 @@ public class Main2Form {
     public void setLastWeekRedPerson(int x) throws Exception {
         //使用list存储并排序
         List<UserOnlineTime> list = userOnlineTimeService.getLastXWeekTime(1);
-        list.sort((o1, o2) -> {
-            if (o1.getTodayOnlineTime() > o2.getTodayOnlineTime()) {
-                return -1;
-            } else {
-                return 1;
-            }
-        });
+        //Java8 新特性lamba
+        list.sort(((o1, o2) -> o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime())));
+//        list.sort(new Comparator<UserOnlineTime>() {
+//            @Override
+//            public int compare(UserOnlineTime o1, UserOnlineTime o2) {
+//                return o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime());
+//            }
+//        });
+        //Java8 新特性::  只能升序
+//        list.sort(Comparator.comparing(UserOnlineTime::getTodayOnlineTime));
         Iterator<UserOnlineTime> uiIt = list.iterator();
         theRedPerson = new String[x];
         for (int i = 0; i < x; i++) {

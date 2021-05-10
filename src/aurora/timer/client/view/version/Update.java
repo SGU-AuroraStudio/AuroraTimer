@@ -125,42 +125,34 @@ public class Update {
                 outputStream.write(buffer, 0, size);
                 outputStream.flush();
             }
-
             textArea.append("下载完毕。");
             boolean flag = false;
             while (!flag) {
-                try {
-                    String oldFileName = new java.io.File(Update.class.getProtectionDomain()
-                            .getCodeSource()
-                            .getLocation()
-                            .getPath())
-                            .getName();
+                String oldFileName = new java.io.File(Update.class.getProtectionDomain()
+                        .getCodeSource()
+                        .getLocation()
+                        .getPath())
+                        .getName();
 //                    String oldFileName = Update.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-                    oldFileName = java.net.URLDecoder.decode(oldFileName,"utf-8"); // 不这样会乱码，原本是URL编码，%e5%b7啥啥啥的
-                    newTimer.renameTo(new File(oldFileName));
-                    Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName);
+                oldFileName = java.net.URLDecoder.decode(oldFileName,"utf-8"); // 不这样会乱码，原本是URL编码，%e5%b7啥啥啥的
+                newTimer.renameTo(new File(oldFileName));
+                flag = true;
+                Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName);
 //                    UpdateTool.main(new String[] {newTimer.getName(),oldFileName}); //调试用
-                    flag = true;
-                } catch (Exception e) {
-
-                }
             }
-            System.exit(666);
-        } catch (FileNotFoundException connectException) {
-            textArea.append("无法访问到新版本，请检查服务器上是否存在源文件\n");
-            connectException.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(200);
         } finally {
             try {
+                assert bufferedInputStream != null;
+                assert outputStream != null;
                 bufferedInputStream.close();
                 outputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
+        System.exit(666);
     }
-
 }
