@@ -20,7 +20,8 @@ public class MainParentPanelUI extends BasicPanelUI {
         if (bg.exists() && bg.length() > 100) {
             g.drawImage(new ImageIcon(bg.getPath()).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
         } else {
-            g.drawImage(new ImageIcon(getClass().getResource("aurora/timer/img/bg/bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
+            //不加getClassLoader()会从.class文件为基本路径加载。getClassLoader()会从项目根路径加载
+            g.drawImage(new ImageIcon(getClass().getClassLoader().getResource("aurora/timer/img/bg/bg1.png")).getImage(), 0, 0, c.getWidth(), c.getHeight(), null);
         }
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(new Color(255, 255, 255, 200));
