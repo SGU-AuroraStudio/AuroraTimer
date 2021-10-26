@@ -3,13 +3,37 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="AuroraTimer" />
+      <artifact name="UpdateTool" />
     </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/mainForm/MainParentPanelUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/mainForm/MainParentPanelUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/UpdateTool/UpdateTool.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/UpdateTool/UpdateTool.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/META-INF/AuroraTimer.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/junit/HttpConnectionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/junit/HttpConnectionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +98,8 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE" value="right" />
@@ -82,6 +108,10 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/junit-4.12.jar!/" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -138,40 +168,6 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
     </configuration>
-    <configuration name="Main " type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="aurora.timer.client.view.Main" />
-      <module name="AuroraTimer" />
-      <option name="VM_PARAMETERS" value="-DarchetypeCatalog=internal -Dfile.encoding=GBK" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="aurora.timer.client.view.baseUI.login.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UpdateTool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="aurora.timer.client.UpdateTool" />
-      <module name="TimerUpdate" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="aurora.timer.client.vo.base.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -196,11 +192,6 @@
       <option name="WORKING_DIRECTORY" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -256,6 +247,45 @@
       </option>
       <option name="moduleName" value="" />
       <option name="trusted" value="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main " type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="aurora.timer.client.view.Main" />
+      <module name="AuroraTimer" />
+      <option name="VM_PARAMETERS" value="-DarchetypeCatalog=internal -Dfile.encoding=GBK" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aurora.timer.client.view.baseUI.login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UpdateTool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aurora.timer.client.UpdateTool" />
+      <module name="TimerUpdate" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aurora.timer.client.vo.base.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -329,34 +359,6 @@
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -405,6 +407,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -592,6 +595,7 @@
       <workItem from="1620495150782" duration="244000" />
       <workItem from="1620552242299" duration="6838000" />
       <workItem from="1620640800976" duration="682000" />
+      <workItem from="1635216839631" duration="1483000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -919,7 +923,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -929,6 +933,17 @@
         <option value="3" />
         <option value="1" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
@@ -1064,9 +1079,7 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo typeName="sun.net.www.MessageHeader" fieldName="values" />
-        <PinnedItemInfo typeName="javax.swing.JPanel" fieldName="layoutMgr" />
-        <PinnedItemInfo typeName="java.awt.CardLayout" fieldName="vector" />
+        <PinnedItemInfo />
       </pinned-members>
     </pin-to-top-manager>
   </component>
