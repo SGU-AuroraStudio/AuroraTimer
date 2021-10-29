@@ -15,7 +15,6 @@ public class OpenCheckForm {
     private static JFrame FRAME;
     private JPanel parent;
     private JTextArea InfoPane;
-
     public static void main(String[] args) {
         //预加载默认背景图
         new Thread() {
@@ -27,10 +26,14 @@ public class OpenCheckForm {
                 String bgPath2 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg2.png";
                 InputStream bg3 = getClass().getResourceAsStream("aurora/timer/img/bg/bg3.png");
                 String bgPath3 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
+                InputStream bg4 = getClass().getResourceAsStream("aurora/timer/img/bg/bg4.png");
+                String bgPath4 = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg4.png";
                 try {
                     SaveBg.saveBg(bgPath1, bg1, true);
                     SaveBg.saveBg(bgPath2, bg2, true);
                     SaveBg.saveBg(bgPath3, bg3, true);
+                    SaveBg.saveBg(bgPath4, bg4, true);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -64,6 +67,7 @@ public class OpenCheckForm {
             if (updateStatus == 0) {
                 String newVersion = (String) checkObject.get("version");
                 update.update(newVersion);
+
             }
         }
         try {
@@ -73,4 +77,6 @@ public class OpenCheckForm {
         }
         FRAME.dispose();
     }
+
+
 }

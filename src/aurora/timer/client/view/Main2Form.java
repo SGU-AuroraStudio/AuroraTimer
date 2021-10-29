@@ -221,15 +221,19 @@ public class Main2Form {
                 g2.setStroke(new BasicStroke(26));
                 //如果时间大于24小时，那么进度条就要画金黄色
                 if (Integer.parseInt(parseTime(thisWeekTime).split(":")[0]) >= 24) {
-                    g2.setColor(new Color(88, 222, 234, 200));
+//                    g2.setColor(new Color(88, 222, 234, 200));
+                    g2.setColor(new Color(249, 149, 30));
                     g2.drawArc(c.getWidth() / 2 - 187, 86, 375, 375, 0, 360);
 
-                    g2.setColor(new Color(251, 216, 96, 255));
+//                    g2.setColor(new Color(251, 216, 96, 255));
+                    g2.setColor(new Color(145, 8, 109, 255));
                 } else {
-                    g2.setColor(new Color(12, 96, 108, 140));
+//                    g2.setColor(new Color(12, 96, 108, 140));
+                    g2.setColor(new Color(0, 0, 0, 140));
                     g2.drawArc(c.getWidth() / 2 - 187, 86, 375, 375, 0, 360);
 
-                    g2.setColor(new Color(88, 222, 234, 200));
+//                    g2.setColor(new Color(88, 222, 234, 200));
+                    g2.setColor(new Color(249, 149, 30));
                 }
                 int angel = (int) (thisWeekTime / (60 * 1000 * 4)); //转成分，每分钟0.25度
                 angel = -(angel % 360); //这是drawArc的角度
@@ -383,7 +387,9 @@ public class Main2Form {
         }
         //将红名的index集合传入变色
         if (page == 0) {
-            TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255, 77, 93, 150), page);
+//            TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255, 77, 93, 150), page);
+            TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255, 77, 93, 150) , page);
+
         } else {
             TableUntil.setOneRowBackgroundColor(thisWeekList, new int[0], Color.black, page);
         }
@@ -440,12 +446,27 @@ public class Main2Form {
      */
     public void loadBg() throws IOException {
         String fileName = userData.getBgUrl().split("/")[5];
-        String bgPath = System.getProperty("java.io.tmpdir") + File.separator + fileName;
+
+//        String bgPath = System.getProperty("java.io.tmpdir") + File.separator + fileName;
+        String bgPath = System.getProperty("java.io.tmpdir") + fileName;
         //如果是默认图片，就不从服务器获取了。看看本地文件有没有，没有还是要从服务器获取的
-        if (userData.getBgUrl().contains("AuroraTimer_bg") || (userData.getBgUrl().equals(Constants.preferences.get("bg", "")) && new File(bgPath).exists())) {
+//        if (userData.getBgUrl().contains("AuroraTimer_bg") || (userData.getBgUrl().equals(Constants.preferences.get("bg", "")) && new File(bgPath).exists())) {
+//            parent.setUI(new MainParentPanelUI());
+//            return;
+//        }
+        /**
+         * 修复了加载本地缓存文件判断逻辑的错误
+         * debug： Zheng Xiaofan
+         */
+        if (userData.getBgUrl().contains("AuroraTimer_bg") || true &&(new File(bgPath).exists())) {
             parent.setUI(new MainParentPanelUI());
             return;
         }
+//        System.out.println(bgPath);
+//        System.out.println(userData.getBgUrl());
+        System.out.println(Constants.preferences.get("bg", ""));
+
+
         logger.info("从服务器加载背景图片");
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="AuroraTimer" />
       <artifact name="UpdateTool" />
     </artifacts-to-build>
   </component>
@@ -10,29 +9,94 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="">
+    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="4.82版本：优化了更新机制，现在更新结束后可以自动删除updateTool.jar工具了；修正了不从本地缓存读取皮肤的特性；修正记忆上次皮肤选项的特性；让红名玩家（上周计时前三）更加直观，增加了“卷王”标识；新增加了一套皮肤。">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/Timer4.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/Timer4.81.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/Timer4.82.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/imgComboBox.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/bg/bg4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/bg/bg9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2P.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIconP.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/clock_color.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButton.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButtonP.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButton.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButtonP.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/bg/bg4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/bg/bg9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon2.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon2P.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIconP.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/clock_color.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/leftWeekButton.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/leftWeekButtonP.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/mvp_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/mvp_icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/mvp_icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/mvp_icon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/mvp_icon5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/rightWeekButton.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/rightWeekButtonP.png.backup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/imgComboBox.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Timer4.81.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Timer4.81.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/TimerUpdate/src/aurora/timer/client/UpdateTool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/UpdateTool/UpdateTool.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/UpdateTool/UpdateTool.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/META-INF/AuroraTimer.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/OpenCheckForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/junit/HttpConnectionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/junit/HttpConnectionTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/MainForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2P.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2P.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIconP.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIconP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButtonP.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButtonP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButtonP.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButtonP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TimerUpdate/aurora/timer/client/UpdateTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TimerUpdate/aurora/timer/client/UpdateTool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon2.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon2P.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIcon2P.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIconP.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/changeIconP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/aurora/timer/img/main/leftWeekButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/leftWeekButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/aurora/timer/img/main/leftWeekButtonP.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/leftWeekButtonP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/aurora/timer/img/main/rightWeekButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/rightWeekButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/aurora/timer/img/main/rightWeekButtonP.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/aurora/timer/img/main/rightWeekButtonP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/OpenCheckForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/mainForm/MainParentPanelUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/baseUI/mainForm/MainParentPanelUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/util/TableUntil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/util/TableUntil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +127,14 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="hiddenUrls">
@@ -100,9 +172,9 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE" value="right" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="363" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -113,7 +185,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -126,11 +198,11 @@
       <recent name="$PROJECT_DIR$/src/aurora/timer/client/vo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\26797\IdeaProjects\AuroraTimer" />
       <recent name="G:\Users\56440\Desktop\AuroraTimer\res\aurora\timer\img\login" />
       <recent name="G:\Users\56440\Desktop\AuroraTimer\out\production\AuroraTimer\aurora\timer\img\login" />
       <recent name="G:\Users\56440\Desktop\AuroraTimer\res\aurora\timer\img" />
       <recent name="G:\Users\56440\Desktop\AuroraTimer\res\aurora\timer" />
-      <recent name="G:\Users\56440\Desktop\AuroraTimer\res" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main ">
@@ -595,7 +667,9 @@
       <workItem from="1620495150782" duration="244000" />
       <workItem from="1620552242299" duration="6838000" />
       <workItem from="1620640800976" duration="682000" />
-      <workItem from="1635216839631" duration="1483000" />
+      <workItem from="1635216839631" duration="19863000" />
+      <workItem from="1635300323165" duration="31985000" />
+      <workItem from="1635490057194" duration="1000000" />
     </task>
     <task id="LOCAL-00001" summary="登陆界面初步">
       <created>1485335887484</created>
@@ -919,7 +993,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494663542187</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="4.81修复自定义皮肤bug">
+      <created>1635218558275</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1635218558275</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -945,10 +1026,9 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="要开始做画圆盘了" />
-    <MESSAGE value="主界面的一界面完成" />
     <MESSAGE value="基本完成。。" />
     <MESSAGE value="进一步细化" />
     <MESSAGE value="添加查之前周" />
@@ -972,109 +1052,9 @@
     <MESSAGE value="2.32" />
     <MESSAGE value=" 2.4修改更新工具" />
     <MESSAGE value=" 2.41修改更新工具" />
-    <option name="LAST_COMMIT_MESSAGE" value=" 2.41修改更新工具" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1616494462659">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1616494462659" />
-    <state x="552" y="183" key="#Template" timestamp="1618205822415">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="183" key="#Template/0.0.1920.1040@0.0.1920.1040" timestamp="1618205822415" />
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1618232901081">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1618232901081" />
-    <state x="689" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1618630329596">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="689" y="309" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618630329596" />
-    <state x="667" y="291" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1620494054850">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="291" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620494054850" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1617957994833">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617957994833" />
-    <state x="693" y="409" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1620387741313">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="693" y="409" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1620387741313" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1618627736539">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618627736539" />
-    <state x="740" y="246" key="FileChooserDialogImpl" timestamp="1618380941392">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="246" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1618380941392" />
-    <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1620641196049">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620641196049" />
-    <state width="1877" height="338" key="GridCell.Tab.0.center" timestamp="1620641196048">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620641196048" />
-    <state width="1877" height="338" key="GridCell.Tab.0.left" timestamp="1620641196047">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620641196047" />
-    <state width="1877" height="338" key="GridCell.Tab.0.right" timestamp="1620641196048">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620641196048" />
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1620641036478">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620641036478" />
-    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1620641036478">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620641036478" />
-    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1620641036478">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620641036478" />
-    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1620641036478">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620641036478" />
-    <state x="440" y="94" width="1039" height="851" key="SettingsEditor" timestamp="1620287005185">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" width="1039" height="851" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620287005185" />
-    <state x="806" y="433" key="VCS.ChangelistChooser" timestamp="1618377689164">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="806" y="433" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1618377689164" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1618452088009">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1618452088009" />
-    <state x="103" y="90" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618454110432">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="103" y="90" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618454110432" />
-    <state x="658" y="411" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1617958073246">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="658" y="411" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1617958073246" />
-    <state x="544" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1620493927537">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="544" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620493927537" />
-    <state x="727" y="399" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1618135905283">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="727" y="399" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618135905283" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1618139930576">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1618139930576" />
+    <MESSAGE value="4.81修复自定义皮肤bug" />
+    <MESSAGE value="4.82版本：优化了更新机制，现在更新结束后可以自动删除updateTool.jar工具了；修正了不从本地缓存读取皮肤的特性；修正记忆上次皮肤选项的特性；让红名玩家（上周计时前三）更加直观，增加了“卷王”标识；新增加了一套皮肤。" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.82版本：优化了更新机制，现在更新结束后可以自动删除updateTool.jar工具了；修正了不从本地缓存读取皮肤的特性；修正记忆上次皮肤选项的特性；让红名玩家（上周计时前三）更加直观，增加了“卷王”标识；新增加了一套皮肤。" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

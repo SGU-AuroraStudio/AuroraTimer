@@ -2,13 +2,16 @@ package aurora.timer.client;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URLDecoder;
 
 /**
  * Created by hao on 17-4-28.
  * Updated by Yao on 20-12-04.
+ * Updated by Zheng on 21-10-27.
  */
 public class UpdateTool {
     // 传入[0]newFileName [1]oldFileName
@@ -24,6 +27,7 @@ public class UpdateTool {
     }
 
     private void setFileName(String tNewFileName, String tOldFileName) {
+
         newFileName = tNewFileName;
         //兼容旧版本，旧版本如果是中文名会传进来一个URL编码的字符串
         try {
@@ -47,6 +51,8 @@ public class UpdateTool {
                 }
             }
         }
+
+
     }
 
     private void showDialog() {
@@ -64,6 +70,19 @@ public class UpdateTool {
     }
 
     private void coverOldFile() {
+        //建立标识文件从当锁的作用
+        //上锁
+        File mark = new File("update.auroradata");
+        if(!mark.exists()){
+            try {
+                mark.createNewFile();
+                System.out.println("创建");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
         boolean isSuss = false;
         int i = 0;
         while (!isSuss) {
@@ -74,8 +93,10 @@ public class UpdateTool {
                 if (newFile.exists() && oldFile.exists() && !oldFileName.equals(newFileName)) {
                     if(oldFile.delete()) {
                         //把新版改名为旧版的名字
-                        if (newFile.renameTo(oldFile))
+                        if (newFile.renameTo(oldFile)){
                             newFileName = oldFileName;
+                            System.out.println("改名ok！");
+                        }
                     }
                 }
                 textArea.append("新计时器名称：" + newFileName + "\n");
@@ -94,7 +115,10 @@ public class UpdateTool {
                 e.printStackTrace();
             }
         }
-
+        // jvm关闭即updateTool.jar运行结束时解锁
+        if(mark.exists()){
+            mark.deleteOnExit();
+        }
 
     }
 
@@ -114,5 +138,9 @@ public class UpdateTool {
             e.printStackTrace();
         }
         UpdateTool updateTool = new UpdateTool(args[0], getArgs1);
+
+
+
+
     }
 }

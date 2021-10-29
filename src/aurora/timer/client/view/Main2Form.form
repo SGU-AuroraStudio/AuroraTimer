@@ -109,7 +109,7 @@
                     <properties>
                       <doubleBuffered value="false"/>
                       <font name="Arial" size="72" style="0"/>
-                      <foreground color="-10952982"/>
+                      <foreground color="-420578"/>
                       <horizontalAlignment value="0"/>
                       <horizontalTextPosition value="0"/>
                       <inheritsPopupMenu value="false"/>

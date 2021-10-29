@@ -14,7 +14,8 @@ public class ServerURL {
     static {
 //        HOST = Constants.preferences.get("host", "47.99.134.104:8083");
 //        HOST = "127.0.0.1:8080";
-        HOST = "192.168.3.60:8080";
+        HOST = "192.168.1.139:8080";
+//        HOST = "192.168.3.101:8080";
         URL = "http://" + HOST + "/timer";
     }
 

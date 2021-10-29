@@ -15,11 +15,13 @@ import javax.swing.plaf.basic.BasicPanelUI;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.Properties;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
 /**
  * Created by hao on 17-4-27.
+ * Updated by Zheng on 21-10-28.
  */
 public class SettingForm {
     public static JFrame FRAME;
@@ -119,14 +121,53 @@ public class SettingForm {
     //TODO:加上用户自己设置的背景图选项
     //下拉框
     private void initComboBox() {
-        imgComboBox.addItem("");
+//        imgComboBox.addItem("-未选择-");
         imgComboBox.addItem("经典1");
         imgComboBox.addItem("经典2");
         imgComboBox.addItem("经典3");
+        imgComboBox.addItem("万圣节2021");
+
+
         //如果注册表里保存的用户的背景图不是默认，那就看看有没有该背景图文件，有就加上该选项
         String localBgPath = Constants.preferences.get("bg", "");
-        if(!localBgPath.contains("AuroraTimer_bg"))
+
+        if(!localBgPath.contains("AuroraTimer_bg")){
             imgComboBox.addItem("我的自定义");
+        }
+//        if(userData.getBgUrl()!=null){
+//            imgComboBox.addItem("我的自定义");
+//        }
+
+
+
+        // 判断当前皮肤，选择默认选项
+        String[] split = localBgPath.split("\\\\");
+        String fileName = split[split.length-1];
+
+        Properties imgComboBoxProp = new Properties();
+        try {
+            imgComboBoxProp.load(getClass().getClassLoader().getResourceAsStream("aurora/timer/client/view/imgComboBox.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String find = "img";
+        int cnt = 0;
+        String result = imgComboBoxProp.getProperty(find+cnt);
+        while(!result.equals("EOF")){
+            if(fileName.equals(result)){
+                imgComboBox.setSelectedIndex(cnt);
+                break;
+            }else{
+                cnt++;
+                result = imgComboBoxProp.getProperty(find+cnt);
+//                System.out.println(result);
+//                System.out.println(fileName);
+            }
+        }
+        if(result.equals("EOF")){
+            imgComboBox.setSelectedIndex(cnt);
+        }
+
         imgComboBox.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
@@ -134,24 +175,40 @@ public class SettingForm {
                     String imgName = (String) imgComboBox.getSelectedItem();
                     InputStream bg = null;
                     String bgPathToSave = null; //保存到本地的路径
+                    /**
+                     * 修复了本地路径不正确的bug
+                     * debug：Zheng Xiaofan
+                     */
                     switch (imgName) {
+//                        case "未选择":
+//                            bgPathToSave = "";
+//                            break;
                         case "经典1":
-                            bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg1.png";
+//                            bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg1.png";
+                            bgPathToSave = System.getProperty("java.io.tmpdir")  + "AuroraTimer_bg1.png";
                             bg = getClass().getClassLoader().getResourceAsStream("aurora/timer/img/bg/bg1.png");
                             break;
                         case "经典2":
-                            bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg2.png";
+//                            bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg2.png";
+                            bgPathToSave = System.getProperty("java.io.tmpdir") + "AuroraTimer_bg2.png";
                             bg = getClass().getClassLoader().getResourceAsStream("aurora/timer/img/bg/bg2.png");
                             break;
                         case "经典3":
-                            bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
+//                            bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + "AuroraTimer_bg3.png";
+                            bgPathToSave = System.getProperty("java.io.tmpdir") + "AuroraTimer_bg3.png";
                             bg = getClass().getClassLoader().getResourceAsStream("aurora/timer/img/bg/bg3.png");
                             break;
-                        case "":
-                            bgPathToSave = "";
+//                        case "":
+//                            bgPathToSave = "";
+//                            break;
+                        case "万圣节2021":
+                            bgPathToSave = System.getProperty("java.io.tmpdir") + "AuroraTimer_bg4.png";
+                            bg = getClass().getClassLoader().getResourceAsStream("aurora/timer/img/bg/bg4.png");
                             break;
                         case "我的自定义":
                             bgPathToSave = Constants.preferences.get("bg", "");
+//                            bgPathToSave = System.getProperty("java.io.tmpdir") + File.separator + userData.getBgUrl() ;
+//                            System.out.println(bgPathToSave);
                             try {
                                 File bgFile = new File(bgPathToSave);
                                 //判断自定义图片有没有在本地，（虽然启动时获取了，但还是有可能清理文件被清掉的）。没有的话从服务器从新获取一张

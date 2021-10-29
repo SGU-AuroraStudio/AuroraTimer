@@ -16,17 +16,19 @@ import java.util.Properties;
 
 /**
  * Created by hao on 17-4-18.
+ * Updated by Zheng on 21-10-27.
  * 自动更新装置
  */
 //TODO:代码太乱了，得重写
-public class Update {
+public class Update{
     private JTextArea textArea = null;
-
     public Update(JTextArea textArea) {
         this.textArea = textArea;
     }
 
     public JSONObject checkNew() {
+//        System.out.println("检查更新！");
+
         String checkNewUrl = ServerURL.CHECK_VERSION_URL;
         URL url = null;
         BufferedReader reader = null;
@@ -34,12 +36,40 @@ public class Update {
         JSONObject returnObject = new JSONObject();
         StringBuffer stringBuffer = new StringBuffer("");
 
-        //TODO:删除更新替换工具，以免碍眼。怎么试都不能在更新完成后删除。。。
-        File updateTool = new File("UpdateTool.jar");
-        if (updateTool.exists())
-            updateTool.delete();
+//        //TODO:删除更新替换工具，以免碍眼。怎么试都不能在更新完成后删除。。。
+
+//        File updateTool = new File("UpdateTool.jar");
+//        if (updateTool.exists()){
+//            updateTool.delete();
+//
+//        }
+
 
         textArea.append("正在检查更新....\n");
+        // 判断updateTool.jar运行结束时再删除相关文件
+        File mark = new File("update.auroradata");
+        int sleepCnt = 0;
+        while(mark.exists()){
+            sleepCnt++;
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if(sleepCnt>3){
+                break; //更新超时，下次启动再删除升级工具
+            }
+        }
+
+        File updateTool = new File("UpdateTool.jar");
+        if (updateTool.exists()){
+            updateTool.delete();
+        }
+        if(mark.exists()) {
+            mark.delete();
+        }
+
+
         try {
             url = new URL(checkNewUrl);
             httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -79,6 +109,8 @@ public class Update {
                 e.printStackTrace();
             }
         }
+
+
         return returnObject;
     }
 
@@ -138,7 +170,8 @@ public class Update {
                 newTimer.renameTo(new File(oldFileName));
                 flag = true;
                 Runtime.getRuntime().exec("java -jar UpdateTool.jar " + newTimer.getName() + " " + oldFileName);
-//                    UpdateTool.main(new String[] {newTimer.getName(),oldFileName}); //调试用
+
+                //                    UpdateTool.main(new String[] {newTimer.getName(),oldFileName}); //调试用
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -149,10 +182,15 @@ public class Update {
                 assert outputStream != null;
                 bufferedInputStream.close();
                 outputStream.close();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
+        //更新后启动新计时器，旧计时器关闭
         System.exit(666);
     }
+
+
 }
