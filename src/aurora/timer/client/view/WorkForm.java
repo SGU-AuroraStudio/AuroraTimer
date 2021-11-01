@@ -2,10 +2,14 @@ package aurora.timer.client.view;
 
 import aurora.timer.client.service.AdminDataService;
 import aurora.timer.client.view.baseUI.login.LoginButtonUI;
+import aurora.timer.client.view.util.TableUntil;
 import aurora.timer.client.vo.AdminData;
 import aurora.timer.client.vo.UserData;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -55,17 +59,26 @@ public class WorkForm {
 
     public void init() {
         announceBtn.setUI(new LoginButtonUI());
+
+
         // 点击parent取消编辑表格
         workPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (dutyList.isEditing())
                     dutyList.getCellEditor().stopCellEditing();
+                dutyList.clearSelection();
+                workPanel.setFocusable(true);
+                workPanel.requestFocus();
             }
         });
+
         // 公告栏输入框
         announceText.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
         announceText.setLineWrap(true);
+        announceText.setOpaque(true);
+        announceText.setBackground(new Color(200, 200, 200, 140));
+        announceText.setForeground(Color.black);
 //        announceText.setBackground(new Color(200, 200, 200, 100));
         //撤回功能
         UndoManager undoManager = new UndoManager();
@@ -85,6 +98,7 @@ public class WorkForm {
                 }
             }
         });
+
         // 公告栏获取焦点，停止表格输入
         announceText.addFocusListener(new FocusListener() {
             @Override
@@ -92,14 +106,18 @@ public class WorkForm {
                 if (dutyList.isEditing())
                     dutyList.getCellEditor().stopCellEditing();
                 jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(86, 180, 130)));
+                announceText.setBackground(new Color(255,255,255));
+                dutyList.clearSelection();
+
             }
 
             @Override
             public void focusLost(FocusEvent e) {
                 jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
-
+                announceText.setBackground(new Color(200, 200, 200, 140));
             }
         });
+
         // 公告栏外面的框架
         jspAnnounce.setViewportBorder(null);
         jspAnnounce.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
@@ -113,21 +131,31 @@ public class WorkForm {
         DefaultTableModel model = new DefaultTableModel(data, columnNames);
         dutyList.setModel(model);
         dutyList.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 18));
-        dutyList.setBackground(new Color(0, 0, 0, 0));
+//        dutyList.setBackground(new Color(0, 0, 0, 0));
+        dutyList.setBackground(new Color(184, 207, 229, 150));
+
+
+//        dutyList.setSelectionBackground(new Color(184, 207, 229, 150));
 //        dutyList.setSelectionBackground(new Color(86, 209, 149));
         DefaultTableCellRenderer defaultTableCellRenderer = (DefaultTableCellRenderer) dutyList.getDefaultRenderer(Object.class);
         defaultTableCellRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+//        TableUntil.setOneRowBackgroundColor(dutyList,Color.black);
+
+
         //TODO:点击表格外的位置取消选中
 
         // 表头
         JTableHeader tableHeader = dutyList.getTableHeader();
         tableHeader.setFont(new Font("YaHei Consolas Hybrid", Font.PLAIN, 20));
-        tableHeader.setBackground(new Color(86, 209, 149, 70));
+        tableHeader.setBackground(new Color(86, 209, 149, 140));
         tableHeader.setReorderingAllowed(false);
         tableHeader.setResizingAllowed(false);
         DefaultTableCellRenderer headerTCR = (DefaultTableCellRenderer) tableHeader.getDefaultRenderer();
         headerTCR.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
         dutyListPanel.add(tableHeader, BorderLayout.NORTH);
+
+
+
         // 表格外面的框架
 //        jspDutyList.getViewport().setOpaque(false);//将JScrollPane设置为透明
 //        jspDutyList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);

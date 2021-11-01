@@ -9,6 +9,7 @@ import aurora.timer.client.view.baseUI.mainForm.MainFrame;
 import aurora.timer.client.view.baseUI.mainForm.MainParentPanelUI;
 import aurora.timer.client.view.util.SaveBg;
 import aurora.timer.client.view.util.TableUntil;
+import aurora.timer.client.view.version.Update;
 import aurora.timer.client.vo.UserData;
 import aurora.timer.client.vo.UserOnlineTime;
 import aurora.timer.client.vo.base.Constants;
@@ -17,15 +18,20 @@ import org.json.simple.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.RowSorterEvent;
+import javax.swing.event.RowSorterListener;
 import javax.swing.plaf.basic.BasicPanelUI;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.sql.Time;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -68,6 +74,8 @@ public class Main2Form {
     private int page; //查看周计时的页面
     private int pageLimited = 20; //查看上x周最大值
     private int mx, my, jfx, jfy; //鼠标位置，给自己设置的拖动窗口用的
+//    private int[] redList;
+    private String[] redList;
     Logger logger = Logger.getLogger("MAIN");
     //TODO:把资源统一放到最外面的res里，设置为资源路径
 
@@ -221,19 +229,19 @@ public class Main2Form {
                 g2.setStroke(new BasicStroke(26));
                 //如果时间大于24小时，那么进度条就要画金黄色
                 if (Integer.parseInt(parseTime(thisWeekTime).split(":")[0]) >= 24) {
-//                    g2.setColor(new Color(88, 222, 234, 200));
-                    g2.setColor(new Color(249, 149, 30));
+                    g2.setColor(new Color(88, 222, 234, 200));
+//                    g2.setColor(new Color(249, 149, 30));
                     g2.drawArc(c.getWidth() / 2 - 187, 86, 375, 375, 0, 360);
 
-//                    g2.setColor(new Color(251, 216, 96, 255));
-                    g2.setColor(new Color(145, 8, 109, 255));
+                    g2.setColor(new Color(251, 216, 96, 255));
+//                    g2.setColor(new Color(145, 8, 109, 255));
                 } else {
-//                    g2.setColor(new Color(12, 96, 108, 140));
-                    g2.setColor(new Color(0, 0, 0, 140));
+                    g2.setColor(new Color(12, 96, 108, 140));
+//                    g2.setColor(new Color(0, 0, 0, 140));
                     g2.drawArc(c.getWidth() / 2 - 187, 86, 375, 375, 0, 360);
 
-//                    g2.setColor(new Color(88, 222, 234, 200));
-                    g2.setColor(new Color(249, 149, 30));
+                    g2.setColor(new Color(88, 222, 234, 200));
+//                    g2.setColor(new Color(249, 149, 30));
                 }
                 int angel = (int) (thisWeekTime / (60 * 1000 * 4)); //转成分，每分钟0.25度
                 angel = -(angel % 360); //这是drawArc的角度
@@ -267,10 +275,21 @@ public class Main2Form {
         weekInfoForm = new WeekInfoForm();
         thisWeekList = weekInfoForm.weekList;
         cardPanel.add(weekInfoForm.weekInfoPanel, "weekInfoPanel");
+        weekInfoForm.weekList.getRowSorter().addRowSorterListener(new RowSorterListener() {
+            @Override
+            public void sorterChanged(RowSorterEvent e) {
+                weekInfoForm.weekInfoPanel.repaint();
+                TableModel model = weekInfoForm.weekList.getModel();
+                if(userOnlineTimes.size()==model.getRowCount()){
+                    updateRedList();
+                }
+            }
+        });
         weekInfoForm.changeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardPanel, "Card1");
+                page = 0;
             }
         });
         weekInfoForm.leftButton.addActionListener(new ActionListener() {
@@ -318,6 +337,7 @@ public class Main2Form {
                     }
                 }).start();
             }
+
         });
         weekInfoForm.announceBtn.addMouseListener(new MouseAdapter() {
             @Override
@@ -340,38 +360,87 @@ public class Main2Form {
 
             }
         });
+        weekInfoForm.context = this;
+    }
+
+
+    /**
+     * 更新红名的排行版位置-行数
+     * @param redList
+     */
+
+    /**
+     * 获取红名的排行版位置-行数
+     * @return 本周登录是否有红名玩家
+     */
+    public boolean getRedList(){
+//        System.out.println("getRedList");
+
+        //使用list存储并排序
+        List<UserOnlineTime> list = userOnlineTimes;
+        list.sort((o1, o2) -> o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime())); //o2>o1 后面一个大于前一个，交换
+        DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
+        int redListFlag = 0;
+        boolean hasRed = false; //本周登录有无红名玩家
+//        int cnt = 0;
+        for (UserOnlineTime t : list) {
+            for (String redPerson : theRedPerson) {
+                if (t.getID().equals(redPerson)) {
+//                    redList[redListFlag] = cnt;
+                    redList[redListFlag] = t.getID();
+                    redListFlag++;
+                    hasRed = true;
+                }
+            }
+//            cnt++;
+        }
+        return hasRed;
+    }
+
+    public void updateRedList(){
+//        redList = new int[theRedPerson.length];
+        redList = new String[theRedPerson.length];
+        boolean hasRed = getRedList();
+        //将红名的index集合传入变色
+        if (page == 0) {
+//            TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255, 77, 93, 150), page);
+            if(hasRed){
+                TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255, 77, 93, 150) , page, this);
+            }else{
+//                TableUntil.setOneRowBackgroundColor(thisWeekList, new int[0], Color.black, page, this);
+                TableUntil.setOneRowBackgroundColor(thisWeekList, new String[0], Color.black, page, this);
+            }
+
+        } else {
+//            TableUntil.setOneRowBackgroundColor(thisWeekList, new int[0], Color.black, page, this);
+            TableUntil.setOneRowBackgroundColor(thisWeekList, new String[0], Color.black, page, this);
+        }
+        weekInfoForm.weekInfoPanel.repaint();
     }
 
     /**
      * 将userOnlineTimes中的数据画到表上
      */
     public void setAllTime() {
+//        System.out.println("调用了setAlltime");
         // 如果这一页为空白，上限就是这一页了
         if (userOnlineTimes.size() == 0)
             pageLimited = page;
         DefaultTableModel model = (DefaultTableModel) thisWeekList.getModel();
         if (page == 0) {
-            thisWeekList.getColumnModel().getColumn(2).setHeaderValue("本周在线总时间");
+//            thisWeekList.getColumnModel().getColumn(2).setHeaderValue("本周在线总时间");
+            thisWeekList.getColumnModel().getColumn(3).setHeaderValue("本周在线总时间");
         } else {
-            thisWeekList.getColumnModel().getColumn(2).setHeaderValue("前" + page + "周在线总时间");
+//            thisWeekList.getColumnModel().getColumn(2).setHeaderValue("前" + page + "周在线总时间");
+            thisWeekList.getColumnModel().getColumn(3).setHeaderValue("前" + page + "周在线总时间");
         }
         int index;
         for (index = model.getRowCount() - 1; index >= 0; index--) {
             model.removeRow(index);
         }
-        //使用list存储并排序
         List<UserOnlineTime> list = userOnlineTimes;
-        list.sort((o1, o2) -> o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime())); //o2>o1 后面一个大于前一个，交换
-        //显示出来
-        int redListFlag = 0;
-        int[] redList = new int[theRedPerson.length];
+        list.sort((o1, o2) -> o2.getTodayOnlineTime().compareTo(o1.getTodayOnlineTime()));
         for (UserOnlineTime t : list) {
-            for (String redPerson : theRedPerson) {
-                if (t.getID().equals(redPerson)) {
-                    redList[redListFlag] = model.getRowCount();
-                    redListFlag++;
-                }
-            }
             try {
                 byte[] bytes = t.getName().getBytes();
                 // 解决编码问题
@@ -380,20 +449,14 @@ public class Main2Form {
                     s = new String(bytes, "GBK");
                 else
                     s = new String(bytes, StandardCharsets.UTF_8);
-                model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), parseTime(t.getTermOnlineTime()), "   " + parseTime(t.getTodayOnlineTime())}); //填入表格
+                model.addRow(new Object[]{t.getID(),"   " + s.substring(0, s.length() - 1), parseTime(t.getTermOnlineTime()), "   " + parseTime(t.getTodayOnlineTime())}); //填入表格
+//                model.addRow(new Object[]{"   " + s.substring(0, s.length() - 1), parseTime(t.getTermOnlineTime()), "   " + parseTime(t.getTodayOnlineTime())}); //填入表格
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        //将红名的index集合传入变色
-        if (page == 0) {
-//            TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255, 77, 93, 150), page);
-            TableUntil.setOneRowBackgroundColor(thisWeekList, redList, new Color(255, 77, 93, 150) , page);
+        updateRedList();
 
-        } else {
-            TableUntil.setOneRowBackgroundColor(thisWeekList, new int[0], Color.black, page);
-        }
-        weekInfoForm.weekInfoPanel.repaint();
     }
 
     /**
@@ -723,6 +786,7 @@ public class Main2Form {
 //        });
         //Java8 新特性::  只能升序
 //        list.sort(Comparator.comparing(UserOnlineTime::getTodayOnlineTime));
+        x = Math.min(x, list.size()); // 增强健壮性
         Iterator<UserOnlineTime> uiIt = list.iterator();
         theRedPerson = new String[x];
         for (int i = 0; i < x; i++) {
@@ -755,5 +819,6 @@ public class Main2Form {
             e.printStackTrace();
         }
     }
+
 
 }

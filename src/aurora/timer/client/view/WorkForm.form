@@ -109,6 +109,7 @@
             <properties>
               <enabled value="false"/>
               <opaque value="false"/>
+              <preferredScrollableViewportSize width="450" height="400"/>
               <preferredSize width="150" height="60"/>
               <rowHeight value="40"/>
             </properties>
