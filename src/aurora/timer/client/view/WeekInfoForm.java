@@ -88,10 +88,21 @@ public class WeekInfoForm {
         sorter.setComparator(2, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                int dif = Integer.parseInt(o1.split(":")[0]) - Integer.parseInt(o2.split(":")[0]);
-                return dif;
+
+                int a = Integer.parseInt(o1.split(":")[0]);
+                int b = Integer.parseInt(o2.split(":")[0]);
+                int c = Integer.parseInt(o1.split(":")[1]);
+                int d = Integer.parseInt(o2.split(":")[1]);
+                if(a!=b){
+                    return a-b;
+                }else{
+                    return c-d;
+                }
+//                int dif = Integer.parseInt(o1.split(":")[0]) - Integer.parseInt(o2.split(":")[0]);
+//                return dif;
             }
         });
+
     }
 
     public WeekInfoForm() {

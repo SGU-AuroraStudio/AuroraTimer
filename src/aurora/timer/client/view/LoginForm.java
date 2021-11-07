@@ -167,6 +167,7 @@ public class LoginForm {
                     FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //                    FRAME.pack();
                     FRAME.setResizable(false);
+//                    FRAME.setResizable(true);
                     FRAME.setAlwaysOnTop(true);
                     FRAME.setVisible(true);
                     FRAME.setAlwaysOnTop(false);

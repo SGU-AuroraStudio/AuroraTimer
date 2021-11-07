@@ -130,7 +130,7 @@ public class SettingForm {
 
         //如果注册表里保存的用户的背景图不是默认，那就看看有没有该背景图文件，有就加上该选项
         String localBgPath = Constants.preferences.get("bg", "");
-
+//        System.out.println(localBgPath);
         if(!localBgPath.contains("AuroraTimer_bg")){
             imgComboBox.addItem("我的自定义");
         }
@@ -143,7 +143,7 @@ public class SettingForm {
         // 判断当前皮肤，选择默认选项
         String[] split = localBgPath.split("\\\\");
         String fileName = split[split.length-1];
-
+//        System.out.println(fileName);
         Properties imgComboBoxProp = new Properties();
         try {
             imgComboBoxProp.load(getClass().getClassLoader().getResourceAsStream("aurora/timer/client/view/imgComboBox.properties"));
@@ -154,6 +154,7 @@ public class SettingForm {
         int cnt = 0;
         String result = imgComboBoxProp.getProperty(find+cnt);
         while(!result.equals("EOF")){
+//            System.out.println(result);
             if(fileName.equals(result)){
                 imgComboBox.setSelectedIndex(cnt);
                 break;
