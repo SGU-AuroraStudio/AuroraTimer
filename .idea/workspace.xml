@@ -9,36 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="4.83版本：优化了“卷王显示”;修正了排行版的若干bug；优化了公告栏显示。">
+    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="1.优化了代码的写法，使代码更加安全；&#10;2.优化了本地缓存文件的判断逻辑，实现背景云同步。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer/ver.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/ver.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/LoginForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon.png.backup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2.png.backup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2P.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2P.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIcon2P.png.backup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIconP.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIconP.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/changeIconP.png.backup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButton.png.backup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButtonP.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButtonP.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/leftWeekButtonP.png.backup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/mvp_icon5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButton.png.backup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButtonP.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButtonP.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/img/main/rightWeekButtonP.png.backup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/LoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/WeekInfoForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -615,35 +601,9 @@
       <workItem from="1635674233733" duration="12395000" />
       <workItem from="1635725026377" duration="17219000" />
       <workItem from="1635852243377" duration="14000" />
-      <workItem from="1636251839409" duration="2672000" />
-    </task>
-    <task id="LOCAL-00001" summary="登陆界面初步">
-      <created>1485335887484</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1485335887484</updated>
-    </task>
-    <task id="LOCAL-00002" summary="去掉bean的构造函数中默认参数">
-      <created>1485357112810</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1485357112810</updated>
-    </task>
-    <task id="LOCAL-00003" summary="完成登陆方法">
-      <created>1485409471131</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1485409471131</updated>
-    </task>
-    <task id="LOCAL-00004" summary="卡住了。。">
-      <created>1485434823355</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1485434823355</updated>
+      <workItem from="1636251839409" duration="3460000" />
+      <workItem from="1636262595635" duration="9658000" />
+      <workItem from="1636333450841" duration="1614000" />
     </task>
     <task id="LOCAL-00005" summary="加上了依赖。。">
       <created>1485438520069</created>
@@ -960,7 +920,35 @@
       <option name="project" value="LOCAL" />
       <updated>1635765207340</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="更新下图片资源">
+      <created>1636254611128</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1636254611128</updated>
+    </task>
+    <task id="LOCAL-00051" summary="更新下图片资源">
+      <created>1636254712690</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1636254712690</updated>
+    </task>
+    <task id="LOCAL-00052" summary="1.优化了本地皮肤图片的输出流，写出更快">
+      <created>1636334802573</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1636334802574</updated>
+    </task>
+    <task id="LOCAL-00053" summary="1.优化了代码的写法，使代码更加安全；&#10;2.优化了本地缓存文件的判断逻辑，实现背景云同步。">
+      <created>1636335070677</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1636335070677</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -989,10 +977,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="进一步细化" />
-    <MESSAGE value="添加查之前周" />
-    <MESSAGE value="插件反射" />
-    <MESSAGE value="V1.0" />
     <MESSAGE value="开始插件" />
     <MESSAGE value="修复部分bug" />
     <MESSAGE value="1.4" />
@@ -1014,7 +998,11 @@
     <MESSAGE value="4.81修复自定义皮肤bug" />
     <MESSAGE value="4.82版本：优化了更新机制，现在更新结束后可以自动删除updateTool.jar工具了；修正了不从本地缓存读取皮肤的特性；修正记忆上次皮肤选项的特性；让红名玩家（上周计时前三）更加直观，增加了“卷王”标识；新增加了一套皮肤。" />
     <MESSAGE value="4.83版本：优化了“卷王显示”;修正了排行版的若干bug；优化了公告栏显示。" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.83版本：优化了“卷王显示”;修正了排行版的若干bug；优化了公告栏显示。" />
+    <MESSAGE value="更新下图片资源" />
+    <MESSAGE value="1.让代码更加安全；&#10;2.优化了加载皮肤的判定逻辑，实现皮肤云同步" />
+    <MESSAGE value="1.优化了本地皮肤图片的输出流，写出更快" />
+    <MESSAGE value="1.优化了代码的写法，使代码更加安全；&#10;2.优化了本地缓存文件的判断逻辑，实现背景云同步。" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.优化了代码的写法，使代码更加安全；&#10;2.优化了本地缓存文件的判断逻辑，实现背景云同步。" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
