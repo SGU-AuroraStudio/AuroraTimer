@@ -6,12 +6,14 @@ import aurora.timer.client.service.UserDataService;
 import aurora.timer.client.view.util.CustomFileChooser;
 import aurora.timer.client.view.util.SaveBg;
 import aurora.timer.client.vo.UserData;
+import javafx.stage.Screen;
 //import org.omg.CORBA.FREE_MEM;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.basic.BasicPanelUI;
+import javax.xml.crypto.dsig.keyinfo.PGPData;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -59,31 +61,50 @@ public class SettingForm {
                     Main2Form.cardLayout.show(Main2FormCardPanel, "weekInfoPanel");
                     return;
                 }
-                //上传filePath到服务器，多线程防止上传慢按钮卡死不动。
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if(uploadBg(localBgPath)){
-                                //如果不是默认图片，下拉框加载“我的自定义”
-                                if(!localBgPath.contains("AuroraTimer_bg")) {
-                                    imgComboBox.addItem("我的自定义");
-                                    imgComboBox.setSelectedItem("我的自定义");
-                                }
-                                else {
-                                    imgComboBox.removeItem("我的自定义");
-                                }
-                                logger.info("上传背景图片成功");
-                                JOptionPane.showMessageDialog(FRAME, "上传成功\n", "提示", JOptionPane.INFORMATION_MESSAGE);
-                            }else {
-                                logger.warning("上传背景图片失败");
-                                JOptionPane.showMessageDialog(FRAME, "上传失败\n", "提示", JOptionPane.ERROR_MESSAGE);
-                            }
-                        } catch (IOException ioException) {
-                            ioException.printStackTrace();
+                try {
+                    if(uploadBg(localBgPath)){
+                        //如果不是默认图片，下拉框加载“我的自定义”
+                        if(!localBgPath.contains("AuroraTimer_bg")) {
+                            imgComboBox.addItem("我的自定义");
+                            imgComboBox.setSelectedItem("我的自定义");
                         }
+                        else {
+                            imgComboBox.removeItem("我的自定义");
+                        }
+                        logger.info("上传背景图片成功");
+                        JOptionPane.showMessageDialog(FRAME, "上传成功\n", "提示", JOptionPane.INFORMATION_MESSAGE);
+                    }else {
+                        logger.warning("上传背景图片失败");
+                        JOptionPane.showMessageDialog(FRAME, "上传失败\n", "提示", JOptionPane.ERROR_MESSAGE);
                     }
-                }).start();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                //上传filePath到服务器，多线程防止上传慢按钮卡死不动。
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            if(uploadBg(localBgPath)){
+//                                //如果不是默认图片，下拉框加载“我的自定义”
+//                                if(!localBgPath.contains("AuroraTimer_bg")) {
+//                                    imgComboBox.addItem("我的自定义");
+//                                    imgComboBox.setSelectedItem("我的自定义");
+//                                }
+//                                else {
+//                                    imgComboBox.removeItem("我的自定义");
+//                                }
+//                                logger.info("上传背景图片成功");
+//                                JOptionPane.showMessageDialog(FRAME, "上传成功\n", "提示", JOptionPane.INFORMATION_MESSAGE);
+//                            }else {
+//                                logger.warning("上传背景图片失败");
+//                                JOptionPane.showMessageDialog(FRAME, "上传失败\n", "提示", JOptionPane.ERROR_MESSAGE);
+//                            }
+//                        } catch (IOException ioException) {
+//                            ioException.printStackTrace();
+//                        }
+//                    }
+//                }).start();
                 Main2Form.cardLayout.show(Main2FormCardPanel, "weekInfoPanel");
             }
         });
@@ -130,10 +151,11 @@ public class SettingForm {
 
         //如果注册表里保存的用户的背景图不是默认，那就看看有没有该背景图文件，有就加上该选项
         String localBgPath = Constants.preferences.get("bg", "");
-//        System.out.println(localBgPath);
         if(!localBgPath.contains("AuroraTimer_bg")){
             imgComboBox.addItem("我的自定义");
+//            System.out.println("自定义选项加载成功");
         }
+//        System.out.println("local"+localBgPath);
 //        if(userData.getBgUrl()!=null){
 //            imgComboBox.addItem("我的自定义");
 //        }
@@ -141,9 +163,16 @@ public class SettingForm {
 
 
         // 判断当前皮肤，选择默认选项
-        String[] split = localBgPath.split("\\\\");
+        String bg_path = userData.getBgUrl();
+        if(bg_path==null || bg_path.length()==0){
+            bg_path=localBgPath;
+        }
+//        String[] split = localBgPath.split("\\\\");
+        String[] split = bg_path.split("/");
+//        System.out.println(bg_path);
         String fileName = split[split.length-1];
 //        System.out.println(fileName);
+//        System.out.println(userData.getBgUrl());
         Properties imgComboBoxProp = new Properties();
         try {
             imgComboBoxProp.load(getClass().getClassLoader().getResourceAsStream("aurora/timer/client/view/imgComboBox.properties"));
@@ -166,6 +195,7 @@ public class SettingForm {
             }
         }
         if(result.equals("EOF")){
+
             imgComboBox.setSelectedIndex(cnt);
         }
 
@@ -285,7 +315,9 @@ public class SettingForm {
         UserDataService uds = new UserDataService();
         // 上传的同时保存到临时文件夹,注意：inputstream用一次就没了！
         SaveBg.saveBg(bgPath, new FileInputStream(file), true);
+        logger.info("本地路径修改成功");
         return uds.uploadBg(file);
     }
 
 }
+
