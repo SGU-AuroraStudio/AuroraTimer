@@ -508,7 +508,9 @@ public class Main2Form {
      * 加载背景图
      */
     public void loadBg() throws IOException {
-        String fileName = userData.getBgUrl().split("/")[5];
+        String bg_url =  userData.getBgUrl();
+        String[] split = bg_url.split("/");
+        String fileName = split[split.length-1];
 
 //        String bgPath = System.getProperty("java.io.tmpdir") + File.separator + fileName;
         String bgPath = System.getProperty("java.io.tmpdir") + fileName;
@@ -521,13 +523,20 @@ public class Main2Form {
          * 修复了加载本地缓存文件判断逻辑的错误
          * debug： Zheng Xiaofan
          */
-        if (userData.getBgUrl().contains("AuroraTimer_bg") || true &&(new File(bgPath).exists())) {
+//        if (userData.getBgUrl().contains("AuroraTimer_bg") || (new File(bgPath).exists())) {
+//            parent.setUI(new MainParentPanelUI());
+//            return;
+//        }
+//        System.out.println(Constants.preferences.get("bg", ""));
+        Constants.preferences.put("bg",bgPath);
+
+        if (new File(bgPath).exists()) {
             parent.setUI(new MainParentPanelUI());
             return;
         }
 //        System.out.println(bgPath);
 //        System.out.println(userData.getBgUrl());
-        System.out.println(Constants.preferences.get("bg", ""));
+//        System.out.println(Constants.preferences.get("bg", ""));
 
 
         logger.info("从服务器加载背景图片");
