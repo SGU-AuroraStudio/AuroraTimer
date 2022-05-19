@@ -9,22 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="1.优化了代码的写法，使代码更加安全；&#10;2.优化了本地缓存文件的判断逻辑，实现背景云同步。">
+    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="4.84优化的产物">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/SettingForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/SettingForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -603,21 +591,9 @@
       <workItem from="1635852243377" duration="14000" />
       <workItem from="1636251839409" duration="3460000" />
       <workItem from="1636262595635" duration="9658000" />
-      <workItem from="1636333450841" duration="1614000" />
-    </task>
-    <task id="LOCAL-00005" summary="加上了依赖。。">
-      <created>1485438520069</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1485438520069</updated>
-    </task>
-    <task id="LOCAL-00006" summary="乱七八糟的登陆界面完成了">
-      <created>1485442996173</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1485442996173</updated>
+      <workItem from="1636333450841" duration="5818000" />
+      <workItem from="1637221748661" duration="2895000" />
+      <workItem from="1652935906851" duration="357000" />
     </task>
     <task id="LOCAL-00007" summary="主界面大致，后台计时完成">
       <created>1485763213791</created>
@@ -948,7 +924,21 @@
       <option name="project" value="LOCAL" />
       <updated>1636335070677</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="由于了本地输出流优化后，上传背景几乎零等待，不需要额外线程来完成上传来避免卡死带来的不友好体验，但是这样的多线程会造成背景未上传成功就关闭程序导致的数据不一致问题。故删除此多线程上传背景，采取本线程完成。若要优化可以考虑加个锁，上传线程未完成不可以关闭程序。">
+      <created>1636345939391</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1636345939391</updated>
+    </task>
+    <task id="LOCAL-00055" summary="4.84优化的产物">
+      <created>1636346015880</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1636346015880</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -977,8 +967,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="开始插件" />
-    <MESSAGE value="修复部分bug" />
     <MESSAGE value="1.4" />
     <MESSAGE value="1.5" />
     <MESSAGE value="自动检查更新" />
@@ -1002,7 +990,9 @@
     <MESSAGE value="1.让代码更加安全；&#10;2.优化了加载皮肤的判定逻辑，实现皮肤云同步" />
     <MESSAGE value="1.优化了本地皮肤图片的输出流，写出更快" />
     <MESSAGE value="1.优化了代码的写法，使代码更加安全；&#10;2.优化了本地缓存文件的判断逻辑，实现背景云同步。" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.优化了代码的写法，使代码更加安全；&#10;2.优化了本地缓存文件的判断逻辑，实现背景云同步。" />
+    <MESSAGE value="由于了本地输出流优化后，上传背景几乎零等待，不需要额外线程来完成上传来避免卡死带来的不友好体验，但是这样的多线程会造成背景未上传成功就关闭程序导致的数据不一致问题。故删除此多线程上传背景，采取本线程完成。若要优化可以考虑加个锁，上传线程未完成不可以关闭程序。" />
+    <MESSAGE value="4.84优化的产物" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.84优化的产物" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
