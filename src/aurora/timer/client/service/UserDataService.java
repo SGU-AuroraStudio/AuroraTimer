@@ -64,6 +64,7 @@ public class UserDataService {
             LinkedList<File> files = new LinkedList<>();
             files.add(bg);
             res = SmartHttpUtil.sendPostMultipart(ServerURL.BG, null, null, files);
+//            System.out.println(ServerURL.BG);
         } catch (Exception ex) {
             ex.printStackTrace();
             //弹窗让SmartHttpUtil弹了，这里就不弹了

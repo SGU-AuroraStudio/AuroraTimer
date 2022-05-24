@@ -3,16 +3,25 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="AuroraTimer" />
+      <artifact name="UpdateTool" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="4.84优化的产物">
+    <list default="true" id="921048df-cab7-4a06-86a7-18d25b900234" name="Default" comment="4.86修复图片从服务器拉取皮肤的路径">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimer/AuroraTimer.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/UpdateTool/UpdateTool.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/UpdateTool/UpdateTool.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/service/UserDataService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/Main2Form.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AuroraTimer/aurora/timer/client/view/version/version.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/service/UserDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/Main2Form.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/view/version/version.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/client/vo/base/ServerURL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -593,14 +602,9 @@
       <workItem from="1636262595635" duration="9658000" />
       <workItem from="1636333450841" duration="5818000" />
       <workItem from="1637221748661" duration="2895000" />
-      <workItem from="1652935906851" duration="357000" />
-    </task>
-    <task id="LOCAL-00007" summary="主界面大致，后台计时完成">
-      <created>1485763213791</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1485763213791</updated>
+      <workItem from="1652935906851" duration="3799000" />
+      <workItem from="1653285863831" duration="734000" />
+      <workItem from="1653364642298" duration="528000" />
     </task>
     <task id="LOCAL-00008" summary="准备写本周，乱七八糟。。">
       <created>1485770483980</created>
@@ -938,7 +942,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636346015880</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="4.85修复了ip固定的问题，你可以使用aurora-server:8080来登录计时器">
+      <created>1652936273043</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1652936273044</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -967,8 +978,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.4" />
-    <MESSAGE value="1.5" />
     <MESSAGE value="自动检查更新" />
     <MESSAGE value="2.0版本，自动更新替换" />
     <MESSAGE value="2.1版本，红名显示" />
@@ -992,7 +1001,9 @@
     <MESSAGE value="1.优化了代码的写法，使代码更加安全；&#10;2.优化了本地缓存文件的判断逻辑，实现背景云同步。" />
     <MESSAGE value="由于了本地输出流优化后，上传背景几乎零等待，不需要额外线程来完成上传来避免卡死带来的不友好体验，但是这样的多线程会造成背景未上传成功就关闭程序导致的数据不一致问题。故删除此多线程上传背景，采取本线程完成。若要优化可以考虑加个锁，上传线程未完成不可以关闭程序。" />
     <MESSAGE value="4.84优化的产物" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.84优化的产物" />
+    <MESSAGE value="4.85修复了ip固定的问题，你可以使用aurora-server:8080来登录计时器" />
+    <MESSAGE value="4.86修复图片从服务器拉取皮肤的路径" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.86修复图片从服务器拉取皮肤的路径" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

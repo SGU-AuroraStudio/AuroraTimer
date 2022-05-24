@@ -542,7 +542,10 @@ public class Main2Form {
         logger.info("从服务器加载背景图片");
         Preferences preferences = Preferences.userRoot().node(ServerURL.PRE_PATH);
         UserDataService uds = new UserDataService();
-        InputStream bg = uds.getBg(userData.getBgUrl());
+        // 兼容后台 数据库写入图片地址写死
+        InputStream bg = uds.getBg(ServerURL.BG+"//"+fileName);
+//        InputStream bg = uds.getBg(userData.getBgUrl());
+//        System.out.println(ServerURL.BG+fileName);
         // 图片不存在或者返回数据过小，失败
         if (bg == null || bg.available() < 1000) {
             logger.warning("从服务器加载背景图片失败");
